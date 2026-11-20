@@ -1,0 +1,324 @@
+# Čísla tvrdení skrípt BI-DML (počítadlo pre každý druh zvlášť; kap. n = chap-0n-*.woo). Definice, Věta, Tvrzení, Lemma, Důsledek, Pozorování overené proti Anki balíčku vyučujúcich (153 zhôd, 0 rozdielov); Příklad a Poznámka (Example, Remark) neoverené.
+# číslo	druh	label vo .woo	názov	riadok vo .woo
+2.1	Example	exa_uvod_usudky	Správné a nesprávné logické úsudky	46
+2.1	Definition	def_prvotni_vyrok_formule	Prvotní výrok a formule	184
+2.2	Definition	def_pravdivostni_ohodnoceni	Pravdivostní ohodnocení	200
+2.1	Remark	rem_vyrok_vs_formule	Výroky vs formule	215
+2.2	Example	exa_prvotni_vyroky	Prvotní výroky a jejich ohodnocení	222
+2.3	Definition	def_spojky_negace	Negace	259
+2.2	Remark	rem_negace_neni_spojka	Je negace spojka?	284
+2.3	Example	exa_prvotni_vyroky-not		291
+2.4	Definition	def_spojky_konjunkce	Konjunkce	306
+2.4	Example	exa_prvotni_vyroky-and		333
+2.3	Remark	rem_konjunkce_jazyk	Konjunkce v přirozeném jazyce	347
+2.5	Definition	def_spojky_disjunkce	Disjunkce	355
+2.5	Example	exa_prvotni_vyroky-or		400
+2.6	Definition	def_spojky_implikace	Implikace	414
+2.6	Example	exa_prvotni_vyroky-ifthen		464
+2.7	Definition	def_spojky_ekvivalence	Ekvivalence (logická spojka)	478
+2.4	Remark	rem_impl_ekvi	Souvisí spolu implikace a ekvivalence?	504
+2.8	Definition	def_jazyk_vyrokova	Jazyk výrokové logiky	586
+2.9	Definition	def_formule_vyrokove	Formule výrokové logiky	609
+2.5	Remark	rem_vyrok_zavorky	O závorkách	633
+2.10	Definition	def_podformule	Podformule	658
+2.6	Remark	rem_formacni_strom	Formační strom formule	670
+2.7	Example	exa_podformule_strom	Podformule a formační strom	689
+2.11	Definition	def_pravdivostni_obecne	Pravdivostní ohodnocení výrokové formule	735
+2.7	Remark	rem_tabulka_princip_rozmer	Počet řádků v pravdivostní tabulce	768
+2.8	Remark	rem_tabulka_ne_jen_prvotni	Výchozí sloupce v pravdivostní tabulce	781
+2.8	Example		Pravdivostní tabulka pro dvě prvotní formule	802
+2.9	Example		Pravdivostní tabulka pro tři prvotní formule	824
+2.10	Example	exa_ostrov1		854
+2.11	Example	exa_ostrov2		893
+2.12	Definition	def_vyrokova_taut_kontr_splnit	Tautologie, splnitelnost a kontradikce ve výrokové logice	938
+2.1	Proposition	prop_taut_kontr_splnitelná	Základní vztahy mezi tautologií a kontradikcí VL	976
+2.12	Example	exa_taut_kontr_splnit		1011
+2.13	Definition	def_nutna_postacujici	Nutná podmínka, postačující podmínka, nutná a postačující podmínka	1136
+2.13	Example	exa_podminky_delitelnost	Nutná a postačující podmínka	1163
+2.14	Definition	def_vyrokova_taut_kontr_symboly	Symboly pro kontradikci a tautologii	1183
+2.15	Definition	def_log_ekvi_dusl	Logická ekvivalence a důsledek ve výrokové logice	1223
+2.14	Example	exa_dusl_zakladni	Řetězec základních logických důsledků	1250
+2.1	Corollary	coro_kontr_dusledek_taut	Kontradikce, tautologie a logický důsledek	1297
+2.15	Example	exa_ekvi_kontrapozice	Důležitá ekvivalence	1307
+2.2	Proposition	prop_ekvi_dusl_re_sy_tr	Základní vztahy mezi logickým důsledkem a ekvivalencí ve VL	1327
+2.3	Proposition	prop_ekvi_nahrada	Náhrada podformule logicky ekvivalentní formulí	1368
+2.9	Remark	rem_indukce_v_logice	Indukce v důkazech	1409
+2.1	Theorem	thm_taut_kontr_vztahy	Logická ekvivalence a důsledek ve VL pomocí tautologie a kontradikce	1421
+2.16	Example			1465
+2.10	Remark	rem_taut_kontr_ekvivalenci	Symbolický zápis pro bytí tautologií a kontradikcí	1509
+2.11	Remark	rem_tabulky_stare	Logické zákony vs pravdivostní tabulky	1554
+2.2	Theorem	thm_logicke_dusledky_1	Logické zákony - základní logické důsledky	1593
+2.3	Theorem	thm_logicke_zakony_1	Logické zákony - základní principy	1646
+2.17	Example	exa_zakony_1		1683
+2.4	Theorem	thm_logicke_zakony_2	Logické zákony - vlastnosti $\top$ a $\bot$	1703
+2.5	Theorem	thm_logicke_zakony_3	Logické zákony - algebraické vlastnosti spojek	1740
+2.18	Example	exa_zakony_3		1825
+2.12	Remark	rem_konjunkce_disjunkce_pohoda	Vícečetná konjunkce a disjunkce	1890
+2.6	Theorem	thm_logicke_zakony_4	Logické zákony - významy implikace	1922
+2.19	Example	exa_zakony_4		1959
+2.16	Definition	def_implikace_obmenena	Obměněná implikace, obměna	2011
+2.7	Theorem	thm_logicke_zakony_5	Logické zákony - významy ekvivalence	2041
+2.20	Example	exa_zakony_5		2078
+2.8	Theorem	thm_logicke_zakony_ekvi	Logické zákony - algebraické vlastnosti ekvivalence	2114
+2.13	Remark	rem_zakony_redundance	Příliš mnoho logických zákonů?	2175
+2.21	Example	exa_ostrov3		2214
+2.17	Definition	def_uss	Universální systém logických spojek	2274
+2.14	Remark	rem_uss_triv	Triviální universální systémy	2283
+2.9	Theorem	thm_uss_dvojice	Dvouprvkové universální systémy	2309
+2.18	Definition	def_nand_nor	Spojky NAND a NOR	2370
+2.10	Theorem	thm_uss_nand_nor	Jednoprvkové universální systémy	2398
+2.19	Definition	def_literal	Literál	2485
+2.20	Definition	def_dnt	Disjunktivní normální tvar	2494
+2.22	Example	exa_dnt		2517
+2.21	Definition	def_knt	Konjunktivní normální tvar	2545
+2.23	Example	exa_knt		2568
+2.15	Remark	rem_implikant_klausule	Proč říkáme implikantu implikant a klausuli klausule?	2597
+2.24	Example	exa_dntknt_prevod1		2611
+2.25	Example	exa_dntknt_prevod2		2627
+2.26	Example	exa_dntknt_prevod3		2646
+2.16	Remark	rem_dntknt_postup	Jak na DNT/KNT	2712
+2.11	Theorem	thm_existuje_dntknt	Každou formuli lze převést do DNT i KNT	2776
+2.17	Remark	rem_dntknt_nejeden	DNT ani KNT nejsou určeny jednoznačně	2790
+2.22	Definition	def_uplny_dntknt	Úplný DNT a KNT	2806
+2.27	Example	exa_uplnekntdnt		2843
+2.18	Remark	rem_udntknt_kontr_taut	ÚDNT kontradikce a ÚKNT tautologie	2860
+2.12	Theorem	thm_existuje_udntuknt	Každou formuli lze převést do ÚDNT i ÚKNT	2885
+2.28	Example	exa_udnt_tabulka		2970
+2.1	Observation	obs_udnt_vztah_tabulka	ÚDNT vs pravdivostní tabulka	2996
+2.29	Example	exa_uknt_tabulka		3022
+2.2	Observation	obs_uknt_vztah_tabulka	ÚKNT vs pravdivostní tabulka	3048
+2.2	Corollary	coro_udnt_uknt_vztah_tabulka	Souvislost mezi úplnými normálními tvary a pravdivostní tabulkou	3077
+2.13	Theorem	thm_uknt_udnt_logi	Logická ekvivalence podle úplných normálních tvarů	3126
+2.30	Example	exa_udnt_uknt_ekvi_1		3150
+2.14	Theorem	thm_uknt_udnt_thus	Logický důsledek podle úplných normálních tvarů	3173
+2.31	Example	exa_udnt_uknt_ekvi_2		3214
+2.32	Example	exa_udnt_uknt_ekvi_3		3245
+2.19	Remark	rem_sat_problem	SAT problém	3305
+2.15	Theorem	thm_logicke_dusledky_2	Logické zákony - klasické logické důsledky	3364
+2.33	Example	exa_logicke_dusledky_2		3419
+2.20	Remark	rem_formule_vsechny	Všechny formule nad dvěma prvotními formulemi	3484
+2.34	Example	exa_formule_vsechny	Reprezentanti formulí nad dvěma prvotními formulemi	3525
+2.16	Theorem	thm_uss_nand_nor-jedine	Jediné jednoprvkové universální systémy	3552
+2.35	Example	exa_dnt-minim		3588
+2.36	Example			3630
+3.1	Example	exa_vyrokova_nestaci_1		22
+3.2	Example	exa_vyrokova_nestaci_2		52
+3.1	Remark	rem_vyrokova_treba_kvantifikatoru	Kvantifikace ve výrokové logice?	71
+3.1	Definition	def_predikatova_kvantifikatory	Kvantifikátory	159
+3.3	Example	exa_vyrokova_nestaci_reseni1		205
+3.4	Example	exa_vyrokova_nestaci_reseni2		244
+3.2	Definition	def_predikatova_jazyk	Jazyk predikátové logiky	319
+3.2	Remark	rem_kvantifikatory_intuice	O kvantifikátorech intuitivně	397
+3.3	Definition	def_predikatova_termy	Termy	424
+3.5	Example	exa_predikatova_termy		443
+3.4	Definition	def_predikatova_formule	Formule predikátové logiky	471
+3.3	Remark	rem_predikatova_podform_strom	Podformule a formační strom v predikátové logice	497
+3.5	Definition	def_predikatova_volna_vazana	Volné a vázané proměnné, otevřená a uzavřená formule	513
+3.6	Example	exa_predikatova_formule_1		562
+3.7	Example	exa_predikatova_formule_2		645
+3.8	Example	exa_predikatova_formalizace1		749
+3.9	Example	exa_predikatova_formalizace2		884
+3.4	Remark	rem_kontext_vyrokova	Motivace pro interpretaci a kontext	1010
+3.6	Definition	def_interpretace	Interpretace a kontext	1037
+3.10	Example	exa_interpretace		1078
+3.11	Example	exa_interpretace-kontext		1136
+3.5	Remark	rem_pravdivosti	O pravdivosti predikátových formulí	1178
+3.7	Definition	def_predikatova_pravdivost_1	Pravdivost v interpretaci a kontextu	1241
+3.8	Definition	def_predikatova_pravdivost_2	Pravdivost v interpretaci	1275
+3.9	Definition	def_predikatova_pravdivost_3	Tautologie, splnitelnost a kontradikce v predikátové logice	1284
+3.1	Theorem	thm_predikatova_taut_kontr_podle_vyrokove	Pravdivost predikátové formule vzniklé z formule výrokové	1328
+3.12	Example	exa_predikatova_taut_kontr_podle_vyrokove		1366
+3.10	Definition	def_predikatova_ekvi_dusl	Logická ekvivalence a důsledek v predikátové logice	1417
+3.6	Remark	rem_predikatova_pojmenovani_promennych	O přejmenování vázaných proměnných	1444
+3.1	Proposition	prop_predikatova_ekvi_dusl_re_sy_tr	Základní vztahy mezi logickým důsledkem a ekvivalencí v PL	1460
+3.2	Proposition	prop_predikatova_ekvi_nahrada	Náhrada podformule logicky ekvivalentní formulí v PL	1500
+3.2	Theorem	thm_predikatova_log_ekvi_dusl_podle_vyrokove	Logická ekvivalence a důsledek v PL odvozené z VL	1576
+3.13	Example	exa_predikatova_log_ekvi_dusl_podle_vyrokove		1600
+3.1	Corollary	coro_predikatova_dedi_logicke_zakony	Predikátová logika dědí logické zákony po logice výrokové	1620
+3.14	Example	exa_predikatova_log_ekvi_uvnitr		1637
+3.3	Theorem	thm_predikatova_vynechani_a_preference_kvantifikatoru	Výměna kvantifikátorů	1673
+3.15	Example	exa_predikatova_vynechani_a_preference_kvantifikatoru_karel		1702
+3.4	Theorem	thm_predikatova_negace_kvantifikatoru	Negace kvantifikátorů	1740
+3.16	Example	exa_predikatova_negace_2_kvantifikatoru	Negace dvou kvantifikátorů	1787
+3.7	Remark	rem_aristoteluv_ctverec	Aristotelův čtverec	1852
+3.8	Remark	rem_aristoteluv_ctverec-vztahy	Aristotelův čtverec, vztahy mezi soudy	1913
+3.17	Example	exa_epimenides_formalizace		1945
+3.5	Theorem	thm_predikatova_distribuce_kvantifikatoru_1	Distribuce kvantifikátorů - s konjunkcí a disjunkcí	2022
+3.6	Theorem	thm_predikatova_vymena_kvantifikatoru_2	Výměna dvou kvantifikátorů	2121
+3.7	Theorem	thm_predikatova_taut_kontr_vztahy	Logická ekvivalence a důsledek v PL pomocí tautologie a kontradikce	2179
+3.9	Remark	rem_kvantifikatory_schemata_podobnost	Podobnost pravidel pro distribuci kvantifikátorů a výměnu dvou kvantifikátorů?	2273
+3.8	Theorem	thm_predikatova_distribuce_kvantifikatoru_2	Distribuce kvantifikátorů - s implikací	2294
+4.1	Definition	def_prirozena_cela_cisla	Přirozená a celá čísla	28
+4.2	Definition	def_suma_produkt	Suma a produkt	56
+4.1	Remark	rem_suma_produkt_kod	Suma a produkt jako $\texttt{for}$ cyklus	90
+4.3	Definition	def_kvantifikatory_omezene	Omezené kvantifikátory a zkrácené značení	111
+4.2	Remark	rem_kvantifikatory_omezene_negace	Negace omezených kvantifikátorů	136
+4.1	Example	exa_kvantifikatory_omezene_negace		161
+4.3	Remark	rem_omezene_kvantifikatory_vice	Sloučení stejných omezených kvantifikátorů	187
+4.4	Definition	def_dukaz_implikace_primy	Přímý důkaz	316
+4.2	Example	exa_dukaz_implikace_primy		330
+4.5	Definition	def_dukaz_implikace_neprimy	Nepřímý důkaz	351
+4.3	Example	exa_dukaz_implikace_neprimy		360
+4.4	Remark	rem_primy_neprimy_dukaz_pozdeji	Kde ještě potkáme přímý a nepřímý důkaz	391
+4.6	Definition	def_dukaz_implikace_sporem	Důkaz sporem	399
+4.4	Example	exa_dukaz_implikace_sporem		415
+4.7	Definition	def_dukaz_implikace_rozborem_pripadu	Důkaz rozborem případů	439
+4.5	Example	exa_dukaz_implikace_rozborem_pripadu		450
+4.6	Example	exa_dukaz_ekvivalence_1		488
+4.7	Example	exa_dukaz_ekvivalence_2		515
+4.5	Remark	rem_dukazy_myslenka_rekurze	Rekurze v matematice a v programování	554
+4.8	Definition	def_dukazy_myslenka_rekurence	Rekurentně (rekurzivně) definovaná posloupnost	594
+4.9	Definition	def_dukazy_rekurentni_posloupnost	Faktoriál a Fibonacciho posloupnost	617
+4.6	Remark	rem_fibonacci_puvod	O Fibonacciho posloupnosti	656
+4.7	Remark	rem_dukazy_myslenka_indukce	Základní myšlenka indukce	713
+4.8	Example	exa_myslenka_indukce_priklady		735
+4.9	Example	exa_indukce_slaba_1_suma		787
+4.8	Remark	rem_indukce_slaba_1_suma_zkracene	Indukční krok pomocí sum	823
+4.1	Theorem	thm_indukce_slaba	Slabý princip matematické indukce	833
+4.9	Remark	rem_indukce_slaba	Slabá indukce formulí, indexace	864
+4.10	Example	exa_indukce_reallife		876
+4.11	Example	exa_indukce_slaba_2_L	Dláždíme šachovnici	896
+4.12	Example	exa_indukce_slaba_3_kun	Skáčeme koněm	1004
+4.13	Example	exa_indukce_slaba_nestaci		1155
+4.2	Theorem	thm_indukce_silna	Silný princip matematické indukce	1187
+4.14	Example	exa_indukce_slaba_nestaci-reseni	Dokončení příkladu	1219
+4.10	Remark	rem_indukce_silna	Silná indukce formulí, indexace	1261
+4.15	Example	exa_indukce_silna_2	Platba mincemi	1283
+4.10	Definition	def_induktivne_def_mnozina	Induktivně definovaná množina	1355
+4.11	Remark	rem_induktivne_def_mnozina_1_formule	Definice termů a formulí byla induktivní	1378
+4.16	Example	exa_induktivne_def_mnozina_2_slova		1441
+4.17	Example	exa_induktivne_def_mnozina_3_rovina		1459
+4.3	Theorem	thm_indukce_strukturalni	Princip strukturální indukce	1498
+4.18	Example	exa_strukturalka_rovina		1529
+5.1	Remark	rem_universum_mnoziny	Universum v teorii množin	33
+5.1	Definition	def_mnozina_prvek	Množina, prvek množiny	86
+5.1	Example	exa_mnoziny_zadani_1	Množiny zadané výčty	127
+5.2	Example	exa_mnoziny_zadani_2	Množiny zadané vlastností	160
+5.3	Example	exa_mnoziny_zadani_3	Další množiny zadané vlastností	180
+5.2	Remark	rem_russell_paradox	Russellův paradox	215
+5.2	Definition	def_mnoziny_inkluze	Množinová inkluze a rovnost, potenční množina	288
+5.4	Example	exa_mnozina_potencni	Potenční množina	338
+5.1	Proposition	prop_inkluze_vlastnosti	Vlastnosti množinové inkluze	354
+5.3	Definition	def_mnoziny_operace	Množinové operace	451
+5.4	Definition	def_mnoziny_kart	Kartézský součin	497
+5.3	Remark	rem_souvislost_mnoziny_logika	Souvislost mezi logickými spojkami a množinovými operacemi	516
+5.1	Theorem	thm_mnozinove_operace_vlastnosti_1_2	Vlastnosti množinových operací - vlastnosti doplňku, $\UU$ a $\emptyset$	568
+5.2	Theorem	thm_mnozinove_operace_vlastnosti_3	Vlastnosti množinových operací - algebraické vlastnosti	621
+5.5	Definition	def_cup_cap_times_obecne	Sjednocení, průnik a součin více argumentů, uspořádané $n$-tice	718
+5.6	Definition	def_mnoziny_disjunktni	Disjunktní množiny	750
+5.7	Definition	def_zobrazeni	Zobrazení, definiční obor a obor hodnot	901
+5.8	Definition	def_zobrazeni_obraz_vzor_zuz	Obraz a vzor při zobrazení, zúžení	941
+5.9	Definition	def_zobrazeni_in_sur_bi	Zobrazení injektivní, surjektivní a bijektivní	979
+5.4	Remark	rem_zobrazeni_in_vs_sur	Injektivní nebo surjektivní?	1022
+5.5	Remark	rem_zobrazeni_inj	Injektivita obměnou	1031
+5.6	Remark	rem_zobrazeni_operace	Početní operace jsou také zobrazeními	1048
+5.10	Definition	def_zobrazeni_rovnost_sloz	Rovnost a složení zobrazení	1067
+5.11	Definition	def_zobrazeni_id	Identické zobrazení	1087
+5.1	Observation	obs_zobrazeni_monoid	Vlastnosti složení zobrazení a identity	1103
+5.7	Remark	rem_zobrazeni_monoid	K vlastnostem složení a identity	1121
+5.12	Definition	def_zobrazeni_mocnina	Mocnina zobrazení	1138
+5.13	Definition	def_zobrazeni_inverze	Inverzní zobrazení	1158
+5.3	Theorem	thm_zobrazeni_invertibilni	Vlastnosti invertibilních zobrazení	1176
+5.4	Theorem	thm_zobrazeni_inv_bijekce	O existenci inverze zobrazení	1237
+5.5	Theorem	thm_zobrazeni_sloz_in_sur_bi	Skládání injekcí, surjekcí a bijekcí	1300
+5.2	Observation	obs_zobrazeni_konecne_pocty_prvku	Injektivita a surjektivita na konečných množinách	1367
+5.5	Example	exa_inj_dukaz_ano	Injektivita, důkaz	1433
+5.6	Example	exa_inj_dukaz_ne	Injektivita, vyvrácení	1458
+5.7	Example	exa_surj_dukaz_ano	Surjektivita, důkaz	1502
+5.8	Example	exa_surj_dukaz_ne	Surjektivita, vyvrácení	1532
+5.14	Definition	def_mohutnost	Mohutnost množin	1583
+5.8	Remark	rem_mohutnost_card		1618
+5.15	Definition	def_konecne_nekonecne	Konečné a nekonečné množiny	1636
+5.6	Theorem	thm_mohutnost_N	Spočetné nekonečno je nejmenší nekonečno	1679
+5.9	Remark	rem_mohutnost_pocitani	Jak si představit mohutnosti	1687
+5.10	Remark	rem_spocet_nespocet	Spočetno vs nespočetno	1706
+5.7	Theorem	thm_mohutnost_srovnavani	Srovnávání mohutností	1716
+5.2	Proposition	prop_mohutnost_konecne_vlastnosti	Vlastnosti mohutností konečných množin	1779
+5.3	Proposition	prop_mohutnost_konecne_cup_times_n	Mohutnost sjednocení a součinu konečných množin	1820
+5.11	Remark	rem_inex_reklama	Sjednocení nedisjunktních množin?	1851
+5.12	Remark	rem_inf_hilbert	Hilbertův nekonečný hotel (Hilbert's paradox of the Grand Hotel)	1880
+5.1	Corollary	coro_inf_hilbert_dusledky	Co plyne z Hilbertova nekonečného hotelu	2053
+5.4	Proposition	prop_inf_hilbert_dusledky_2	Další spočetné množiny	2086
+5.5	Proposition	prop_mohutnost_nekonecne_vlastnosti	Vlastnosti mohutností nekonečných množin	2188
+5.6	Proposition	prop_R_nespocetne	Nespočetné množiny	2221
+6.1	Theorem	thm_tc_velka_fermatova	Velká Fermatova věta	62
+6.1	Definition	def_tc_delitelnost	Dělitelnost	240
+6.1	Proposition	prop_tc_delitelnost_vlastnosti1	Vlastnosti dělitelnosti	269
+6.2	Theorem	thm_tc_deleni_zbytek	O dělení se zbytkem	377
+6.2	Definition	def_tc_zbytek	Celočíselný podíl a zbytek po dělení	444
+6.3	Definition	def_tc_gcd_lcm	(Největší) společný dělitel, (nejmenší) společný násobek, nesoudělnost	458
+6.1	Remark	rem_tc_gcd_lcm_0	Definice $\gcd$ a $\lcm$ a mezní hodnoty	507
+6.1	Lemma	lem_tc_ea_priprava	Příprava pro Eukleidův algoritmus	563
+6.3	Theorem	thm_tc_ea	Eukleidův algoritmus (EA)	612
+6.1	Example	exa_tc_ea_prvni		654
+6.4	Theorem	thm_tc_bezout	Bézoutova rovnost	739
+6.5	Theorem	thm_tc_rea	Rozšířený Eukleidův algoritmus (REA/EEA)	771
+6.2	Example	exa_tc_rea_rovnice	REA v rovnicích	833
+6.2	Remark	rem_tc_rea_tabulka	REA tabulkou	862
+6.3	Remark	rem_tc_rea_matice	REA maticově	930
+6.3	Example	exa_tc_rea_ukazka_tab_mat	REA maticí a tabulkou konkrétně	966
+6.6	Theorem	thm_tc_gcd_nejmensi_lk	$\gcd$ je nejmenší kladná lineární kombinace svých argumentů	1009
+6.4	Example	exa_tc_ldr_penize	Motivace pro LDR	1055
+6.4	Definition	def_tc_ldr	Lineární diofantická rovnice	1071
+6.4	Remark	rem_tc_ldr_bezout	Bézoutova identita je LDR	1085
+6.7	Theorem	thm_tc_ldr_resitelnost	O řešitelnosti diofantické rovnice	1097
+6.1	Corollary	coro_tc_ldr_navod	Jak najít řešení LDR?	1127
+6.5	Example	exa_tc_ldr_penize2	Motivace pro LDR, řešení	1162
+6.2	Lemma	lem_tc_ldr_priprava	Příprava pro kompletní řešení LDR	1206
+6.8	Theorem	thm_tc_ldr_kompletni	Všechna řešení LDR	1248
+6.5	Definition	def_tc_ldr_lingebra	Homogenní rovnice a partikulární řešení LDR	1304
+6.5	Remark	rem_tc_ldr_lingebra	Jiný popis množiny řešení LDR	1326
+6.6	Example	exa_tc_ldr_penize3	Motivace pro LDR, více řešení	1356
+6.6	Definition	def_tc_primes	Prvočísla a čísla složená	1389
+6.9	Theorem	thm_tc_primes_inf	Kolik je prvočísel	1417
+6.3	Lemma	lem_tc_primes_euklid	Eukleidovo lemma	1459
+6.2	Proposition	prop_tc_primes_soucin	Rozklad na součin prvočísel	1507
+6.10	Theorem	thm_tc_primes_faktorizace	Základní věta aritmetiky	1519
+6.7	Example	exa_tc_primes_faktorizace	Příklady faktorizací	1566
+6.1	Observation	obs_tc_primes_faktorizace_gcdlcm	$\gcd$ a $\lcm$ pomocí faktorizace	1588
+6.3	Proposition	prop_tc_primes_vztah_gcdlcm	Vztah $\gcd$ a $\lcm$	1613
+6.7	Definition	def_tc_mod_kongruence	Kongruence modulo $m$	1703
+6.4	Proposition	prop_tc_mod_vlastnosti1	Vztahy ekvivalentní kongruenci modulo $m$	1724
+6.5	Proposition	prop_tc_mod_vlastnosti2	Vlastnosti kongruence modulo $m$	1781
+6.6	Proposition	prop_tc_mod_vlastnosti3	Kongruence modulo $m$ zachovává operace $+,-,\cdot$	1854
+6.8	Definition	def_tc_mod_operace_zbytky	Množina zbytků $\Z_m$ a operace na ní	1965
+6.2	Observation	obs_tc_mod_operace_Z_Zm	O operacích na $\Z$ a $\Z_m$ a kongruenci modulo	1993
+6.11	Theorem	thm_tc_mod_algebraicke	Algebraické vlastnosti operací modulo $m$	2031
+6.9	Definition	def_tc_mod_inverze	Inverze v $\Z_m$	2137
+6.8	Example	exa_tc_mod_inverze_naivne		2167
+6.9	Example	exa_tc_mod_inverze_naivne2		2208
+6.12	Theorem	thm_tc_mod_inverze_existence	O existenci multiplikativní inverze modulo	2221
+6.2	Corollary	coro_tc_mod_prvociselne	Kdy existují všechny multiplikativní inverze v $\Z_m$	2264
+6.6	Remark	rem_tc_mod_konecne_teleso	Konečné těleso	2290
+6.10	Example	exa_tc_mod_redukce	Praktická redukce modulo $m$	2357
+6.13	Theorem	thm_tc_mod_kraceni	O krácení v modulu	2420
+6.14	Theorem	thm_tc_mod_mfv	Malá Fermatova věta	2472
+6.11	Example	exa_tc_mod_mfv_mocniny	MFV, redukce velkých mocnin	2507
+6.7	Proposition	prop_tc_mod_mfv_inverze	Výpočet multiplikativní inverze pomocí MFV	2529
+6.12	Example	exa_tc_mod_mfv_inverze	MFV, výpočet multiplikativní inverze	2545
+6.10	Definition	def_tc_mod_eulerf	Eulerova funkce $\varphi$	2566
+6.15	Theorem	thm_tc_mod_ev	Eulerova věta	2646
+6.8	Proposition	prop_tc_mod_eulerf_1	Hodnoty $\varphi$ na prvočíslech	2672
+6.7	Remark	rem_tc_mod_vztah_mfv_ev	Vztah mezi Malou Fermatovou a Eulerovou větou	2693
+6.9	Proposition	prop_tc_mod_eulerf_2	Hodnoty $\varphi$ na mocninách prvočísel	2705
+6.10	Proposition	prop_tc_mod_eulerf_multiplikativita	Multiplikativita $\varphi$	2731
+6.16	Theorem	thm_tc_mod_euelerf_final	Výpočet $\varphi(m)$ pomocí faktorizace $m$	2757
+6.13	Example	exa_tc_mod_eulerf_priklady	Výpočet $\varphi(m)$ z faktorizace $m$	2787
+6.8	Remark	rem_tc_mod_eulerf_rsa	Bonus -- (ne)efektivita výpočtu $\varphi(n)$	2799
+6.14	Example	exa_tc_mod_ev_mocniny	EV, redukce velkých mocnin	2807
+6.11	Proposition	prop_tc_mod_ev_inverze	Výpočet multiplikativní inverze pomocí EV	2830
+6.15	Example	exa_tc_mod_ev_inverze	EV, výpočet multiplikativní inverze	2846
+6.16	Example	exa_tc_mod_binarni_mocneni	Binární mocnění modulo $m$ (square and multiply)	2860
+6.11	Definition	def_tc_lkon	Úloha lineární kongruence	2933
+6.17	Theorem	thm_tc_lkon_reseni	Řešení lineární kongruence	2949
+6.9	Remark	rem_tc_lkon_inverze	Multiplikativní inverze vs lineární kongruence	2988
+6.18	Theorem	thm_tc_lkon_reseni_mod	Řešení lineární kongruence modulo v $\Z_m$	3046
+6.17	Example	exa_tc_lkon_male	Jednoduchá lineární kongruence	3084
+6.18	Example	exa_tc_lkon_male2	Jednoduchá lineární kongruence podruhé	3123
+6.10	Remark	rem_tc_lkon_parallel	Paralelní počítání s velkými čísly	3168
+6.19	Theorem	thm_tc_cvoz_cvoz	Čínská věta o zbytcích (ČVOZ)	3184
+6.11	Remark	rem_tc_cvoz_crt_nazev	Další název pro ČVOZ	3264
+6.19	Example	exa_tc_cvoz_priklad	Jednoduchá soustava kongruencí	3271
+6.20	Theorem	thm_tc_cvoz_zcvoz	Zobecněná Čínská věta o zbytcích (ZČVOZ)	3338
+6.12	Remark	rem_tc_cvoz_kucharkovost	O řešení podle ČVOZ/ZČVOZ	3370
+6.20	Example	exa_tc_cvoz_zcvoz_priklad	Použití ZČVOZ	3387

@@ -1,0 +1,211 @@
+# Čísla tvrdení skrípt BI-LA1 (jedno spoločné počítadlo v kapitole; kap. n = chap-0(n+1).woo). Overené proti číslam v appke (2.45, 2.54, 2.57, 2.59, 2.60, 2.62, 2.64, 2.65, 3.22).
+# číslo	druh	label vo .woo	názov	riadok vo .woo
+1.1	Theorem	veta-linearni-rovnice-jedne-nezname-R	O jedné rovnici jedné neznámé v $\R$	123
+1.2	Definition	dfn-grupa	Grupa	244
+1.3	Remark	poznamka-o-znaceni-grupove-operace	O značení grupové operace	302
+1.4	Theorem	veta-linearni-rovnice-jedne-nezname-grupa	O jedné rovnici jedné neznámé v grupě	320
+1.5	Observation	pozor-priklady-grup	Některé grupy	374
+1.6	Observation	pozor-priklady-negrup	Některé negrupy	392
+1.7	Lemma	lem-modulo-asociativita	O asociativitě operací modulo	468
+1.8	Example	priklad-opacne-prvky-modulo		520
+1.9	Theorem	veta-Zn-scitani-grupa	O sčítání modulo $n$ a grupě	535
+1.10	Lemma	lemma-existence-inverzi-modulo	O existenci inverzí v $\Z_n$	577
+1.11	Theorem	veta-Zn-nasobeni-grupa	O násobení modulo $p$ a grupě	617
+1.12	Definition	dfn-teleso	Těleso	668
+1.13	Remark	poznamka-komutativita-teles	O komutativitě těles	704
+1.14	Remark	poznamka-zkraceny-zapis-teles	O jednodušším zápisu těles	720
+1.15	Remark	poznamka-pocitejte-v-R	O nejdůležitějších tělesech v BI-LA1	746
+1.16	Remark	poznamka-prodelseni-rovnice	O zamlčené proměnné	797
+1.17	Definition	dfn-definice-soustavy-rovnic	Soustava lineárních rovnic (SLR)	960
+1.18	Observation	pozor-o-definici-soustavy	Poprvé o soustavách lineárních rovnic	1002
+1.19	Theorem	veta-ekvivalentnost-uprav-U1-3	O základních operacích se SLR	1149
+1.20	Definition	dfn-matice	Matice	1222
+1.21	Remark	pozn-terminologie-matic	O terminologii u matic	1247
+1.22	Remark	poznamka-o-indexech	O indexech	1273
+1.23	Remark	poznamka-prvky-matice	O prvcích matice	1300
+1.24	Warning	varovani-ne-vyrazu-Amn	Nesmyslnost výrazu	1316
+1.25	Definition	dfn-matice-radek-sloupec	Řádek/sloupec matice	1326
+1.26	Definition	dfn-scitani-matic	Násobek matice a sčítání matic	1391
+1.27	Remark	poznamka-zkraceny-zapis-operaci-matic	O zkráceném zápisu definice násobku/součtu matic	1429
+1.28	Remark	poznamka-matice-jsou-vp	O zakladních vlastnostech násobku/součtu matic	1485
+1.29	Definition	dfn-transpozice-matice	Transpozice matice	1566
+1.30	Example	priklad-transpozice		1585
+1.31	Definition	dfn-soucin-matic	Součin matic	1624
+1.32	Example	priklad-prvni-soucin-matic		1649
+1.33	Example	priklad-nekomutativita-matic-nasobeni		1712
+1.34	Example	priklad-nekomutativita-matic-nasobeni-podruhe		1757
+1.35	Theorem	veta-nasobeni-matic-je-asociativni	O asociativitě maticového násobení	1805
+1.36	Theorem	veta-vlastnosti-nasobeni-scitani-matic	O vlastnostech maticového násobení	1850
+1.37	Definition	dfn-vektory-matice	Vektory a nulová matice	1938
+1.38	Remark	poznamka-ztotozneni-Tn-Tn1	O ztotožňění $T^n$ a $T^{n,1}$	1958
+1.39	Definition	dfn-definice-soustavy-rovnic-maticove	Maticový zápis SLR	1980
+1.40	Theorem	veta-vlastnosti-reseni-soustav	O vlastnostech SLR	2067
+1.41	Corollary	dusledek-nekonecno-reseni-nad-R	O počtu řešení soustavy nad $\R$	2150
+1.42	Definition	dfn-mnozinove-operace	Součet vektoru a množiny	2169
+1.43	Example	priklad-vektor-plus-mnozina		2193
+1.44	Theorem	veta-struktura-reseni-soustavy	O struktuře řešení SLR	2233
+1.45	Observation	pozor-soustava-s-jednim-resenim	O SLR s horní trojúhelníkovou maticí	2368
+1.46	Definition	dfn-hatn	Obskurní notace	2519
+1.47	Definition	dfn-horni-stupnovity-tvar	Horní stupňovitý tvar	2529
+1.48	Remark	poznamka-napiste-hezci	O komplikované definici	2571
+1.49	Example	priklad-HST-poprve		2597
+1.50	Example	priklad-neHST-poprve		2616
+1.51	Example	priklad-HST-podruhe		2634
+1.52	Example	priklad-HST-potreti		2653
+1.53	Theorem	veta-co-je-videt-z-horniho-stupnoviteho-tvaru	O řešitelnosti soustavy s maticí v HST	2727
+1.54	Definition	dfn-operace-GEM	Operace GEM	2839
+1.55	Theorem	veta-GEM-nemeni-mnozinu-reseni	O vlivu GEM na řešení SLR	2893
+1.56	Procedure	algo-gem	Gaussova eliminace (GEM)	2936
+1.57	Example	priklad-GEM-algoritmus-poprve		2988
+2.1	Observation	pozor-axiomy-sipky	O vlastnostech vektorů z $\R^2$	133
+2.2	Definition	dfn-Tn	Vektorový prostor $T^n$	188
+2.3	Remark	poznamka-mn-prirozena	O užitečné konvenci	228
+2.4	Remark	poznamka-vektprostor	O vlastnostech vektorového prostoru $T^n$	238
+2.5	Warning	varovani-nevymyslejte-nedefinovane	Toto rozhodně nedělejte	302
+2.6	Remark	poznamka-vektory-piseme-tucne	O značení skalárů/vektorů/složek	311
+2.7	Definition	dfn-podprostor	Podprostor	361
+2.8	Observation	pozor-podprostor-jednoduchevl	O jednoduchých vlastnostech podprostorů	405
+2.9	Definition	dfn-vlastni-podprostor	Triviální/vlastní podprostor	429
+2.10	Remark	poznamka-podprostor-musi-mit-thetu	O užitečnosti obměny implikace	442
+2.11	Example	priklad-nepodprostoru-poprve		454
+2.12	Example	priklad-nepodprostoru-s-nulovym-vektorem		481
+2.13	Example	priklad-podprostory-R2		526
+2.14	Example	priklad-podprostory-R3		562
+2.15	Remark	poznamka-LN-linobal-naivne	O blízké budoucnosti	627
+2.16	Warning	varovani-Rn-do-Rm-nepatri	Rozmyslete si!	649
+2.17	Example	priklad-operace-podprostR2		666
+2.18	Theorem	veta-operace-s-podprostory	O operacích s podprostory	718
+2.19	Remark	poznamka-sjednoceni-podprostoru-podminka	O sjednocení podprostorů	770
+2.20	Remark	poznamka-kolize-znaceni-soubor-vektor	O kolizi značení souboru a vektoru	800
+2.21	Definition	dfn-linearni-kombinace	Lineární kombinace	820
+2.22	Example	priklad-linearni-kombinace		844
+2.23	Definition	dfn-linearni-nezavislost	Lineární (ne)závislost	881
+2.24	Example	priklad-LZ-soubor-poprve		922
+2.25	Observation	pozor-zakladni-vlastnosti-LN	O základních vlastnostech lineární (ne)závislosti	949
+2.26	Remark	poznamka-LZ-v-Rn	O LZ ve známých prostorech	1016
+2.27	Procedure	algo-lnlz	Ověření LN/LZ souboru vektorů	1052
+2.28	Example	priklad-Lnezavislost-nadZ5		1087
+2.29	Example	priklad-Lzavislost-nadR		1113
+2.30	Observation	pozor-prevod-na-SLR	O vyšetřování LN/LZ a matici příslušné SLR	1142
+2.31	Warning	varovani-slepy-gem	Ne slepému GEM!	1158
+2.32	Observation	pozor-moc-vektoru-je-LZ	O délce souboru garantující LZ v $T^n$	1166
+2.33	Definition	dfn-lin-obal	Lineární obal	1194
+2.34	Observation	pozor-linobal-jednoduchevl	O základních vlastnostech lineárního obalu	1217
+2.35	Corollary	dusledek-shodnost-obalu-vektor	O shodnosti obalů lišících se o vektor	1290
+2.36	Remark	poznamka-o-linearnim-obalu	O lineárním obalu ve známých prostorech	1302
+2.37	Example	priklad-lin-obal-nad-telesy		1352
+2.38	Theorem	veta-lin-obal-je-podprostor	O lineárním obalu a podprostoru	1405
+2.39	Theorem	veta-LNLZ-ekviv-definice	O vztahu LZ a lineárního obalu	1426
+2.40	Warning	varovani-LZ-ekvidefinice	Pozor, co věta říká!	1472
+2.41	Corollary	dusledek-ze-zavisleho-lze-vyndat	O lineárním obalu LZ souboru	1482
+2.42	Theorem	veta-jak-pridat-k-nezavislemu	O prodlužování LN souboru	1495
+2.43	Definition	dfn-generovani-podprostoru	Generování podprostoru	1549
+2.44	Definition	dfn-baze	Báze	1566
+2.45	Procedure	algo-soubor-generuje	Ověření zda soubor generuje podprostor	1599
+2.46	Example	priklad-generuje-nadZ5		1651
+2.47	Example	priklad-negeneruje-nadR		1685
+2.48	Definition	dfn-standardni-baze	Standardní/kanonická báze $T^n$	1723
+2.49	Definition	dfn-dimenze-podprostoru	Dimenze podprostoru	1758
+2.50	Remark	poznamka-korektnost-definice-dimenze	O korektnosti definice dimenze	1781
+2.51	Lemma	lemma-kratsi-delsi-LNLZ	O delších/kratších LZ/LN souborech	1791
+2.52	Observation	pozor-dim-Tn	Dimenze $T^n$	1838
+2.53	Theorem	veta-zakladni-vlastnosti-dimenze	O jednoduchých vlastnostech dimenze	1865
+2.54	Proposition	tvrz-generatoru-neni-min-nez-LN-vektoru	O dimenzi a délce generujícího souboru	1934
+2.55	Theorem	veta-d-vektoru-v-dimenzi-d	O souboru délky odpovídající dimenzi	2001
+2.56	Theorem	veta-baze-existuje	O existenci báze	2051
+2.57	Theorem	veta-baze-implikuje-dimenzi	O vztahu dimenze a délky báze	2068
+2.58	Corollary	dusledek-baze-stejne-velke	O délce bází	2087
+2.59	Theorem	veta-vybrani-baze	O vybrání báze	2113
+2.60	Theorem	veta-doplneni-na-bazi	O doplnění na bázi	2134
+2.61	Remark	poznamka-zrychleni-nalezeni-baze	O zrychlení postupu k nalezení báze	2155
+2.62	Theorem	veta-vztah-dimP-dimQ	O vztahu dimenzí zanořených podprostorů	2180
+2.63	Corollary	dusledek-podprostor-stejne-dim	O podprostoru stejné dimenze	2227
+2.64	Corollary	dusledek-vektor-v-obalu-pomoci-dimenze	O vektoru v lineárním obalu a dimenzích lineárních obalů	2241
+2.65	Observation	pozor-rovnost-linobalu	O rovnosti lineárních obalů	2262
+2.66	Theorem	veta-souradnice-ex-jedn	O jednoznačnosti koeficientů	2320
+2.67	Remark	poznamka-pocet-prvku-podprostoru	O počtu prvků podprostoru	2356
+2.68	Definition	dfn-souradnice	Souřadnice vzhledem k bázi	2373
+2.69	Procedure	algo-nalezeni-souradnic	Nalezení souřadnic vektoru v bázi	2464
+2.70	Example	priklad-souradnice-vuci-kanonicke		2493
+2.71	Example	priklad-souradnice-vuci-bazi		2510
+2.72	Example	priklad-mapovaniF		2593
+2.73	Definition	dfn-vektprostor	Obecný vektorový prostor	2663
+2.74	Example	priklad-Tmn	VP matic	2718
+2.75	Example	priklad-VP-polynomy	VP polynomů	2738
+2.76	Example	priklad-Tinf	VP posloupností	2762
+3.1	Definition	dfn-hodnost-matice	Hodnost matice	53
+3.2	Remark	poznamka-transpozice-v-definici	O potřebě transpozice v hodnosti	68
+3.3	Example	priklad-hodnosti-matice		84
+3.4	Definition	dfn-podobnost-gemem	Značení převoditelnosti GEMem	104
+3.5	Observation	pozor-gem-a-lin-obal	O GEM a lineárním obalu řádků	126
+3.6	Theorem	veta-hA-eq-hB	O vlivu GEM na hodnost matice	167
+3.7	Theorem	veta-hodnost-po-GEM	O hodnosti matice v HST	183
+3.8	Example	priklad-hodnost-matice		293
+3.9	Remark	poznamka-aplikace-hodnosti	O aplikacích hodnosti matice	334
+3.10	Remark	poznamka-cesty-vedou-do-Rima	O více možných způsobech výpočtu	391
+3.11	Warning	varovani-hodnost-nedefinice	Toto opravdu nedělejte	420
+3.12	Theorem	veta-hodnost-transpozice	O hodnosti transpozice matice	450
+3.13	Corollary	dusledek-odhad-hodnosti-matice-dle-rozmeru	O odhadu hodnosti matice $m\times n$	539
+3.14	Remark	poznamka-hodnost-GEM-sloupce	O možnosti používat sloupcové úpravy	547
+3.15	Theorem	veta-maticove-nasobeni-radkem-sloupcem	O vztahu lineární kombinace a násobení vektoru s maticí	624
+3.16	Observation	pozor-reseni-SLR-kombinace-sloupcu	O řešení SLR a lineární kombinaci sloupců	672
+3.17	Warning	varovani-aplikace-bude-ve-zkousce	Zkuste si!	683
+3.18	Theorem	veta-maticove-nasobeni-po-radcich-sloupcich	O násobení matic a lineárních kombinacích	723
+3.19	Theorem	veta-hodnost-soucinu-odhad	O odhadu hodnosti součinu matic	791
+3.20	Definition	dfn-jednotkova-matice	Jednotková/diagonální matice	827
+3.21	Remark	poznamka-schema-jednotkove-matice	O jednotkové matici	859
+3.22	Observation	pozor-jednotkova-je-neutralni-vuci-nasobeni	O vlivu jednotkové matice při maticovém násobení	875
+3.23	Definition	dfn-inverzni-matice	Inverzní a regulární matice	914
+3.24	Warning	varovani-nedefinice-regularni-matice	O nedefinici	941
+3.25	Theorem	veta-jednoznacnost-maticove-inverze	O jednoznačnosti maticové inverze	977
+3.26	Observation	pozor-regularita-inverzni-matice	O regularitě inverzní matice	1001
+3.27	Theorem	veta-regularita-soucinu-matic	O regularitě součinu matic	1016
+3.28	Theorem	veta-regularita-transpozice-matice	O regularitě transponované matice	1043
+3.29	Remark	poznamka-matice-G1	O vlastnosti matice reprezentujicí (G1)	1127
+3.30	Remark	poznamka-matice-G2	O vlastnosti matice reprezentujicí (G2)	1166
+3.31	Remark	poznamka-matice-G3	O vlastnosti matice reprezentujicí (G3)	1204
+3.32	Proposition	tvrz-ekvivalentni-upravy	O reprezentaci GEM regulární maticí	1254
+3.33	Example	priklad-matice-GEM		1270
+3.34	Remark	poznamka-matice-sloupcoveho-GEM	O reprezentaci sloupcových úprav	1365
+3.35	Theorem	veta-ekvivalence-regularita	O vztahu regularity a hodnosti matice	1386
+3.36	Remark	poznamka-regularita-dalsi	O dalších ekvivalentních podmínkách pro regularitu	1469
+3.37	Procedure	algo-inverzni-matice-GEM	Ověření regularity a nalezení inverzní matice	1494
+3.38	Example	priklad-inverzni-matice		1529
+3.39	Theorem	veta-reprezentace-GEM-matici	O vztahu maticového násobení reg. maticí a GEM	1590
+3.40	Corollary	dusledek-nasobeni-regularni-nemeni-hodnost	O vlivu násobení regulární maticí na hodnost	1609
+3.41	Remark	poznamka-spodni-odhad-hodnost-soucinu	O odhadu hodnosti součinu singulárních matic	1641
+3.42	Theorem	veta-jedna-inverze-staci	O postačitelnosti inverze z jedné strany	1656
+3.43	Proposition	tvrz-blokove-nasobeni	O blokovém násobení matic	1688
+4.1	Observation	pozor-struktura-reseni-homogenni-SLR	O struktuře řešení homogenní SLR	89
+4.2	Theorem	veta-Frobeniova	Frobeniova	106
+4.3	Remark	poznamka-reformulace-S0	O terminologii a reformulaci popisu $S_0$	132
+4.4	Remark	poznamka-soustava-regularni-matice	O řešení SLR s regulární maticí	394
+4.5	Procedure	algo-reseniSLR-homogenni	Řešení homogenní SLR	464
+4.6	Example	priklad-res-homogenni-komplet		494
+4.7	Theorem	veta-slr-specialni-matice	O řešení homogenní SLR se speciální maticí	560
+4.8	Remark	poznamka-o-prehazovani-sloupcu	O výměně pořadí sloupců v SLR	661
+4.9	Example	priklad-reseni-homogenni-ve-specialnim-tvaru		668
+4.10	Procedure	algo-reseniSLR-nehomogenni	Řešení SLR	734
+4.11	Warning	varovani-nehomogenni-baze-homogenni	Nezapomínejte si zakrýt pravou stranu SLR!	768
+4.12	Example	priklad-reseni-nehomogenni-SLR		775
+4.13	Lemma	lemma-vektor-plus-podprostor	O přičtení vektoru z podprostoru	829
+4.14	Observation	pozor-rovnost-mnozin-res	O rovnosti dvou množin řešení SLR	862
+4.15	Example	priklad-rovnost-mnozin-reseni		925
+4.16	Definition	dfn-varieta-1	Lineární varieta	971
+4.17	Remark	pozn-terminologie-variety	O terminologii u variet	984
+4.18	Theorem	veta-zamereni-variety	O základních vlastnostech variety	1075
+4.19	Remark	poznamka-varieta-spec	O názvech některých speciálních variet	1157
+4.20	Example	priklad-varieta-primka		1193
+4.21	Example	priklad-variety-konecne-teleso		1246
+4.22	Remark	poznamka-dualita-rovnice	O koeficientech rovnice řešících speciální soustavu	1390
+4.23	Theorem	veta-k-podprostoru-existuje-slr	O vztahu SLR a podprostorů	1419
+4.24	Warning	varovani-nepiste-do-testu	Toto do testu nepište	1537
+4.25	Example	priklad-podprostor-na-SLR		1649
+4.26	Theorem	veta-k-variete-existuje-slr	O vztahu SLR a variet	1690
+4.27	Example	priklad-varieta-na-SLR		1796
+4.28	Corollary	dusledek-jedna-rovnice-dava-nadrovinu	O vztahu SLR a nadrovin	1841
+4.29	Observation	pozor-reseni-SLR-prunik-nadrovin	O řešení SLR jako průniku nadrovin	1873
+4.30	Procedure	algo-varieta-param-neparam	Vyjádření variety pomocí SLR	1938
+4.31	Remark	poznamka-rovnice-variety	O (ne)parametrickém vyjádření variety	1977
+4.32	Example	priklad-varieta-nalezeni-parametrickeho-vyjadreni		2050
+4.33	Example	priklad-varieta-zadana-vektory		2089

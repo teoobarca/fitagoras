@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Only the tutor's export folder is shared (the collection zip), nothing else of the app's files. -->
+<paths>
+    <cache-path name="tutor-export" path="tutor-export/"/>
+</paths>

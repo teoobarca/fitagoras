@@ -1,0 +1,4 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="24dp" android:height="24dp" android:viewportWidth="960" android:viewportHeight="960">
+    <!-- a speech bubble with three dots, in the flag's 60-unit stroke: "Opýtať sa Pytagora" -->
+    <group android:translateY="960"><path android:fillColor="#FFFFFFFF" android:fillType="evenOdd" android:pathData="M120-130L120-760Q120-840 200-840L760-840Q840-840 840-760L840-320Q840-240 760-240L250-240L120-130ZM180-258L228-300L760-300Q780-300 780-320L780-760Q780-780 760-780L200-780Q180-780 180-760ZM330-500a45 45 0 1 0 0-90a45 45 0 1 0 0 90ZM480-500a45 45 0 1 0 0-90a45 45 0 1 0 0 90ZM630-500a45 45 0 1 0 0-90a45 45 0 1 0 0 90Z"/></group>
+</vector>

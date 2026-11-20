@@ -1,0 +1,15 @@
+# Tajomstvá: nič z toho nesmie byť v sledovanom súbore ani v commite (kľúče patria do secrets.properties
+# a ~/.fitest mimo gitu, docs/VYVOJ.md). Jeden regulárny výraz na riadok (Java aj Python), # je komentár.
+# Číta ich NoSecretsTrackedTest a scripts/verejne/kontrola.py.
+-----BEGIN [A-Z ]*PRIVATE KE[Y]-----
+\bsk-(proj-|svcacct-)?[A-Za-z0-9_-]{20,}
+\bgh[pousr]_[A-Za-z0-9]{30,}
+\bgithub_pat_[A-Za-z0-9_]{20,}
+\bAKI[A][0-9A-Z]{16}\b
+\beyJ[A-Za-z0-9_-]{15,}\.eyJ[A-Za-z0-9_-]{15,}
+\bxox[baprs]-[A-Za-z0-9-]{10,}
+\bAI[z]a[0-9A-Za-z_-]{35}\b
+(?i)^\s*(clipsGuestToke[n]|clipsWebToke[n])\s*=\s*[A-Za-z0-9_-]{8,}\s*$
+(?i)\b(storePasswor[d]|keyPasswor[d])\s*=\s*[^\s"(]{4,}\s*$
+(?i)"?(access_toke[n]|refresh_toke[n]|id_toke[n])"?\s*[:=]\s*"[A-Za-z0-9._-]{20,}
+(?i)chatgpt-account-i[d]"?\s*[:=]\s*"?[0-9a-f-]{20,}

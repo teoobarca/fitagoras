@@ -1,0 +1,4 @@
+#!/bin/sh
+# git pre-push hook: zapojenie `git config core.hooksPath scripts/verejne` (CONTRIBUTING.md).
+# Pushuje sa len main a každý nový commit prejde kontrolou scripts/verejne/kontrola.py.
+exec python3 "$(git rev-parse --show-toplevel)/scripts/verejne/kontrola.py" pre-push "$1" "$2"

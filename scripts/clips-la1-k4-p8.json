@@ -1,0 +1,27 @@
+[
+ {
+  "id": "k4-sustava-vypocet",
+  "lesson": 8,
+  "rec": "3675636332@sirius.fit.cvut.cz",
+  "lecture": "8. přednáška",
+  "t0": 4463.3,
+  "t1": 4559.6,
+  "quote": "Tak veškerý ten výpočet je jenom tohle. Tak já napíšu do řádku tu bázi.",
+  "why": "Výpočet z Vety 4.23 má tri kroky: bázu podpriestoru do riadkov, vyriešiť homogénnu sústavu, bázu riešení do riadkov §\\mathbf{A}§.",
+  "questionBefore": "Ako nájdeš maticu §\\mathbf{A}§, ktorej homogénna sústava má za riešenia práve daný podpriestor?",
+  "taskAfter": {
+   "q": "Podpriestor §P\\subseteq\\mathbb{Z}_5^4§ má bázu z dvoch vektorov. Čo napíšeš do riadkov matice §\\mathbf{A}§?",
+   "options": [
+    "Bázu riešení homogénnej sústavy, ktorá má bázu §P§ v riadkoch",
+    "Samotnú bázu §P§",
+    "Jednotkovú maticu §\\mathbf{E}§"
+   ],
+   "correct": 0,
+   "why": "Riadky §\\mathbf{A}§ sú riešenia sústavy s bázou §P§ v riadkoch. Potom každý vektor bázy §P§ rieši §\\mathbf{A}\\mathbf{x}=\\theta§, §h(\\mathbf{A})=4-2§ a podľa Frobeniovej vety je §\\dim S_0=2=\\dim P§, teda §S_0=P§.",
+   "wrong": {
+    "1": "Bázu §P§ do riadkov napíšeš, ale tú sústavu len riešiš. Jej riešenia sú iný podpriestor; riadky §\\mathbf{A}§ sú až báza týchto riešení.",
+    "2": "Sústava §\\mathbf{E}\\mathbf{x}=\\theta§ má jediné riešenie §\\theta§. Tak sa opíše len §P=\\{\\theta\\}§, nie podpriestor dimenzie §2§."
+   }
+  }
+ }
+]

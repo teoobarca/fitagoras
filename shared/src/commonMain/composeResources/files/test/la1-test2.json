@@ -1,0 +1,2626 @@
+{
+ "title": "BI-LA1, 2. zápočtový test",
+ "generated": "2026-11-17",
+ "page": {
+  "title": "Čo býva na 2. teste",
+  "sub": "Z deviatich písomiek od roku 2023, zo stránky predmetu a z prednášok. Variant testu poznáš podľa obrázka zvieraťa na hárku (Sova, Slon…)."
+ },
+ "this_year": {
+  "date": "2026-11-18",
+  "time": "18:00",
+  "room": "T9:105",
+  "minutes": 70,
+  "points": 30,
+  "credit_rule": "Zápočet: aspoň 23 zo 40 b (1. test 10 b + 2. test 30 b); 22,5 nestačí. 18–22,5 b a všetky štyri kvízy ke kapitole 1 a 2 → opravný test (4.–9. 1. 2027).",
+  "aids": "Nikde neuvedené (stránka predmetu, MARAST lekce 292, Discord ani titulky). Řada (cvičiaci): ťahák „s výjimkou testu“.",
+  "quiz_deadline": "Pi 20. 11. 2026 22:01/22:02: koniec kvízov ke kapitole 2 (podmienka opravného testu).",
+  "sources": [
+   "KOS, stav 2. 11. 2026 (termíny, T9:105, 70 min)",
+   "stránka predmetu BI-LA1 na courses.fit.cvut.cz, stav 28. 10. 2026",
+   "MARAST lekce 292 (70 minút); ukážka 2021: „hodinu a deset minut“"
+  ]
+ },
+ "format_now": {
+  "since": 2023,
+  "problems": 3,
+  "points": [
+   7,
+   12,
+   11
+  ],
+  "notes": [
+   "Každý príklad na vlastnom liste s hlavičkou „Příklad N | Varianta <obrázok zvieraťa> | Body /max“.",
+   "Príklad 3 má dva listy: „Pozor, příklad pokračuje na další straně!“ a na druhom „Na tomto listu nesmí být nic, co nepatří k příkladu 3!“.",
+   "Pokyn pri príklade 1: výpočty netreba komentovať, ale musí byť vidno, ako vznikli. Pri príklade 2: vysvetliť postup čitateľovi, ktorý pozná len definície a tvrdenia z prednášky. Pri dôkazoch v príklade 3 (5 z 9): neodvolávať sa na všeobecnejšiu vetu."
+  ]
+ },
+ "kinds": {
+  "param-ln": "Parameter: pre ktoré $a$ je súbor LN",
+  "param-basis": "Parameter: pre ktoré $a$ je súbor báza $\\mathbb R^3$",
+  "param-gen": "Parameter: pre ktoré $a$ súbor generuje $\\mathbb R^3$",
+  "param-span": "Parameter: pre ktoré $a$ vektor patrí do obalu",
+  "param-zp-basis": "Parameter $\\alpha\\in\\mathbb Z_5$: báza",
+  "param-zp-gen": "Parameter $a\\in\\mathbb Z_5$: generuje",
+  "param-zp-ln": "Parameter $a\\in\\mathbb Z_5$: LZ",
+  "basis-coords": "Ukáž, že je to báza, a súradnice",
+  "complete-basis": "Doplň súbor na bázu $\\mathbb Z_p^4$",
+  "span-basis": "Báza a dimenzia obalu",
+  "coords": "Súradnice vektora v báze",
+  "coords-if-possible": "Súradnice „ak je to možné“",
+  "from-coords": "Vektor so zadanými súradnicami",
+  "sense-coords": "Ktorá rovnosť $(\\mathbf x)_{\\mathcal B}=\\dots$ má zmysel, a jej vektor",
+  "lz-vector-count": "Nenulový $\\mathbf y$, s ktorým je súbor LZ, a koľko ich je",
+  "other-basis": "Iná báza toho istého $M$",
+  "count-elements": "Koľko prvkov má $M$",
+  "definition": "Definícia",
+  "proof": "Dôkaz",
+  "subspace-decide": "Je množina podpriestor $\\mathbb Z_2^4$?",
+  "not-subspace-example": "Podmnožina $\\mathbb R^3$, ktorá nie je podpriestor",
+  "span-count": "Koľko vektorov môže mať $\\langle\\mathbf x,\\mathbf y\\rangle$ nad $\\mathbb Z_7$",
+  "span-list": "Vypíš všetky prvky obalu nad $\\mathbb Z_2$",
+  "dims-list": "Možné dimenzie podpriestoru $\\mathbb Z_7^3$ s príkladmi a počtami",
+  "count-elements-proof": "Koľko prvkov má podpriestor dimenzie 2 nad $\\mathbb Z_7$ (s dôkazom)",
+  "count-bases": "Koľko báz má podpriestor dimenzie 2 nad $\\mathbb Z_p$",
+  "theta-in-subspace": "Aký prvok má každý podpriestor (s dôkazom)",
+  "coords-combination": "Súradnice $\\mathbf v+2\\mathbf w$ zo súradníc",
+  "basis-from-coords": "Nájdi bázu $(\\mathbf x,\\mathbf y)$ zo súradníc dvoch vektorov",
+  "four-vectors-bases": "Štyri vektory, ktorých trojice sú / nie sú bázy",
+  "system-with-solutions": "Sústava so zadanými riešeniami",
+  "system": "Sústava nad $\\mathbb Z_5$ (látka 1. testu)",
+  "zp-subspaces-list": "Všetky netriviálne podpriestory $\\mathbb Z_3^2$"
+ },
+ "positions": [
+  {
+   "pos": 1,
+   "title": "Parameter $a$",
+   "about": "Pre ktoré $a$ je súbor LN, báza, generuje $\\mathbb R^3$, alebo vektor patrí do obalu. Výpočet GEM s parametrom.",
+   "points": 7,
+   "seen": [
+    {
+     "test": "sova-2025",
+     "kinds": [
+      "param-ln"
+     ],
+     "points": 7
+    },
+    {
+     "test": "medved-2024",
+     "kinds": [
+      "param-span"
+     ],
+     "points": 7
+    },
+    {
+     "test": "slon-2024",
+     "kinds": [
+      "param-basis"
+     ],
+     "points": 7
+    },
+    {
+     "test": "veverka-2024",
+     "kinds": [
+      "param-basis"
+     ],
+     "points": 7
+    },
+    {
+     "test": "mys-2023",
+     "kinds": [
+      "param-span"
+     ],
+     "points": 7
+    },
+    {
+     "test": "sova-2023",
+     "kinds": [
+      "param-ln"
+     ],
+     "points": 7
+    },
+    {
+     "test": "vcelka-2023",
+     "kinds": [
+      "param-gen"
+     ],
+     "points": null
+    },
+    {
+     "test": "slepice-2023",
+     "kinds": [
+      "param-gen"
+     ],
+     "points": 7
+    },
+    {
+     "test": "kocka-2023",
+     "kinds": [
+      "param-span"
+     ],
+     "points": null
+    }
+   ]
+  },
+  {
+   "pos": 2,
+   "title": "Výpočet v $\\mathbb Z_p^4$ s vysvetlením",
+   "about": "Doplnenie na bázu alebo báza obalu, súradnice, iná báza. Každý krok slovami.",
+   "points": 12,
+   "seen": [
+    {
+     "test": "sova-2025",
+     "kinds": [
+      "complete-basis",
+      "coords",
+      "lz-vector-count"
+     ],
+     "points": 12
+    },
+    {
+     "test": "medved-2024",
+     "kinds": [
+      "span-basis",
+      "coords-if-possible",
+      "other-basis"
+     ],
+     "points": 12
+    },
+    {
+     "test": "slon-2024",
+     "kinds": [
+      "complete-basis",
+      "sense-coords",
+      "coords"
+     ],
+     "points": 12
+    },
+    {
+     "test": "veverka-2024",
+     "kinds": [
+      "complete-basis",
+      "coords",
+      "coords-if-possible"
+     ],
+     "points": 12
+    },
+    {
+     "test": "mys-2023",
+     "kinds": [
+      "span-basis",
+      "count-elements",
+      "other-basis"
+     ],
+     "points": 7
+    },
+    {
+     "test": "sova-2023",
+     "kinds": [
+      "span-basis",
+      "sense-coords",
+      "other-basis"
+     ],
+     "points": 12
+    },
+    {
+     "test": "vcelka-2023",
+     "kinds": [
+      "span-basis",
+      "coords",
+      "other-basis"
+     ],
+     "points": null
+    },
+    {
+     "test": "slepice-2023",
+     "kinds": [
+      "complete-basis",
+      "coords",
+      "from-coords"
+     ],
+     "points": 12
+    },
+    {
+     "test": "kocka-2023",
+     "kinds": [
+      "complete-basis",
+      "coords",
+      "from-coords"
+     ],
+     "points": null
+    }
+   ]
+  },
+  {
+   "pos": 3,
+   "title": "Definície a dôkaz",
+   "about": "Dve definície doslova, krátky dôkaz z definícií a menšia úloha.",
+   "points": 11,
+   "definitions": {
+    "row": "Dve definície doslova",
+    "group": "Definícia doslova, dve v {n} z {of} písomiek",
+    "min": 2
+   },
+   "proofs": {
+    "row": "Dôkaz z definícií, zakaždým iný",
+    "group": "Dôkaz z definícií, v {n} z {of} písomiek, zakaždým iný"
+   },
+   "other": {
+    "row": "Menšia úloha, zakaždým iná",
+    "group": "Menšia úloha, v {n} z {of} písomiek, zakaždým iná:"
+   },
+   "seen": [
+    {
+     "test": "sova-2025",
+     "kinds": [
+      "definition",
+      "definition",
+      "subspace-decide",
+      "proof"
+     ],
+     "points": 11
+    },
+    {
+     "test": "medved-2024",
+     "kinds": [
+      "definition",
+      "definition",
+      "proof",
+      "proof"
+     ],
+     "points": 11
+    },
+    {
+     "test": "slon-2024",
+     "kinds": [
+      "definition",
+      "definition",
+      "span-count",
+      "proof"
+     ],
+     "points": 11
+    },
+    {
+     "test": "veverka-2024",
+     "kinds": [
+      "definition",
+      "definition",
+      "theta-in-subspace",
+      "count-bases"
+     ],
+     "points": 11
+    },
+    {
+     "test": "mys-2023",
+     "kinds": [
+      "definition",
+      "definition",
+      "span-list"
+     ],
+     "points": null
+    },
+    {
+     "test": "sova-2023",
+     "kinds": [
+      "definition",
+      "definition",
+      "not-subspace-example",
+      "proof"
+     ],
+     "points": 7
+    },
+    {
+     "test": "vcelka-2023",
+     "kinds": [
+      "definition",
+      "definition",
+      "count-elements-proof",
+      "proof"
+     ],
+     "points": null
+    },
+    {
+     "test": "slepice-2023",
+     "kinds": [
+      "definition",
+      "definition",
+      "proof",
+      "proof"
+     ],
+     "points": 11
+    },
+    {
+     "test": "kocka-2023",
+     "kinds": [
+      "definition",
+      "dims-list"
+     ],
+     "points": null
+    }
+   ]
+  }
+ ],
+ "definitions_2023_2025": [
+  {
+   "name": "báze",
+   "count": 3,
+   "tests": [
+    "medved-2024",
+    "veverka-2024",
+    "vcelka-2023"
+   ]
+  },
+  {
+   "name": "LZ",
+   "count": 3,
+   "tests": [
+    "slon-2024",
+    "mys-2023",
+    "slepice-2023"
+   ]
+  },
+  {
+   "name": "podprostor",
+   "count": 3,
+   "tests": [
+    "veverka-2024",
+    "sova-2023",
+    "slepice-2023"
+   ]
+  },
+  {
+   "name": "LN",
+   "count": 2,
+   "tests": [
+    "sova-2025",
+    "medved-2024"
+   ]
+  },
+  {
+   "name": "souřadnice",
+   "count": 2,
+   "tests": [
+    "sova-2025",
+    "vcelka-2023"
+   ]
+  },
+  {
+   "name": "lineární obal",
+   "count": 2,
+   "tests": [
+    "slon-2024",
+    "mys-2023"
+   ]
+  },
+  {
+   "name": "dimenze",
+   "count": 1,
+   "tests": [
+    "sova-2023"
+   ]
+  },
+  {
+   "name": "báze + dimenze",
+   "count": 1,
+   "tests": [
+    "kocka-2023"
+   ]
+  }
+ ],
+ "definitions_by_concept_2023_2025": [
+  {
+   "app": "concept:ln",
+   "count": 5,
+   "tests": [
+    "sova-2025",
+    "medved-2024",
+    "slon-2024",
+    "mys-2023",
+    "slepice-2023"
+   ]
+  },
+  {
+   "app": "concept:baza",
+   "count": 4,
+   "tests": [
+    "medved-2024",
+    "veverka-2024",
+    "vcelka-2023",
+    "kocka-2023"
+   ]
+  },
+  {
+   "app": "concept:podpriestor",
+   "count": 3,
+   "tests": [
+    "veverka-2024",
+    "sova-2023",
+    "slepice-2023"
+   ]
+  },
+  {
+   "app": "concept:suradnice",
+   "count": 2,
+   "tests": [
+    "sova-2025",
+    "vcelka-2023"
+   ]
+  },
+  {
+   "app": "concept:obal",
+   "count": 2,
+   "tests": [
+    "slon-2024",
+    "mys-2023"
+   ]
+  },
+  {
+   "app": "concept:dimenzia",
+   "count": 2,
+   "tests": [
+    "sova-2023",
+    "kocka-2023"
+   ]
+  }
+ ],
+ "definitions_by_concept_all": [
+  {
+   "app": "concept:ln",
+   "count": 9,
+   "tests": [
+    "sova-2025",
+    "medved-2024",
+    "slon-2024",
+    "mys-2023",
+    "slepice-2023",
+    "2022-6a",
+    "2022-a",
+    "2022-b",
+    "2022-mix"
+   ]
+  },
+  {
+   "app": "concept:baza",
+   "count": 9,
+   "tests": [
+    "medved-2024",
+    "veverka-2024",
+    "vcelka-2023",
+    "kocka-2023",
+    "2022-6a",
+    "2022-a",
+    "2022-b",
+    "2022-9a",
+    "2021-zapoctova"
+   ]
+  },
+  {
+   "app": "concept:podpriestor",
+   "count": 4,
+   "tests": [
+    "veverka-2024",
+    "sova-2023",
+    "slepice-2023",
+    "2022-mix"
+   ]
+  },
+  {
+   "app": "concept:suradnice",
+   "count": 3,
+   "tests": [
+    "sova-2025",
+    "vcelka-2023",
+    "2022-9a"
+   ]
+  },
+  {
+   "app": "concept:dimenzia",
+   "count": 3,
+   "tests": [
+    "sova-2023",
+    "kocka-2023",
+    "2021-zapoctova"
+   ]
+  },
+  {
+   "app": "concept:obal",
+   "count": 2,
+   "tests": [
+    "slon-2024",
+    "mys-2023"
+   ]
+  }
+ ],
+ "proofs_2023_2025": [
+  {
+   "name": "LZ ⇔ jeden vektor je LK ostatných (3 vektory)",
+   "count": 1,
+   "tests": [
+    "sova-2025"
+   ]
+  },
+  {
+   "name": "(x, y, x−y) nie je báza (je LZ)",
+   "count": 1,
+   "tests": [
+    "medved-2024"
+   ]
+  },
+  {
+   "name": "generujúci súbor dĺžky dim P je báza (dĺžka 3)",
+   "count": 1,
+   "tests": [
+    "medved-2024"
+   ]
+  },
+  {
+   "name": "z ∈ ⟨x,y⟩ ⇒ ⟨x,y⟩ = ⟨x,y,z⟩",
+   "count": 1,
+   "tests": [
+    "slon-2024"
+   ]
+  },
+  {
+   "name": "každý podpriestor obsahuje θ",
+   "count": 1,
+   "tests": [
+    "veverka-2024"
+   ]
+  },
+  {
+   "name": "počet báz podpriestoru dimenzie 2 nad Z_3",
+   "count": 1,
+   "tests": [
+    "veverka-2024"
+   ]
+  },
+  {
+   "name": "LN súbor dĺžky dim P je báza (dĺžka 3)",
+   "count": 1,
+   "tests": [
+    "sova-2023"
+   ]
+  },
+  {
+   "name": "podpriestor dimenzie d nad Z_p má p^d prvkov",
+   "count": 1,
+   "tests": [
+    "vcelka-2023"
+   ]
+  },
+  {
+   "name": "jednoznačnosť súradníc (báza dĺžky 3)",
+   "count": 1,
+   "tests": [
+    "vcelka-2023"
+   ]
+  },
+  {
+   "name": "pridaním vektora k LZ súboru vznikne LZ",
+   "count": 1,
+   "tests": [
+    "slepice-2023"
+   ]
+  },
+  {
+   "name": "riešenia homogénnej sústavy tvoria podpriestor",
+   "count": 1,
+   "tests": [
+    "slepice-2023"
+   ]
+  }
+ ],
+ "definitions_all": [
+  {
+   "name": "báze",
+   "count": 3,
+   "tests": [
+    "medved-2024",
+    "veverka-2024",
+    "vcelka-2023"
+   ]
+  },
+  {
+   "name": "LZ",
+   "count": 3,
+   "tests": [
+    "slon-2024",
+    "mys-2023",
+    "slepice-2023"
+   ]
+  },
+  {
+   "name": "podprostor",
+   "count": 3,
+   "tests": [
+    "veverka-2024",
+    "sova-2023",
+    "slepice-2023"
+   ]
+  },
+  {
+   "name": "LN",
+   "count": 2,
+   "tests": [
+    "sova-2025",
+    "medved-2024"
+   ]
+  },
+  {
+   "name": "souřadnice",
+   "count": 2,
+   "tests": [
+    "sova-2025",
+    "vcelka-2023"
+   ]
+  },
+  {
+   "name": "lineární obal",
+   "count": 2,
+   "tests": [
+    "slon-2024",
+    "mys-2023"
+   ]
+  },
+  {
+   "name": "LN + báze",
+   "count": 2,
+   "tests": [
+    "2022-6a",
+    "2022-b"
+   ]
+  },
+  {
+   "name": "dimenze",
+   "count": 1,
+   "tests": [
+    "sova-2023"
+   ]
+  },
+  {
+   "name": "báze + dimenze",
+   "count": 1,
+   "tests": [
+    "kocka-2023"
+   ]
+  },
+  {
+   "name": "LZ + báze",
+   "count": 1,
+   "tests": [
+    "2022-a"
+   ]
+  },
+  {
+   "name": "báze + souřadnice",
+   "count": 1,
+   "tests": [
+    "2022-9a"
+   ]
+  },
+  {
+   "name": "LN + podprostor",
+   "count": 1,
+   "tests": [
+    "2022-mix"
+   ]
+  },
+  {
+   "name": "dimenze + báze",
+   "count": 1,
+   "tests": [
+    "2021-zapoctova"
+   ]
+  }
+ ],
+ "proofs_all": [
+  {
+   "name": "každý podpriestor obsahuje θ",
+   "count": 2,
+   "tests": [
+    "veverka-2024",
+    "2022-mix"
+   ]
+  },
+  {
+   "name": "riešenia homogénnej sústavy tvoria podpriestor",
+   "count": 2,
+   "tests": [
+    "slepice-2023",
+    "2022-mix"
+   ]
+  },
+  {
+   "name": "LZ ⇔ jeden vektor je LK ostatných (3 vektory)",
+   "count": 1,
+   "tests": [
+    "sova-2025"
+   ]
+  },
+  {
+   "name": "(x, y, x−y) nie je báza (je LZ)",
+   "count": 1,
+   "tests": [
+    "medved-2024"
+   ]
+  },
+  {
+   "name": "generujúci súbor dĺžky dim P je báza (dĺžka 3)",
+   "count": 1,
+   "tests": [
+    "medved-2024"
+   ]
+  },
+  {
+   "name": "z ∈ ⟨x,y⟩ ⇒ ⟨x,y⟩ = ⟨x,y,z⟩",
+   "count": 1,
+   "tests": [
+    "slon-2024"
+   ]
+  },
+  {
+   "name": "počet báz podpriestoru dimenzie 2 nad Z_3",
+   "count": 1,
+   "tests": [
+    "veverka-2024"
+   ]
+  },
+  {
+   "name": "LN súbor dĺžky dim P je báza (dĺžka 3)",
+   "count": 1,
+   "tests": [
+    "sova-2023"
+   ]
+  },
+  {
+   "name": "podpriestor dimenzie d nad Z_p má p^d prvkov",
+   "count": 1,
+   "tests": [
+    "vcelka-2023"
+   ]
+  },
+  {
+   "name": "jednoznačnosť súradníc (báza dĺžky 3)",
+   "count": 1,
+   "tests": [
+    "vcelka-2023"
+   ]
+  },
+  {
+   "name": "pridaním vektora k LZ súboru vznikne LZ",
+   "count": 1,
+   "tests": [
+    "slepice-2023"
+   ]
+  },
+  {
+   "name": "súbor s nulovým vektorom je LZ",
+   "count": 1,
+   "tests": [
+    "2022-6a"
+   ]
+  },
+  {
+   "name": "generujúci súbor dĺžky dim P je báza (dĺžka 2)",
+   "count": 1,
+   "tests": [
+    "2022-6a"
+   ]
+  },
+  {
+   "name": "(x, x−y, x+y) je LZ",
+   "count": 1,
+   "tests": [
+    "2022-a"
+   ]
+  },
+  {
+   "name": "súbor s dvoma rovnakými vektormi je LZ",
+   "count": 1,
+   "tests": [
+    "2022-b"
+   ]
+  },
+  {
+   "name": "LN súbor dĺžky dim P je báza (dĺžka 2)",
+   "count": 1,
+   "tests": [
+    "2022-b"
+   ]
+  },
+  {
+   "name": "jednoznačnosť súradníc (báza dĺžky 2)",
+   "count": 1,
+   "tests": [
+    "2022-9a"
+   ]
+  }
+ ],
+ "points_lost": [
+  {
+   "what": "GEM bez vysvetlenia (čo sú premenné, odkiaľ koeficienty, ako plynie záver)",
+   "source": "Krásenský 5. př. (3) 28 min; Kleprlík 5. př. (1) 22 min („jeden bodíček vysvětlení“); pokyn pri príklade 2; MARAST 292",
+   "app": [
+    "gen:complete",
+    "gen:span-basis"
+   ],
+   "quote_src": "Krásenský, 5. prednáška (3), 28 min",
+   "quote": "„To, že vezmu vektory, napíšu je do sloupců matice a gemuju, tak to není vůbec dostatečné zdůvodnění … chceme, abyste věděli, proč ji řešíte. Protože hledáte nějaké koeficienty v lineární kombinaci.“"
+  },
+  {
+   "what": "Definícia inak než v kurze (ekvivalentné tvrdenie nie je definícia; dimenzia nie je „počet prvkov bázy“)",
+   "source": "MARAST 292; Klouda 4. př. (2) 82 min; Kleprlík 5. př. (1) 75 min; Krásenský 6. př. (3) 29 min",
+   "app": [
+    "concept:dimenzia",
+    "concept:baza",
+    "concept:ln"
+   ],
+   "quote_src": "MARAST, lekce 292; Klouda, 4. prednáška (2), 82 min",
+   "quote": "„Dimenze je rovna počtu prvků báze.“ nie je správnou odpoveďou na definíciu dimenzie (MARAST). Klouda: „budeme chtít tuhle definici. Ne tu jinou, z jiného materiálu“"
+  },
+  {
+   "what": "Dôkaz špeciálneho prípadu cez všeobecnú vetu alebo jej dôsledky",
+   "source": "pokyn v 5 z 9 testov 2023–2025; vyučujúci LA1, Discord 17. 11. 2025",
+   "app": [
+    "proof:p-dim3",
+    "proof:p-gen3",
+    "proof:p-lzlk",
+    "proof:p-obal",
+    "proof:p-suradnice"
+   ],
+   "quote_src": "pokyn na hárku (napr. včelka 2023)",
+   "quote": "„Rozhodně se neodvolávejte na obecnější větu, která říká totéž pro libovolný počet vektorů.“"
+  },
+  {
+   "what": "„Soubor dimenze 3“ namiesto „soubor délky 3“",
+   "source": "Krásenský 4. př. (3) 68 min („budeme strhávat body“)",
+   "app": [
+    "concept:dimenzia"
+   ],
+   "quote_src": "Krásenský, 4. prednáška (3), 68 min",
+   "quote": "„neříkejte soubor dimenze 3 … když to napíšete, tak vám za to budeme strhávat body.“"
+  },
+  {
+   "what": "Zámena vektora a jeho súradníc (2–4 body)",
+   "source": "vyučujúci LA1, Discord 10. 12. 2024",
+   "app": [
+    "gen:coords",
+    "concept:suradnice"
+   ],
+   "quote_src": "vyučujúci LA1, Discord #la1, 10. 12. 2024",
+   "quote": "„To jsou dva až čtyři body podle toho, které jste měl zrovna zadání.“"
+  },
+  {
+   "what": "Dôkaz príkladom",
+   "source": "Kleprlík 5. př. (1) 50 min",
+   "app": [],
+   "quote_src": "Kleprlík, 5. prednáška (1), 50 min",
+   "quote": "„Důkaz s příkladem není dobrý“"
+  },
+  {
+   "what": "Hrubá nepravda (môže byť aj záporné hodnotenie)",
+   "source": "stránka predmetu, Zápočet a zkouška",
+   "app": [],
+   "quote_src": "stránka predmetu, Zápočet a zkouška",
+   "quote": "„naprosté nepravdy v testech mohou být i ohodnoceny záporným počtem bodů“"
+  },
+  {
+   "what": "Súradnice „nevyšli“ a bez poznámky: buď vektor neleží v podpriestore (to je potom odpoveď), alebo chyba v báze či vo výpočte",
+   "source": "Krásenský 6. př. (3) 26–27 min",
+   "app": [
+    "gen:coords"
+   ],
+   "quote_src": "Krásenský, 6. prednáška (3), 26 min",
+   "quote": "„souřadnice v bázi vždycky existují a jsou jednoznačné, takže když se vám ty souřadnice nepodaří najít, nebo jich najdete nekonečně mnoho, tak je něco špatně. Buď to nemáte bázi, nebo ten vektor neleží v tom podprostoru, nebo jste počítali špatně“"
+  },
+  {
+   "what": "Nulový riadok po GEM ako argument riešiteľnosti",
+   "source": "vyučujúci LA1, Discord 23. 10. 2026 (1. test)",
+   "app": [],
+   "quote_src": "vyučujúci LA1, Discord #la1, 23. 10. 2026",
+   "quote": "„To, že vám po GEMu vyjde nulový řádek neznamená vůbec nic. Nedá se to použít jako argument pro řešitelnost SLR.“"
+  }
+ ],
+ "topics": [
+  {
+   "topic": "Vektorový priestor T^n a počítanie v ňom",
+   "where": "všade; mod p v príklade 2",
+   "app": [
+    "lesson:tn",
+    "gen:arith-zp"
+   ]
+  },
+  {
+   "topic": "Podpriestor (definícia)",
+   "where": "Príklad 3: definícia 3×; je to podpriestor?; nulový vektor; homogénna sústava",
+   "app": [
+    "concept:podpriestor",
+    "gen:subspace",
+    "proof:p-theta",
+    "proof:p-homog"
+   ]
+  },
+  {
+   "topic": "Lineárna kombinácia",
+   "where": "všade (koeficienty sústavy)",
+   "app": [
+    "lesson:lk"
+   ]
+  },
+  {
+   "topic": "LN a LZ: definícia, Pozorování 2.25, overenie cez GEM",
+   "where": "Príklad 1 LN 2×; Príklad 3 definícia 5×; dôkazy z Pozorovania",
+   "app": [
+    "concept:ln",
+    "gen:param-ln",
+    "theorem:t2-25",
+    "proof:p-pridaj",
+    "proof:p-xy",
+    "proof:p-nula",
+    "proof:p-dva"
+   ]
+  },
+  {
+   "topic": "Lineárny obal: definícia, je podpriestor, patrí vektor do obalu",
+   "where": "Príklad 1 patrí do obalu 3×; Príklad 3 definícia 2×, výpis prvkov",
+   "app": [
+    "concept:obal",
+    "gen:param-span",
+    "gen:obal-vypis",
+    "theorem:t2-38"
+   ]
+  },
+  {
+   "topic": "Věta 2.39 a Věta 2.42 (umieť dokázať)",
+   "where": "Príklad 3 dôkaz (sova 2025); princíp doplnenia na bázu v príklade 2",
+   "app": [
+    "theorem:t2-39",
+    "theorem:t2-42",
+    "proof:p-lzlk",
+    "proof:p-predlz"
+   ]
+  },
+  {
+   "topic": "Báza a dimenzia",
+   "where": "Príklad 1 báza/generuje 4×; Príklad 2 celý; Príklad 3 definície 6×, dôkazy o súbore dĺžky dim P",
+   "app": [
+    "concept:baza",
+    "concept:dimenzia",
+    "gen:complete",
+    "gen:span-basis",
+    "proof:p-dim3",
+    "proof:p-gen3"
+   ]
+  },
+  {
+   "topic": "Súradnice v báze: definícia, jednoznačnosť, oboma smermi",
+   "where": "Príklad 2 súradnice 7×, vektor zo súradníc 4×; Príklad 3 definícia 2×, dôkaz",
+   "app": [
+    "concept:suradnice",
+    "gen:coords",
+    "proof:p-suradnice",
+    "theorem:t2-66"
+   ]
+  }
+ ],
+ "one_evening": [
+  {
+   "step": 1,
+   "what": "Definície doslova: LN/LZ, báza, podpriestor, potom súradnice, obal, dimenzia",
+   "why": "2 definície v 8 z 9 testov (kočka 2023 jednu); LN/LZ 5× a báza 4× z 9 testov",
+   "app": [
+    "concept:ln",
+    "concept:baza",
+    "concept:podpriestor",
+    "concept:suradnice",
+    "concept:obal",
+    "concept:dimenzia"
+   ]
+  },
+  {
+   "step": 2,
+   "what": "Príklad 2: doplň na bázu $\\mathbb Z_5^4$ + súradnice + vektor zo súradníc; báza obalu + iná báza; s vetami vysvetlenia",
+   "why": "12 b, 9 z 9 testov",
+   "app": [
+    "paper:slon-2024:2",
+    "paper:medved-2024:2",
+    "gen:complete",
+    "gen:span-basis",
+    "gen:baza-ina",
+    "gen:coords"
+   ]
+  },
+  {
+   "step": 3,
+   "what": "Príklad 1: parameter, po jednom z LN, báza, generuje, patrí do obalu",
+   "why": "7 b, 9 z 9 testov",
+   "app": [
+    "gen:param"
+   ]
+  },
+  {
+   "step": 4,
+   "what": "Dôkazy malých prípadov z definícií",
+   "why": "Príklad 3, dôkaz v 7 z 9 testov",
+   "app": [
+    "proof:p-lzlk",
+    "proof:p-suradnice",
+    "proof:p-homog",
+    "proof:p-dim3",
+    "proof:p-gen3",
+    "proof:p-obal",
+    "proof:p-pridaj",
+    "proof:p-theta",
+    "proof:p-xy"
+   ]
+  },
+  {
+   "step": 5,
+   "what": "Počty nad $\\mathbb Z_p$: $p^d$ prvkov, obal dvoch vektorov $1$, $p$ alebo $p^2$ prvkov, počet báz $(p^2-1)(p^2-p)$",
+   "why": "Príklad 3, 5 z 9 testov",
+   "app": [
+    "lesson:podpriestory-zp",
+    "gen:zp-pocet",
+    "gen:obal-vypis"
+   ]
+  },
+  {
+   "step": 6,
+   "what": "Jedna celá písomka na 70 minút, ktorú si ešte nevidel (veverka 2024 alebo včelka 2023, inak ukážka MARAST)",
+   "why": "tempo; vyučujúci LA1 na Discorde 2024: stačí proseminár 2 a výpočty z cvičení",
+   "app": [
+    "mock:veverka-2024",
+    "mock:vcelka-2023",
+    "mock:marast-ukazka-2"
+   ]
+  }
+ ],
+ "tests": [
+  {
+   "id": "sova-2025",
+   "year": 2025,
+   "date": "2025-11-21",
+   "slot": "T4 PÁ 14:30",
+   "variant": "sova",
+   "format": "2023+",
+   "total": 30,
+   "app_paper": "sova-2025",
+   "verified": "foto (všetky 4 listy)",
+   "source": "https://fit-wiki.cz/škola/předměty/bi-la1.21/bi-la1_2_zapoctova_21_11_2025_varianta_sova",
+   "problems": [
+    {
+     "pos": 1,
+     "points": 7,
+     "parts": [
+      {
+       "kind": "param-ln",
+       "text": "Zjistěte, pro které hodnoty $a\\in\\mathbb R$ je soubor vektorů $((0,2,1,2),(2,-1,a+1,1),(-1,2,2,1))$ z prostoru $\\mathbb R^4$ lineárně nezávislý.",
+       "app": [
+        "gen:param-ln",
+        "theorem:t2-27",
+        "lesson:ln"
+       ]
+      }
+     ],
+     "instruction": "V tomto příkladu nemusíte své výpočty komentovat. Avšak znalý čtenář ve vašich výpočtech musí být schopen poznat, jak jste se k výsledku dobrali. Můžete předpokládat, že opravující zná standardní postupy z 2. prosemináře a cvičení k němu."
+    },
+    {
+     "pos": 2,
+     "points": 12,
+     "parts": [
+      {
+       "kind": "complete-basis",
+       "text": "Doplňte soubor vektorů $((1,2,0,4),(3,3,0,1))$ na bázi $\\mathbb Z_5^4$.",
+       "app": [
+        "gen:complete",
+        "lesson:hladanie",
+        "theorem:t2-42"
+       ]
+      },
+      {
+       "kind": "coords",
+       "text": "Ve vámi nalezené bázi najděte souřadnice vektoru $\\mathbf x=(1,0,1,0)$.",
+       "app": [
+        "gen:coords",
+        "lesson:suradnice"
+       ]
+      },
+      {
+       "kind": "lz-vector-count",
+       "text": "Nalezněte nějaký nenulový vektor $\\mathbf y$ tak, aby soubor $((1,2,0,4),(3,3,0,1),\\mathbf y)$ byl LZ. Kolik takových vektorů existuje?",
+       "app": [
+        "gen:count-all",
+        "theorem:t2-39"
+       ]
+      }
+     ],
+     "instruction": "Řádně vysvětlete svůj postup tak, aby jej pochopil čtenář, který pouze zná definice a tvrzení z přednášky: Pokud budete například řešit soustavu rovnic, napište, co jsou proměnné a odkud se vzaly koeficienty. Vysvětlete také, jak přesně z výpočtu plynou závěry, které uděláte. V tomto příkladě byste měli demonstrovat své nabyté vědomosti z BI-LA1."
+    },
+    {
+     "pos": 3,
+     "points": 11,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "Napište definici lineární nezávislosti.",
+       "app": [
+        "concept:ln"
+       ],
+       "definition": "LN"
+      },
+      {
+       "kind": "definition",
+       "text": "Napište definici souřadnic vzhledem k bázi.",
+       "app": [
+        "concept:suradnice"
+       ],
+       "definition": "souřadnice"
+      },
+      {
+       "kind": "subspace-decide",
+       "text": "Rozhodněte, zda množina $\\{(0,0,0,0),(1,0,0,0),(0,1,0,0),(1,1,0,0),(0,0,1,0)\\}$ je podprostorem $\\mathbb Z_2^4$. Tzn. ověřte splnění podmínek z definice podprostoru, nebo odůvodněte, proč množina podprostorem není.",
+       "app": [
+        "gen:subspace",
+        "concept:podpriestor"
+       ]
+      },
+      {
+       "kind": "proof",
+       "text": "Uvažujme $\\mathbf x,\\mathbf y,\\mathbf z$ z $T^n$. Ukažte z definice, že $(\\mathbf x,\\mathbf y,\\mathbf z)$ je lineárně závislý, právě když je jeden vektor ze souboru lineární kombinací ostatních. Dokažte přímo z definice. Rozhodně se neodvolávejte na obecnější větu, která říká totéž pro libovolný počet vektorů, či její důsledky.",
+       "app": [
+        "proof:p-lzlk",
+        "theorem:t2-39"
+       ],
+       "proof": "LZ ⇔ jeden vektor je LK ostatných (3 vektory)"
+      }
+     ],
+     "note": "Pozor, příklad pokračuje na další straně!"
+    }
+   ]
+  },
+  {
+   "id": "medved-2024",
+   "year": 2024,
+   "date": "2024-11-14",
+   "slot": "T1 ČT 14:40",
+   "variant": "medvěd",
+   "format": "2023+",
+   "total": 30,
+   "app_paper": "medved-2024",
+   "verified": "foto (koláž troch listov; riadok „Na tomto listu…“ nie je vidno)",
+   "source": "https://fit-wiki.cz/_media/škola:předměty:bi-la1_2_zapoctova_14_11_2024_medved.png",
+   "problems": [
+    {
+     "pos": 1,
+     "points": 7,
+     "parts": [
+      {
+       "kind": "param-span",
+       "text": "Zjistěte, pro které hodnoty $a\\in\\mathbb R$ patří vektor $(2,-1,a)\\in\\mathbb R^3$ do podprostoru $\\langle(3,-1,2),(3,2,-1)\\rangle\\subset\\subset\\mathbb R^3$.",
+       "app": [
+        "gen:param-span",
+        "gen:member",
+        "lesson:obal"
+       ]
+      }
+     ],
+     "instruction": "V tomto příkladu nemusíte své výpočty komentovat. Avšak znalý čtenář ve vašich výpočtech musí být schopen poznat, jak jste se k výsledku dobrali. Můžete předpokládat, že opravující zná standardní postupy z 2. prosemináře a cvičení k němu."
+    },
+    {
+     "pos": 2,
+     "points": 12,
+     "parts": [
+      {
+       "kind": "span-basis",
+       "text": "Ve vektorovém prostoru $\\mathbb Z_5^4$ najděte bázi podprostoru $M=\\langle(1,4,0,1),(1,1,3,1),(3,4,3,3)\\rangle$. Jakou má $M$ dimenzi?",
+       "app": [
+        "gen:span-basis",
+        "lesson:hladanie"
+       ]
+      },
+      {
+       "kind": "coords-if-possible",
+       "text": "Pokud je to možné, nalezněte souřadnice vektoru $\\mathbf x=(1,3,1,1)$ vzhledem k vámi nalezené bázi. Pokud to možné není, napište, co to pro daný vektor znamená.",
+       "app": [
+        "gen:coords"
+       ]
+      },
+      {
+       "kind": "other-basis",
+       "text": "Najděte ještě nějakou jinou bázi $M$, která obsahuje alespoň jeden vektor, který nepatří do souboru $((1,4,0,1),(1,1,3,1),(3,4,3,3))$. Pokud to není zřejmé, vysvětlete, proč je to také báze $M$.",
+       "app": [
+        "gen:baza-ina"
+       ]
+      }
+     ],
+     "instruction": "Řádně vysvětlete svůj postup tak, aby jej pochopil čtenář, který zná pouze definice a tvrzení z přednášky: Pokud budete například řešit soustavu rovnic, napište, co jsou proměnné a odkud se vzaly koeficienty. Vysvětlete také, jak přesně z výpočtu plynou závěry, které uděláte. V tomto příkladě byste měli demonstrovat své nabyté vědomosti z BI-LA1."
+    },
+    {
+     "pos": 3,
+     "points": 11,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "Napište definici lineárně nezávislého souboru.",
+       "app": [
+        "concept:ln"
+       ],
+       "definition": "LN"
+      },
+      {
+       "kind": "definition",
+       "text": "Napište definici báze podprostoru.",
+       "app": [
+        "concept:baza"
+       ],
+       "definition": "báze"
+      },
+      {
+       "kind": "proof",
+       "text": "Dokažte, že v $T^n$ nemůže být soubor vektorů $(\\mathbf x,\\mathbf y,\\mathbf x-\\mathbf y)$ bází žádného $P\\subset\\subset T^n$. Pokud o souboru budete tvrdit nějakou vlastnost, dokažte ji přímo z definice.",
+       "app": [
+        "proof:p-xy"
+       ],
+       "proof": "(x, y, x−y) nie je báza (je LZ)"
+      },
+      {
+       "kind": "proof",
+       "text": "Dokažte, že ve vektorovém prostoru $\\mathbb R^n$ platí: Máme-li soubor $(\\mathbf u,\\mathbf v,\\mathbf w)$, který generuje podprostor $P\\subset\\subset\\mathbb R^n$, kde $\\dim P=3$, potom je tento soubor bází tohoto podprostoru. Při důkazu se neodvolávejte na obecnější větu, která říká totéž, jen pro soubory libovolné délky, a ani na žádnou větu, která z ní plyne.",
+       "app": [
+        "proof:p-gen3",
+        "theorem:t2-55"
+       ],
+       "proof": "generujúci súbor dĺžky dim P je báza (dĺžka 3)"
+      }
+     ],
+     "note": "Pozor, příklad pokračuje na další straně!"
+    }
+   ]
+  },
+  {
+   "id": "slon-2024",
+   "year": 2024,
+   "date": "2024-11-20",
+   "slot": "T2 ST 18:00",
+   "variant": "slon",
+   "format": "2023+",
+   "total": 30,
+   "app_paper": "slon-2024",
+   "verified": "foto (4 listy; typovaný PDF na fit-wiki má chybne „Koala“ a $\\mathbb Z_2^3$)",
+   "source": "https://fit-wiki.cz/škola/předměty/bi-la1.21/bi-la1_2_zapoctova_20_11_2024_t2_slon",
+   "problems": [
+    {
+     "pos": 1,
+     "points": 7,
+     "parts": [
+      {
+       "kind": "param-basis",
+       "text": "Zjistěte, pro které hodnoty $a\\in\\mathbb R$ je soubor $((3,-1,3),(0,a,1),(1,1,0))$ bází $\\mathbb R^3$.",
+       "app": [
+        "gen:param-basis",
+        "lesson:baza",
+        "theorem:t2-55"
+       ]
+      }
+     ],
+     "instruction": "V tomto příkladu nemusíte své výpočty komentovat. Avšak znalý čtenář ve vašich výpočtech musí být schopen poznat, jak jste se k výsledku dobrali. Můžete předpokládat, že opravující zná standardní postupy z 2. prosemináře a cvičení k němu."
+    },
+    {
+     "pos": 2,
+     "points": 12,
+     "parts": [
+      {
+       "kind": "complete-basis",
+       "text": "Doplňte soubor $((2,1,1,3),(2,0,1,3))$ na bázi $\\mathbb Z_5^4$.",
+       "app": [
+        "gen:complete",
+        "lesson:hladanie"
+       ]
+      },
+      {
+       "kind": "sense-coords",
+       "text": "Označme $\\mathcal B$ vámi nalezenou bázi. Nechť $\\mathbf x\\in\\mathbb Z_5^4$. Rozhodněte, která z následujících rovností je smysluplná, a pro ni spočítejte odpovídající $\\mathbf x$: a) $(\\mathbf x)_{\\mathcal B}=(1,2)$, b) $(\\mathbf x)_{\\mathcal B}=(1,2,1)$, c) $(\\mathbf x)_{\\mathcal B}=(1,3,0,0)$.",
+       "app": [
+        "gen:coords",
+        "concept:suradnice"
+       ]
+      },
+      {
+       "kind": "coords",
+       "text": "Spočtěte také $\\big((1,1,1,2)\\big)_{\\mathcal B}$.",
+       "app": [
+        "gen:coords"
+       ]
+      }
+     ],
+     "instruction": "Řádně vysvětlete svůj postup tak, aby jej pochopil čtenář, který pouze zná definice a tvrzení z přednášky: Pokud budete například řešit soustavu rovnic, napište, co jsou proměnné a odkud se vzaly koeficienty. Vysvětlete také, jak přesně z výpočtu plynou závěry, které uděláte. V tomto příkladě byste měli demonstrovat své nabyté vědomosti z BI-LA1."
+    },
+    {
+     "pos": 3,
+     "points": 11,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "Napište definici lineárně závislého souboru vektorů.",
+       "app": [
+        "concept:ln"
+       ],
+       "definition": "LZ"
+      },
+      {
+       "kind": "definition",
+       "text": "Napište definici lineárního obalu souboru vektorů.",
+       "app": [
+        "concept:obal"
+       ],
+       "definition": "lineární obal"
+      },
+      {
+       "kind": "span-count",
+       "text": "Uvažujme $\\mathbf x,\\mathbf y$ ze $\\mathbb Z_7^3$. Kolik vektorů může obsahovat $\\langle\\mathbf x,\\mathbf y\\rangle$? Uveďte pro každou možnost odpovídající příklad takových vektorů $\\mathbf x$ a $\\mathbf y$.",
+       "app": [
+        "gen:zp-pocet",
+        "gen:count",
+        "lesson:podpriestory-zp"
+       ]
+      },
+      {
+       "kind": "proof",
+       "text": "Dokažte, že ve vektorovém prostoru $\\mathbb R^n$ platí: Máme-li vektory $\\mathbf x,\\mathbf y,\\mathbf z$ z $\\mathbb R^n$ takové, že $\\mathbf z\\in\\langle\\mathbf x,\\mathbf y\\rangle$, potom $\\langle\\mathbf x,\\mathbf y\\rangle=\\langle\\mathbf x,\\mathbf y,\\mathbf z\\rangle$. K důkazu vám postačí definice daných pojmů. Rozhodně se neodvolávejte na obecnější větu, z které plyne totéž, jen pro více vektorů, a ani na její důsledky.",
+       "app": [
+        "proof:p-obal",
+        "theorem:t2-64"
+       ],
+       "proof": "z ∈ ⟨x,y⟩ ⇒ ⟨x,y⟩ = ⟨x,y,z⟩"
+      }
+     ],
+     "note": "Pozor, příklad pokračuje na další straně! (druhý list: Na tomto listu nesmí být nic, co nepatří k příkladu 3!)"
+    }
+   ]
+  },
+  {
+   "id": "veverka-2024",
+   "year": 2024,
+   "date": "2024-11-22",
+   "slot": "T4 PÁ 12:40",
+   "variant": "veverka",
+   "format": "2023+",
+   "total": 30,
+   "app_paper": null,
+   "verified": "Príklad 1 a 2 foto; Príklad 3 len text na fit-wiki (prepísal študent, s bodmi 2+2+3+4)",
+   "source": "https://fit-wiki.cz/škola/předměty/bi-la1.21/bi-la1_2_zapoctova_24_11_2024_t4_veverka",
+   "problems": [
+    {
+     "pos": 1,
+     "points": 7,
+     "parts": [
+      {
+       "kind": "param-basis",
+       "text": "Zjistěte, pro které hodnoty $a\\in\\mathbb R$ je soubor vektorů $((2,0,-1),(1,2,a),(2,3,2))$ bází $\\mathbb R^3$.",
+       "app": [
+        "gen:param-basis"
+       ]
+      }
+     ],
+     "note": "Pokyn pod zadaním nie je na výreze fotky."
+    },
+    {
+     "pos": 2,
+     "points": 12,
+     "parts": [
+      {
+       "kind": "complete-basis",
+       "text": "Doplňte soubor vektorů $((2,1,1,1),(1,3,1,1))$ na bázi $\\mathbb Z_5^4$.",
+       "app": [
+        "gen:complete"
+       ]
+      },
+      {
+       "kind": "coords",
+       "text": "Ve vámi nalezené bázi najděte souřadnice vektoru $\\mathbf x=(0,0,1,1)$.",
+       "app": [
+        "gen:coords"
+       ]
+      },
+      {
+       "kind": "coords-if-possible",
+       "text": "Pokud je to možné, nalezněte souřadnice vektoru $(1,0,4,0)$ vzhledem k vaší bázi. Pokud to možné není, napište, co to pro daný vektor znamená.",
+       "app": [
+        "gen:coords"
+       ]
+      }
+     ],
+     "instruction": "Řádně vysvětlete svůj postup tak, aby jej pochopil čtenář, který pouze zná definice a tvrzení z přednášky: Pokud budete například řešit soustavu rovnic, napište, co jsou proměnné a odkud se vzaly koeficienty. Vysvětlete také, jak přesně z výpočtu plynou závěry, které uděláte. V tomto příkladě byste měli demonstrovat své nabyté vědomosti z BI-LA1."
+    },
+    {
+     "pos": 3,
+     "points": 11,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "Napište definici podprostoru.",
+       "app": [
+        "concept:podpriestor"
+       ],
+       "points": 2,
+       "definition": "podprostor"
+      },
+      {
+       "kind": "definition",
+       "text": "Napište definici báze podprostoru.",
+       "app": [
+        "concept:baza"
+       ],
+       "points": 2,
+       "definition": "báze"
+      },
+      {
+       "kind": "theta-in-subspace",
+       "text": "Jaký prvek obsahuje každý podprostor? Dokažte vaše tvrzení.",
+       "app": [
+        "proof:p-theta",
+        "theorem:t2-8"
+       ],
+       "points": 3,
+       "proof": "každý podpriestor obsahuje θ"
+      },
+      {
+       "kind": "count-bases",
+       "text": "Mějme $P$ podprostor $\\mathbb Z_3^5$, kde $\\dim P=2$. Kolik různých bází podprostoru $P$ existuje? Dokažte vaše tvrzení.",
+       "app": [
+        "gen:zp-pocet",
+        "gen:count-all",
+        "lesson:podpriestory-zp"
+       ],
+       "points": 4,
+       "proof": "počet báz podpriestoru dimenzie 2 nad Z_3"
+      }
+     ],
+     "instruction": "Při důkazu můžete využít jakékoliv věty a definice z přednášky.",
+     "note": "Text príkladu 3 je zo stránky fit-wiki (bez fotky); $\\mathbb Z_3^5$ potvrdzuje aj študentské riešenie v la1_zapocet2_dukazydefinice.pdf (s. 1–2, 48 báz)."
+    }
+   ]
+  },
+  {
+   "id": "mys-2023",
+   "year": 2023,
+   "date": "2023-11-22",
+   "slot": "T2 ST 11:10",
+   "variant": "myš",
+   "format": "2023+ (body /7 /7, spolu 30 podľa stránky)",
+   "total": 30,
+   "app_paper": null,
+   "verified": "Príklad 1 a 2 foto; Príklad 3 len text na fit-wiki (možno neúplný)",
+   "source": "https://fit-wiki.cz/škola/předměty/bi-la1.21/bi-la1_2_zapoctova_22_11_2023",
+   "problems": [
+    {
+     "pos": 1,
+     "points": 7,
+     "parts": [
+      {
+       "kind": "param-span",
+       "text": "Zjistěte, pro které hodnoty $a\\in\\mathbb R$ vektor $(1,2,a)\\in\\mathbb R^3$ náleží podprostoru $\\langle(2,1,2),(3,2,1),(2,2,-2)\\rangle\\subset\\subset\\mathbb R^3$.",
+       "app": [
+        "gen:param-span",
+        "gen:member"
+       ]
+      }
+     ],
+     "instruction": "V tomto příkladu nemusíte své výpočty komentovat. Avšak znalý čtenář ve vašich výpočtech musí být schopen poznat, jak jste se k výsledku dobrali. Můžete předpokládat, že opravující zná standardní postupy z 2. prosemináře a cvičení k němu."
+    },
+    {
+     "pos": 2,
+     "points": 7,
+     "parts": [
+      {
+       "kind": "span-basis",
+       "text": "Ve vektorovém prostoru $\\mathbb Z_5^4$ najděte bázi a dimenzi podprostoru $M=\\langle(1,2,1,0),(1,4,0,2),(2,1,2,0),(3,1,0,1)\\rangle$.",
+       "app": [
+        "gen:span-basis"
+       ]
+      },
+      {
+       "kind": "count-elements",
+       "text": "Kolik prvků má podprostor $M$ a proč?",
+       "app": [
+        "gen:count",
+        "proof:p-pd"
+       ]
+      },
+      {
+       "kind": "other-basis",
+       "text": "Vymyslete ještě nějakou jinou bázi tohoto podprostoru a vysvětlete, proč je to taky báze.",
+       "app": [
+        "gen:baza-ina"
+       ]
+      }
+     ],
+     "instruction": "Řádně vysvětlete svůj postup tak, aby jej pochopil čtenář, který pouze zná definice a tvrzení z přednášky: Pokud budete například řešit soustavu rovnic, napište, co jsou proměnné a odkud se vzaly koeficienty. Vysvětlete také, jak přesně z výpočtu plynou závěry, které uděláte. V tomto příkladě byste měli demonstrovat své nabyté vědomosti z BI-LA1.",
+     "points_note": "Na hárku vytlačené /7 (ako pri sove 2023, kde je to rukou opravené na 12). Stránka fit-wiki uvádza spolu 30 bodov."
+    },
+    {
+     "pos": 3,
+     "points": null,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "Napište definici lineárně závislého souboru.",
+       "app": [
+        "concept:ln"
+       ],
+       "definition": "LZ"
+      },
+      {
+       "kind": "definition",
+       "text": "Napište definici lineárního obalu souboru.",
+       "app": [
+        "concept:obal"
+       ],
+       "definition": "lineární obal"
+      },
+      {
+       "kind": "span-list",
+       "text": "Napište všechny prvky z $\\langle(1,1,0,0),(0,1,1,0)\\rangle\\subset\\subset\\mathbb Z_2^4$.",
+       "app": [
+        "gen:obal-vypis"
+       ]
+      }
+     ],
+     "note": "Fotka príkladu 3 nie je; text zo stránky fit-wiki. Či mal Príklad 3 aj druhý list s dôkazom, nevieme."
+    }
+   ]
+  },
+  {
+   "id": "sova-2023",
+   "year": 2023,
+   "date": "2023-11-22",
+   "slot": "T3 ST 12:45",
+   "variant": "sova",
+   "format": "2023+ (vytlačené /7 /7 /7, Príklad 2 rukou opravený na /12)",
+   "total": null,
+   "app_paper": "sova-2023",
+   "verified": "foto (4 listy)",
+   "source": "https://fit-wiki.cz/škola/předměty/bi-la1.21/bi-la1_2_zapoctova_22_11_2023_sova",
+   "problems": [
+    {
+     "pos": 1,
+     "points": 7,
+     "parts": [
+      {
+       "kind": "param-ln",
+       "text": "Zjistěte, pro které hodnoty $a\\in\\mathbb R$ je soubor vektorů $((2,1,-1),(1,2,a),(2,3,2))$ z prostoru $\\mathbb R^3$ lineárně nezávislý.",
+       "app": [
+        "gen:param-ln",
+        "theorem:t2-27"
+       ]
+      }
+     ],
+     "instruction": "V tomto příkladu nemusíte své výpočty komentovat. Avšak znalý čtenář ve vašich výpočtech musí být schopen poznat, jak jste se k výsledku dobrali. Můžete předpokládat, že opravující zná standardní postupy z 2. prosemináře a cvičení k němu.",
+     "note": "Na hárku je rámček „Odpověď: Soubor je LN právě pro $a\\in$ …“."
+    },
+    {
+     "pos": 2,
+     "points": 12,
+     "parts": [
+      {
+       "kind": "span-basis",
+       "text": "Ve vektorovém prostoru $\\mathbb Z_3^4$ najděte bázi a dimenzi podprostoru $M=\\langle(1,1,0,1),(1,0,2,0),(2,1,2,1),(0,2,0,1)\\rangle$.",
+       "app": [
+        "gen:span-basis"
+       ]
+      },
+      {
+       "kind": "sense-coords",
+       "text": "Označme $\\mathcal B$ vámi nalezenou bázi. Nechť $\\mathbf x\\in M$. Rozhodněte, která z následujících rovností je smysluplná, a pro ni spočítejte odpovídající $\\mathbf x$: a) $(\\mathbf x)_{\\mathcal B}=(1,2)$, b) $(\\mathbf x)_{\\mathcal B}=(1,2,1)$, c) $(\\mathbf x)_{\\mathcal B}=(1,2,0,1)$.",
+       "app": [
+        "gen:coords",
+        "concept:suradnice"
+       ]
+      },
+      {
+       "kind": "other-basis",
+       "text": "Vymyslete ještě nějakou jinou bázi $M$ a vysvětlete, proč je to taky báze.",
+       "app": [
+        "gen:baza-ina"
+       ]
+      }
+     ],
+     "instruction": "Řádně vysvětlete svůj postup tak, aby jej pochopil čtenář, který pouze zná definice a tvrzení z přednášky: Pokud budete například řešit soustavu rovnic, napište, co jsou proměnné a odkud se vzaly koeficienty. Vysvětlete také, jak přesně z výpočtu plynou závěry, které uděláte. V tomto příkladě byste měli demonstrovat své nabyté vědomosti z BI-LA1.",
+     "points_note": "Vytlačené /7, červeno prečiarknuté a rukou opravené na 12 (overené na výreze originálu)."
+    },
+    {
+     "pos": 3,
+     "points": 7,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "Napište definici podprostoru.",
+       "app": [
+        "concept:podpriestor"
+       ],
+       "definition": "podprostor"
+      },
+      {
+       "kind": "definition",
+       "text": "Napište definici dimenze podprostoru.",
+       "app": [
+        "concept:dimenzia"
+       ],
+       "definition": "dimenze"
+      },
+      {
+       "kind": "not-subspace-example",
+       "text": "Napište nějakou podmnožinu $\\mathbb R^3$, která není jeho podprostorem. Zdůvodněte, proč daná podmnožina není podprostorem.",
+       "app": [
+        "gen:subspace"
+       ]
+      },
+      {
+       "kind": "proof",
+       "text": "Dokažte, že ve vektorovém prostoru $\\mathbb R^n$ platí: Mějme $(\\mathbf x_1,\\mathbf x_2,\\mathbf x_3)$ soubor vektorů z $P\\subset\\subset\\mathbb R^n$, kde $\\dim P=3$. Je-li tento soubor lineárně nezávislý, tak je bází podprostoru $P$. Při důkazu se neodvolávejte na obecnější větu, která říká totéž pro libovolný počet vektorů, ani na její důsledky.",
+       "app": [
+        "proof:p-dim3",
+        "theorem:t2-55",
+        "proof:p-predlz"
+       ],
+       "proof": "LN súbor dĺžky dim P je báza (dĺžka 3)"
+      }
+     ],
+     "note": "Pozor, příklad pokračuje na další straně! (druhý list: Na tomto listu nesmí být nic, co nepatří k příkladu 3!)",
+     "points_note": "Vytlačené /7 bez opravy."
+    }
+   ]
+  },
+  {
+   "id": "vcelka-2023",
+   "year": 2023,
+   "date": "2023-11-24",
+   "slot": null,
+   "variant": "včelka",
+   "format": "2023+ (body na fotke nečitateľné)",
+   "total": null,
+   "app_paper": null,
+   "verified": "foto (koláž; body a hlavička odrezané)",
+   "source": "https://fit-wiki.cz/škola/předměty/bi-la1.21/bi-la1_2_zapoctova_24_11_2023",
+   "problems": [
+    {
+     "pos": 1,
+     "points": null,
+     "parts": [
+      {
+       "kind": "param-gen",
+       "text": "Zjistěte, pro které hodnoty $a\\in\\mathbb R$ soubor vektorů $((1,3,-1),(1,2,a),(-1,2,2))$ generuje $\\mathbb R^3$.",
+       "app": [
+        "gen:param-gen"
+       ]
+      }
+     ],
+     "note": "Pokyn pod zadaním na koláži nie je."
+    },
+    {
+     "pos": 2,
+     "points": null,
+     "parts": [
+      {
+       "kind": "span-basis",
+       "text": "Ve vektorovém prostoru $\\mathbb R^4$ najděte bázi a dimenzi lineárního obalu $M=\\langle(2,1,-2,1),(-2,1,2,-1),(2,5,-2,1),(-2,3,2,-1)\\rangle$.",
+       "app": [
+        "gen:span-basis"
+       ]
+      },
+      {
+       "kind": "coords",
+       "text": "Spočítejte souřadnice vektoru $\\mathbf x=(3,-2,2,-1)$ vzhledem k vámi nalezené bázi.",
+       "app": [
+        "gen:coords"
+       ]
+      },
+      {
+       "kind": "other-basis",
+       "text": "Vymyslete ještě nějakou jinou bázi $M$ a vysvětlete, proč je to taky báze.",
+       "app": [
+        "gen:baza-ina"
+       ]
+      }
+     ],
+     "note": "Pokyn pod zadaním na koláži nie je."
+    },
+    {
+     "pos": 3,
+     "points": null,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "Napište definici báze podprostoru.",
+       "app": [
+        "concept:baza"
+       ],
+       "definition": "báze"
+      },
+      {
+       "kind": "definition",
+       "text": "Napište definici souřadnic vzhledem k bázi podprostoru.",
+       "app": [
+        "concept:suradnice"
+       ],
+       "definition": "souřadnice"
+      },
+      {
+       "kind": "count-elements-proof",
+       "text": "Uvažujme $P\\subset\\subset\\mathbb Z_7^5$, pro který platí $\\dim P=2$. Kolik prvků $P$ má? Dokažte své tvrzení.",
+       "app": [
+        "proof:p-pd",
+        "gen:count"
+       ],
+       "proof": "podpriestor dimenzie d nad Z_p má p^d prvkov"
+      },
+      {
+       "kind": "proof",
+       "text": "Dokažte, že ve vektorovém prostoru $\\mathbb R^n$ platí: Je-li soubor $\\mathcal B=(\\mathbf x,\\mathbf y,\\mathbf z)$ bází podprostoru $P$, potom jsou souřadnice vektoru $\\mathbf z\\in P$ vzhledem k bázi $\\mathcal B$ určeny jednoznačně. K důkazu vám postačí definice daných pojmů. Rozhodně se neodvolávejte na obecnější větu, která říká totéž pro libovolný počet vektorů.",
+       "app": [
+        "proof:p-suradnice",
+        "theorem:t2-66"
+       ],
+       "proof": "jednoznačnosť súradníc (báza dĺžky 3)"
+      }
+     ],
+     "note": "Pozor, příklad pokračuje na další straně! (druhý list: Na tomto listu nesmí být nic, co nepatří k příkladu 3!). V poslednej úlohe je $\\mathbf z$ zároveň 3. vektor bázy aj „vektor z P“; tak je to vytlačené."
+    }
+   ]
+  },
+  {
+   "id": "slepice-2023",
+   "year": 2023,
+   "date": "2023-11-24",
+   "slot": "T7 PÁ 16:15",
+   "variant": "slepice (na fit-wiki; na hárku len obrázok kuriatka)",
+   "format": "2023+",
+   "total": 30,
+   "app_paper": "slepice-2023",
+   "verified": "foto (4 listy)",
+   "source": "https://fit-wiki.cz/škola/předměty/bi-la1.21/bi-la1_2_zapoctova_24_11_2023_slepice",
+   "problems": [
+    {
+     "pos": 1,
+     "points": 7,
+     "parts": [
+      {
+       "kind": "param-gen",
+       "text": "Zjistěte, pro které hodnoty $a\\in\\mathbb R$ soubor vektorů $((0,1,5),(1,2,a),(-1,0,2),(2,1,1))$ generuje $\\mathbb R^3$.",
+       "app": [
+        "gen:param-gen"
+       ]
+      }
+     ],
+     "instruction": "V tomto příkladu nemusíte své výpočty komentovat. Avšak znalý čtenář ve vašich výpočtech musí být schopen poznat, jak jste se k výsledku dobrali. Můžete předpokládat, že opravující zná standardní postupy z 2. prosemináře a cvičení k němu."
+    },
+    {
+     "pos": 2,
+     "points": 12,
+     "parts": [
+      {
+       "kind": "complete-basis",
+       "text": "Doplňte soubor vektorů $((1,2,2,3),(2,3,3,1))$ na bázi $\\mathbb Z_7^4$.",
+       "app": [
+        "gen:complete"
+       ]
+      },
+      {
+       "kind": "coords",
+       "text": "Ve vámi nalezené bázi najděte souřadnice vektoru $\\mathbf x=(0,5,5,4)$.",
+       "app": [
+        "gen:coords"
+       ]
+      },
+      {
+       "kind": "from-coords",
+       "text": "Který vektor má souřadnice $(1,0,1,0)$ vzhledem k vaší bázi?",
+       "app": [
+        "gen:coords"
+       ]
+      }
+     ],
+     "instruction": "Řádně vysvětlete svůj postup tak, aby jej pochopil čtenář, který pouze zná definice a tvrzení z přednášky: Pokud budete například řešit soustavu rovnic, napište, co jsou proměnné a odkud se vzaly koeficienty. Vysvětlete také, jak přesně z výpočtu plynou závěry, které uděláte. V tomto příkladě byste měli demonstrovat své nabyté vědomosti z BI-LA1."
+    },
+    {
+     "pos": 3,
+     "points": 11,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "Napište definici lineárně závislého souboru.",
+       "app": [
+        "concept:ln"
+       ],
+       "definition": "LZ"
+      },
+      {
+       "kind": "definition",
+       "text": "Napište definici podprostoru.",
+       "app": [
+        "concept:podpriestor"
+       ],
+       "definition": "podprostor"
+      },
+      {
+       "kind": "proof",
+       "text": "Dokažte, že je-li $(\\mathbf x,\\mathbf y,\\mathbf z)$ lineárně závislý soubor vektorů z $\\mathbb R^n$ a $\\mathbf v\\in\\mathbb R^n$, potom je i soubor $(\\mathbf x,\\mathbf y,\\mathbf z,\\mathbf v)$ lineárně závislý.",
+       "app": [
+        "proof:p-pridaj",
+        "theorem:t2-25"
+       ],
+       "proof": "pridaním vektora k LZ súboru vznikne LZ"
+      },
+      {
+       "kind": "proof",
+       "text": "Dokažte, že množina řešení homogenní soustavy lineárních rovnic je podprostorem.",
+       "app": [
+        "proof:p-homog"
+       ],
+       "proof": "riešenia homogénnej sústavy tvoria podpriestor"
+      }
+     ],
+     "note": "Pozor, příklad pokračuje na další straně! (druhý list: Na tomto listu nesmí být nic, co nepatří k příkladu 3!)"
+    }
+   ]
+  },
+  {
+   "id": "kocka-2023",
+   "year": 2023,
+   "date": "2023-11-24",
+   "slot": null,
+   "variant": "kočka",
+   "format": "2023+ (body neuvedené)",
+   "total": null,
+   "app_paper": null,
+   "verified": "len poznámky študenta na fit-wiki, Príklad 2 bez čísel",
+   "source": "https://fit-wiki.cz/škola/předměty/bi-la1.21/bi-la1_2_zapoctova_24_11_2023_kocka",
+   "problems": [
+    {
+     "pos": 1,
+     "points": null,
+     "parts": [
+      {
+       "kind": "param-span",
+       "text": "Pro která $a$ náleží $(2,-2,a)$ podprostoru $\\langle(1,-1,2),(3,2,1),(1,3,-2)\\rangle\\subset\\subset\\mathbb R^3$?",
+       "app": [
+        "gen:param-span"
+       ]
+      }
+     ],
+     "note": "Študentský prepis; pri ňom „pouze pro a=4“."
+    },
+    {
+     "pos": 2,
+     "points": null,
+     "parts": [
+      {
+       "kind": "complete-basis",
+       "text": "Doplnit soubor na bázi,",
+       "app": [
+        "gen:complete"
+       ]
+      },
+      {
+       "kind": "coords",
+       "text": "najít souřadnice nějakého vektoru vůči bázi",
+       "app": [
+        "gen:coords"
+       ]
+      },
+      {
+       "kind": "from-coords",
+       "text": "+ spočítat vektor ze souřadnic vůči bázi.",
+       "app": [
+        "gen:coords"
+       ]
+      }
+     ],
+     "note": "Len opis témy od študenta, konkrétne vektory sa nezachovali."
+    },
+    {
+     "pos": 3,
+     "points": null,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "Definice báze a dimenze podprostoru",
+       "app": [
+        "concept:baza",
+        "concept:dimenzia"
+       ],
+       "definition": "báze + dimenze"
+      },
+      {
+       "kind": "dims-list",
+       "text": "Jakou dimenzi může mít $P\\subset\\subset\\mathbb Z_7^3$? Ke každé dimenzi vypsat příklady + kolik obsahují vektorů.",
+       "app": [
+        "gen:zp-pocet",
+        "lesson:podpriestory-zp"
+       ]
+      }
+     ],
+     "note": "Študentský prepis, nie doslovné znenie."
+    }
+   ]
+  },
+  {
+   "id": "2022-6a",
+   "year": 2022,
+   "date": "2022-11-09",
+   "slot": "skupina 6A",
+   "variant": "6A",
+   "format": "2022 (7/7/10/6)",
+   "total": 30,
+   "app_paper": null,
+   "verified": "foto",
+   "source": "https://fit-wiki.cz/škola/předměty/bi-la1.21/bi-la1_zapoctova_9_11_2022_6a",
+   "problems": [
+    {
+     "pos": 1,
+     "points": 7,
+     "parts": [
+      {
+       "kind": "complete-basis",
+       "text": "Doplňte soubor $((2,1,2,2),(3,4,1,3))$ na bázi prostoru $\\mathbb Z_5^4$.",
+       "app": [
+        "gen:complete"
+       ]
+      },
+      {
+       "kind": "coords",
+       "text": "Ve výsledné bázi najděte souřadnice vektoru $(2,1,3,2)$.",
+       "app": [
+        "gen:coords"
+       ]
+      }
+     ],
+     "instruction": "Řádně vysvětlete svůj postup: Pokud budete například řešit soustavu rovnic, napište, co jsou proměnné a odkud se vzaly koeficienty. Vysvětlete také, jak z výpočtu plynou závěry, které uděláte."
+    },
+    {
+     "pos": 2,
+     "points": 7,
+     "parts": [
+      {
+       "kind": "param-span",
+       "text": "Zjistěte, pro které $\\beta\\in\\mathbb R$ je $(-18,14,2\\beta)\\in\\langle(-7,1,1),(1,2,5),(4,3,8)\\rangle\\subset\\subset\\mathbb R^3$.",
+       "app": [
+        "gen:param-span"
+       ]
+      }
+     ],
+     "instruction": "Řádně vysvětlete svůj postup: Pokud budete například řešit soustavu rovnic, napište, co jsou proměnné a odkud se vzaly koeficienty. Vysvětlete také, jak z výpočtu plynou závěry, které uděláte."
+    },
+    {
+     "pos": 3,
+     "points": 10,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "Napište definici lineárně nezávislého souboru a definici báze podprostoru.",
+       "app": [
+        "concept:ln",
+        "concept:baza"
+       ],
+       "definition": "LN + báze"
+      },
+      {
+       "kind": "proof",
+       "text": "Ukažte, že jakmile soubor obsahuje nulový vektor, potom je lineárně závislý.",
+       "app": [
+        "proof:p-nula",
+        "theorem:t2-25"
+       ],
+       "proof": "súbor s nulovým vektorom je LZ"
+      },
+      {
+       "kind": "proof",
+       "text": "Dokažte, že máte-li soubor $(\\mathbf x,\\mathbf y)$, který generuje podprostor dimenze 2, potom je tento soubor bází tohoto podprostoru.",
+       "app": [
+        "proof:p-gen3",
+        "theorem:t2-55"
+       ],
+       "proof": "generujúci súbor dĺžky dim P je báza (dĺžka 2)"
+      }
+     ]
+    },
+    {
+     "pos": 4,
+     "points": 6,
+     "parts": [
+      {
+       "kind": "basis-from-coords",
+       "text": "Mějme soubor $(\\mathbf x,\\mathbf y)$ vektorů z $\\mathbb Z_5^2$, o kterém víme, že tvoří bázi $\\mathbb Z_5^2$. Dále víme, že souřadnice vektoru $(2,1)$ vzhledem k této bázi jsou $(2,1)$ a souřadnice vektoru $(3,3)$ vzhledem k této bázi jsou $(4,4)$. Určete, jak vypadají vektory $\\mathbf x$ a $\\mathbf y$.",
+       "app": [
+        "gen:baza-zo-suradnic"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2022-a",
+   "year": 2022,
+   "date": "2022-11-15",
+   "slot": "A",
+   "variant": "A",
+   "format": "2022 (7/7/10/6)",
+   "total": 30,
+   "app_paper": null,
+   "verified": "foto (dve fotky; typovaný PDF má chybne $\\mathbb Z_5^4$ v príklade 2)",
+   "source": "https://fit-wiki.cz/škola/předměty/bi-la1.21/bi-la1_zapoctova_15_11_2022_a",
+   "problems": [
+    {
+     "pos": 1,
+     "points": 7,
+     "parts": [
+      {
+       "kind": "param-zp-basis",
+       "text": "Zjistěte, pro které hodnoty $\\alpha\\in\\mathbb Z_5$ je soubor vektorů $((2,1,1),(2,2,\\alpha),(3,3,2))$ bází prostoru $\\mathbb Z_5^3$.",
+       "app": [
+        "gen:param-zp"
+       ]
+      }
+     ],
+     "instruction": "Řádně vysvětlete svůj postup: Pokud budete například řešit soustavu rovnic, napište, co jsou proměnné a odkud se vzaly koeficienty. Vysvětlete také, jak z výpočtu plynou závěry, které uděláte."
+    },
+    {
+     "pos": 2,
+     "points": 7,
+     "parts": [
+      {
+       "kind": "span-basis",
+       "text": "Ve vektorovém prostoru $\\mathbb Z_7^4$ najděte bázi a dimenzi lineárního obalu $M=\\langle(1,1,3,1),(1,2,1,2),(0,4,6,4),(2,0,3,0)\\rangle$.",
+       "app": [
+        "gen:span-basis"
+       ]
+      },
+      {
+       "kind": "count-elements",
+       "text": "Kolik prvků má $M$ a proč?",
+       "app": [
+        "gen:count",
+        "proof:p-pd"
+       ]
+      },
+      {
+       "kind": "other-basis",
+       "text": "Vymyslete ještě nějakou jinou bázi tohoto podprostoru.",
+       "app": [
+        "gen:baza-ina"
+       ]
+      }
+     ],
+     "instruction": "Řádně vysvětlete svůj postup: Pokud budete například řešit soustavu rovnic, napište, co jsou proměnné a odkud se vzaly koeficienty. Vysvětlete také, jak z výpočtu plynou závěry, které uděláte."
+    },
+    {
+     "pos": 3,
+     "points": 10,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "Napište definici lineárně závislého souboru vektorů a definici báze podprostoru.",
+       "app": [
+        "concept:ln",
+        "concept:baza"
+       ],
+       "definition": "LZ + báze"
+      },
+      {
+       "kind": "proof",
+       "text": "Ukažte, že ve vektorovém prostoru $\\mathbb R^n$ je soubor vektorů $(\\mathbf x,\\mathbf x-\\mathbf y,\\mathbf x+\\mathbf y)$ lineárně závislý pro libovolné vektory $\\mathbf x,\\mathbf y$.",
+       "app": [
+        "proof:p-xy"
+       ],
+       "proof": "(x, x−y, x+y) je LZ"
+      },
+      {
+       "kind": "count-bases",
+       "text": "Mějme $P\\subset\\subset\\mathbb Z_5^3$, který má dimenzi 2. Kolik jeho různých bází existuje?",
+       "app": [
+        "gen:zp-pocet",
+        "gen:count-all"
+       ]
+      }
+     ]
+    },
+    {
+     "pos": 4,
+     "points": 6,
+     "parts": [
+      {
+       "kind": "basis-from-coords",
+       "text": "Mějme $(\\mathbf x,\\mathbf y)$ soubor vektorů z $\\mathbb Z_7^2$, o kterém víme, že tvoří bázi $\\mathbb Z_7^2$. Dále víme, že souřadnice vektoru $(2,1)$ vzhledem k této bázi jsou $(1,3)$ a souřadnice vektoru $(3,3)$ vzhledem k této bázi jsou $(2,2)$. Určete, jak vypadají vektory $\\mathbf x$ a $\\mathbf y$.",
+       "app": [
+        "gen:baza-zo-suradnic"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2022-b",
+   "year": 2022,
+   "date": "2022-11-15",
+   "slot": "B",
+   "variant": "B",
+   "format": "2022 (7/7/10/6)",
+   "total": 30,
+   "app_paper": null,
+   "verified": "foto (sken)",
+   "source": "https://fit-wiki.cz/škola/předměty/bi-la1.21/bi-la1_zapoctova_15_11_2022_b",
+   "problems": [
+    {
+     "pos": 1,
+     "points": 7,
+     "parts": [
+      {
+       "kind": "param-span",
+       "text": "Zjistěte, pro které $\\alpha\\in\\mathbb R$ je $(-9,\\alpha+1,7)\\in\\langle(1,5,2),(4,8,3),(-7,1,1)\\rangle\\subset\\subset\\mathbb R^3$.",
+       "app": [
+        "gen:param-span"
+       ]
+      }
+     ],
+     "instruction": "Řádně vysvětlete svůj postup: Pokud budete například řešit soustavu rovnic, napište, co jsou proměnné a odkud se vzaly koeficienty. Vysvětlete také, jak z výpočtu plynou závěry, které uděláte."
+    },
+    {
+     "pos": 2,
+     "points": 7,
+     "parts": [
+      {
+       "kind": "complete-basis",
+       "text": "Doplňte soubor $((1,1,2,4),(1,4,1,2))$ na bázi prostoru $\\mathbb Z_5^4$.",
+       "app": [
+        "gen:complete"
+       ]
+      },
+      {
+       "kind": "coords",
+       "text": "Ve výsledné bázi najděte souřadnice vektoru $(0,4,2,4)$.",
+       "app": [
+        "gen:coords"
+       ]
+      }
+     ],
+     "instruction": "Řádně vysvětlete svůj postup: Pokud budete například řešit soustavu rovnic, napište, co jsou proměnné a odkud se vzaly koeficienty. Vysvětlete také, jak z výpočtu plynou závěry, které uděláte."
+    },
+    {
+     "pos": 3,
+     "points": 10,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "Napište definici lineárně nezávislého souboru a definici báze podprostoru.",
+       "app": [
+        "concept:ln",
+        "concept:baza"
+       ],
+       "definition": "LN + báze"
+      },
+      {
+       "kind": "proof",
+       "text": "Ukažte, že jakmile soubor obsahuje dva stejné vektory, potom je lineárně závislý.",
+       "app": [
+        "proof:p-dva",
+        "theorem:t2-25"
+       ],
+       "proof": "súbor s dvoma rovnakými vektormi je LZ"
+      },
+      {
+       "kind": "proof",
+       "text": "Dokažte, že máte-li lineárně nezávislý soubor $(\\mathbf x,\\mathbf y)$ z podprostoru dimenze 2, potom je tento soubor bází tohoto podprostoru.",
+       "app": [
+        "proof:p-dim3",
+        "theorem:t2-55"
+       ],
+       "proof": "LN súbor dĺžky dim P je báza (dĺžka 2)"
+      }
+     ]
+    },
+    {
+     "pos": 4,
+     "points": 6,
+     "parts": [
+      {
+       "kind": "basis-from-coords",
+       "text": "Mějme soubor $(\\mathbf x,\\mathbf y)$ vektorů z $\\mathbb Z_5^2$, o kterém víme, že tvoří bázi $\\mathbb Z_5^2$. Dále víme, že souřadnice vektoru $(1,2)$ vzhledem k této bázi jsou $(3,1)$ a souřadnice vektoru $(2,2)$ vzhledem k této bázi jsou $(3,3)$. Určete, jak vypadají vektory $\\mathbf x$ a $\\mathbf y$.",
+       "app": [
+        "gen:baza-zo-suradnic"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2022-9a",
+   "year": 2022,
+   "date": "2022-11-15",
+   "slot": "9A",
+   "variant": "9A",
+   "format": "2022 (7/7/10/6)",
+   "total": 30,
+   "app_paper": null,
+   "verified": "vektory z typovaného študentského PDF na fit-wiki (v 2022 má chyby v telesách) + fragmenty OCR na stránke; fotkou nepotvrdené",
+   "source": "https://fit-wiki.cz/škola/předměty/bi-la1.21/bi-la1_zapoctova_15_11_2022_9a",
+   "problems": [
+    {
+     "pos": 1,
+     "points": 7,
+     "parts": [
+      {
+       "kind": "param-zp-gen",
+       "text": "Zjistěte, pro které hodnoty $a\\in\\mathbb Z_5$ soubor vektorů $((2,1,1),(2,2,a),(3,3,2))$ generuje prostor $\\mathbb Z_5^3$.",
+       "app": [
+        "gen:param-zp"
+       ]
+      }
+     ],
+     "instruction": "Řádně vysvětlete svůj postup: Pokud budete například řešit soustavu rovnic, napište, co jsou proměnné a odkud se vzaly koeficienty. Vysvětlete také, jak z výpočtu plynou závěry, které uděláte.",
+     "note": "OCR na stránke má „Z“ bez indexov a vektory čiastočne nečitateľné; čísla a $\\mathbb Z_5$, $\\mathbb Z_5^3$ sú z typovaného PDF na fit-wiki (rovnaké vektory ako 2022 A Príklad 1, nepotvrdené fotkou)."
+    },
+    {
+     "pos": 2,
+     "points": 7,
+     "parts": [
+      {
+       "kind": "span-basis",
+       "text": "Ve vektorovém prostoru $\\mathbb R^3$ najděte bázi a dimenzi lineárního obalu $M=\\langle(1,2,-2),(1,2,2),(3,-2,2)\\rangle$.",
+       "app": [
+        "gen:span-basis"
+       ]
+      },
+      {
+       "kind": "coords",
+       "text": "Jaké souřadnice bude mít vektor $(0,4,-4)$ vůči vámi nalezené bázi?",
+       "app": [
+        "gen:coords"
+       ]
+      }
+     ],
+     "instruction": "Řádně vysvětlete svůj postup: Pokud budete například řešit soustavu rovnic, napište, co jsou proměnné a odkud se vzaly koeficienty. Vysvětlete také, jak z výpočtu plynou závěry, které uděláte."
+    },
+    {
+     "pos": 3,
+     "points": 10,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "Napište definici báze a definici souřadnic vektoru vůči bázi.",
+       "app": [
+        "concept:baza",
+        "concept:suradnice"
+       ],
+       "definition": "báze + souřadnice"
+      },
+      {
+       "kind": "proof",
+       "text": "Mějme bázi $\\mathcal B=(\\mathbf x,\\mathbf y)$ podprostoru $P\\subset\\subset\\mathbb R^n$. Ukažte, že pro každý vektor z $P$ existují právě jedny souřadnice vzhledem k této bázi.",
+       "app": [
+        "proof:p-suradnice",
+        "theorem:t2-66"
+       ],
+       "proof": "jednoznačnosť súradníc (báza dĺžky 2)"
+      },
+      {
+       "kind": "coords-combination",
+       "text": "Má-li vektor $\\mathbf v$ souřadnice vůči $\\mathcal B$ rovny $(1,1)$ a $\\mathbf w$ souřadnice vůči $\\mathcal B$ rovny $(-2,1)$, jaké souřadnice vůči $\\mathcal B$ bude mít vektor $\\mathbf v+2\\mathbf w$? Zdůvodněte vaši odpověď.",
+       "app": [
+        "gen:suradnice-lk"
+       ]
+      }
+     ]
+    },
+    {
+     "pos": 4,
+     "points": 6,
+     "parts": [
+      {
+       "kind": "four-vectors-bases",
+       "text": "Najděte soubor čtyř vektorů $(\\mathbf z_1,\\mathbf z_2,\\mathbf z_3,\\mathbf z_4)$ z prostoru $\\mathbb Z_p^3$ takový, že vynecháním kteréhokoliv z nich kromě prvního nebo druhého vznikne tříčlenný soubor, který je bází $\\mathbb Z_p^3$. Tj. soubory $(\\mathbf z_1,\\mathbf z_2,\\mathbf z_4)$, $(\\mathbf z_1,\\mathbf z_2,\\mathbf z_3)$ mají být báze $\\mathbb Z_p^3$, soubory $(\\mathbf z_1,\\mathbf z_3,\\mathbf z_4)$ ani $(\\mathbf z_2,\\mathbf z_3,\\mathbf z_4)$ nemají být bází $\\mathbb Z_p^3$. Svou volbu zdůvodněte a řádně vysvětlete, proč má váš soubor danou vlastnost. Kolika různými způsoby lze vytvořit vektor $(1,1,1)$ jako lineární kombinaci souboru $(\\mathbf z_1,\\mathbf z_2,\\mathbf z_3,\\mathbf z_4)$?",
+       "app": [
+        "gen:soubor-baze",
+        "gen:lk-pocet"
+       ]
+      }
+     ],
+     "note": "Index telesa $p$ je v OCR aj v typovanom PDF nečitateľný."
+    }
+   ]
+  },
+  {
+   "id": "2022-mix",
+   "year": 2022,
+   "date": "2022-11",
+   "slot": null,
+   "variant": "mix",
+   "format": "2022 (aspoň 5 príkladov; Príklad 5 = 8 b)",
+   "total": null,
+   "app_paper": null,
+   "verified": "dve fotky príkladu 5 + poznámky študenta",
+   "source": "https://fit-wiki.cz/škola/předměty/bi-la1.21/bi-la1_zapoctova_xx_11_2022_mix",
+   "problems": [
+    {
+     "pos": 1,
+     "points": null,
+     "parts": [
+      {
+       "kind": "param-ln",
+       "text": "pro jaký parametry bude soubor LN",
+       "app": [
+        "gen:param-ln"
+       ]
+      }
+     ],
+     "note": "Len poznámka študenta."
+    },
+    {
+     "pos": 2,
+     "points": null,
+     "parts": [
+      {
+       "kind": "span-basis",
+       "text": "vybrání báze + zjištění souřadnic",
+       "app": [
+        "gen:span-basis",
+        "gen:coords"
+       ]
+      }
+     ],
+     "note": "Len poznámka študenta."
+    },
+    {
+     "pos": 3,
+     "points": null,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "Definice LN, podprostoru",
+       "app": [
+        "concept:ln",
+        "concept:podpriestor"
+       ],
+       "definition": "LN + podprostor"
+      },
+      {
+       "kind": "theta-in-subspace",
+       "text": "Co z vektorového prostoru je v každém podprostoru a důkaz.",
+       "app": [
+        "proof:p-theta"
+       ],
+       "proof": "každý podpriestor obsahuje θ"
+      },
+      {
+       "kind": "proof",
+       "text": "Ukázat, že řešení homogenní soustavy je vždy podprostor.",
+       "app": [
+        "proof:p-homog"
+       ],
+       "proof": "riešenia homogénnej sústavy tvoria podpriestor"
+      }
+     ],
+     "note": "Len poznámka študenta."
+    },
+    {
+     "pos": 5,
+     "points": 8,
+     "parts": [
+      {
+       "kind": "system-with-solutions",
+       "text": "Najděte matici $\\mathbf A\\in\\mathbb Z_3^{2,4}$ a vektor $\\mathbf b\\in\\mathbb Z_3^2$ takové, že soustava rovnic $\\mathbf A\\mathbf x=\\mathbf b$ má v množině řešení vektor $(1,2,2,0)$ i vektor $(2,1,1,1)$. Řádky matice $\\mathbf A$ chápané jako soubor vektorů ze $\\mathbb Z_3^4$ musí být navíc lineárně nezávislé.",
+       "app": [
+        "gen:soustava-body"
+       ]
+      }
+     ],
+     "note": "Jedna z dvoch fotiek „Př. 5 (8 bodů)“; druhá je úloha so súradnicami nižšie (iný variant)."
+    },
+    {
+     "pos": 5,
+     "points": 8,
+     "parts": [
+      {
+       "kind": "basis-from-coords",
+       "text": "Mějme soubor $(\\mathbf x,\\mathbf y)$ vektorů z $\\mathbb Z_5^2$, o kterém víme, že tvoří bázi $\\mathbb Z_5^2$. Dále víme, že souřadnice vektoru $(2,1)$ vzhledem k této bázi jsou $(1,3)$ a souřadnice vektoru $(3,3)$ vzhledem k této bázi jsou $(2,2)$. Určete, jak vypadají vektory $\\mathbf x$ a $\\mathbf y$.",
+       "app": [
+        "gen:baza-zo-suradnic"
+       ]
+      }
+     ],
+     "note": "Druhá fotka „Př. 5 (8 bodů)“, nízke rozlíšenie: index 5 pravdepodobný. Rovnaké čísla ako 27. 10. 2021, Príklad 5."
+    }
+   ]
+  },
+  {
+   "id": "2021-zapoctova",
+   "year": 2021,
+   "date": "2021-10-27",
+   "slot": null,
+   "variant": "jediná zápočtová písemka 2021/22",
+   "format": "2021 (5 × 8 b, kap. 1 a 2)",
+   "total": 40,
+   "app_paper": null,
+   "verified": "foto (sken celého zadania)",
+   "source": "https://fit-wiki.cz/škola/předměty/bi-la1.21/bi-la1_zapoctova_27_10_2021",
+   "problems": [
+    {
+     "pos": 1,
+     "points": 8,
+     "parts": [
+      {
+       "kind": "system",
+       "text": "Převeďte následující soustavu do maticového tvaru a rozhodněte, zda existuje nějaké její řešení $x,y,z\\in\\mathbb Z_5$. Pokud existuje, rozhodněte, zda je jediné. Pokud není jediné, najděte jich co nejvíce. Jasně zdůvodněte, jak jste ke svým závěrům došli. $x+3y+2z=1$, $2x+2z=0$, $2x+4y+2z=1$.",
+       "app": []
+      }
+     ],
+     "note": "Látka 1. testu (sústavy), nie 2. testu."
+    },
+    {
+     "pos": 2,
+     "points": 8,
+     "parts": [
+      {
+       "kind": "param-zp-ln",
+       "text": "Zjistěte, pro které hodnoty $a\\in\\mathbb Z_5$ je soubor $((1,2,3),(2,0,4),(0,1,a))$ vektorů z $\\mathbb Z_5^3$ lineárně závislý.",
+       "app": [
+        "gen:param-zp"
+       ]
+      }
+     ],
+     "instruction": "Řádně vysvětlete svůj postup: Pokud budete například řešit soustavu rovnic, napište, co jsou proměnné a odkud se vzaly koeficienty. Vysvětlete také, jak z výpočtu plynou závěry, které uděláte."
+    },
+    {
+     "pos": 3,
+     "points": 8,
+     "parts": [
+      {
+       "kind": "span-basis",
+       "text": "Ve vektorovém prostoru $\\mathbb R^4$ najděte bázi a dimenzi lineárního obalu $M=\\langle(1,1,0,1),(1,-1,-2,1),(1,3,2,1),(2,-1,-3,2)\\rangle$.",
+       "app": [
+        "gen:span-basis"
+       ]
+      },
+      {
+       "kind": "coords",
+       "text": "Jaké souřadnice bude mít vektor $(1,-2,-3,1)$ vůči vámi spočtené bázi?",
+       "app": [
+        "gen:coords"
+       ]
+      }
+     ],
+     "instruction": "Řádně vysvětlete svůj postup: Pokud budete například řešit soustavu rovnic, napište, co jsou proměnné a odkud se vzaly koeficienty. Vysvětlete také, jak z výpočtu plynou závěry, které uděláte."
+    },
+    {
+     "pos": 4,
+     "points": 8,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "Napište definici dimenze podprostoru a definici báze.",
+       "app": [
+        "concept:dimenzia",
+        "concept:baza"
+       ],
+       "definition": "dimenze + báze"
+      },
+      {
+       "kind": "count-bases",
+       "text": "Buď $P$ podprostor $\\mathbb Z_2^4$, jehož dimenze je $\\dim P=2$. Kolik různých bází tento podprostor má? Svou odpověď zdůvodněte.",
+       "app": [
+        "gen:zp-pocet",
+        "gen:count-all"
+       ]
+      }
+     ]
+    },
+    {
+     "pos": 5,
+     "points": 8,
+     "parts": [
+      {
+       "kind": "basis-from-coords",
+       "text": "Mějme soubor $(\\mathbf x,\\mathbf y)$ vektorů z $\\mathbb Z_5^2$, o kterém víme, že tvoří bázi $\\mathbb Z_5^2$. Dále víme, že souřadnice vektoru $(2,1)$ vzhledem k této bázi jsou $(1,3)$ a souřadnice vektoru $(3,3)$ vzhledem k této bázi jsou $(2,2)$. Určete, jak vypadají vektory $\\mathbf x$ a $\\mathbf y$.",
+       "app": [
+        "gen:baza-zo-suradnic"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "sample": {
+  "id": "marast-292",
+  "year": null,
+  "date": null,
+  "slot": null,
+  "variant": "ukážková (MARAST lekce 292, upravená 12. 11. 2024)",
+  "format": "2023+ (7/12/11)",
+  "total": 30,
+  "app_paper": "marast-ukazka-2",
+  "verified": "prepis MARAST 6. 11. 2026 (marast.md)",
+  "source": "https://marast.fit.cvut.cz/cs/lectures/292",
+  "problems": [
+   {
+    "pos": 1,
+    "points": 7,
+    "parts": [
+     {
+      "kind": "basis-coords",
+      "text": "Ukažte, že soubor vektorů $\\mathcal X=(\\mathbf x_1,\\mathbf x_2,\\mathbf x_3,\\mathbf x_4)$, kde $\\mathbf x_1=(1,1,1,1)$, $\\mathbf x_2=(1,2,1,1)$, $\\mathbf x_3=(1,1,2,1)$, $\\mathbf x_4=(1,3,2,3)$, je báze $\\mathbb R^4$ a spočítejte souřadnice $\\mathbf y$ v $\\mathcal X$, je-li $\\mathbf y=(1,0,3,3)$.",
+      "app": [
+       "gen:coords"
+      ]
+     }
+    ],
+    "instruction": "V tomto příkladu nemusíte své výpočty komentovat. Nicméně znalý čtenář ve vašich výpočtech musí být schopen poznat, jak jste se k výsledku dobrali."
+   },
+   {
+    "pos": 2,
+    "points": 12,
+    "parts": [
+     {
+      "kind": "span-basis",
+      "text": "Ve vektorovém prostoru $\\mathbb R^4$ najděte bázi a dimenzi lineárního obalu $M=\\langle(1,1,1,0),(1,-1,0,1),(2,0,1,1),(4,6,5,-1)\\rangle$.",
+      "app": [
+       "gen:span-basis"
+      ]
+     }
+    ],
+    "instruction": "Řádně vysvětlete svůj postup tak, aby jej pochopil čtenář, který pouze zná definice a tvrzení z přednášky: Pokud budete například řešit soustavu rovnic, napište, co jsou proměnné a odkud se vzaly koeficienty. Vysvětlete také, jak přesně z výpočtu plynou závěry, které uděláte.",
+    "note": "Alternatíva č. 13488: Doplňte soubor vektorů $((1,0,1,1),(0,0,1,1))$ na bázi $\\mathbb Z_5^4$."
+   },
+   {
+    "pos": 3,
+    "points": 11,
+    "parts": [
+     {
+      "kind": "definition",
+      "text": "Napište definici podprostoru",
+      "app": [
+       "concept:podpriestor"
+      ],
+      "definition": "podprostor"
+     },
+     {
+      "kind": "proof",
+      "text": "a ukažte, že množina řešení homogenní soustavy lineárních rovnic je podprostor.",
+      "app": [
+       "proof:p-homog"
+      ],
+      "proof": "riešenia homogénnej sústavy tvoria podpriestor"
+     },
+     {
+      "kind": "zp-subspaces-list",
+      "text": "Najděte všechny netriviální podprostory prostoru $\\mathbb Z_3^2$.",
+      "app": [
+       "gen:zp-vypis"
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "app_has": [
+  "marast-ukazka-2",
+  "medved-2024",
+  "slepice-2023",
+  "slon-2024",
+  "sova-2023",
+  "sova-2025",
+  "vcelka-2023",
+  "veverka-2024"
+ ],
+ "app_missing": [
+  "mys-2023",
+  "kocka-2023",
+  "2022-6a",
+  "2022-a",
+  "2022-b",
+  "2022-9a",
+  "2022-mix",
+  "2021-zapoctova"
+ ]
+}

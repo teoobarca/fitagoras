@@ -1,0 +1,4306 @@
+{
+ "title": "BI-LA1, skúška",
+ "generated": "2026-11-19",
+ "page": {
+  "title": "Čo býva na skúške",
+  "sub": "Z 22 zadaní skúšky z rokov 2023/24 až 2025/26 na fit-wiki, všetky v rovnakom tvare: štyri príklady za 60 b a dve bonusové úlohy."
+ },
+ "this_year": {
+  "minutes": 120,
+  "points": 60,
+  "credit_rule": "Skúška: treba aspoň 30 zo 60 b; písomná, dve hodiny, štyri príklady.",
+  "sources": [
+   "courses.fit.cvut.cz, BI-LA1, Hodnocení",
+   "MARAST lekce 262 (ukážková skúška: dve hodiny, 4 príklady)",
+   "fit-wiki, BI-LA1, zadané zkouškové testy 2023/24 až 2025/26: 22 zadaní (obrázky, dva nezávislé prepisy porovnané s obrázkom)"
+  ]
+ },
+ "format_now": {
+  "since": 2023,
+  "problems": 4,
+  "points": [
+   11,
+   11,
+   18,
+   20
+  ],
+  "points_confirmed": false,
+  "notes": [
+   "Všetkých 22 zadaní od januára 2024 má štyri príklady za spolu 60 b a k tomu dve bonusové úlohy za spolu 10 b (Stirling 11. 1. 2024 má vytlačené body príkladov so súčtom 59).",
+   "Body príkladov sa medzi zadaniami líšia: 1. príklad 7 až 18 b (najčastejšie 11), 2. príklad 7 až 17 b (najčastejšie 10), 3. príklad 13 až 22 b (najčastejšie 16 alebo 19), 4. príklad 16 až 24 b (najčastejšie 19). Rozmazané zadanie Frobenius 31. 1. 2024 sa do bodov nepočíta, len do typov úloh.",
+   "Poradie je takmer vždy rovnaké: vlastné čísla konkrétnej matice, výpočet zo sústav a variet, teória matíc a sústav, teória vlastných čísel alebo determinantu. Výnimka je Möbius 27. 1. 2025: 1. príklad je varieta a 2. determinant a vlastné vektory; tu sú zaradené podľa obsahu, ako 2. a 1.",
+   "Čísla sa niekedy opakujú: Hilbert a Riemann 26. 1. 2026 majú v 1. príklade tú istú maticu, Jarník 17. 1. 2024 a Hilbert 22. 1. 2024 tú istú maticu $\\mathbf Y$ v 3. príklade.",
+   "Termíny skúšky vypíšu v KOS, skúškové obdobie je 4. 1. až 14. 2. 2027."
+  ]
+ },
+ "kinds": {
+  "eigen": "Vlastné čísla a vektory (bázy vlastných podpriestorov) konkrétnej matice $2\\times 2$ až $4\\times 4$",
+  "diag": "Je diagonalizovateľná? Akej diagonálnej matici je podobná, vzťah podobnosti",
+  "is-eigenvector": "Je daný vektor vlastný? (aj pre ktoré $a$)",
+  "det-compute": "Determinant konkrétnej matice (aj s parametrom $a$ alebo z definície)",
+  "rank-param": "Hodnosť a regularita matice s parametrom $a$ (nad $\\mathbb R$ aj $\\mathbb Z_p$)",
+  "power": "Mocnina $\\mathbf A^k$ cez diagonalizáciu",
+  "similar-pair": "Sú dve dané matice podobné? Vzťah podobnosti",
+  "alg-mult": "Algebraické násobnosti bez charakteristického polynómu",
+  "eigen-bonus": "Úvaha o vlastných číslach všeobecnej matice (bonus)",
+  "partial-diag": "Podobná matica „čo najviac diagonálna“ (bonus)",
+  "from-images": "Matica zo zadaných obrazov vektorov; je jediná?",
+  "rank-of": "Hodnosť tej istej matice",
+  "charpoly-at": "Hodnota charakteristického polynómu v čísle",
+  "det-rules": "Determinant násobku, súčinu, mocniny či inverzie, napr. $\\det(2\\mathbf A^T\\mathbf A)$",
+  "matrix-root": "Dve rôzne matice $\\mathbf F$ s $\\mathbf F^2=\\mathbf N$ (bonus)",
+  "solve-variety": "Množina riešení sústavy nad $\\mathbb Z_p$ cez Frobeniovu vetu, zapísaná ako varieta",
+  "points-to-equations": "Parametrické a neparametrické rovnice variety cez dané body, jej dimenzia",
+  "inverse": "Inverzná matica (aj pre dané $a$ alebo nad $\\mathbb Z_7$)",
+  "frobenius-statement": "Celé znenie Frobeniovej vety",
+  "variety-count": "Koľko je variet alebo ich vyjadrení nad $\\mathbb Z_p$ (bonus)",
+  "count-rhs": "Pre koľko pravých strán má sústava riešenie (bonus)",
+  "frobenius-param": "Pre ktoré $a$ má sústava riešenie a akú dimenziu má množina riešení",
+  "matrix-equation": "Maticová rovnica, napr. $\\mathbf{AX}+\\mathbf B=\\Theta$",
+  "variety-member": "Vektor, ktorý vo variete leží, a vektor, ktorý v nej neleží",
+  "rank-statement": "Presné znenie vety o hodnosti (regulárna matica, súčin matíc)",
+  "matrix-for-lc": "Matica, ktorej súčinom vzniknú zadané kombinácie riadkov či stĺpcov",
+  "count-bonus": "Počet regulárnych matíc nad $\\mathbb Z_7$ s podmienkou (bonus)",
+  "statement-judge": "Pravdivosť tvrdenia o súčine regulárnych či singulárnych matíc",
+  "det-sign": "Sčítanec z definície determinantu: permutácia a znamienko",
+  "variety-param": "Varieta z rovníc parametricky, jej dimenzia",
+  "matrix-example": "Matica danej hodnosti bez nulového prvku",
+  "matrices-list": "Všetky regulárne či singulárne matice nad $\\mathbb Z_2$",
+  "variety-dims": "Aké dimenzie môže mať varieta cez dané body, príklad ku každej",
+  "inverse-algebra": "Úprava výrazu s inverziou, napr. $(3\\mathbf B\\mathbf B^T)^{-1}$",
+  "count-matrices": "Koľko je matíc danej hodnosti nad $\\mathbb Z_p$",
+  "group-bonus": "Prečo matice s $\\det\\mathbf A>0$ tvoria grupu (bonus)",
+  "diag-zeros": "Koľko núl môže mať diagonálna matica",
+  "det-statement": "Znenie vety o regularite a determinante",
+  "eigen-statement": "Presné znenie vety o vlastných číslach (spektrum a charakteristický polynóm, násobnosti)",
+  "diag-from-vectors": "Diagonálna matica a matica podobnosti z daných vlastných vektorov",
+  "is-eigenvalue": "Je dané číslo vlastným číslom matice $4\\times 4$?",
+  "eigen-similar": "Vlastný vektor matice $\\mathbf B$, ak $\\mathbf{PA}=\\mathbf{BP}$ (bonus)",
+  "zero-matrix": "Vlastné čísla a vektory nulovej matice",
+  "similar-props": "Vlastnosti, ktoré podobné matice majú (alebo nemusia mať) rovnaké",
+  "det-terms": "Koľko sčítancov má definícia determinantu matice $n\\times n$",
+  "similar-example": "Matica podobná (alebo nepodobná) danej matici $2\\times 2$",
+  "spectrum-size": "Najmenší počet prvkov spektra a príklad matice",
+  "transposed-eigen": "Vlastné čísla a vektory $\\mathbf A^T$ (bonus)",
+  "charpoly-facts": "Z charakteristického polynómu rozmery matice a $\\det\\mathbf A$",
+  "singular-rank": "Najmenšie rozmery singulárnej matice danej hodnosti, jej determinant",
+  "eigen-of-poly": "Vlastné číslo $\\mathbf A^2+\\mathbf A$ z vlastného čísla $\\mathbf A$",
+  "definition": "Definícia",
+  "proof": "Dôkaz"
+ },
+ "positions": [
+  {
+   "pos": 1,
+   "title": "Vlastné čísla konkrétnej matice",
+   "points": 11,
+   "about": "Vlastné čísla a vektory konkrétnej matice $2\\times 2$ až $4\\times 4$, či je diagonalizovateľná a vzťah podobnosti. V 2023/24 trikrát namiesto toho determinant a hodnosť matice s parametrom $a$ a či je daný vektor vlastný.",
+   "seen": [
+    {
+     "test": "la1-zk-2026-02-02-bolzano",
+     "kinds": [
+      "definition",
+      "from-images",
+      "eigen",
+      "rank-of"
+     ],
+     "points": 18
+    },
+    {
+     "test": "la1-zk-2026-01-26-hilbert",
+     "kinds": [
+      "eigen",
+      "diag"
+     ],
+     "points": 11
+    },
+    {
+     "test": "la1-zk-2026-01-26-riemann",
+     "kinds": [
+      "eigen",
+      "diag"
+     ],
+     "points": 11
+    },
+    {
+     "test": "la1-zk-2026-01-19-tarski",
+     "kinds": [
+      "eigen",
+      "diag",
+      "similar-pair",
+      "power",
+      "power"
+     ],
+     "points": 12
+    },
+    {
+     "test": "la1-zk-2026-01-14-jarnik",
+     "kinds": [
+      "eigen",
+      "diag"
+     ],
+     "points": 11
+    },
+    {
+     "test": "la1-zk-2026-01-14-kurzweil",
+     "kinds": [
+      "eigen",
+      "diag"
+     ],
+     "points": 11
+    },
+    {
+     "test": "la1-zk-2026-01-14-eukleides",
+     "kinds": [
+      "eigen",
+      "diag"
+     ],
+     "points": 7
+    },
+    {
+     "test": "la1-zk-2025-12-17-frobenius",
+     "kinds": [
+      "eigen",
+      "charpoly-at",
+      "diag"
+     ],
+     "points": 11
+    },
+    {
+     "test": "la1-zk-2025-01-27-mobius",
+     "kinds": [
+      "det-compute",
+      "det-rules",
+      "det-rules",
+      "is-eigenvector"
+     ],
+     "points": 13
+    },
+    {
+     "test": "la1-zk-2025-01-15-bolzano",
+     "kinds": [
+      "eigen",
+      "diag",
+      "diag",
+      "alg-mult"
+     ],
+     "points": 13
+    },
+    {
+     "test": "la1-zk-2025-01-15-kurzweil",
+     "kinds": [
+      "eigen",
+      "diag",
+      "diag",
+      "alg-mult"
+     ],
+     "points": 11
+    },
+    {
+     "test": "la1-zk-2025-01-06-dirichlet",
+     "kinds": [
+      "eigen",
+      "diag"
+     ],
+     "points": 8
+    },
+    {
+     "test": "la1-zk-2024-12-19-riemann",
+     "kinds": [
+      "eigen",
+      "diag"
+     ],
+     "points": 10
+    },
+    {
+     "test": "la1-zk-2024-02-07-tarski",
+     "kinds": [
+      "eigen",
+      "diag",
+      "power"
+     ],
+     "points": 9
+    },
+    {
+     "test": "la1-zk-2024-01-31-frobenius",
+     "kinds": [
+      "eigen",
+      "diag",
+      "similar-pair",
+      "matrix-root"
+     ],
+     "points": 10
+    },
+    {
+     "test": "la1-zk-2024-01-22-hilbert",
+     "kinds": [
+      "det-compute",
+      "rank-param",
+      "is-eigenvector"
+     ],
+     "points": 10
+    },
+    {
+     "test": "la1-zk-2024-01-17-boole",
+     "kinds": [
+      "det-compute",
+      "rank-param",
+      "is-eigenvector",
+      "eigen-bonus"
+     ],
+     "points": 10
+    },
+    {
+     "test": "la1-zk-2024-01-17-jarnik",
+     "kinds": [
+      "det-compute",
+      "rank-param",
+      "is-eigenvector",
+      "eigen-bonus"
+     ],
+     "points": 10
+    },
+    {
+     "test": "la1-zk-2024-01-11-stirling",
+     "kinds": [
+      "eigen",
+      "diag",
+      "partial-diag"
+     ],
+     "points": 9
+    },
+    {
+     "test": "la1-zk-2024-01-11-heine",
+     "kinds": [
+      "eigen",
+      "diag",
+      "partial-diag"
+     ],
+     "points": 9
+    },
+    {
+     "test": "la1-zk-2024-01-04-dirichlet",
+     "kinds": [
+      "eigen",
+      "diag"
+     ],
+     "points": 8
+    },
+    {
+     "test": "la1-zk-2024-01-04-abel",
+     "kinds": [
+      "eigen",
+      "diag"
+     ],
+     "points": 8
+    }
+   ]
+  },
+  {
+   "pos": 2,
+   "title": "Sústava, varieta alebo inverzia",
+   "points": 11,
+   "about": "Výpočet z kapitol 3 a 4: množina riešení sústavy nad $\\mathbb Z_p$ cez Frobeniovu vetu, rovnice variety cez dané body, hodnosť s parametrom, inverzia či maticová rovnica; často s definíciou variety alebo hodnosti.",
+   "definitions": {
+    "row": "Definície doslova",
+    "group": "Definícia doslova, v {n} z {of} skúšok"
+   },
+   "seen": [
+    {
+     "test": "la1-zk-2026-02-02-bolzano",
+     "kinds": [
+      "solve-variety",
+      "count-rhs"
+     ],
+     "points": 7
+    },
+    {
+     "test": "la1-zk-2026-01-26-hilbert",
+     "kinds": [
+      "rank-param",
+      "inverse"
+     ],
+     "points": 10
+    },
+    {
+     "test": "la1-zk-2026-01-26-riemann",
+     "kinds": [
+      "rank-param",
+      "frobenius-statement",
+      "frobenius-param",
+      "solve-variety"
+     ],
+     "points": 17
+    },
+    {
+     "test": "la1-zk-2026-01-19-tarski",
+     "kinds": [
+      "points-to-equations",
+      "points-to-equations",
+      "points-to-equations",
+      "variety-count"
+     ],
+     "points": 10
+    },
+    {
+     "test": "la1-zk-2026-01-14-jarnik",
+     "kinds": [
+      "inverse",
+      "matrix-equation"
+     ],
+     "points": 8
+    },
+    {
+     "test": "la1-zk-2026-01-14-kurzweil",
+     "kinds": [
+      "inverse",
+      "matrix-equation"
+     ],
+     "points": 8
+    },
+    {
+     "test": "la1-zk-2026-01-14-eukleides",
+     "kinds": [
+      "definition",
+      "points-to-equations",
+      "points-to-equations",
+      "variety-member",
+      "variety-member",
+      "variety-count"
+     ],
+     "points": 15
+    },
+    {
+     "test": "la1-zk-2025-12-17-frobenius",
+     "kinds": [
+      "frobenius-statement",
+      "solve-variety"
+     ],
+     "points": 11
+    },
+    {
+     "test": "la1-zk-2025-01-27-mobius",
+     "kinds": [
+      "points-to-equations",
+      "points-to-equations",
+      "variety-member",
+      "variety-member"
+     ],
+     "points": 12
+    },
+    {
+     "test": "la1-zk-2025-01-15-bolzano",
+     "kinds": [
+      "det-compute",
+      "rank-param",
+      "inverse",
+      "det-rules"
+     ],
+     "points": 10
+    },
+    {
+     "test": "la1-zk-2025-01-15-kurzweil",
+     "kinds": [
+      "det-compute",
+      "rank-param",
+      "inverse",
+      "det-rules"
+     ],
+     "points": 13
+    },
+    {
+     "test": "la1-zk-2025-01-06-dirichlet",
+     "kinds": [
+      "definition",
+      "points-to-equations",
+      "points-to-equations",
+      "points-to-equations",
+      "points-to-equations"
+     ],
+     "points": 15
+    },
+    {
+     "test": "la1-zk-2024-12-19-riemann",
+     "kinds": [
+      "rank-param",
+      "frobenius-statement",
+      "frobenius-param",
+      "solve-variety",
+      "count-rhs"
+     ],
+     "points": 16
+    },
+    {
+     "test": "la1-zk-2024-02-07-tarski",
+     "kinds": [
+      "rank-param",
+      "definition",
+      "is-eigenvector"
+     ],
+     "points": 15
+    },
+    {
+     "test": "la1-zk-2024-01-31-frobenius",
+     "kinds": [
+      "frobenius-statement",
+      "solve-variety"
+     ],
+     "points": 12
+    },
+    {
+     "test": "la1-zk-2024-01-22-hilbert",
+     "kinds": [
+      "frobenius-statement",
+      "solve-variety",
+      "variety-count"
+     ],
+     "points": 12
+    },
+    {
+     "test": "la1-zk-2024-01-17-boole",
+     "kinds": [
+      "definition",
+      "solve-variety"
+     ],
+     "points": 10
+    },
+    {
+     "test": "la1-zk-2024-01-17-jarnik",
+     "kinds": [
+      "definition",
+      "solve-variety"
+     ],
+     "points": 10
+    },
+    {
+     "test": "la1-zk-2024-01-11-stirling",
+     "kinds": [
+      "definition",
+      "solve-variety"
+     ],
+     "points": 10
+    },
+    {
+     "test": "la1-zk-2024-01-11-heine",
+     "kinds": [
+      "definition",
+      "solve-variety"
+     ],
+     "points": 10
+    },
+    {
+     "test": "la1-zk-2024-01-04-dirichlet",
+     "kinds": [
+      "definition",
+      "points-to-equations",
+      "points-to-equations",
+      "variety-count"
+     ],
+     "points": 12
+    },
+    {
+     "test": "la1-zk-2024-01-04-abel",
+     "kinds": [
+      "definition",
+      "points-to-equations",
+      "points-to-equations",
+      "variety-count"
+     ],
+     "points": 12
+    }
+   ]
+  },
+  {
+   "pos": 3,
+   "title": "Matice a sústavy: definície, vety, dôkaz",
+   "points": 18,
+   "about": "Definície (hodnosť, regulárna a inverzná matica, varieta), presné znenie vety o hodnosti alebo Frobeniovej vety, jeden či dva dôkazy a menšie úlohy; dvakrát celý o determinantoch.",
+   "definitions": {
+    "row": "Definície doslova",
+    "group": "Definícia doslova, v {n} z {of} skúšok"
+   },
+   "proofs": {
+    "row": "Dôkaz",
+    "group": "Dôkaz, v {n} z {of} skúšok; tieto sú v appke:"
+   },
+   "other": {
+    "row": "Znenia viet a menšie úlohy",
+    "group": "Znenia viet a menšie úlohy, v {n} z {of} skúšok:"
+   },
+   "seen": [
+    {
+     "test": "la1-zk-2026-02-02-bolzano",
+     "kinds": [
+      "definition",
+      "det-sign",
+      "proof",
+      "det-rules",
+      "rank-statement"
+     ],
+     "points": 16
+    },
+    {
+     "test": "la1-zk-2026-01-26-hilbert",
+     "kinds": [
+      "frobenius-statement",
+      "inverse-algebra",
+      "proof",
+      "variety-param",
+      "count-bonus"
+     ],
+     "points": 20
+    },
+    {
+     "test": "la1-zk-2026-01-26-riemann",
+     "kinds": [
+      "definition",
+      "matrix-for-lc",
+      "proof",
+      "count-bonus"
+     ],
+     "points": 13
+    },
+    {
+     "test": "la1-zk-2026-01-19-tarski",
+     "kinds": [
+      "definition",
+      "definition",
+      "frobenius-statement",
+      "proof",
+      "rank-statement",
+      "statement-judge",
+      "eigen-bonus"
+     ],
+     "points": 19
+    },
+    {
+     "test": "la1-zk-2026-01-14-jarnik",
+     "kinds": [
+      "frobenius-statement",
+      "proof",
+      "proof",
+      "variety-param",
+      "variety-param",
+      "variety-member",
+      "points-to-equations",
+      "variety-count"
+     ],
+     "points": 22
+    },
+    {
+     "test": "la1-zk-2026-01-14-kurzweil",
+     "kinds": [
+      "frobenius-statement",
+      "proof",
+      "definition",
+      "points-to-equations",
+      "points-to-equations",
+      "variety-count"
+     ],
+     "points": 19
+    },
+    {
+     "test": "la1-zk-2026-01-14-eukleides",
+     "kinds": [
+      "definition",
+      "matrix-example",
+      "definition",
+      "proof",
+      "rank-statement",
+      "proof"
+     ],
+     "points": 18
+    },
+    {
+     "test": "la1-zk-2025-12-17-frobenius",
+     "kinds": [
+      "definition",
+      "count-matrices",
+      "definition",
+      "proof",
+      "rank-statement",
+      "proof",
+      "group-bonus"
+     ],
+     "points": 17
+    },
+    {
+     "test": "la1-zk-2025-01-27-mobius",
+     "kinds": [
+      "definition",
+      "matrices-list",
+      "rank-statement",
+      "proof",
+      "matrix-for-lc",
+      "proof"
+     ],
+     "points": 14
+    },
+    {
+     "test": "la1-zk-2025-01-15-bolzano",
+     "kinds": [
+      "definition",
+      "definition",
+      "matrix-for-lc",
+      "rank-statement",
+      "proof",
+      "statement-judge",
+      "count-bonus"
+     ],
+     "points": 21
+    },
+    {
+     "test": "la1-zk-2025-01-15-kurzweil",
+     "kinds": [
+      "definition",
+      "definition",
+      "matrix-for-lc",
+      "rank-statement",
+      "proof",
+      "statement-judge",
+      "count-bonus"
+     ],
+     "points": 19
+    },
+    {
+     "test": "la1-zk-2025-01-06-dirichlet",
+     "kinds": [
+      "definition",
+      "det-sign",
+      "det-rules",
+      "proof",
+      "proof"
+     ],
+     "points": 16
+    },
+    {
+     "test": "la1-zk-2024-12-19-riemann",
+     "kinds": [
+      "definition",
+      "proof",
+      "proof",
+      "points-to-equations",
+      "points-to-equations"
+     ],
+     "points": 15
+    },
+    {
+     "test": "la1-zk-2024-02-07-tarski",
+     "kinds": [
+      "definition",
+      "definition",
+      "diag-zeros",
+      "proof"
+     ],
+     "points": 16
+    },
+    {
+     "test": "la1-zk-2024-01-31-frobenius",
+     "kinds": [
+      "definition",
+      "definition",
+      "rank-statement",
+      "inverse",
+      "proof",
+      "det-statement",
+      "proof"
+     ],
+     "points": 16
+    },
+    {
+     "test": "la1-zk-2024-01-22-hilbert",
+     "kinds": [
+      "definition",
+      "matrices-list",
+      "proof",
+      "matrix-for-lc",
+      "inverse",
+      "det-rules",
+      "proof"
+     ],
+     "points": 18
+    },
+    {
+     "test": "la1-zk-2024-01-17-boole",
+     "kinds": [
+      "frobenius-statement",
+      "proof",
+      "matrix-for-lc",
+      "points-to-equations",
+      "proof"
+     ],
+     "points": 16
+    },
+    {
+     "test": "la1-zk-2024-01-17-jarnik",
+     "kinds": [
+      "definition",
+      "matrix-for-lc",
+      "inverse",
+      "det-rules",
+      "rank-statement",
+      "proof",
+      "proof"
+     ],
+     "points": 17
+    },
+    {
+     "test": "la1-zk-2024-01-11-stirling",
+     "kinds": [
+      "definition",
+      "matrix-example",
+      "frobenius-statement",
+      "proof",
+      "variety-dims"
+     ],
+     "points": 19
+    },
+    {
+     "test": "la1-zk-2024-01-11-heine",
+     "kinds": [
+      "definition",
+      "frobenius-statement",
+      "proof",
+      "variety-dims"
+     ],
+     "points": 20
+    },
+    {
+     "test": "la1-zk-2024-01-04-dirichlet",
+     "kinds": [
+      "frobenius-statement",
+      "proof",
+      "solve-variety",
+      "definition",
+      "proof"
+     ],
+     "points": 20
+    },
+    {
+     "test": "la1-zk-2024-01-04-abel",
+     "kinds": [
+      "definition",
+      "det-compute",
+      "det-rules",
+      "proof",
+      "det-rules"
+     ],
+     "points": 18
+    }
+   ]
+  },
+  {
+   "pos": 4,
+   "title": "Vlastné čísla a determinant: definície, veta, dôkaz",
+   "points": 20,
+   "about": "Definície k vlastným číslam a podobnosti, znenie vety o spektre a charakteristickom polynóme, dôkaz o podobných maticiach; v šiestich zadaniach je tu determinant.",
+   "definitions": {
+    "row": "Definície doslova",
+    "group": "Definícia doslova, v {n} z {of} skúšok"
+   },
+   "proofs": {
+    "row": "Dôkaz z vlastných čísel alebo determinantu",
+    "group": "Dôkaz, v {n} z {of} skúšok; v appke sú zatiaľ len bonusové:"
+   },
+   "seen": [
+    {
+     "test": "la1-zk-2026-02-02-bolzano",
+     "kinds": [
+      "definition",
+      "eigen-statement",
+      "proof",
+      "is-eigenvalue",
+      "count-bonus"
+     ],
+     "points": 19
+    },
+    {
+     "test": "la1-zk-2026-01-26-hilbert",
+     "kinds": [
+      "definition",
+      "eigen-statement",
+      "proof",
+      "is-eigenvalue",
+      "proof"
+     ],
+     "points": 19
+    },
+    {
+     "test": "la1-zk-2026-01-26-riemann",
+     "kinds": [
+      "definition",
+      "eigen-statement",
+      "is-eigenvector",
+      "proof",
+      "proof"
+     ],
+     "points": 19
+    },
+    {
+     "test": "la1-zk-2026-01-19-tarski",
+     "kinds": [
+      "definition",
+      "det-compute",
+      "definition",
+      "proof",
+      "proof"
+     ],
+     "points": 19
+    },
+    {
+     "test": "la1-zk-2026-01-14-jarnik",
+     "kinds": [
+      "definition",
+      "det-sign",
+      "det-rules",
+      "proof",
+      "eigen-similar"
+     ],
+     "points": 19
+    },
+    {
+     "test": "la1-zk-2026-01-14-kurzweil",
+     "kinds": [
+      "definition",
+      "det-sign",
+      "proof",
+      "det-rules",
+      "proof",
+      "eigen-similar"
+     ],
+     "points": 22
+    },
+    {
+     "test": "la1-zk-2026-01-14-eukleides",
+     "kinds": [
+      "definition",
+      "definition",
+      "eigen-statement",
+      "spectrum-size",
+      "proof",
+      "proof"
+     ],
+     "points": 20
+    },
+    {
+     "test": "la1-zk-2025-12-17-frobenius",
+     "kinds": [
+      "definition",
+      "eigen-statement",
+      "proof",
+      "zero-matrix",
+      "proof"
+     ],
+     "points": 21
+    },
+    {
+     "test": "la1-zk-2025-01-27-mobius",
+     "kinds": [
+      "definition",
+      "eigen-statement",
+      "proof",
+      "zero-matrix",
+      "transposed-eigen"
+     ],
+     "points": 21
+    },
+    {
+     "test": "la1-zk-2025-01-15-bolzano",
+     "kinds": [
+      "definition",
+      "eigen-statement",
+      "proof",
+      "proof"
+     ],
+     "points": 16
+    },
+    {
+     "test": "la1-zk-2025-01-15-kurzweil",
+     "kinds": [
+      "definition",
+      "eigen-statement",
+      "proof",
+      "charpoly-facts",
+      "proof"
+     ],
+     "points": 17
+    },
+    {
+     "test": "la1-zk-2025-01-06-dirichlet",
+     "kinds": [
+      "definition",
+      "eigen-statement",
+      "proof",
+      "definition",
+      "power",
+      "proof"
+     ],
+     "points": 21
+    },
+    {
+     "test": "la1-zk-2024-12-19-riemann",
+     "kinds": [
+      "definition",
+      "definition",
+      "singular-rank",
+      "singular-rank",
+      "proof",
+      "rank-statement",
+      "count-matrices"
+     ],
+     "points": 19
+    },
+    {
+     "test": "la1-zk-2024-02-07-tarski",
+     "kinds": [
+      "definition",
+      "similar-props",
+      "proof",
+      "proof"
+     ],
+     "points": 20
+    },
+    {
+     "test": "la1-zk-2024-01-31-frobenius",
+     "kinds": [
+      "definition",
+      "eigen-statement",
+      "proof",
+      "similar-props",
+      "proof"
+     ],
+     "points": 22
+    },
+    {
+     "test": "la1-zk-2024-01-22-hilbert",
+     "kinds": [
+      "definition",
+      "eigen-statement",
+      "proof",
+      "diag-from-vectors",
+      "power"
+     ],
+     "points": 20
+    },
+    {
+     "test": "la1-zk-2024-01-17-boole",
+     "kinds": [
+      "definition",
+      "proof",
+      "diag-from-vectors",
+      "power",
+      "power"
+     ],
+     "points": 24
+    },
+    {
+     "test": "la1-zk-2024-01-17-jarnik",
+     "kinds": [
+      "definition",
+      "eigen-statement",
+      "proof",
+      "diag-from-vectors",
+      "proof"
+     ],
+     "points": 23
+    },
+    {
+     "test": "la1-zk-2024-01-11-stirling",
+     "kinds": [
+      "definition",
+      "definition",
+      "det-terms",
+      "proof",
+      "proof",
+      "proof"
+     ],
+     "points": 21
+    },
+    {
+     "test": "la1-zk-2024-01-11-heine",
+     "kinds": [
+      "definition",
+      "proof",
+      "definition",
+      "proof",
+      "det-terms",
+      "proof"
+     ],
+     "points": 21
+    },
+    {
+     "test": "la1-zk-2024-01-04-dirichlet",
+     "kinds": [
+      "definition",
+      "similar-example",
+      "proof",
+      "proof",
+      "proof"
+     ],
+     "points": 20
+    },
+    {
+     "test": "la1-zk-2024-01-04-abel",
+     "kinds": [
+      "definition",
+      "similar-example",
+      "proof",
+      "eigen-of-poly"
+     ],
+     "points": 22
+    }
+   ]
+  }
+ ],
+ "definitions_by_concept_2023_2025": [
+  {
+   "app": "concept:la1-k3-hodnost",
+   "count": 12,
+   "tests": [
+    "la1-zk-2026-01-19-tarski",
+    "la1-zk-2026-01-14-eukleides",
+    "la1-zk-2025-12-17-frobenius",
+    "la1-zk-2025-01-27-mobius",
+    "la1-zk-2025-01-15-bolzano",
+    "la1-zk-2025-01-15-kurzweil",
+    "la1-zk-2024-12-19-riemann",
+    "la1-zk-2024-01-31-frobenius",
+    "la1-zk-2024-01-22-hilbert",
+    "la1-zk-2024-01-17-boole",
+    "la1-zk-2024-01-11-stirling",
+    "la1-zk-2024-01-11-heine"
+   ],
+   "pos": [
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "app": "concept:la1-k3-inverzna",
+   "count": 10,
+   "tests": [
+    "la1-zk-2026-02-02-bolzano",
+    "la1-zk-2026-01-26-riemann",
+    "la1-zk-2026-01-19-tarski",
+    "la1-zk-2026-01-14-eukleides",
+    "la1-zk-2025-12-17-frobenius",
+    "la1-zk-2025-01-15-bolzano",
+    "la1-zk-2025-01-15-kurzweil",
+    "la1-zk-2024-01-17-jarnik",
+    "la1-zk-2024-01-11-stirling",
+    "la1-zk-2024-01-04-dirichlet"
+   ],
+   "pos": [
+    3,
+    4
+   ]
+  },
+  {
+   "app": "concept:la1-k4-varieta",
+   "count": 10,
+   "tests": [
+    "la1-zk-2026-01-14-kurzweil",
+    "la1-zk-2026-01-14-eukleides",
+    "la1-zk-2025-01-06-dirichlet",
+    "la1-zk-2024-12-19-riemann",
+    "la1-zk-2024-01-31-frobenius",
+    "la1-zk-2024-01-17-jarnik",
+    "la1-zk-2024-01-11-stirling",
+    "la1-zk-2024-01-11-heine",
+    "la1-zk-2024-01-04-dirichlet",
+    "la1-zk-2024-01-04-abel"
+   ],
+   "pos": [
+    2,
+    3
+   ]
+  },
+  {
+   "app": "concept:la1-k3-jednotkova",
+   "count": 1,
+   "tests": [
+    "la1-zk-2024-02-07-tarski"
+   ],
+   "pos": [
+    3
+   ]
+  }
+ ],
+ "points_lost": [],
+ "one_evening": [],
+ "tests": [
+  {
+   "id": "la1-zk-2026-02-02-bolzano",
+   "name": "Bolzano (2. 2. 2026)",
+   "date": "2026-02-02",
+   "variant": "Bolzano",
+   "format": "2023+",
+   "total": 60,
+   "source": "fit-wiki, BI-LA1, zadané zkouškové testy 2025/26 (prepis obrázka)",
+   "problems": [
+    {
+     "pos": 1,
+     "points": 18,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "Napište definici vlastního čísla matice a definici diagonalizovatelnosti matice.",
+       "app": []
+      },
+      {
+       "kind": "from-images",
+       "text": "Určete matici $A$ (zadanou obrazy čtyř vektorů). Je určena jednoznačně?",
+       "app": []
+      },
+      {
+       "kind": "eigen",
+       "text": "Rozhodněte, jaká jsou vlastní čísla matice $A$ a jaké vlastní vektory k nim přísluší.",
+       "app": []
+      },
+      {
+       "kind": "rank-of",
+       "text": "Jakou má matice $A$ hodnost?",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 2,
+     "points": 7,
+     "parts": [
+      {
+       "kind": "solve-variety",
+       "text": "S využitím Frobeniovy věty popište množinu řešení soustavy nad $\\mathbb Z_5$. Řešení zapište ve tvaru variety.",
+       "app": [
+        "gen:la1-k4-solve",
+        "lesson:la1-k4-riesenie",
+        "theorem:la1-k4-t-frobenius"
+       ]
+      },
+      {
+       "kind": "count-rhs",
+       "text": "Pro kolik různých pravých stran s nulovou poslední složkou má soustava řešení? (bonus 5 b)",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 3,
+     "points": 16,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "Napište definici inverzní matice a definici determinantu.",
+       "app": [
+        "concept:la1-k3-inverzna"
+       ]
+      },
+      {
+       "kind": "det-sign",
+       "text": "Napište nějakou permutaci z $S_6$ a určete její znaménko.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "Jaká vlastnost matice plyne z toho, že její determinant je nulový? Dokažte své tvrzení.",
+       "app": []
+      },
+      {
+       "kind": "det-rules",
+       "text": "Mějme $A\\in\\mathbb Z_7^{2,2}$ splňující $\\det A=3$. Spočtěte $\\det(5A^{-1})$.",
+       "app": []
+      },
+      {
+       "kind": "rank-statement",
+       "text": "Formulujte korektně tvrzení o odhadu hodnosti součinu matic, pokud je druhá z nich regulární.",
+       "app": [
+        "theorem:la1-k3-t-regularna-hodnost",
+        "lesson:la1-k3-regularita"
+       ]
+      }
+     ]
+    },
+    {
+     "pos": 4,
+     "points": 19,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "Napište definici spektra matice a definici charakteristického polynomu.",
+       "app": []
+      },
+      {
+       "kind": "eigen-statement",
+       "text": "Formulujte korektně tvrzení o vztahu spektra a charakteristického polynomu.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "Dokažte tvrzení z předchozího bodu.",
+       "app": []
+      },
+      {
+       "kind": "is-eigenvalue",
+       "text": "Rozhodněte, zda jsou daná čísla vlastními čísly matice $B\\in\\mathbb C^{4,4}$.",
+       "app": []
+      },
+      {
+       "kind": "count-bonus",
+       "text": "Určete, kolik existuje různých regulárních matic $B\\in\\mathbb Z_7^{2,2}$, které nemají žádnou složku nulovou. (bonus 5 b)",
+       "app": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "la1-zk-2026-01-26-hilbert",
+   "name": "Hilbert (26. 1. 2026)",
+   "date": "2026-01-26",
+   "variant": "Hilbert",
+   "format": "2023+",
+   "total": 60,
+   "source": "fit-wiki, BI-LA1, zadané zkouškové testy 2025/26 (prepis obrázka)",
+   "problems": [
+    {
+     "pos": 1,
+     "points": 11,
+     "parts": [
+      {
+       "kind": "eigen",
+       "text": "Spočítejte vlastní čísla a báze vlastních podprostorů matice $B\\in\\mathbb C^{3,3}$.",
+       "app": []
+      },
+      {
+       "kind": "diag",
+       "text": "Rozhodněte, zda je matice diagonalizovatelná; pokud ano, jaké diagonální matici je podobná a jaký vztah podobnosti platí.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 2,
+     "points": 10,
+     "parts": [
+      {
+       "kind": "rank-param",
+       "text": "Spočtěte hodnost $A$ v závislosti na parametru $a$ a určete, pro která $a$ je regulární.",
+       "app": [
+        "gen:la1-k3-rank-param",
+        "lesson:la1-k3-regularita"
+       ]
+      },
+      {
+       "kind": "inverse",
+       "text": "Spočtěte inverzní matici k $A$ pro hodnotu $a=0$.",
+       "app": [
+        "gen:la1-k3-inverse",
+        "lesson:la1-k3-regularita"
+       ]
+      }
+     ]
+    },
+    {
+     "pos": 3,
+     "points": 20,
+     "parts": [
+      {
+       "kind": "frobenius-statement",
+       "text": "Napište kompletní znění Frobeniovy věty o řešitelnosti a množině řešení soustavy lineárních rovnic.",
+       "app": [
+        "theorem:la1-k4-t-frobenius",
+        "lesson:la1-k4-frobenius"
+       ]
+      },
+      {
+       "kind": "inverse-algebra",
+       "text": "Uvažujme regulární matici $B$ nad $\\mathbb R$. Upravte výraz $(3BB^T)^{-1}$.",
+       "app": [
+        "gen:la1-k3-algebra"
+       ]
+      },
+      {
+       "kind": "proof",
+       "text": "Dokažte, že pro netriviální podprostory $T^n$ vždy existuje soustava lineárních rovnic, jejíž množinou řešení je právě tento podprostor.",
+       "app": [
+        "proof:la1-k4-p-podpriestor-slr",
+        "gen:la1-k4-sustava"
+       ]
+      },
+      {
+       "kind": "variety-param",
+       "text": "Varietu v $\\mathbb Z_3^5$ zadanou rovnicemi napište parametricky, určete její dimenzi a zda obsahuje daný vektor.",
+       "app": [
+        "gen:la1-k4-param",
+        "lesson:la1-k4-variety"
+       ]
+      },
+      {
+       "kind": "count-bonus",
+       "text": "Určete, kolik existuje regulárních matic $G\\in\\mathbb Z_7^{2,2}$ s nenulovými prvky a $\\det G=1$. (bonus 5 b)",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 4,
+     "points": 19,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "Napište definici vlastního čísla a charakteristického polynomu.",
+       "app": []
+      },
+      {
+       "kind": "eigen-statement",
+       "text": "Formulujte korektně tvrzení o vztahu spektra a charakteristického polynomu.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "Dokažte tvrzení z předchozího bodu.",
+       "app": []
+      },
+      {
+       "kind": "is-eigenvalue",
+       "text": "Rozhodněte, zda jsou $\\alpha=2$ a $\\beta=3$ vlastními čísly matice $B\\in\\mathbb C^{4,4}$.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "Dokažte, že je-li $A$ regulární, je zobrazení $\\mathbf x\\mapsto A\\mathbf x$ prosté. (bonus 5 b)",
+       "app": [
+        "proof:la1-k3-p-proste"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "la1-zk-2026-01-26-riemann",
+   "name": "Riemann (26. 1. 2026)",
+   "date": "2026-01-26",
+   "variant": "Riemann",
+   "format": "2023+",
+   "total": 60,
+   "source": "fit-wiki, BI-LA1, zadané zkouškové testy 2025/26 (prepis obrázka, dva nezávislé prepisy porovnané s obrázkom)",
+   "problems": [
+    {
+     "pos": 1,
+     "n": 1,
+     "points": 11,
+     "parts": [
+      {
+       "kind": "eigen",
+       "text": "Mějme matici $\\mathbf{B} = \\begin{pmatrix} 1 & 0 & 1 \\\\ 1 & -2 & 1 \\\\ 0 & 0 & -1 \\end{pmatrix} \\in \\mathbb{C}^{3,3}.$ Spočítejte vlastní čísla a báze vlastních podprostorů příslušejících vlastním číslům této matice. Dále rozhodněte, zda je tato matice diagonalizovatelná. Pokud ano, nalezněte $\\mathbf{D}, \\mathbf{P} \\in \\mathbb{C}^{3,3}$, $\\mathbf{D}$ diagonální a $\\mathbf{P}$ regulární, takové, že $\\mathbf{PD} = \\mathbf{BP}$. *Pozor na pořadí. Případné inverzní matice nemusíte dopočítávat.*",
+       "app": []
+      },
+      {
+       "kind": "diag",
+       "text": "Mějme matici $\\mathbf{B} = \\begin{pmatrix} 1 & 0 & 1 \\\\ 1 & -2 & 1 \\\\ 0 & 0 & -1 \\end{pmatrix} \\in \\mathbb{C}^{3,3}.$ Spočítejte vlastní čísla a báze vlastních podprostorů příslušejících vlastním číslům této matice. Dále rozhodněte, zda je tato matice diagonalizovatelná. Pokud ano, nalezněte $\\mathbf{D}, \\mathbf{P} \\in \\mathbb{C}^{3,3}$, $\\mathbf{D}$ diagonální a $\\mathbf{P}$ regulární, takové, že $\\mathbf{PD} = \\mathbf{BP}$. *Pozor na pořadí. Případné inverzní matice nemusíte dopočítávat.*",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 2,
+     "n": 2,
+     "points": 17,
+     "parts": [
+      {
+       "kind": "rank-param",
+       "text": "A) (5 bodů) Spočítejte hodnost matice $\\mathbf{H}$ a rozšířené matice $(\\mathbf{H}|\\mathbf{b})$ v závislosti na parametru $a \\in \\mathbb{Z}_7$: $(\\mathbf{H}|\\mathbf{b}) = \\left(\\begin{array}{cccc|c} a+4 & 0 & 3 & 0 & 6 \\\\ 0 & (a+1)(a+4) & 2a+1 & a+4 & 3a+5 \\\\ 0 & 0 & a & 0 & 3a \\end{array}\\right) \\in \\mathbb{Z}_7^{3,5}.$",
+       "app": [
+        "gen:la1-k3-rank-param",
+        "lesson:la1-k3-regularita"
+       ]
+      },
+      {
+       "kind": "frobenius-statement",
+       "text": "B) (4 body) Napište kompletní znění Frobeniovy věty o řešitelnosti a množině řešení soustavy lin. rovnic.",
+       "app": [
+        "theorem:la1-k4-t-frobenius",
+        "lesson:la1-k4-frobenius"
+       ]
+      },
+      {
+       "kind": "frobenius-param",
+       "text": "C) (4 body) Pomocí Frobeniovy věty rozhodněte v závislosti na parametru $a \\in \\mathbb{Z}_7$, zda existuje řešení soustavy zadané rozšířenou maticí $(\\mathbf{H}|\\mathbf{b})$ výše. Určete, jaká je dimenze případné množiny všech řešení. Samotnou množinu řešení počítat nemusíte.",
+       "app": [
+        "theorem:la1-k4-t-frobenius",
+        "lesson:la1-k4-frobenius"
+       ]
+      },
+      {
+       "kind": "solve-variety",
+       "text": "D) (4 body) Vyřešte soustavu pro $a = 1$.",
+       "app": [
+        "gen:la1-k4-solve",
+        "lesson:la1-k4-riesenie",
+        "theorem:la1-k4-t-frobenius"
+       ]
+      }
+     ]
+    },
+    {
+     "pos": 3,
+     "n": 3,
+     "points": 13,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (3 body) Definujte regulární matici. *Pokud v definici regulární matice použijete nějaký pojem definovaný ve stejné kapitole, definujte i jej.*",
+       "app": [
+        "concept:la1-k3-inverzna"
+       ]
+      },
+      {
+       "kind": "matrix-for-lc",
+       "text": "B) (4 body) Máme matici $\\mathbf{A} \\in \\mathbb{R}^{2,3}$. Napište matici $\\mathbf{B}$ takovou, že součinem těchto dvou matic (ve vhodném pořadí) vznikne matice, která má v prvním sloupci součet sloupců matice $\\mathbf{A}$, ve druhém sloupci je nulový vektor a ve třetím sloupci je trojnásobek druhého sloupce matice $\\mathbf{A}$. Jaké má matice $\\mathbf{B}$ rozměry? V jakém pořadí je potřeba matice při součinu násobit?",
+       "app": [
+        "gen:la1-k3-product",
+        "lesson:la1-k3-nasobenie"
+       ]
+      },
+      {
+       "kind": "proof",
+       "text": "C) (6 bodů) Formulujte korektně tvrzení o postačitelnosti inverze z jedné strany a toto tvrzení dokažte.",
+       "app": [
+        "proof:la1-k3-p-jedna-strana"
+       ]
+      },
+      {
+       "kind": "count-bonus",
+       "text": "D) (*5 bonusových bodů*) Určete, kolik existuje různých regulárních matic $\\mathbf{G} \\in \\mathbb{Z}_7^{2,2}$ takových, že všechny jejich prvky jsou nenulové a $\\det \\mathbf{G} = 1$.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 4,
+     "n": 4,
+     "points": 19,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (4 body) Napište definici spektra matice a podobnosti matic.",
+       "app": []
+      },
+      {
+       "kind": "eigen-statement",
+       "text": "B) (4 body) Formulujte korektně tvrzení o vztahu spektra a charakteristického polynomu.",
+       "app": []
+      },
+      {
+       "kind": "is-eigenvector",
+       "text": "C) (4 body) Rozhodněte pro vektory $\\mathbf{x} = (1, 0, -1, 0)$ a $\\mathbf{y} = (0, 2, 0, 1)$, zda jsou vlastními vektory příslušnými nějakým vlastním číslům následující matice $\\mathbf{B}$. Případně určete, kterému vlastnímu číslu vektor přísluší. $\\mathbf{B} = \\begin{pmatrix} 2 & 0 & 1 & 0 \\\\ 0 & 3 & -1 & 0 \\\\ -1 & 0 & 1 & 0 \\\\ 0 & 1 & 0 & 1 \\end{pmatrix} \\in \\mathbb{C}^{4,4}.$",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "D) (7 bodů) Dokažte, že máme-li dvě podobné matice $\\mathbf{A}$ a $\\mathbf{B}$, potom mají stejné spektrum. *Pokud použijete nějakou vlastnost podobných matic, dokažte i tu.*",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "E) (*5 bonusových bodů*) Mějme matici $\\mathbf{A} \\in \\mathbb{R}^{n,n}$. Definujme zobrazení $A : \\mathbb{R}^n \\to \\mathbb{R}^n$ tímto předpisem: $A(\\mathbf{x}) := \\mathbf{Ax}$ pro $\\mathbf{x} \\in \\mathbb{R}^n$. Dokažte, že pokud je $\\mathbf{A}$ regulární matice, pak je toto zobrazení prosté.",
+       "app": [
+        "proof:la1-k3-p-proste"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "la1-zk-2026-01-19-tarski",
+   "name": "Tarski (19. 1. 2026)",
+   "date": "2026-01-19",
+   "variant": "Tarski",
+   "format": "2023+",
+   "total": 60,
+   "source": "fit-wiki, BI-LA1, zadané zkouškové testy 2025/26 (prepis obrázka, dva nezávislé prepisy porovnané s obrázkom)",
+   "problems": [
+    {
+     "pos": 1,
+     "n": 1,
+     "points": 12,
+     "parts": [
+      {
+       "kind": "eigen",
+       "text": "Uvažujme matice z $\\mathbb{C}^{2,2}$ $\\mathbf{M} = \\begin{pmatrix} -2 & 0 \\\\ 2 & 1 \\end{pmatrix} \\quad \\text{a} \\quad \\mathbf{N} = \\begin{pmatrix} 3 & -1 \\\\ 4 & -2 \\end{pmatrix}.$ A) Spočítejte vlastní čísla a příslušné vlastní vektory daných matic a rozhodněte, jestli jsou tyto matice diagonalizovatelné.",
+       "app": []
+      },
+      {
+       "kind": "diag",
+       "text": "Uvažujme matice z $\\mathbb{C}^{2,2}$ $\\mathbf{M} = \\begin{pmatrix} -2 & 0 \\\\ 2 & 1 \\end{pmatrix} \\quad \\text{a} \\quad \\mathbf{N} = \\begin{pmatrix} 3 & -1 \\\\ 4 & -2 \\end{pmatrix}.$ A) Spočítejte vlastní čísla a příslušné vlastní vektory daných matic a rozhodněte, jestli jsou tyto matice diagonalizovatelné.",
+       "app": []
+      },
+      {
+       "kind": "similar-pair",
+       "text": "B) Dále rozhodněte, jestli jsou $\\mathbf{M}$ a $\\mathbf{N}$ podobné. Jsou-li podobné, napište příslušný „vztah podobnosti“, který mezi nimi platí. Případné součiny a inverze matic nemusíte vyčíslovat.",
+       "app": []
+      },
+      {
+       "kind": "power",
+       "text": "C) Napište vzorec pro spočtení mocniny $\\mathbf{N}^k$ pro $k \\in \\mathbb{N}$, který využívá diagonalizaci matice $\\mathbf{N}$.",
+       "app": []
+      },
+      {
+       "kind": "power",
+       "text": "D) Spočtěte (vyčíslete) matici $\\mathbf{N}^k$ pro $k \\in \\mathbb{N}$.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 2,
+     "n": 2,
+     "points": 10,
+     "parts": [
+      {
+       "kind": "points-to-equations",
+       "text": "Napište A) (3 body) parametrické … vyjádření variety ze $\\mathbb{Z}_5^6$ co nejnižší dimenze obsahující vektory $\\mathbf{x}=(1,1,0,1,1,0)$, $\\mathbf{y}=(2,1,2,1,1,1)$, $\\mathbf{z}=(1,2,1,2,2,2)$, $\\mathbf{u}=(1,2,2,2,3,4)$.",
+       "app": [
+        "gen:la1-k4-equations",
+        "theorem:la1-k4-t-prevod",
+        "lesson:la1-k4-variety"
+       ]
+      },
+      {
+       "kind": "points-to-equations",
+       "text": "B) (5 bodů) … a neparametrické vyjádření téže variety.",
+       "app": [
+        "gen:la1-k4-equations",
+        "theorem:la1-k4-t-prevod",
+        "lesson:la1-k4-variety"
+       ]
+      },
+      {
+       "kind": "points-to-equations",
+       "text": "C) (2 body) Jakou má tato varieta dimenzi?",
+       "app": [
+        "gen:la1-k4-param",
+        "lesson:la1-k4-variety"
+       ]
+      },
+      {
+       "kind": "variety-count",
+       "text": "D) (*6 bonusových bodů*) Kolik různých neparametrických vyjádření (s minimálním možným počtem rovnic) tato varieta má?",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 3,
+     "n": 3,
+     "points": 19,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (4 body) Definujte hodnost matice …",
+       "app": [
+        "concept:la1-k3-hodnost"
+       ]
+      },
+      {
+       "kind": "definition",
+       "text": "… a regulární matici.",
+       "app": [
+        "concept:la1-k3-inverzna"
+       ]
+      },
+      {
+       "kind": "frobenius-statement",
+       "text": "B) (4 body) Napište kompletní znění Frobeniovy věty o řešitelnosti a množině řešení soustavy lin. rovnic.",
+       "app": [
+        "theorem:la1-k4-t-frobenius",
+        "lesson:la1-k4-frobenius"
+       ]
+      },
+      {
+       "kind": "proof",
+       "text": "C) (4 body) Dokažte přímo z definice, že součin regulárních matic je opět regulární matice.",
+       "app": [
+        "proof:la1-k3-p-inv-sucin"
+       ]
+      },
+      {
+       "kind": "rank-statement",
+       "text": "D) (3 body) Formulujte korektně tvrzení o odhadu hodnosti součinu matic.",
+       "app": [
+        "theorem:la1-k3-t-hodnost-sucinu"
+       ]
+      },
+      {
+       "kind": "statement-judge",
+       "text": "E) (4 body) Rozhodněte o pravdivosti tvrzení: „Mějme matice $\\mathbf{A}$ a $\\mathbf{B}$ z $T^{n,n}$ takové, že součin $\\mathbf{AB}$ je regulární matice. Potom jsou matice $\\mathbf{A}$ i $\\mathbf{B}$ regulární.“ *Tj. buď dokažte tvrzení, nebo vyvraťte tvrzení protipříkladem.*",
+       "app": []
+      },
+      {
+       "kind": "eigen-bonus",
+       "text": "F) (*4 bonusové body*) Uvažujme $\\mathbf{A} \\in \\mathbb{C}^{n,n}$. Rozhodněte, zda musí existovat nějaké $\\alpha \\in \\mathbb{C}$ a nenulový vektor $\\mathbf{x}$ tak, že $(\\mathbf{A}^2 - \\mathbf{A} + \\mathbf{E})\\mathbf{x} = \\alpha\\mathbf{x}$. Zdůvodněte svou odpověď.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 4,
+     "n": 4,
+     "points": 19,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (2 bodů) Definujte determinant matice. *Použité pojmy vysvětlovat NEMUSÍTE.*",
+       "app": []
+      },
+      {
+       "kind": "det-compute",
+       "text": "B) (3 body) Spočtěte z definice determinant následující matice: $\\mathbf{B} = \\begin{pmatrix} 0 & 0 & 0 & 1 & 0 \\\\ 0 & 2 & 0 & 0 & 0 \\\\ 0 & 0 & 3 & 0 & 0 \\\\ 2 & 0 & 0 & 0 & 0 \\\\ 0 & 0 & 0 & 0 & 1 \\end{pmatrix} \\in \\mathbb{Z}_7^{5,5}.$",
+       "app": []
+      },
+      {
+       "kind": "definition",
+       "text": "C) (4 body) Definujte podobnost matic a charakteristický polynom matice.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "D) (5 bodů) Dokažte, že máme-li dvě podobné matice $\\mathbf{A}$ a $\\mathbf{B}$, potom mají stejný determinant. *Pokud použijete nějakou vlastnost podobných matic, dokažte i tu.*",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "E) (5 bodů) Mějme matice $\\mathbf{A}$, $\\mathbf{B}$ a $\\mathbf{H}$ z $\\mathbb{C}^{n,n}$. Dokažte přímo z definice, že pokud $\\mathbf{A}$ i $\\mathbf{B}$ jsou podobné $\\mathbf{H}$, pak $\\mathbf{A}$ je podobná $\\mathbf{B}$.",
+       "app": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "la1-zk-2026-01-14-jarnik",
+   "name": "Jarník (14. 1. 2026)",
+   "date": "2026-01-14",
+   "variant": "Jarník",
+   "format": "2023+",
+   "total": 60,
+   "source": "fit-wiki, BI-LA1, zadané zkouškové testy 2025/26 (prepis obrázka, dva nezávislé prepisy porovnané s obrázkom)",
+   "problems": [
+    {
+     "pos": 1,
+     "n": 1,
+     "points": 11,
+     "parts": [
+      {
+       "kind": "eigen",
+       "text": "Mějme matici $\\mathbf{B} = \\begin{pmatrix} 1 & -2 & -4 & 6 \\\\ -2 & 1 & -4 & 6 \\\\ -2 & -2 & -1 & 6 \\\\ -2 & -2 & -4 & 9 \\end{pmatrix} \\in \\mathbb{C}^{4,4},$ o které víme, že $\\sigma(\\mathbf{B}) \\subseteq \\{1, 2, 3\\}$. Nalezněte báze vlastních podprostorů příslušejících vlastním číslům této matice. Pokud je tato matice diagonalizovatelná, napište, jaké diagonální matici je podobná a jaký „vztah podobnosti“ pro tuto matici platí. Dále určete další matice v tomto vztahu. Případné inverze nemusíte dopočítávat.",
+       "app": []
+      },
+      {
+       "kind": "diag",
+       "text": "Mějme matici $\\mathbf{B} = \\begin{pmatrix} 1 & -2 & -4 & 6 \\\\ -2 & 1 & -4 & 6 \\\\ -2 & -2 & -1 & 6 \\\\ -2 & -2 & -4 & 9 \\end{pmatrix} \\in \\mathbb{C}^{4,4},$ o které víme, že $\\sigma(\\mathbf{B}) \\subseteq \\{1, 2, 3\\}$. Nalezněte báze vlastních podprostorů příslušejících vlastním číslům této matice. Pokud je tato matice diagonalizovatelná, napište, jaké diagonální matici je podobná a jaký „vztah podobnosti“ pro tuto matici platí. Dále určete další matice v tomto vztahu. Případné inverze nemusíte dopočítávat.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 2,
+     "n": 2,
+     "points": 8,
+     "parts": [
+      {
+       "kind": "inverse",
+       "text": "Máme matici $\\mathbf{A} = \\begin{pmatrix} 2 & 1 & 1 \\\\ 2 & -1 & 0 \\\\ -1 & 2 & 1 \\end{pmatrix} \\in \\mathbb{R}^{3,3}.$ A) Spočítejte inverzní matici k $\\mathbf{A}$.",
+       "app": [
+        "gen:la1-k3-inverse",
+        "lesson:la1-k3-regularita"
+       ]
+      },
+      {
+       "kind": "matrix-equation",
+       "text": "B) Spočítejte dále, čemu se rovná matice $\\mathbf{X}$ nad $\\mathbb{R}$ splňující $\\mathbf{AX} + \\mathbf{B} = \\Theta$, kde $\\mathbf{B} = \\begin{pmatrix} 1 & 1 & -1 \\\\ 3 & 2 & 1 \\end{pmatrix} \\in \\mathbb{R}^{2,3}$.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 3,
+     "n": 3,
+     "points": 22,
+     "parts": [
+      {
+       "kind": "frobenius-statement",
+       "text": "A) (4 body) Napište kompletní znění Frobeniovy věty o řešitelnosti a množině řešení soustavy lin. rovnic.",
+       "app": [
+        "theorem:la1-k4-t-frobenius",
+        "lesson:la1-k4-frobenius"
+       ]
+      },
+      {
+       "kind": "proof",
+       "text": "B) (4 body) Dokažte, že pro triviální podprostory $T^n$ vždy existuje nějaká soustava lineárních rovnic taková, že má za řešení právě kýžený podprostor.",
+       "app": [
+        "proof:la1-k4-p-podpriestor-slr",
+        "gen:la1-k4-sustava"
+       ]
+      },
+      {
+       "kind": "proof",
+       "text": "C) (6 bodů) Dokažte, že pro netriviální podprostory $T^n$ vždy existuje nějaká soustava lineárních rovnic taková, že má za řešení právě kýžený podprostor.",
+       "app": [
+        "proof:la1-k4-p-podpriestor-slr",
+        "gen:la1-k4-sustava"
+       ]
+      },
+      {
+       "kind": "variety-param",
+       "text": "D) (5 bodů) Uvažujme varietu v $\\mathbb{Z}_3^5$ zadanou neparametricky $x+y+u+v=2$, $x+z+2u=1$. Napište její parametrické vyjádření.",
+       "app": [
+        "gen:la1-k4-param",
+        "lesson:la1-k4-variety"
+       ]
+      },
+      {
+       "kind": "variety-param",
+       "text": "Jakou má varieta dimenzi?",
+       "app": [
+        "gen:la1-k4-param",
+        "lesson:la1-k4-variety"
+       ]
+      },
+      {
+       "kind": "variety-member",
+       "text": "Obsahuje tato varieta vektor $(1,1,0,2,1)$?",
+       "app": [
+        "gen:la1-k4-param",
+        "lesson:la1-k4-variety"
+       ]
+      },
+      {
+       "kind": "points-to-equations",
+       "text": "E) (3 body) Uvažujme varietu v $\\mathbb{Z}_3^4$ co nejnižší dimenze obsahující vektory $(1, 1, 1, 1)$ a $(2, 1, 0, 1)$. Napište její parametrické vyjádření.",
+       "app": [
+        "gen:la1-k4-equations",
+        "theorem:la1-k4-t-prevod",
+        "lesson:la1-k4-variety"
+       ]
+      },
+      {
+       "kind": "variety-count",
+       "text": "F) (*3 bonusové body*) Ukažte, kolik existuje různých parametrických vyjádření variety z předchozího bodu.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 4,
+     "n": 4,
+     "points": 19,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (6 bodů) Definujte determinant matice a vysvětlete všechny pojmy v definici použité.",
+       "app": []
+      },
+      {
+       "kind": "det-sign",
+       "text": "B) (4 body) Uvažujme matici $\\mathbf{B} = \\begin{pmatrix} a & b & c & d \\\\ e & f & g & h \\\\ i & j & k & l \\\\ m & n & o & p \\end{pmatrix} \\in \\mathbb{R}^{4,4}.$ Která permutace odpovídá součinu $d \\cdot g \\cdot m \\cdot j$? Jaké má znaménko? Napište ještě nějaký jeden sčítanec, který má opačné znaménko. Které permutaci odpovídá?",
+       "app": []
+      },
+      {
+       "kind": "det-rules",
+       "text": "C) (3 body) Mějme $\\mathbf{A} \\in \\mathbb{Z}_7^{4,4}$ splňující $\\det \\mathbf{A} = 5$. Spočítejte, čemu je rovno $\\det(2\\mathbf{A}^T\\mathbf{A})$.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "D) (6 bodů) Mějme regulární matici $\\mathbf{A} \\in \\mathbb{R}^{n,n}$. V jakém vztahu jsou determinanty matic $\\mathbf{A}$ a $\\mathbf{A}^{-1}$? Tvrzení korektně formulujte a dokažte jej.",
+       "app": []
+      },
+      {
+       "kind": "eigen-similar",
+       "text": "E) (*7 bonusových bodů*) Mějme matice $\\mathbf{A}, \\mathbf{B}, \\mathbf{P}$ z $\\mathbb{C}^{n,n}$, kde $\\mathbf{P}$ je regulární matice a platí $\\mathbf{PA} = \\mathbf{BP}$. Nechť dále má $\\mathbf{A}$ vlastní vektor $\\mathbf{x}$ k vlastnímu číslu $\\lambda$. Nalezněte nějaký vlastní vektor matice $\\mathbf{B}$.",
+       "app": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "la1-zk-2026-01-14-kurzweil",
+   "name": "Kurzweil (14. 1. 2026)",
+   "date": "2026-01-14",
+   "variant": "Kurzweil",
+   "format": "2023+",
+   "total": 60,
+   "source": "fit-wiki, BI-LA1, zadané zkouškové testy 2025/26 (prepis obrázka, dva nezávislé prepisy porovnané s obrázkom)",
+   "problems": [
+    {
+     "pos": 1,
+     "n": 1,
+     "points": 11,
+     "parts": [
+      {
+       "kind": "eigen",
+       "text": "Uvažujme matici $\\mathbf{A} = \\begin{pmatrix} 5 & -2 & 1 & 2 \\\\ -1 & 3 & 0 & -1 \\\\ -2 & 2 & 2 & -2 \\\\ -3 & 2 & -1 & 0 \\end{pmatrix} \\in \\mathbb{C}^{4,4},$ o které víme, že $\\sigma(\\mathbf{A}) \\subseteq \\{1, 2, 3\\}$. Nalezněte báze vlastních podprostorů příslušejících vlastním číslům této matice. Pokud je tato matice diagonalizovatelná, napište, jaké diagonální matici je podobná a jaký „vztah podobnosti“ pro tuto matici platí. Dále určete další matice v tomto vztahu. Případné inverze nemusíte dopočítávat.",
+       "app": []
+      },
+      {
+       "kind": "diag",
+       "text": "Uvažujme matici $\\mathbf{A} = \\begin{pmatrix} 5 & -2 & 1 & 2 \\\\ -1 & 3 & 0 & -1 \\\\ -2 & 2 & 2 & -2 \\\\ -3 & 2 & -1 & 0 \\end{pmatrix} \\in \\mathbb{C}^{4,4},$ o které víme, že $\\sigma(\\mathbf{A}) \\subseteq \\{1, 2, 3\\}$. Nalezněte báze vlastních podprostorů příslušejících vlastním číslům této matice. Pokud je tato matice diagonalizovatelná, napište, jaké diagonální matici je podobná a jaký „vztah podobnosti“ pro tuto matici platí. Dále určete další matice v tomto vztahu. Případné inverze nemusíte dopočítávat.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 2,
+     "n": 2,
+     "points": 8,
+     "parts": [
+      {
+       "kind": "inverse",
+       "text": "Mějme matici $\\mathbf{B} = \\begin{pmatrix} 1 & 3 & 1 \\\\ 2 & 1 & 0 \\\\ -2 & 2 & 1 \\end{pmatrix} \\in \\mathbb{R}^{3,3}.$ A) Spočítejte inverzní matici k $\\mathbf{B}$.",
+       "app": [
+        "gen:la1-k3-inverse",
+        "lesson:la1-k3-regularita"
+       ]
+      },
+      {
+       "kind": "matrix-equation",
+       "text": "B) Spočítejte dále, čemu se rovná matice $\\mathbf{X}$ nad $\\mathbb{R}$ splňující $\\mathbf{BX} - \\mathbf{A} = \\Theta$, kde $\\mathbf{A} = \\begin{pmatrix} 1 & 1 & -1 \\\\ 3 & 2 & 1 \\end{pmatrix} \\in \\mathbb{R}^{2,3}$.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 3,
+     "n": 3,
+     "points": 19,
+     "parts": [
+      {
+       "kind": "frobenius-statement",
+       "text": "A) (4 body) Napište kompletní znění Frobeniovy věty o řešitelnosti a množině řešení soustavy lin. rovnic.",
+       "app": [
+        "theorem:la1-k4-t-frobenius",
+        "lesson:la1-k4-frobenius"
+       ]
+      },
+      {
+       "kind": "proof",
+       "text": "B) (5 bodů) Dokažte tu část Frobeniovy věty, která tvrdí: „*Je-li soustava řešitelná, potom je splněna jistá podmínka na matici soustavy.*“",
+       "app": [
+        "proof:la1-k4-p-frob-nutna"
+       ]
+      },
+      {
+       "kind": "definition",
+       "text": "C) (4 body) Definujte lineární varietu a dimenzi variety.",
+       "app": [
+        "concept:la1-k4-varieta"
+       ]
+      },
+      {
+       "kind": "points-to-equations",
+       "text": "D) (3 body) Uvažujme varietu v $\\mathbb{Z}_5^4$ co nejvyšší dimenze obsahující $(1, 1, 1, 1)$ a $(2, 3, 1, 4)$. Napište její neparametrické vyjádření.",
+       "app": [
+        "gen:la1-k4-equations",
+        "theorem:la1-k4-t-prevod",
+        "lesson:la1-k4-variety"
+       ]
+      },
+      {
+       "kind": "points-to-equations",
+       "text": "E) (3 body) Uvažujme varietu v $\\mathbb{Z}_5^4$ co nejnižší dimenze obsahující $(1, 1, 1, 1)$ a $(2, 3, 1, 4)$. Napište její parametrické vyjádření.",
+       "app": [
+        "gen:la1-k4-equations",
+        "theorem:la1-k4-t-prevod",
+        "lesson:la1-k4-variety"
+       ]
+      },
+      {
+       "kind": "variety-count",
+       "text": "F) (*3 bonusové body*) Ukažte, kolik existuje různých parametrických vyjádření variety z předchozího bodu.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 4,
+     "n": 4,
+     "points": 22,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (2 bodů) Definujte determinant matice. *Použité pojmy vysvětlovat NEMUSÍTE.*",
+       "app": []
+      },
+      {
+       "kind": "det-sign",
+       "text": "B) (4 body) Uvažujme matici $\\mathbf{B} = \\begin{pmatrix} 11 & 0 & \\sqrt{5} & \\sqrt{7} \\\\ 13 & \\sqrt{2} & 0 & 17 \\\\ \\sqrt{3} & \\sqrt{11} & 0 & \\sqrt{7} \\\\ 7 & 2 & 0 & 1 \\end{pmatrix} \\in \\mathbb{R}^{4,4}.$ Napište nějaký sčítanec z definice determinantu, který je nenulový a má záporné znaménko. Jaké permutaci odpovídá?",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "C) (7 bodů) Čemu se rovná determinant singulární matice? Dokažte své tvrzení.",
+       "app": []
+      },
+      {
+       "kind": "det-rules",
+       "text": "D) (3 body) Mějme $\\mathbf{A} \\in \\mathbb{Z}_5^{2,2}$ splňující $\\det \\mathbf{A} = 3$. Spočítejte, čemu je rovno $\\det(3\\mathbf{A}^T\\mathbf{A})$.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "E) (6 bodů) Mějme regulární matici $\\mathbf{A} \\in \\mathbb{R}^{n,n}$. V jakém vztahu jsou determinanty matic $\\mathbf{A}$ a $\\mathbf{A}^{-1}$? Tvrzení korektně formulujte a dokažte jej.",
+       "app": []
+      },
+      {
+       "kind": "eigen-similar",
+       "text": "F) (*7 bonusových bodů*) Mějme matice $\\mathbf{A}, \\mathbf{B}, \\mathbf{P}$ z $\\mathbb{C}^{n,n}$, kde $\\mathbf{P}$ je regulární matice a platí $\\mathbf{PA} = \\mathbf{BP}$. Nechť dále má $\\mathbf{A}$ vlastní vektor $\\mathbf{x}$ k vlastnímu číslu $\\lambda$. Nalezněte nějaký vlastní vektor matice $\\mathbf{B}$.",
+       "app": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "la1-zk-2026-01-14-eukleides",
+   "name": "Eukleides (14. 1. 2026)",
+   "date": "2026-01-14",
+   "variant": "Eukleides",
+   "format": "2023+",
+   "total": 60,
+   "source": "fit-wiki, BI-LA1, zadané zkouškové testy 2025/26 (prepis obrázka, dva nezávislé prepisy porovnané s obrázkom)",
+   "problems": [
+    {
+     "pos": 1,
+     "n": 1,
+     "points": 7,
+     "parts": [
+      {
+       "kind": "eigen",
+       "text": "Mějme matici $\\mathbf{B} = \\begin{pmatrix} 2 & -3 & 0 \\\\ 0 & 3 & 0 \\\\ 4 & 1 & 2 \\end{pmatrix} \\in \\mathbb{C}^{3,3}.$ Spočítejte vlastní čísla a báze vlastních podprostorů příslušejících vlastním číslům této matice. Dále rozhodněte, jestli je zadaná matice diagonalizovatelná. Pokud ano, nalezněte $\\mathbf{D}, \\mathbf{P} \\in \\mathbb{C}^{3,3}$, $\\mathbf{D}$ diagonální a $\\mathbf{P}$ regulární, takové, že $\\mathbf{DP} = \\mathbf{PB}$. *Případné inverzní matice nemusíte dopočítávat.*",
+       "app": []
+      },
+      {
+       "kind": "diag",
+       "text": "Mějme matici $\\mathbf{B} = \\begin{pmatrix} 2 & -3 & 0 \\\\ 0 & 3 & 0 \\\\ 4 & 1 & 2 \\end{pmatrix} \\in \\mathbb{C}^{3,3}.$ Spočítejte vlastní čísla a báze vlastních podprostorů příslušejících vlastním číslům této matice. Dále rozhodněte, jestli je zadaná matice diagonalizovatelná. Pokud ano, nalezněte $\\mathbf{D}, \\mathbf{P} \\in \\mathbb{C}^{3,3}$, $\\mathbf{D}$ diagonální a $\\mathbf{P}$ regulární, takové, že $\\mathbf{DP} = \\mathbf{PB}$. *Případné inverzní matice nemusíte dopočítávat.*",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 2,
+     "n": 2,
+     "points": 15,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (4 body) Definujte pojmy lineární varieta a dimenze variety.",
+       "app": [
+        "concept:la1-k4-varieta"
+       ]
+      },
+      {
+       "kind": "points-to-equations",
+       "text": "B) (7 bodů) Spočítejte parametrické … rovnice variety v $\\mathbb{Z}_5^4$ co **nejnižší** dimenze, která obsahuje vektory $\\mathbf{x}=(0,1,1,1)$, $\\mathbf{y}=(0,1,2,1)$ a $\\mathbf{z}=(1,0,0,1)$.",
+       "app": [
+        "gen:la1-k4-equations",
+        "theorem:la1-k4-t-prevod",
+        "lesson:la1-k4-variety"
+       ]
+      },
+      {
+       "kind": "points-to-equations",
+       "text": "… a neparametrické rovnice téže variety.",
+       "app": [
+        "gen:la1-k4-equations",
+        "theorem:la1-k4-t-prevod",
+        "lesson:la1-k4-variety"
+       ]
+      },
+      {
+       "kind": "variety-member",
+       "text": "C) (2 body) Napište nějaký vektor, který není obsažen ve vámi spočtené varietě. Zdůvodněte, proč v dané varietě neleží.",
+       "app": [
+        "gen:la1-k4-param",
+        "lesson:la1-k4-variety"
+       ]
+      },
+      {
+       "kind": "variety-member",
+       "text": "D) (2 body) Napište nějaký vektor, který je obsažen ve vámi spočtené varietě a je různý od $\\mathbf{x}$, $\\mathbf{y}$ i $\\mathbf{z}$. Zdůvodněte, proč v dané varietě leží.",
+       "app": [
+        "gen:la1-k4-param",
+        "lesson:la1-k4-variety"
+       ]
+      },
+      {
+       "kind": "variety-count",
+       "text": "E) (*5 bonusových bodů*) Mějme $\\mathbf{x}, \\mathbf{y}, \\mathbf{z}$ jako výše. Určete, kolik celkem existuje různých variet, které tyto tři vektory obsahují.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 3,
+     "n": 3,
+     "points": 18,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (3 body) Definujte hodnost matice.",
+       "app": [
+        "concept:la1-k3-hodnost"
+       ]
+      },
+      {
+       "kind": "matrix-example",
+       "text": "Napište nějakou matici $\\mathbf{A}\\in\\mathbb{Z}_5^{3,3}$, která neobsahuje ani jeden nulový prvek a má hodnost 1.",
+       "app": []
+      },
+      {
+       "kind": "definition",
+       "text": "B) (3 body) Definujte inverzní matici a regulární matici.",
+       "app": [
+        "concept:la1-k3-inverzna"
+       ]
+      },
+      {
+       "kind": "proof",
+       "text": "C) (4 body) Dokažte z definice regulární matice, že součin dvou regulárních matic je opět regulární matice.",
+       "app": [
+        "proof:la1-k3-p-inv-sucin"
+       ]
+      },
+      {
+       "kind": "rank-statement",
+       "text": "D) (2 body) Formulujte korektně tvrzení, které říká, že pokud je splněna nějaká podmínka na hodnost matice, potom je tato matice regulární.",
+       "app": [
+        "theorem:la1-k3-t-regularita",
+        "lesson:la1-k3-regularita"
+       ]
+      },
+      {
+       "kind": "proof",
+       "text": "E) (6 bodů) Dokažte tvrzení z předchozího bodu.",
+       "app": [
+        "proof:la1-k3-p-regularita"
+       ]
+      }
+     ]
+    },
+    {
+     "pos": 4,
+     "n": 4,
+     "points": 20,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (4 body) Napište definici spektra matice a podobnosti matic.",
+       "app": []
+      },
+      {
+       "kind": "definition",
+       "text": "B) (2 body) Napište definici charakteristického polynomu.",
+       "app": []
+      },
+      {
+       "kind": "eigen-statement",
+       "text": "C) (4 body) Formulujte korektně tvrzení o vztahu spektra a charakteristického polynomu.",
+       "app": []
+      },
+      {
+       "kind": "spectrum-size",
+       "text": "D) (3 body) Kolik nejméně prvků může mít spektrum matice $\\mathbf{A} \\in \\mathbb{C}^{4,4}$? Napište příklad takové matice.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "E) (7 bodů) Dokažte, že máme-li dvě podobné matice $\\mathbf{A}$ a $\\mathbf{B}$, potom mají stejné spektrum. *Pokud použijete nějakou vlastnost podobných matic, dokažte i tu.*",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "F) (*5 bonusových bodů*) Uvažujme diagonalizovatelnou matici $\\mathbf{A} \\in \\mathbb{C}^{3,3}$, pro kterou platí $\\sigma(\\mathbf{A}) \\subseteq \\{-1, 1\\}$. Dokažte, že $\\mathbf{A}^2 = \\mathbf{E}$.",
+       "app": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "la1-zk-2025-12-17-frobenius",
+   "name": "Frobenius (17. 12. 2025)",
+   "date": "2025-12-17",
+   "variant": "Frobenius",
+   "format": "2023+",
+   "total": 60,
+   "source": "fit-wiki, BI-LA1, zadané zkouškové testy 2025/26 (prepis obrázka)",
+   "problems": [
+    {
+     "pos": 1,
+     "points": 11,
+     "parts": [
+      {
+       "kind": "eigen",
+       "text": "Spočítejte vlastní čísla matice $G$ s parametrem $a\\in\\mathbb C$.",
+       "app": []
+      },
+      {
+       "kind": "charpoly-at",
+       "text": "Spočítejte $p_G(1)$.",
+       "app": []
+      },
+      {
+       "kind": "diag",
+       "text": "Rozhodněte, pro které hodnoty parametru $a$ je matice $G$ diagonalizovatelná.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 2,
+     "points": 11,
+     "parts": [
+      {
+       "kind": "frobenius-statement",
+       "text": "Napište kompletní znění Frobeniovy věty o řešitelnosti a množině řešení SLR.",
+       "app": [
+        "theorem:la1-k4-t-frobenius",
+        "lesson:la1-k4-frobenius"
+       ]
+      },
+      {
+       "kind": "solve-variety",
+       "text": "S využitím Frobeniovy věty popište množinu řešení soustavy nad $\\mathbb Z_5$. Řešení zapište ve tvaru variety.",
+       "app": [
+        "gen:la1-k4-solve",
+        "lesson:la1-k4-riesenie",
+        "theorem:la1-k4-t-frobenius"
+       ]
+      }
+     ]
+    },
+    {
+     "pos": 3,
+     "points": 17,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "Definujte hodnost matice.",
+       "app": [
+        "concept:la1-k3-hodnost"
+       ]
+      },
+      {
+       "kind": "count-matrices",
+       "text": "Kolik existuje matic v $\\mathbb Z_7^{1,1}$ s hodností 1?",
+       "app": [
+        "gen:la1-k3-count"
+       ]
+      },
+      {
+       "kind": "definition",
+       "text": "Definujte inverzní matici a regulární matici.",
+       "app": [
+        "concept:la1-k3-inverzna"
+       ]
+      },
+      {
+       "kind": "proof",
+       "text": "Dokažte, že pro každou matici existuje nejvýše jedna matice k ní inverzní.",
+       "app": [
+        "proof:la1-k3-p-jednoznacnost"
+       ]
+      },
+      {
+       "kind": "rank-statement",
+       "text": "Formulujte korektně tvrzení, které říká, jakou hodnost mají regulární matice.",
+       "app": [
+        "theorem:la1-k3-t-regularita"
+       ]
+      },
+      {
+       "kind": "proof",
+       "text": "Dokažte tvrzení z předchozího bodu.",
+       "app": [
+        "proof:la1-k3-p-regularita"
+       ]
+      },
+      {
+       "kind": "group-bonus",
+       "text": "Zdůvodněte, proč $\\{A\\in\\mathbb R^{n,n}\\mid\\det A>0\\}$ s maticovým násobením je grupa. (bonus 6 b)",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 4,
+     "points": 21,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "Napište definici vlastního čísla matice, vlastního podprostoru a geometrické násobnosti vlastního čísla.",
+       "app": []
+      },
+      {
+       "kind": "eigen-statement",
+       "text": "Formulujte korektně tvrzení o vztahu geometrické a algebraické násobnosti vlastního čísla.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "Dokažte, že soubor $(\\mathbf x,\\mathbf y,\\mathbf w)$ vlastních vektorů je lineárně nezávislý.",
+       "app": []
+      },
+      {
+       "kind": "zero-matrix",
+       "text": "Jaká vlastní čísla a vlastní vektory má nulová matice $\\Theta\\in\\mathbb C^{7,7}$?",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "Je-li $(\\mathbf x,\\mathbf y,\\mathbf z)$ LZ, ukažte, že $(A\\mathbf x,A\\mathbf y,A\\mathbf z)$ je LZ. (bonus 4 b)",
+       "app": [
+        "proof:la1-k3-p-obraz-lz"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "la1-zk-2025-01-27-mobius",
+   "name": "Möbius (27. 1. 2025)",
+   "date": "2025-01-27",
+   "variant": "Möbius",
+   "format": "2023+",
+   "total": 60,
+   "source": "fit-wiki, BI-LA1, zadané zkouškové testy 2024/25 (prepis obrázka, dva nezávislé prepisy porovnané s obrázkom)",
+   "problems": [
+    {
+     "pos": 2,
+     "n": 1,
+     "points": 12,
+     "parts": [
+      {
+       "kind": "points-to-equations",
+       "text": "A) (7 bodů) Najděte parametrické a neparametrické rovnice variety $W$ s co nejnižší dimenzí v $\\mathbb{R}^5$, která obsahuje vektory $\\mathbf{x}=(1,0,1,1,1)$ a $\\mathbf{y}=(2,1,1,0,1)$.",
+       "app": [
+        "gen:la1-k4-equations",
+        "theorem:la1-k4-t-prevod",
+        "lesson:la1-k4-variety"
+       ]
+      },
+      {
+       "kind": "points-to-equations",
+       "text": "Jakou má varieta $W$ dimenzi?",
+       "app": [
+        "gen:la1-k4-param",
+        "lesson:la1-k4-variety"
+       ]
+      },
+      {
+       "kind": "variety-member",
+       "text": "B) (2 body) Napište nějaký vektor různý od $\\mathbf{x}$ a $\\mathbf{y}$, který náleží varietě $W$. *Zdůvodněte, proč tomu tak je.*",
+       "app": [
+        "gen:la1-k4-param",
+        "lesson:la1-k4-variety"
+       ]
+      },
+      {
+       "kind": "variety-member",
+       "text": "C) (3 body) Napište nějaké dva různé vektory, které **nenáleží** varietě $W$. *Zdůvodněte, proč tomu tak je.*",
+       "app": [
+        "gen:la1-k4-param",
+        "lesson:la1-k4-variety"
+       ]
+      }
+     ]
+    },
+    {
+     "pos": 1,
+     "n": 2,
+     "points": 13,
+     "parts": [
+      {
+       "kind": "det-compute",
+       "text": "A) (5 bodů) Spočítejte determinant následující matice: $\\mathbf{G} = \\begin{pmatrix} 1 & 1 & 0 & 2 \\\\ -4 & 0 & 2 & 0 \\\\ 0 & -2 & 1 & -1 \\\\ 2 & 1 & -1 & 2 \\end{pmatrix} \\in \\mathbb{C}^{4,4}.$",
+       "app": []
+      },
+      {
+       "kind": "det-rules",
+       "text": "B) (2 body) Rozhodněte, zda je matice $\\mathbf{G}$ regulární, tj. napište, proč je/není tato matice regulární.",
+       "app": []
+      },
+      {
+       "kind": "det-rules",
+       "text": "C) (2 body) Čemu je rovno $\\det(4\\mathbf{G}^3)$?",
+       "app": []
+      },
+      {
+       "kind": "is-eigenvector",
+       "text": "D) (4 body) Je některý z následujících vektorů vlastním vektorem k nějakému vlastní číslu matice $\\mathbf{G}$? $\\mathbf{z} = (1, 0, 2, 0) \\quad \\text{a} \\quad \\mathbf{x} = (1, 1, -1, 0).$",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 3,
+     "n": 3,
+     "points": 14,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (4 body) Definujte hodnost matice.",
+       "app": [
+        "concept:la1-k3-hodnost"
+       ]
+      },
+      {
+       "kind": "matrices-list",
+       "text": "Vypište všechny singulární matice ze $\\mathbb{Z}_2^{2,2}$.",
+       "app": []
+      },
+      {
+       "kind": "rank-statement",
+       "text": "B) (6 bodů) Formulujte korektně tvrzení: „*Regulární matice má maximální možnou hodnost.*“ …",
+       "app": [
+        "theorem:la1-k3-t-regularita",
+        "lesson:la1-k3-regularita"
+       ]
+      },
+      {
+       "kind": "proof",
+       "text": "… a dokažte jej.",
+       "app": [
+        "proof:la1-k3-p-regularita"
+       ]
+      },
+      {
+       "kind": "matrix-for-lc",
+       "text": "C) (4 body) Máme matici $\\mathbf{H} = \\begin{pmatrix} 1 & 2 & 1 \\\\ 0 & 0 & 2 \\end{pmatrix} \\in \\mathbb{R}^{3,3}.$ Napište nějakou matici $\\mathbf{A}$ takovou, že po součinu těchto dvou matic vznikne matice, jejíž druhý řádek bude $\\begin{pmatrix} 2 & 1 \\end{pmatrix}$. Jaké má matice $\\mathbf{A}$ rozměry? Jakých rozměrů bude výsledný součin? V jakém pořadí je potřeba matice při součinu násobit?",
+       "app": [
+        "gen:la1-k3-product",
+        "lesson:la1-k3-nasobenie"
+       ]
+      },
+      {
+       "kind": "proof",
+       "text": "D) (*3 bonusových bodů*) Mějme matici $\\mathbf{A}$ z $T^{n,n}$ a $\\mathbf{x}, \\mathbf{y}, \\mathbf{z} \\in T^n$. Ukažte, že je-li soubor $(\\mathbf{x}, \\mathbf{y}, \\mathbf{z})$ LZ, potom je soubor $(\\mathbf{Ax}, \\mathbf{Ay}, \\mathbf{Az})$ LZ.",
+       "app": [
+        "proof:la1-k3-p-obraz-lz"
+       ]
+      }
+     ]
+    },
+    {
+     "pos": 4,
+     "n": 4,
+     "points": 21,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (6 bodů) Napište definici vlastního čísla matice, charakteristického polynomu a algebraické násobnosti.",
+       "app": []
+      },
+      {
+       "kind": "eigen-statement",
+       "text": "B) (4 body) Formulujte korektně co nejsilnější tvrzení o vztahu vlastních čísel a charakteristického polynomu.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "C) (7 bodů) Mějme matici $\\mathbf{B} \\in \\mathbb{C}^{n,n}$, o které víme, že báze vlastního podprostoru k vlastnímu číslu 3 je $(\\mathbf{x}, \\mathbf{y})$ a že má vlastní číslo 4 s vlastním vektorem $\\mathbf{w}$. Dokažte, že soubor $(\\mathbf{x}, \\mathbf{y}, \\mathbf{w})$ je lineárně nezávislý. *Hint: Můžete využít myšlenku z důkazu Lemmatu o lineární nezávislosti souboru vlastních vektorů k různým vlastním číslům.*",
+       "app": []
+      },
+      {
+       "kind": "zero-matrix",
+       "text": "D) (4 body) Uvažujme $\\Theta \\in \\mathbb{C}^{6,6}$ (tj. nulovou matici). Jaká má tato matice vlastní čísla? A jaké jsou **všechny** k nim příslušné vlastní vektory?",
+       "app": []
+      },
+      {
+       "kind": "transposed-eigen",
+       "text": "E) (*7 bonusových bodů*) Mějme diagonalizovatelnou matici $\\mathbf{A} \\in \\mathbb{C}^{3,3}$ s vlastními čísly $\\lambda_1$ s vlastním vektorem $(1, 1, 1)$, $\\lambda_2$ s $(-1, 1, 0)$, $\\lambda_3$ s $(1, 0, 1)$. Jaká vlastní čísla a jaké vlastní vektory bude mít $\\mathbf{A}^T$?",
+       "app": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "la1-zk-2025-01-15-bolzano",
+   "name": "Bolzano (15. 1. 2025)",
+   "date": "2025-01-15",
+   "variant": "Bolzano",
+   "format": "2023+",
+   "total": 60,
+   "source": "fit-wiki, BI-LA1, zadané zkouškové testy 2024/25 (prepis obrázka, dva nezávislé prepisy porovnané s obrázkom)",
+   "problems": [
+    {
+     "pos": 1,
+     "n": 1,
+     "points": 13,
+     "parts": [
+      {
+       "kind": "eigen",
+       "text": "Uvažujme matici $\\mathbf{B} = \\begin{pmatrix} 1 & -1 & -1 & 2 \\\\ -2 & 0 & -2 & 4 \\\\ -1 & -1 & 1 & 2 \\\\ -3 & -3 & -3 & 8 \\end{pmatrix} \\in \\mathbb{C}^{4,4},$ která má spektrum $\\sigma(\\mathbf{B}) = \\{2, 4\\}$. A) Nalezněte báze vlastních podprostorů příslušejících vlastním číslům této matice a geometrické násobnosti vlastních čísel.",
+       "app": []
+      },
+      {
+       "kind": "diag",
+       "text": "B) Dále rozhodněte, jestli je daná matice diagonalizovatelná.",
+       "app": []
+      },
+      {
+       "kind": "diag",
+       "text": "C) Pokud ano, nalezněte diagonální matici, které je $\\mathbf{B}$ podobná, a napište vztah podobnosti a identifikujte matice v tomto vztahu. *Případné inverzní matice nemusíte dopočítávat.*",
+       "app": []
+      },
+      {
+       "kind": "alg-mult",
+       "text": "D) Bez spočítání charakteristického polynomu zdůvodněte, čemu jsou rovny algebraické násobnosti vlastních čísel matice $\\mathbf{B}$.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 2,
+     "n": 2,
+     "points": 10,
+     "parts": [
+      {
+       "kind": "det-compute",
+       "text": "Uvažujme matici $\\mathbf{A}$ s parametrem $a \\in \\mathbb{R}$: $\\mathbf{A} = \\begin{pmatrix} 1+a & -1 & -2+a \\\\ -2 & 1 & 1 \\\\ -1-a & 0 & 2 \\end{pmatrix} \\in \\mathbb{R}^{3,3}.$ A) (3 body) Spočtěte determinant matice $\\mathbf{A}$.",
+       "app": []
+      },
+      {
+       "kind": "rank-param",
+       "text": "B) (2 body) Určete, pro které hodnoty parametru $a$ je matice $\\mathbf{A}$ regulární.",
+       "app": [
+        "gen:la1-k3-rank-param",
+        "lesson:la1-k3-regularita"
+       ]
+      },
+      {
+       "kind": "inverse",
+       "text": "C) (3 body) Spočtěte inverzní matici k $\\mathbf{A}$ pro hodnotu $a = -2$.",
+       "app": [
+        "gen:la1-k3-inverse",
+        "lesson:la1-k3-regularita"
+       ]
+      },
+      {
+       "kind": "det-rules",
+       "text": "D) (2 body) Spočtěte, čemu se rovná $\\det(2\\,\\mathbf{A}^3)$ pro hodnotu $a = 0$.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 3,
+     "n": 3,
+     "points": 21,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (5 bodů) Definujte hodnost matice …",
+       "app": [
+        "concept:la1-k3-hodnost"
+       ]
+      },
+      {
+       "kind": "definition",
+       "text": "… a regulární matici. *Pokud v definici regulární matice použijete nějaký pojem definovaný ve stejné kapitole, definujte i jej.*",
+       "app": [
+        "concept:la1-k3-inverzna"
+       ]
+      },
+      {
+       "kind": "matrix-for-lc",
+       "text": "B) (4 body) Máme matici $\\mathbf{A} \\in \\mathbb{R}^{2,3}$. Napište matici $\\mathbf{B}$ takovou, že součinem těchto dvou matic (ve vhodném pořadí) vznikne matice, která má v prvním sloupci součet sloupců matice $\\mathbf{A}$, ve druhém sloupci je nulový vektor a ve třetím sloupci je čtyřnásobek druhého sloupce matice $\\mathbf{A}$. Jaké má matice $\\mathbf{B}$ rozměry? V jakém pořadí je potřeba matice při součinu násobit?",
+       "app": [
+        "gen:la1-k3-product",
+        "lesson:la1-k3-nasobenie"
+       ]
+      },
+      {
+       "kind": "rank-statement",
+       "text": "C) (8 bodů) Formulujte korektně tvrzení: „Matice s plnou (maximální možnou) hodností je regulární.“",
+       "app": [
+        "theorem:la1-k3-t-regularita",
+        "lesson:la1-k3-regularita"
+       ]
+      },
+      {
+       "kind": "proof",
+       "text": "Toto tvrzení dokažte.",
+       "app": [
+        "proof:la1-k3-p-regularita"
+       ]
+      },
+      {
+       "kind": "statement-judge",
+       "text": "D) (4 body) Rozhodněte o pravdivosti tvrzení: „Je-li matice $\\mathbf{AB}$ singulární, potom jsou matice $\\mathbf{A}$ a $\\mathbf{B}$ singulární.“ *Tj. buď dokažte tvrzení, nebo vyvraťte tvrzení protipříkladem.*",
+       "app": []
+      },
+      {
+       "kind": "count-bonus",
+       "text": "E) (*6 bonusových bodů*) Určete, kolik existuje různých regulárních matic $\\mathbf{G} \\in \\mathbb{Z}_7^{3,3}$ takových, že $g_{11} = 0$.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 4,
+     "n": 4,
+     "points": 16,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (4 body) Napište definici vlastního čísla matice a vlastního podprostoru příslušejícího vlastnímu číslu.",
+       "app": []
+      },
+      {
+       "kind": "eigen-statement",
+       "text": "B) (4 body) Formulujte korektně tvrzení o vztahu geometrické a algebraické násobnosti vlastního čísla včetně toho, jakých hodnot mohou nabývat.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "C) (8 bodů) Dokažte, že máme-li dvě podobné matice $\\mathbf{A}$ a $\\mathbf{B}$ a číslo $\\lambda \\in \\mathbb{C}$, které je vlastním číslem pro matici $\\mathbf{A}$ i $\\mathbf{B}$, potom je geometrická násobnost $\\lambda$ stejná vůči oběma maticím. *Pokud použijete nějakou vlastnost podobných matic, tak dokažte i tu.*",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "D) (*4 bonusové body*) Mějme $\\mathbf{A} \\in \\mathbb{C}^{n,n}$ a LZ soubor $(\\mathbf{x}, \\mathbf{y}, \\mathbf{z})$ vektorů z $\\mathbb{C}^n$. Ukažte, že soubor $(\\mathbf{Ax}, \\mathbf{Ay}, \\mathbf{Az})$ je LZ.",
+       "app": [
+        "proof:la1-k3-p-obraz-lz"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "la1-zk-2025-01-15-kurzweil",
+   "name": "Kurzweil (15. 1. 2025)",
+   "date": "2025-01-15",
+   "variant": "Kurzweil",
+   "format": "2023+",
+   "total": 60,
+   "source": "fit-wiki, BI-LA1, zadané zkouškové testy 2024/25 (prepis obrázka, dva nezávislé prepisy porovnané s obrázkom)",
+   "problems": [
+    {
+     "pos": 1,
+     "n": 1,
+     "points": 11,
+     "parts": [
+      {
+       "kind": "eigen",
+       "text": "Mějme matici $\\mathbf{H} = \\begin{pmatrix} 1 & -1 & -1 \\\\ -2 & 0 & -2 \\\\ -1 & -1 & 1 \\end{pmatrix} \\in \\mathbb{C}^{3,3},$ která má spektrum $\\sigma(\\mathbf{H}) = \\{-2, 2\\}$. A) Nalezněte báze vlastních podprostorů příslušejících vlastním číslům této matice a geometrické násobnosti vlastních čísel.",
+       "app": []
+      },
+      {
+       "kind": "diag",
+       "text": "B) Dále rozhodněte, zda je zadaná matice diagonalizovatelná.",
+       "app": []
+      },
+      {
+       "kind": "diag",
+       "text": "C) Pokud ano, nalezněte diagonální matici, které je $\\mathbf{H}$ podobná, a napište vztah podobnosti a identifikujte matice v tomto vztahu. *Případné inverzní matice nemusíte dopočítávat.*",
+       "app": []
+      },
+      {
+       "kind": "alg-mult",
+       "text": "D) Bez spočítání charakteristického polynomu zdůvodněte, čemu jsou rovny algebraické násobnosti vlastních čísel matice $\\mathbf{H}$.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 2,
+     "n": 2,
+     "points": 13,
+     "parts": [
+      {
+       "kind": "det-compute",
+       "text": "Uvažujme matici $\\mathbf{A}$ s parametrem $a \\in \\mathbb{R}$: $\\mathbf{A} = \\begin{pmatrix} 1+a & -1 & -2+a & 1 \\\\ -2 & 1 & 1 & -1 \\\\ -1-a & 0 & 2 & 1 \\\\ 1 & 0 & 2 & 1 \\end{pmatrix} \\in \\mathbb{R}^{4,4}.$ A) (5 bodů) Spočtěte determinant matice $\\mathbf{A}$.",
+       "app": []
+      },
+      {
+       "kind": "rank-param",
+       "text": "B) (2 body) Určete, pro které hodnoty parametru $a$ je matice $\\mathbf{A}$ regulární.",
+       "app": [
+        "gen:la1-k3-rank-param",
+        "lesson:la1-k3-regularita"
+       ]
+      },
+      {
+       "kind": "inverse",
+       "text": "C) (4 body) Spočtěte inverzní matici k $\\mathbf{A}$ pro hodnotu $a = -2$.",
+       "app": [
+        "gen:la1-k3-inverse",
+        "lesson:la1-k3-regularita"
+       ],
+       "note": "na hárku je $a=-2$ prečiarknuté a rukou opravené na $a=-1$; pre $a=-2$ je $\\det\\mathbf{A}=0$ a inverzia neexistuje"
+      },
+      {
+       "kind": "det-rules",
+       "text": "D) (2 body) Spočtěte, čemu se rovná $\\det(3\\,\\mathbf{A}^{-1})$ pro hodnotu $a = 0$.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 3,
+     "n": 3,
+     "points": 19,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (5 bodů) Definujte hodnost matice …",
+       "app": [
+        "concept:la1-k3-hodnost"
+       ]
+      },
+      {
+       "kind": "definition",
+       "text": "… a regulární matici. *Pokud v definici regulární matice použijete nějaký pojem definovaný ve stejné kapitole, definujte i jej.*",
+       "app": [
+        "concept:la1-k3-inverzna"
+       ]
+      },
+      {
+       "kind": "matrix-for-lc",
+       "text": "B) (4 body) Máme matici $\\mathbf{A} \\in \\mathbb{R}^{3,2}$. Napište matici $\\mathbf{B}$ takovou, že součinem těchto dvou matic (ve vhodném pořadí) vznikne matice, která má v prvním řádku součet řádků matice $\\mathbf{A}$, ve druhém řádku jsou jenom nuly a ve třetím řádku je čtyřnásobek druhého řádku matice $\\mathbf{A}$. Jaké má matice $\\mathbf{B}$ rozměry? V jakém pořadí je potřeba matice při součinu násobit?",
+       "app": [
+        "gen:la1-k3-product",
+        "lesson:la1-k3-nasobenie"
+       ]
+      },
+      {
+       "kind": "rank-statement",
+       "text": "C) (6 bodů) Formulujte korektně tvrzení: „Regulární matice má plnou (maximální možnou) hodnost.“",
+       "app": [
+        "theorem:la1-k3-t-regularita",
+        "lesson:la1-k3-regularita"
+       ]
+      },
+      {
+       "kind": "proof",
+       "text": "Toto tvrzení dokažte.",
+       "app": [
+        "proof:la1-k3-p-regularita"
+       ]
+      },
+      {
+       "kind": "statement-judge",
+       "text": "D) (4 body) Rozhodněte o pravdivosti tvrzení: „Je-li matice $\\mathbf{AB}$ singulární, potom je $\\mathbf{A}$ nebo $\\mathbf{B}$ singulární matice.“ *Tj. buď dokažte tvrzení, nebo vyvraťte tvrzení protipříkladem.*",
+       "app": []
+      },
+      {
+       "kind": "count-bonus",
+       "text": "E) (*6 bonusových bodů*) Určete, kolik existuje různých regulárních matic $\\mathbf{B} \\in \\mathbb{Z}_7^{3,3}$ takových, že $b_{11} \\neq 0$.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 4,
+     "n": 4,
+     "points": 17,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (4 body) Napište definici vlastního čísla matice a charakteristického polynomu matice.",
+       "app": []
+      },
+      {
+       "kind": "eigen-statement",
+       "text": "B) (4 body) Formulujte korektně co nejsilnější tvrzení o vztahu vlastních čísel a charakteristického polynomu.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "C) (6 bodů) Dokažte tvrzení z bodu B).",
+       "app": []
+      },
+      {
+       "kind": "charpoly-facts",
+       "text": "D) (3 body) Matice $\\mathbf{A}$ má charakteristický polynom $-\\lambda^5 + 2\\lambda - 4$. Jaké jsou rozměry matice $\\mathbf{A}$? Čemu je roven $\\det \\mathbf{A}$?",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "E) (*4 bonusové body*) Mějme $\\mathbf{A} \\in \\mathbb{C}^{n,n}$ a LZ soubor $(\\mathbf{x}, \\mathbf{y}, \\mathbf{z})$ vektorů z $\\mathbb{C}^n$. Ukažte, že soubor $(\\mathbf{Ax}, \\mathbf{Ay}, \\mathbf{Az})$ je LZ.",
+       "app": [
+        "proof:la1-k3-p-obraz-lz"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "la1-zk-2025-01-06-dirichlet",
+   "name": "Dirichlet (6. 1. 2025)",
+   "date": "2025-01-06",
+   "variant": "Dirichlet",
+   "format": "2023+",
+   "total": 60,
+   "source": "fit-wiki, BI-LA1, zadané zkouškové testy 2024/25 (prepis obrázka, dva nezávislé prepisy porovnané s obrázkom)",
+   "problems": [
+    {
+     "pos": 1,
+     "n": 1,
+     "points": 8,
+     "parts": [
+      {
+       "kind": "eigen",
+       "text": "Uvažujme matici $\\mathbf{B} = \\begin{pmatrix} 2 & 0 & -4 \\\\ -3 & 2 & -1 \\\\ 0 & 0 & -2 \\end{pmatrix} \\in \\mathbb{C}^{3,3}.$ Spočítejte vlastní čísla a báze vlastních podprostorů příslušejících vlastním číslům této matice. Dále rozhodněte, jestli je tato matice diagonalizovatelná. Pokud ano, nalezněte $\\mathbf{D}, \\mathbf{Q} \\in \\mathbb{C}^{3,3}$, $\\mathbf{D}$ diagonální a $\\mathbf{Q}$ regulární, takové, že $\\mathbf{DQ} = \\mathbf{QB}$. *Případné inverzní matice nemusíte dopočítávat.*",
+       "app": []
+      },
+      {
+       "kind": "diag",
+       "text": "Uvažujme matici $\\mathbf{B} = \\begin{pmatrix} 2 & 0 & -4 \\\\ -3 & 2 & -1 \\\\ 0 & 0 & -2 \\end{pmatrix} \\in \\mathbb{C}^{3,3}.$ Spočítejte vlastní čísla a báze vlastních podprostorů příslušejících vlastním číslům této matice. Dále rozhodněte, jestli je tato matice diagonalizovatelná. Pokud ano, nalezněte $\\mathbf{D}, \\mathbf{Q} \\in \\mathbb{C}^{3,3}$, $\\mathbf{D}$ diagonální a $\\mathbf{Q}$ regulární, takové, že $\\mathbf{DQ} = \\mathbf{QB}$. *Případné inverzní matice nemusíte dopočítávat.*",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 2,
+     "n": 2,
+     "points": 15,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (4 body) Definujte pojmy varieta a dimenze variety.",
+       "app": [
+        "concept:la1-k4-varieta"
+       ]
+      },
+      {
+       "kind": "points-to-equations",
+       "text": "B) (7 bodů) Spočítejte parametrické … rovnice variety v $\\mathbb{Z}_5^4$ co **nejnižší** dimenze, která obsahuje vektory $\\mathbf{x}=(0,1,1,1)$ a $\\mathbf{y}=(1,0,0,1)$.",
+       "app": [
+        "gen:la1-k4-equations",
+        "theorem:la1-k4-t-prevod",
+        "lesson:la1-k4-variety"
+       ]
+      },
+      {
+       "kind": "points-to-equations",
+       "text": "… a neparametrické rovnice téže variety.",
+       "app": [
+        "gen:la1-k4-equations",
+        "theorem:la1-k4-t-prevod",
+        "lesson:la1-k4-variety"
+       ]
+      },
+      {
+       "kind": "points-to-equations",
+       "text": "C) (2 body) Napište parametrické rovnice variety v $\\mathbb{Z}_5^4$ co **nejvyšší** dimenze, která obsahuje vektory $\\mathbf{x}, \\mathbf{y}$ z předchozího bodu.",
+       "app": [
+        "gen:la1-k4-equations",
+        "theorem:la1-k4-t-prevod",
+        "lesson:la1-k4-variety"
+       ]
+      },
+      {
+       "kind": "points-to-equations",
+       "text": "D) (2 body) Napište neparametrické rovnice variety v $\\mathbb{Z}_5^4$ co **nejnižší** dimenze, která **neobsahuje** vektory $\\mathbf{x}, \\mathbf{y}$ výše.",
+       "app": [
+        "gen:la1-k4-equations",
+        "theorem:la1-k4-t-prevod",
+        "lesson:la1-k4-variety"
+       ]
+      }
+     ]
+    },
+    {
+     "pos": 3,
+     "n": 3,
+     "points": 16,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (6 bodů) Definujte pojem determinant matice a vysvětlete všechny pojmy v definici použité.",
+       "app": []
+      },
+      {
+       "kind": "det-sign",
+       "text": "B) (4 body) Uvažujme matici $\\mathbf{B} = \\begin{pmatrix} a & b & c & d \\\\ e & f & g & h \\\\ i & j & k & l \\\\ m & n & o & p \\end{pmatrix} \\in \\mathbb{R}^{4,4}.$ Která permutace odpovídá součinu $d \\cdot f \\cdot k \\cdot m$? Jaké má znaménko? Napište ještě nějaký jeden sčítanec, který má opačné znaménko. Které permutaci odpovídá?",
+       "app": []
+      },
+      {
+       "kind": "det-rules",
+       "text": "C) (2 body) Mějme $\\mathbf{A} \\in \\mathbb{Z}_5^{2,2}$ splňující $\\det \\mathbf{A} = 3$. Spočítejte, čemu je rovno $\\det(2\\mathbf{A}^T)$.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "D) (4 body) Mějme regulární matici $\\mathbf{A} \\in \\mathbb{R}^{n,n}$. V jakém vztahu jsou determinanty matic $\\mathbf{A}$ a $\\mathbf{A}^{-1}$? Tvrzení korektně formulujte a dokažte jej.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "E) (*4 bonusové body*) Zdůvodněte, proč množina $M_n = \\{\\mathbf{A} \\in \\mathbb{R}^{n,n} \\mid \\det \\mathbf{A} > 0\\}$ spolu s operací $\\cdot$ (maticové násobení) je grupou.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 4,
+     "n": 4,
+     "points": 21,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (4 body) Napište definici vlastního čísla matice a charakteristického polynomu matice.",
+       "app": []
+      },
+      {
+       "kind": "eigen-statement",
+       "text": "B) (4 body) Formulujte korektně tvrzení o vztahu vlastních čísel a charakteristického polynomu.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "C) (6 bodů) Dokažte své tvrzení z bodu B).",
+       "app": []
+      },
+      {
+       "kind": "definition",
+       "text": "D) (2 body) Formulujte, co je to diagonalizovatelná matice.",
+       "app": []
+      },
+      {
+       "kind": "power",
+       "text": "E) (5 bodů) Popište, jak se dá využít diagonalizovatelnost matice $\\mathbf{A}$ k výpočtu $\\mathbf{A}^k$, kde $k \\in \\mathbb{N}$.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "F) (*6 bonusových bodů*) Uvažujme matici $\\mathbf{A} \\in \\mathbb{C}^{4,4}$ splňující $\\sigma(\\mathbf{A}) = \\{2, 4\\}$ a $\\nu_g(2) = 1$ a $\\nu_g(4) = 3$. Dokažte, že existuje báze $\\mathbb{C}^4$ složená z vlastních vektorů matice $\\mathbf{A}$. *Dokažte přímo, bez využití diagonalizovatelnosti matice $\\mathbf{A}$.*",
+       "app": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "la1-zk-2024-12-19-riemann",
+   "name": "Riemann (19. 12. 2024)",
+   "date": "2024-12-19",
+   "variant": "Riemann",
+   "format": "2023+",
+   "total": 60,
+   "source": "fit-wiki, BI-LA1, zadané zkouškové testy 2024/25 (prepis obrázka, dva nezávislé prepisy porovnané s obrázkom)",
+   "problems": [
+    {
+     "pos": 1,
+     "n": 1,
+     "points": 10,
+     "parts": [
+      {
+       "kind": "eigen",
+       "text": "Uvažujme matici $\\mathbf{A} = \\begin{pmatrix} 1 & 1 & 0 & 0 \\\\ 2 & 2 & 0 & 1 \\\\ -3 & 0 & -1 & 0 \\\\ 0 & 0 & 0 & 0 \\end{pmatrix} \\in \\mathbb{C}^{4,4}.$ [N]alezněte vlastní čísla a báze vlastních podprostorů příslušejících vlastním číslům této matice. Rozhodněte, zdali [j]e zadaná matice $\\mathbf{A}$ diagonalizovatelná. [P]okud je tato matice diagonalizovatelná, napište, jaké diagonální matici je podobná a jaký „vztah podobnosti“ [p]ro tuto matici platí. Dále určete další matice v tomto vztahu. Případné inverze nemusíte dopočítávat.",
+       "app": []
+      },
+      {
+       "kind": "diag",
+       "text": "Uvažujme matici $\\mathbf{A} = \\begin{pmatrix} 1 & 1 & 0 & 0 \\\\ 2 & 2 & 0 & 1 \\\\ -3 & 0 & -1 & 0 \\\\ 0 & 0 & 0 & 0 \\end{pmatrix} \\in \\mathbb{C}^{4,4}.$ [N]alezněte vlastní čísla a báze vlastních podprostorů příslušejících vlastním číslům této matice. Rozhodněte, zdali [j]e zadaná matice $\\mathbf{A}$ diagonalizovatelná. [P]okud je tato matice diagonalizovatelná, napište, jaké diagonální matici je podobná a jaký „vztah podobnosti“ [p]ro tuto matici platí. Dále určete další matice v tomto vztahu. Případné inverze nemusíte dopočítávat.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 2,
+     "n": 2,
+     "points": 16,
+     "parts": [
+      {
+       "kind": "rank-param",
+       "text": "A) (4 body) Spočítejte hodnost následující rozšířené matice v závislosti na parametru $a \\in \\mathbb{Z}_7$: $\\mathbf{H} = \\left(\\begin{array}{cccc|c} a+2 & 0 & 2 & 0 & 6 \\\\ 0 & (a+1)(a+2) & 2a+5 & a+2 & 2a \\\\ 0 & 0 & a & 0 & 3a \\end{array}\\right) \\in \\mathbb{Z}_7^{3,5}.$",
+       "app": [
+        "gen:la1-k3-rank-param",
+        "lesson:la1-k3-regularita"
+       ]
+      },
+      {
+       "kind": "frobenius-statement",
+       "text": "B) (4 body) Napište kompletní znění Frobeniovy věty o řešitelnosti a množině řešení soustavy lin. rovnic.",
+       "app": [
+        "theorem:la1-k4-t-frobenius",
+        "lesson:la1-k4-frobenius"
+       ]
+      },
+      {
+       "kind": "frobenius-param",
+       "text": "C) (4 body) Pomocí Frobeniovy věty rozhodněte v závislosti na parametru $a \\in \\mathbb{Z}_7$, zda existuje řešení soustavy zadané rozšířenou maticí $\\mathbf{H}$ výše. Určete, jaká je dimenze případné množiny všech řešení. Samotnou množinu řešení počítat nemusíte.",
+       "app": [
+        "theorem:la1-k4-t-frobenius",
+        "lesson:la1-k4-frobenius"
+       ]
+      },
+      {
+       "kind": "solve-variety",
+       "text": "D) (4 body) Vyřešte soustavu pro $a = 0$.",
+       "app": [
+        "gen:la1-k4-solve",
+        "lesson:la1-k4-riesenie",
+        "theorem:la1-k4-t-frobenius"
+       ]
+      },
+      {
+       "kind": "count-rhs",
+       "text": "E) (*4 bonusové body*) Mějme danou matici $\\mathbf{A} \\in \\mathbb{Z}_7^{5,6}$ splňující $h(\\mathbf{A}) = 4$. Pro kolik pravých stran $\\mathbf{b}$ má rovnice $\\mathbf{Ax} = \\mathbf{b}$ řešení? Zdůvodněte svou odpověď.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 3,
+     "n": 3,
+     "points": 15,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (3 body) Definujte pojmy lineární varieta a dimenze lineární variety.",
+       "app": [
+        "concept:la1-k4-varieta"
+       ]
+      },
+      {
+       "kind": "proof",
+       "text": "B) (3 body) Dokažte přímo, že pro každou varietu dimenze 0 existuje soustava lineárních rovnic taková, že daná varieta je jejím řešením.",
+       "app": [
+        "proof:la1-k4-p-varieta-slr"
+       ]
+      },
+      {
+       "kind": "proof",
+       "text": "C) (5 bodů) Dokažte, že pro každý netriviální podprostor existuje soustava lineárních rovnic taková, že daný podprostor je jejím řešením.",
+       "app": [
+        "proof:la1-k4-p-podpriestor-slr",
+        "gen:la1-k4-sustava"
+       ]
+      },
+      {
+       "kind": "points-to-equations",
+       "text": "D) (4 body) Napište parametrické a neparametrické vyjádření variety s co nejvyšší dimenzí, která obsahuje vektory $(1,0,1,0),(0,1,2,0)$ ze $\\mathbb{Z}_5^4$.",
+       "app": [
+        "gen:la1-k4-equations",
+        "theorem:la1-k4-t-prevod",
+        "lesson:la1-k4-variety"
+       ]
+      },
+      {
+       "kind": "points-to-equations",
+       "text": "Jakou má vaše varieta dimenzi?",
+       "app": [
+        "gen:la1-k4-param",
+        "lesson:la1-k4-variety"
+       ]
+      }
+     ]
+    },
+    {
+     "pos": 4,
+     "n": 4,
+     "points": 19,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (4 body) Napište definici hodnosti matice …",
+       "app": [
+        "concept:la1-k3-hodnost"
+       ]
+      },
+      {
+       "kind": "definition",
+       "text": "… a podobnosti matic.",
+       "app": []
+      },
+      {
+       "kind": "singular-rank",
+       "text": "B) (4 body) Singulární matice $\\mathbf{A}\\in T^{n,n}$ má hodnost 6. Jaké jsou minimální rozměry matice $\\mathbf{A}$?",
+       "app": []
+      },
+      {
+       "kind": "singular-rank",
+       "text": "Čemu je rovno $\\det\\mathbf{A}$?",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "C) (7 bodů) Dokažte, že máme-li dvě podobné matice $\\mathbf{A}$ a $\\mathbf{B}$, potom mají stejný determinant. *Pokud použijete nějakou vlastnost podobných matic, dokažte i tu.*",
+       "app": []
+      },
+      {
+       "kind": "rank-statement",
+       "text": "D) (4 body) Formulujte korektně tvrzení o odhadu hodnosti součinu matic, pokud je jedna z nich regulární.",
+       "app": [
+        "theorem:la1-k3-t-regularna-hodnost",
+        "lesson:la1-k3-regularita"
+       ]
+      },
+      {
+       "kind": "count-matrices",
+       "text": "E) (*6 bonusových bodů*) Spočtěte, kolik existuje matic ze $\\mathbb{Z}_5^{3,3}$, které mají hodnost 2.",
+       "app": [
+        "gen:la1-k3-count"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "la1-zk-2024-02-07-tarski",
+   "name": "Tarski (7. 2. 2024)",
+   "date": "2024-02-07",
+   "variant": "Tarski",
+   "format": "2023+",
+   "total": 60,
+   "source": "fit-wiki, BI-LA1, zadané zkouškové testy 2023/24 (prepis obrázka, dva nezávislé prepisy porovnané s obrázkom)",
+   "problems": [
+    {
+     "pos": 1,
+     "n": 1,
+     "points": 9,
+     "parts": [
+      {
+       "kind": "eigen",
+       "text": "A) (9 bodů) Uvažujme matici $\\mathbf{A} = \\begin{pmatrix} 4 & -9 & 6 & 12 \\\\ 0 & -1 & 4 & 6 \\\\ 2 & -11 & 8 & 16 \\\\ -1 & 3 & 0 & -1 \\end{pmatrix} \\in \\mathbb{C}^{3,3}.$ Spočítejte vlastní čísla a báze vlastních podprostorů příslušejících vlastním číslům této matice. Rozhodněte, zda je tato matice diagonalizovatelná. Pokud ano určete jaké diagonální matici je tato matice podobná. Napište také jaký vztah „podobnosti“ platí a identifikujte „matici podobnosti“.",
+       "app": []
+      },
+      {
+       "kind": "diag",
+       "text": "A) (9 bodů) Uvažujme matici $\\mathbf{A} = \\begin{pmatrix} 4 & -9 & 6 & 12 \\\\ 0 & -1 & 4 & 6 \\\\ 2 & -11 & 8 & 16 \\\\ -1 & 3 & 0 & -1 \\end{pmatrix} \\in \\mathbb{C}^{3,3}.$ Spočítejte vlastní čísla a báze vlastních podprostorů příslušejících vlastním číslům této matice. Rozhodněte, zda je tato matice diagonalizovatelná. Pokud ano určete jaké diagonální matici je tato matice podobná. Napište také jaký vztah „podobnosti“ platí a identifikujte „matici podobnosti“.",
+       "app": []
+      },
+      {
+       "kind": "power",
+       "text": "B) (*5 bonusových bodů*) Napište vzorec pro $\\mathbf{A}^{-50}$. Stačí napsat vzorec, ve kterém identifikujete všechny matice. Případnou inverzní matici vyčíslovat nemusíte.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 2,
+     "n": 2,
+     "points": 15,
+     "parts": [
+      {
+       "kind": "rank-param",
+       "text": "A) (6 bodů) Spočítejte hodnost následující matice v závislosti na parametru $a \\in \\mathbb{Z}_{11}^{3,3}$. (tak v tisku: $\\mathbb{Z}_{11}^{3,3}$ u parametru $a$) $\\mathbf{B} = \\begin{pmatrix} a+5 & 1 & a+2 \\\\ 2 & 0 & 1 \\\\ 0 & a+4 & 3 \\end{pmatrix} \\in \\mathbb{Z}_{11}^{3,3}.$",
+       "app": [
+        "gen:la1-k3-rank-param",
+        "lesson:la1-k3-regularita"
+       ]
+      },
+      {
+       "kind": "definition",
+       "text": "B) (3 body) Napište definici vlastního čísla a vlastního vektoru matice.",
+       "app": []
+      },
+      {
+       "kind": "is-eigenvector",
+       "text": "C) (6 bodů) Rozhodněte, pro která $a \\in \\mathbb{Z}_{11}$ je vektor $\\mathbf{v} = (2, 0, 2)$ vlastním vektorem příslušejícím nějakému vlastnímu číslu této matice $\\mathbf{B}$.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 3,
+     "n": 3,
+     "points": 16,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (6 bodů) Definujte pojem horní stupňovitý tvar matice, …",
+       "app": []
+      },
+      {
+       "kind": "definition",
+       "text": "… jednotková matice a diagonální matice.",
+       "app": [
+        "concept:la1-k3-jednotkova"
+       ]
+      },
+      {
+       "kind": "diag-zeros",
+       "text": "B) (2 body) Kolik maximálně a minimálně nul může obsahovat diagonální matice z $\\mathbb{R}^{10,10}$?",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "C) (8 bodů) Čemu je rovna hodnost matice v horním stupňovitém tvaru? Dokažte vaše tvrzení.",
+       "app": [
+        "theorem:la1-k3-t-hst"
+       ]
+      }
+     ]
+    },
+    {
+     "pos": 4,
+     "n": 4,
+     "points": 20,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (5 bodů) Napište definici diagonalizovatelnosti, definujte také všechny užité pojmy.",
+       "app": []
+      },
+      {
+       "kind": "similar-props",
+       "text": "B) (6 bodů) Napište alespoň 4 různé vlastnosti, které mají podobné matice nutně stejné.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "C) (9 bodů) Formulujte a dokažte tvrzení „Částečné diagonalizaci“",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "D) (*5 bonusových bodů*) Mějme matici $\\mathbf{A}$ z $T^{n,n}$ a $\\mathbf{x}, \\mathbf{y}, \\mathbf{z} \\in T^n$. Ukažte, že je-li soubor $(\\mathbf{x}, \\mathbf{y}, \\mathbf{z})$ LZ, potom je soubor $(\\mathbf{Ax}, \\mathbf{Ay}, \\mathbf{Az})$ LZ. Platí i implikace opačným směrem? Dokažte, nebo nalezněte protipříklad.",
+       "app": [
+        "proof:la1-k3-p-obraz-lz"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "la1-zk-2024-01-31-frobenius",
+   "name": "Frobenius (31. 1. 2024)",
+   "date": "2024-01-31",
+   "variant": "Frobenius",
+   "format": "2023+ (rozmazaný obrázok, body častí neviditeľné)",
+   "total": 60,
+   "source": "fit-wiki, BI-LA1, zadané zkouškové testy 2023/24 (prepis obrázka, dva nezávislé prepisy porovnané s obrázkom)",
+   "problems": [
+    {
+     "pos": 1,
+     "n": 1,
+     "points": 10,
+     "parts": [
+      {
+       "kind": "eigen",
+       "text": "A) ([?] bodů) Máme matice z $\\mathbb{C}^{2,2}$: $\\mathbf{M} = \\begin{pmatrix} -1 & -3 \\\\ 2 & 4 \\end{pmatrix}$ a $\\mathbf{N} = \\begin{pmatrix} 1 & 3 \\\\ 0 & 2 \\end{pmatrix}$. [Spo]čítejte vlastní čísla a příslušné vlastní vektory daných matic a rozhodněte, jestli jsou tyto matice [dia]gonalizovatelné.",
+       "app": []
+      },
+      {
+       "kind": "diag",
+       "text": "A) ([?] bodů) Máme matice z $\\mathbb{C}^{2,2}$: $\\mathbf{M} = \\begin{pmatrix} -1 & -3 \\\\ 2 & 4 \\end{pmatrix}$ a $\\mathbf{N} = \\begin{pmatrix} 1 & 3 \\\\ 0 & 2 \\end{pmatrix}$. [Spo]čítejte vlastní čísla a příslušné vlastní vektory daných matic a rozhodněte, jestli jsou tyto matice [dia]gonalizovatelné.",
+       "app": []
+      },
+      {
+       "kind": "similar-pair",
+       "text": "B) ([?] body) Dále rozhodněte, zda jsou si tyto matice podobné. Jestli jsou tyto matice podobné, napište, jaký [vzta]h „podobnosti“ mezi nimi platí, a popište matici zajišťující podobnost. Případnou inverzi nemusíte [dop]očítávat.",
+       "app": []
+      },
+      {
+       "kind": "matrix-root",
+       "text": "C) ([?] bonusových bodů) Nalezněte dvě různé matice $\\mathbf{F}, \\mathbf{H}$, takové, že $\\mathbf{F}^2 = \\mathbf{N} = \\mathbf{H}^2$. [Stač]í, pokud pro hledané matice napíšete vzorec, matice nemusíte vyčíslovat.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 2,
+     "n": 2,
+     "points": 12,
+     "parts": [
+      {
+       "kind": "frobenius-statement",
+       "text": "A) ([?] body) Napište kompletní znění Frobeniovy věty o řešitelnosti a množině řešení soustavy lin. rovnic.",
+       "app": [
+        "theorem:la1-k4-t-frobenius",
+        "lesson:la1-k4-frobenius"
+       ]
+      },
+      {
+       "kind": "solve-variety",
+       "text": "B) ([?] bodů) S využitím Frobeniovy věty popište množinu řešení soustavy nad tělesem $\\mathbb{Z}_5$, jejíž rozšířená matice $\\left(\\begin{array}{ccccccc|c} 1 & 0 & 2 & 1 & 1 & 1 & 1 & 2 \\\\ 0 & 0 & 2 & 0 & 0 & 0 & 1 & 1 \\\\ 0 & 0 & 0 & 0 & 4 & 1 & 1 & 0 \\\\ 0 & 0 & 0 & 0 & 0 & 0 & 4 & 2 \\end{array}\\right).$",
+       "app": [
+        "gen:la1-k4-solve",
+        "lesson:la1-k4-riesenie",
+        "theorem:la1-k4-t-frobenius"
+       ]
+      }
+     ]
+    },
+    {
+     "pos": 3,
+     "n": 3,
+     "points": 16,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) Definujte pojem hodnost matice …",
+       "app": [
+        "concept:la1-k3-hodnost"
+       ]
+      },
+      {
+       "kind": "definition",
+       "text": "… a lineární varieta.",
+       "app": [
+        "concept:la1-k4-varieta"
+       ]
+      },
+      {
+       "kind": "rank-statement",
+       "text": "B) ([?] body) Formulujte **korektně** tvrzení o odhadu hodnosti součinu matic.",
+       "app": [
+        "theorem:la1-k3-t-hodnost-sucinu"
+       ]
+      },
+      {
+       "kind": "inverse",
+       "text": "C) ([?] body) Spočtěte $\\mathbf{B}^{-1}$, kde $\\mathbf{B} = \\begin{pmatrix} 0 & 0 & 0 & 2 \\\\ 0 & 0 & 2 & 0 \\\\ 0 & 2 & 0 & 0 \\\\ 1 & 0 & 0 & 0 \\end{pmatrix} \\in \\mathbb{Z}_7^{4,4}$.",
+       "app": [
+        "gen:la1-k3-inverse",
+        "lesson:la1-k3-regularita"
+       ]
+      },
+      {
+       "kind": "proof",
+       "text": "D) ([?] body) Ukažte z definice regulární matice, že součin dvou regulárních matic je opět regulární matice.",
+       "app": [
+        "proof:la1-k3-p-inv-sucin"
+       ]
+      },
+      {
+       "kind": "det-statement",
+       "text": "E) ([?] body) Formulujte korektně tvrzení, které dává do souvislosti regularitu matice a její determinant.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "F) ([?] bonusových bodů) Mějme matici $\\mathbf{A}$ z $T^{n,n}$ a $\\mathbf{x}, \\mathbf{y}, \\mathbf{z} \\in T^n$. Ukažte, že je-li soubor $(\\mathbf{x}, \\mathbf{y}, \\mathbf{z})$ LZ, potom je [soub]or $(\\mathbf{Ax}, \\mathbf{Ay}, \\mathbf{Az})$ LZ. [Plat]í i implikace opačným směrem? Dokažte, nebo nalezněte protipříklad.",
+       "app": [
+        "proof:la1-k3-p-obraz-lz"
+       ]
+      }
+     ]
+    },
+    {
+     "pos": 4,
+     "n": 4,
+     "points": 22,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) ([?] bodů) Napište definici vlastního čísla matice, charakteristického polynomu a algebraické násobnosti [vlast]ního čísla.",
+       "app": []
+      },
+      {
+       "kind": "eigen-statement",
+       "text": "B) ([?] body) Formulujte korektně tvrzení o vztahu charakteristického polynomu a vlastních čísel matice.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "C) ([?] bodů) Dokažte, že máme-li dvě podobné matice $\\mathbf{A}$ a $\\mathbf{B}$ a číslo $\\lambda \\in \\mathbb{C}$, které je vlastním číslem pro matici [$\\mathbf{A}$ a] $\\mathbf{B}$, potom je algebraická násobnost tohoto vlastního čísla stejná vůči oběma maticím. *Pokud použijete [něja]kou vlastnost podobných matic, tak dokažte i tu.*",
+       "app": []
+      },
+      {
+       "kind": "similar-props",
+       "text": "D) ([?] body) Napište nějakou vlastnost matic, kterou nemusí mít podobné matice stejnou.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "E) ([?] body) Dokažte, že je-li $\\mathbf{A}^2 = \\mathbf{E}$, potom platí $\\sigma(\\mathbf{A}) \\subseteq \\{-1, 1\\}$. Obrázek končí po části E; zda list pokračuje, není vidět.",
+       "app": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "la1-zk-2024-01-22-hilbert",
+   "name": "Hilbert (22. 1. 2024)",
+   "date": "2024-01-22",
+   "variant": "Hilbert",
+   "format": "2023+",
+   "total": 60,
+   "source": "fit-wiki, BI-LA1, zadané zkouškové testy 2023/24 (prepis obrázka, dva nezávislé prepisy porovnané s obrázkom)",
+   "problems": [
+    {
+     "pos": 1,
+     "n": 1,
+     "points": 10,
+     "parts": [
+      {
+       "kind": "det-compute",
+       "text": "A) (3 body) Spočítejte determinant následující matice s parametrem $a \\in \\mathbb{R}$. $\\mathbf{B} = \\begin{pmatrix} 2a & 4 & 4 \\\\ 2 & a & 2 \\\\ 0 & 0 & a-2 \\end{pmatrix} \\in \\mathbb{R}^{3,3}.$",
+       "app": []
+      },
+      {
+       "kind": "rank-param",
+       "text": "B) (3 body) Spočítejte hodnost matice $\\mathbf{B}$ v závislosti na parametru $a \\in \\mathbb{R}$.",
+       "app": [
+        "gen:la1-k3-rank-param",
+        "lesson:la1-k3-regularita"
+       ]
+      },
+      {
+       "kind": "is-eigenvector",
+       "text": "C) (4 body) Rozhodněte, pro která $a \\in \\mathbb{R}$ je vektor $\\mathbf{v} = (1, 1, 0)$ vlastním vektorem příslušejícím nějakému vlastnímu číslu této matice $\\mathbf{B}$.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 2,
+     "n": 2,
+     "points": 12,
+     "parts": [
+      {
+       "kind": "frobenius-statement",
+       "text": "A) (4 body) Napište kompletní znění Frobeniovy věty o řešitelnosti a množině řešení soustavy lin. rovnic.",
+       "app": [
+        "theorem:la1-k4-t-frobenius",
+        "lesson:la1-k4-frobenius"
+       ]
+      },
+      {
+       "kind": "solve-variety",
+       "text": "B) (8 bodů) S využitím Frobeniovy věty popište množinu řešení soustavy nad tělesem $\\mathbb{Z}_5$, jejíž rozšířená matice je $\\left(\\begin{array}{ccccccc|c} 1 & 1 & 0 & 0 & 1 & 1 & 0 & 2 \\\\ 0 & 2 & 0 & 3 & 0 & 4 & 1 & 1 \\\\ 0 & 0 & 0 & 3 & 1 & 1 & 0 & 2 \\\\ 0 & 0 & 0 & 0 & 0 & 4 & 0 & 2 \\end{array}\\right).$",
+       "app": [
+        "gen:la1-k4-solve",
+        "lesson:la1-k4-riesenie",
+        "theorem:la1-k4-t-frobenius"
+       ]
+      },
+      {
+       "kind": "variety-count",
+       "text": "C) (*4 bonusové body*) Kolika různými způsoby lze zapsat množinu řešení z předchozího bodu? Tj., ptáme se, kolik různých parametrických vyjádření množiny řešení existuje. Zapište ještě jedno další.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 3,
+     "n": 3,
+     "points": 18,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (4 body) Definujte hodnost matice.",
+       "app": [
+        "concept:la1-k3-hodnost"
+       ]
+      },
+      {
+       "kind": "matrices-list",
+       "text": "Vypište všechny regulární matice ze $\\mathbb{Z}_2^{2,2}$.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "B) (6 bodů) Formulujte korektně tvrzení: „*Pro regularitu matice stačí inverze z jedné strany.*“ a toto tvrzení dokažte.",
+       "app": [
+        "proof:la1-k3-p-jedna-strana"
+       ]
+      },
+      {
+       "kind": "matrix-for-lc",
+       "text": "C) (4 body) Máme matici $\\mathbf{H} = \\begin{pmatrix} 1 & 2 & 1 \\\\ 1 & 0 & -1 \\\\ 1 & 0 & 0 \\end{pmatrix} \\in \\mathbb{R}^{2,3}.$ Napište matici $\\mathbf{A}$ takovou, že po součinu těchto dvou matic vznikne matice, jejíž druhý sloupec bude $\\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix}$. Jaké má matice $\\mathbf{A}$ rozměry? Jakých rozměrů bude výsledný součin? V jakém pořadí je potřeba matice při součinu násobit?",
+       "app": [
+        "gen:la1-k3-product",
+        "lesson:la1-k3-nasobenie"
+       ]
+      },
+      {
+       "kind": "inverse",
+       "text": "D) (4 body) Mějme matici $\\mathbf{Y}=\\begin{pmatrix}3&5\\\\3&2\\end{pmatrix}\\in\\mathbb{Z}_7^{2,2}$. Spočítejte $\\mathbf{Y}^{-1}$ …",
+       "app": [
+        "gen:la1-k3-inverse",
+        "lesson:la1-k3-regularita"
+       ]
+      },
+      {
+       "kind": "det-rules",
+       "text": "… a $\\det\\mathbf{Y}$. Čemu je roven $\\det(\\mathbf{Y}^3)$?",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "E) (*6 bonusových bodů*) Mějme matici $\\mathbf{A}$ z $T^{n,n}$ a $\\mathbf{x}, \\mathbf{y}, \\mathbf{z} \\in T^n$. Ukažte, že je-li soubor $(\\mathbf{x}, \\mathbf{y}, \\mathbf{z})$ LZ, potom je soubor $(\\mathbf{Ax}, \\mathbf{Ay}, \\mathbf{Az})$ LZ. Platí i implikace opačným směrem? Dokažte, nebo nalezněte protipříklad.",
+       "app": [
+        "proof:la1-k3-p-obraz-lz"
+       ]
+      }
+     ]
+    },
+    {
+     "pos": 4,
+     "n": 4,
+     "points": 20,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (4 body) Napište definici vlastního čísla a charakteristického polynomu.",
+       "app": []
+      },
+      {
+       "kind": "eigen-statement",
+       "text": "B) (3 body) V jakém vztahu je charakteristický polynom a vlastní čísla? Formulujte korektně tvrzení.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "C) (6 bodů) Dokažte své tvrzení z bodu B).",
+       "app": []
+      },
+      {
+       "kind": "diag-from-vectors",
+       "text": "D) (4 body) Mějme $\\mathbf{A} \\in \\mathbb{C}^{2,2}$ s různými vlastními čísly $\\lambda_1$ a $\\lambda_2$ a k nim příslušnými vlastními vektory $\\mathbf{z}_1$ a $\\mathbf{z}_2$. Napište nějakou diagonální matici, které je tato matice podobná. Jak budou vypadat matice „zajišťující“ vztah býti podobným? Napište i tento vztah.",
+       "app": []
+      },
+      {
+       "kind": "power",
+       "text": "E) (3 body) Ukažte, jak se diagonalizovatelnost matice dá využít k výpočtu $k$-té mocniny matice $\\mathbf{A}$, tj. $\\mathbf{A}^k$.",
+       "app": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "la1-zk-2024-01-17-boole",
+   "name": "Boole (17. 1. 2024)",
+   "date": "2024-01-17",
+   "variant": "Boole",
+   "format": "2023+",
+   "total": 60,
+   "source": "fit-wiki, BI-LA1, zadané zkouškové testy 2023/24 (prepis obrázka, dva nezávislé prepisy porovnané s obrázkom)",
+   "problems": [
+    {
+     "pos": 1,
+     "n": 1,
+     "points": 10,
+     "parts": [
+      {
+       "kind": "det-compute",
+       "text": "A) (3 body) Spočítejte determinant následující matice s parametrem $a \\in \\mathbb{R}$. $\\mathbf{B} = \\begin{pmatrix} a & a+1 & 2 \\\\ 2 & 1 & 0 \\\\ 0 & 3 & a-2 \\end{pmatrix} \\in \\mathbb{R}^{3,3}.$",
+       "app": []
+      },
+      {
+       "kind": "rank-param",
+       "text": "B) (3 body) Spočítejte hodnost matice $\\mathbf{B}$ v závislosti na parametru $a \\in \\mathbb{R}$.",
+       "app": [
+        "gen:la1-k3-rank-param",
+        "lesson:la1-k3-regularita"
+       ]
+      },
+      {
+       "kind": "is-eigenvector",
+       "text": "C) (4 body) Rozhodněte, pro která $a \\in \\mathbb{R}$ je vektor $\\mathbf{v} = (-1, 2, 0)$ vlastním vektorem příslušejícím nějakému vlastnímu číslu této matice $\\mathbf{B}$.",
+       "app": []
+      },
+      {
+       "kind": "eigen-bonus",
+       "text": "D) (*4 bonusové body*) Mějme matici $\\mathbf{H} \\in \\mathbb{R}^{3,3}$. Existuje nutně nějaké reálné vlastní číslo matice $\\mathbf{H}$? Zdůvodněte. V jakém vztahu jsou případná nereálná vlastní čísla této matice?",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 2,
+     "n": 2,
+     "points": 10,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (2 body) Definujte hodnost matice.",
+       "app": [
+        "concept:la1-k3-hodnost"
+       ]
+      },
+      {
+       "kind": "solve-variety",
+       "text": "B) (8 bodů) S využitím Frobeniovy věty popište množinu řešení soustavy nad tělesem $\\mathbb{Z}_7$, jejíž rozšířená matice je $\\left(\\begin{array}{ccccccc|c} 2 & 2 & 0 & 1 & 1 & 0 & 1 & 2 \\\\ 0 & 1 & 0 & 2 & 0 & 0 & 1 & 1 \\\\ 0 & 0 & 0 & 3 & 1 & 0 & 1 & 2 \\\\ 0 & 0 & 0 & 0 & 0 & 0 & 4 & 1 \\end{array}\\right).$",
+       "app": [
+        "gen:la1-k4-solve",
+        "lesson:la1-k4-riesenie",
+        "theorem:la1-k4-t-frobenius"
+       ]
+      }
+     ]
+    },
+    {
+     "pos": 3,
+     "n": 3,
+     "points": 16,
+     "parts": [
+      {
+       "kind": "frobenius-statement",
+       "text": "A) (4 body) Napište kompletní znění Frobeniovy věty o řešitelnosti a množině řešení soustavy lin. rovnic.",
+       "app": [
+        "theorem:la1-k4-t-frobenius",
+        "lesson:la1-k4-frobenius"
+       ]
+      },
+      {
+       "kind": "proof",
+       "text": "B) (6 bodů) Dokažte tu část Frobeniovy věty, která tvrdí: „*Je-li soustava řešitelná, potom je splněna jistá podmínka na matici soustavy.*“",
+       "app": [
+        "proof:la1-k4-p-frob-nutna"
+       ]
+      },
+      {
+       "kind": "matrix-for-lc",
+       "text": "C) (4 body) Máme matici $\\mathbf{L} \\in \\mathbb{R}^{2,4}$. Napište matici $\\mathbf{B}$ takovou, že po součinu těchto dvou matic vznikne matice, která má v prvním řádku součet řádků matice $\\mathbf{L}$, v druhém řádku je trojnásobek druhého řádku matice $\\mathbf{L}$ a třetí, poslední, řádek součinu bude celý nulový. Jaké má matice $\\mathbf{B}$ rozměry? Jakých rozměrů bude výsledný součin? V jakém pořadí je potřeba matice při součinu násobit?",
+       "app": [
+        "gen:la1-k3-product",
+        "lesson:la1-k3-nasobenie"
+       ]
+      },
+      {
+       "kind": "points-to-equations",
+       "text": "D) (2 body) Napište varietu co nejnižší dimenze, která obsahuje vektory $(1, 2, 0, 0), (0, 1, 2, 0), (0, 0, 1, 2)$ z $\\mathbb{R}^4$.",
+       "app": [
+        "gen:la1-k4-equations",
+        "theorem:la1-k4-t-prevod",
+        "lesson:la1-k4-variety"
+       ]
+      },
+      {
+       "kind": "proof",
+       "text": "E) (*6 bonusových bodů*) Mějme matici $\\mathbf{A}$ z $T^{n,n}$ a $\\mathbf{x}, \\mathbf{y}, \\mathbf{z} \\in T^n$. Ukažte, že je-li soubor $(\\mathbf{Ax}, \\mathbf{Ay}, \\mathbf{Az})$ LN, potom je soubor $(\\mathbf{x}, \\mathbf{y}, \\mathbf{z})$ LN. Platí i implikace opačným směrem? Dokažte, nebo nalezněte protipříklad.",
+       "app": [
+        "proof:la1-k3-p-obraz-lz"
+       ]
+      }
+     ]
+    },
+    {
+     "pos": 4,
+     "n": 4,
+     "points": 24,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (6 bodů) Napište definici vlastního čísla matice a pojmu podobnosti matic a pojmu diagonalizovatelná matice.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "B) (7 bodů) Mějme matici $\\mathbf{A} \\in \\mathbb{C}^{n,n}$, o které víme, že má vlastní číslo 3 s vlastním vektorem $\\mathbf{v}$ a vlastní číslo 4 s vlastním vektorem $\\mathbf{w}$. Dokažte, že soubor $(\\mathbf{v}, \\mathbf{w})$ je lineárně nezávislý.",
+       "app": []
+      },
+      {
+       "kind": "diag-from-vectors",
+       "text": "C) (4 body) Mějme $\\mathbf{A} \\in \\mathbb{C}^{2,2}$ s různými vlastními čísly $\\lambda_1$ a $\\lambda_2$ a k nim příslušnými vlastními vektory $\\mathbf{z}_1$ a $\\mathbf{z}_2$. Napište nějakou diagonální matici, které je tato matice podobná. Jak budou vypadat matice „zajišťující“ vztah býti podobným? Napište i tento vztah.",
+       "app": []
+      },
+      {
+       "kind": "power",
+       "text": "D) (3 body) Ukažte, jak se diagonalizovatelnost matice dá využít k výpočtu $k$-té mocniny matice $\\mathbf{A}$, tj. $\\mathbf{A}^k$.",
+       "app": []
+      },
+      {
+       "kind": "power",
+       "text": "E) (4 body) Vyčíslete $\\mathbf{A}^k$, pokud víte, že $\\mathbf{A} \\in \\mathbb{C}^{2,2}$ má vl. číslo 2 s vl. vektorem $(2, 1)$ a vl. číslo $-1$ s vl. vektorem $(1, 1)$.",
+       "app": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "la1-zk-2024-01-17-jarnik",
+   "name": "Jarník (17. 1. 2024)",
+   "date": "2024-01-17",
+   "variant": "Jarník",
+   "format": "2023+",
+   "total": 60,
+   "source": "fit-wiki, BI-LA1, zadané zkouškové testy 2023/24 (prepis obrázka, dva nezávislé prepisy porovnané s obrázkom)",
+   "problems": [
+    {
+     "pos": 1,
+     "n": 1,
+     "points": 10,
+     "parts": [
+      {
+       "kind": "det-compute",
+       "text": "A) (3 body) Spočítejte determinant následující matice s parametrem $a \\in \\mathbb{R}$. $\\mathbf{B} = \\begin{pmatrix} a & a-3 & 1 \\\\ 2 & 1 & 0 \\\\ 0 & 3 & a-1 \\end{pmatrix} \\in \\mathbb{R}^{3,3}.$",
+       "app": []
+      },
+      {
+       "kind": "rank-param",
+       "text": "B) (3 body) Spočítejte hodnost matice $\\mathbf{B}$ v závislosti na parametru $a \\in \\mathbb{R}$.",
+       "app": [
+        "gen:la1-k3-rank-param",
+        "lesson:la1-k3-regularita"
+       ]
+      },
+      {
+       "kind": "is-eigenvector",
+       "text": "C) (4 body) Rozhodněte, pro která $a \\in \\mathbb{R}$ je vektor $\\mathbf{v} = (-1, 2, 0)$ vlastním vektorem příslušejícím nějakému vlastnímu číslu této matice $\\mathbf{B}$.",
+       "app": []
+      },
+      {
+       "kind": "eigen-bonus",
+       "text": "D) (*4 bonusové body*) Mějme matici $\\mathbf{H} \\in \\mathbb{R}^{3,3}$. Existuje nutně nějaké reálné vlastní číslo matice $\\mathbf{H}$? Zdůvodněte. V jakém vztahu jsou případná nereálná vlastní čísla této matice?",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 2,
+     "n": 2,
+     "points": 10,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (2 body) Definujte pojem lineární varieta.",
+       "app": [
+        "concept:la1-k4-varieta"
+       ]
+      },
+      {
+       "kind": "solve-variety",
+       "text": "B) (8 bodů) S využitím Frobeniovy věty popište množinu řešení následující soustavy nad tělesem $\\mathbb{Z}_5$, jejíž rozšířená matice je $\\left(\\begin{array}{ccccccc|c} 1 & 1 & 0 & 0 & 1 & 1 & 0 & 2 \\\\ 0 & 2 & 0 & 3 & 0 & 4 & 1 & 1 \\\\ 0 & 0 & 0 & 2 & 1 & 1 & 0 & 2 \\\\ 0 & 0 & 0 & 0 & 0 & 3 & 0 & 2 \\end{array}\\right).$",
+       "app": [
+        "gen:la1-k4-solve",
+        "lesson:la1-k4-riesenie",
+        "theorem:la1-k4-t-frobenius"
+       ]
+      }
+     ]
+    },
+    {
+     "pos": 3,
+     "n": 3,
+     "points": 17,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (3 body) Definujte pojem regulární matice. Pokud použijete v odpovídající definici i nějaký jiný zavedený pojem, definujte i ten.",
+       "app": [
+        "concept:la1-k3-inverzna"
+       ]
+      },
+      {
+       "kind": "matrix-for-lc",
+       "text": "B) (4 body) Máme matici $\\mathbf{K} \\in \\mathbb{R}^{3,2}$. Napište matici $\\mathbf{B}$ takovou, že po součinu těchto dvou matic vznikne matice, která má v prvním řádku součet řádků matice $\\mathbf{K}$, v druhém řádku je dvojnásobek třetího řádku matice $\\mathbf{K}$ a třetí, poslední, řádek součinu bude celý nulový. Jaké má matice $\\mathbf{B}$ rozměry? Jakých rozměrů bude výsledný součin? V jakém pořadí je potřeba matice při součinu násobit?",
+       "app": [
+        "gen:la1-k3-product",
+        "lesson:la1-k3-nasobenie"
+       ]
+      },
+      {
+       "kind": "inverse",
+       "text": "C) (4 body) Mějme matici $\\mathbf{Y}=\\begin{pmatrix}3&5\\\\3&2\\end{pmatrix}\\in\\mathbb{Z}_7^{2,2}$. Spočítejte $\\mathbf{Y}^{-1}$ …",
+       "app": [
+        "gen:la1-k3-inverse",
+        "lesson:la1-k3-regularita"
+       ]
+      },
+      {
+       "kind": "det-rules",
+       "text": "… a $\\det\\mathbf{Y}$. Čemu je roven $\\det(\\mathbf{Y}^3)$?",
+       "app": []
+      },
+      {
+       "kind": "rank-statement",
+       "text": "D) (6 bodů) Formulujte korektně tvrzení: „Regulární matice má plnou (maximální možnou) hodnost.“",
+       "app": [
+        "theorem:la1-k3-t-regularita",
+        "lesson:la1-k3-regularita"
+       ]
+      },
+      {
+       "kind": "proof",
+       "text": "Toto tvrzení dokažte.",
+       "app": [
+        "proof:la1-k3-p-regularita"
+       ]
+      },
+      {
+       "kind": "proof",
+       "text": "E) (*6 bonusových bodů*) Mějme matici $\\mathbf{A}$ z $T^{n,n}$ a $\\mathbf{x}, \\mathbf{y}, \\mathbf{z} \\in T^n$. Ukažte, že je-li soubor $(\\mathbf{Ax}, \\mathbf{Ay}, \\mathbf{Az})$ LN, potom je soubor $(\\mathbf{x}, \\mathbf{y}, \\mathbf{z})$ LN. Platí i implikace opačným směrem? Dokažte, nebo nalezněte protipříklad.",
+       "app": [
+        "proof:la1-k3-p-obraz-lz"
+       ]
+      }
+     ]
+    },
+    {
+     "pos": 4,
+     "n": 4,
+     "points": 23,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (6 bodů) Napište definici vlastního čísla, charakteristického polynomu a podobnosti matic.",
+       "app": []
+      },
+      {
+       "kind": "eigen-statement",
+       "text": "B) (3 body) V jakém vztahu je charakteristický polynom a vlastní čísla? Formulujte korektně tvrzení.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "C) (6 bodů) Dokažte své tvrzení z bodu B).",
+       "app": []
+      },
+      {
+       "kind": "diag-from-vectors",
+       "text": "D) (4 body) Mějme $\\mathbf{A} \\in \\mathbb{C}^{3,3}$ s třemi různými vlastními čísly $\\lambda_1$, $\\lambda_2$ a $\\lambda_3$ a k nim příslušnými vlastními vektory $\\mathbf{x}_1$, $\\mathbf{x}_2$ a $\\mathbf{x}_3$. Napište nějakou diagonální matici, které je tato matice podobná. Jak budou vypadat matice „zajišťující“ vztah býti podobným? Napište i tento vztah.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "E) (4 body) Odůvodněte (spočtěte, dokažte), že daný vztah z D) pro podobnost matic platí.",
+       "app": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "la1-zk-2024-01-11-stirling",
+   "name": "Stirling (11. 1. 2024)",
+   "date": "2024-01-11",
+   "variant": "Stirling",
+   "format": "2023+",
+   "total": 59,
+   "source": "fit-wiki, BI-LA1, zadané zkouškové testy 2023/24 (prepis obrázka, dva nezávislé prepisy porovnané s obrázkom)",
+   "problems": [
+    {
+     "pos": 1,
+     "n": 1,
+     "points": 9,
+     "parts": [
+      {
+       "kind": "eigen",
+       "text": "Máme matici $\\mathbf{B}=\\begin{pmatrix}1&2&0\\\\0&2&1\\\\0&1&2\\end{pmatrix}\\in\\mathbb{C}^{3,3}$. Určete vlastní čísla a báze vlastních podprostorů příslušejících vlastním číslům této matice. Dále rozhodněte, zdali je zadaná matice diagonalizovatelná.",
+       "app": []
+      },
+      {
+       "kind": "diag",
+       "text": "Máme matici $\\mathbf{B}=\\begin{pmatrix}1&2&0\\\\0&2&1\\\\0&1&2\\end{pmatrix}\\in\\mathbb{C}^{3,3}$. Určete vlastní čísla a báze vlastních podprostorů příslušejících vlastním číslům této matice. Dále rozhodněte, zdali je zadaná matice diagonalizovatelná.",
+       "app": []
+      },
+      {
+       "kind": "partial-diag",
+       "text": "(*5 bonusových bodů*) Nalezněte matici podobnou $\\mathbf{B}$, která je „co nejvíce diagonální“.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 2,
+     "n": 2,
+     "points": 10,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (2 body) Definujte pojem lineární varieta.",
+       "app": [
+        "concept:la1-k4-varieta"
+       ]
+      },
+      {
+       "kind": "solve-variety",
+       "text": "B) (8 bodů) S využitím Frobeniovy věty popište množinu řešení následující soustavy nad tělesem $\\mathbb{Z}_5$, jejíž rozšířená matice je $\\left(\\begin{array}{ccccccc|c} 2 & 1 & 1 & 0 & 0 & 1 & 1 & 2 \\\\ 0 & 3 & 1 & 0 & 0 & 0 & 1 & 1 \\\\ 0 & 0 & 0 & 2 & 0 & 1 & 1 & 2 \\\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 2 \\end{array}\\right).$",
+       "app": [
+        "gen:la1-k4-solve",
+        "lesson:la1-k4-riesenie",
+        "theorem:la1-k4-t-frobenius"
+       ]
+      }
+     ]
+    },
+    {
+     "pos": 3,
+     "n": 3,
+     "points": 19,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "(2 body) Definujte pojem hodnost matice.",
+       "app": [
+        "concept:la1-k3-hodnost"
+       ]
+      },
+      {
+       "kind": "matrix-example",
+       "text": "(1 bod) Napište příklad matice z $\\mathbb{R}^{3,3}$ s hodností 2, která ale neobsahuje ani jeden nulový prvek. Ověřte, že má požadovanou vlastnost.",
+       "app": []
+      },
+      {
+       "kind": "frobenius-statement",
+       "text": "(4 body) Napište kompletní znění Frobeniovy věty o řešitelnosti a množině řešení soustavy lin. rovnic.",
+       "app": [
+        "theorem:la1-k4-t-frobenius",
+        "lesson:la1-k4-frobenius"
+       ]
+      },
+      {
+       "kind": "proof",
+       "text": "(8 bodů) Dokažte, že pro každý podprostor existuje soustava lineárních rovnic taková, že daný podprostor je jejím řešením.",
+       "app": [
+        "proof:la1-k4-p-podpriestor-slr",
+        "gen:la1-k4-sustava"
+       ]
+      },
+      {
+       "kind": "variety-dims",
+       "text": "(4 body) Uvažujme varietu, která obsahuje vektory $(2,1,0,0),(0,2,1,0),(0,0,2,1)$ z $\\mathbb{R}^4$. Jakou dimenzi tato varieta může mít? Uveďte pro každou možnost příklad takové variety.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 4,
+     "n": 4,
+     "points": 21,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (3 body) Napište definici regulární matice. Pokud v definici použijete nějaký v odpovídající kapitole definovaný pojem, formulujte i ten.",
+       "app": [
+        "concept:la1-k3-inverzna"
+       ]
+      },
+      {
+       "kind": "definition",
+       "text": "B) (6 bodů) Napište definici determinantu matice, všechny použité pojmy také definujte.",
+       "app": []
+      },
+      {
+       "kind": "det-terms",
+       "text": "C) (2 body) O matici $\\mathbf{A}$ víme, že při počítání jejího determinantu z definice jsme potřebovali více než 150 sčítanců. Jaké nejmenší rozměry mohla matice $\\mathbf{A}$ mít?",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "D) (6 bodů) Čemu se rovná determinant singulární matice? Dokažte své tvrzení.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "E) (4 body) Dokažte, že podobné matice mají stejný determinant. Pokud použijete v důkazu nějakou další vlastnost podobných matic, dokažte i ji.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "F) (*5 bonusových bodů*) Mějme $\\mathbf{A}, \\mathbf{B} \\in \\mathbb{C}^{3,3}$ podobné matice. Ukažte, že i $\\mathbf{A}^T$, $\\mathbf{B}^T$ jsou podobné.",
+       "app": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "la1-zk-2024-01-11-heine",
+   "name": "Heine (11. 1. 2024)",
+   "date": "2024-01-11",
+   "variant": "Heine",
+   "format": "2023+",
+   "total": 60,
+   "source": "fit-wiki, BI-LA1, zadané zkouškové testy 2023/24 (prepis obrázka, dva nezávislé prepisy porovnané s obrázkom)",
+   "problems": [
+    {
+     "pos": 1,
+     "n": 1,
+     "points": 9,
+     "parts": [
+      {
+       "kind": "eigen",
+       "text": "Máme matici $\\mathbf{B}=\\begin{pmatrix}2&1&0\\\\1&2&0\\\\0&2&3\\end{pmatrix}\\in\\mathbb{C}^{3,3}$. Nalezněte vlastní čísla a báze vlastních podprostorů příslušejících vlastním číslům této matice. Dále rozhodněte, jestli je zadaná matice diagonalizovatelná.",
+       "app": []
+      },
+      {
+       "kind": "diag",
+       "text": "Máme matici $\\mathbf{B}=\\begin{pmatrix}2&1&0\\\\1&2&0\\\\0&2&3\\end{pmatrix}\\in\\mathbb{C}^{3,3}$. Nalezněte vlastní čísla a báze vlastních podprostorů příslušejících vlastním číslům této matice. Dále rozhodněte, jestli je zadaná matice diagonalizovatelná.",
+       "app": []
+      },
+      {
+       "kind": "partial-diag",
+       "text": "(*5 bonusových bodů*) Nalezněte matici podobnou $\\mathbf{B}$, která je „co nejvíce diagonální“.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 2,
+     "n": 2,
+     "points": 10,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (2 body) Definujte hodnost matice.",
+       "app": [
+        "concept:la1-k3-hodnost"
+       ]
+      },
+      {
+       "kind": "solve-variety",
+       "text": "B) (8 bodů) S využitím Frobeniovy věty popište množinu řešení soustavy nad tělesem $\\mathbb{Z}_5$, jejíž rozšířená matice je $\\left(\\begin{array}{ccccccc|c} 2 & 1 & 1 & 0 & 1 & 0 & 1 & 2 \\\\ 0 & 1 & 2 & 0 & 0 & 0 & 1 & 1 \\\\ 0 & 0 & 0 & 3 & 1 & 0 & 1 & 2 \\\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 \\end{array}\\right).$",
+       "app": [
+        "gen:la1-k4-solve",
+        "lesson:la1-k4-riesenie",
+        "theorem:la1-k4-t-frobenius"
+       ]
+      }
+     ]
+    },
+    {
+     "pos": 3,
+     "n": 3,
+     "points": 20,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (4 body) Definujte pojmy lineární varieta a dimenze lineární variety.",
+       "app": [
+        "concept:la1-k4-varieta"
+       ]
+      },
+      {
+       "kind": "frobenius-statement",
+       "text": "B) (4 body) Napište kompletní znění Frobeniovy věty o řešitelnosti a množině řešení soustavy lin. rovnic.",
+       "app": [
+        "theorem:la1-k4-t-frobenius",
+        "lesson:la1-k4-frobenius"
+       ]
+      },
+      {
+       "kind": "proof",
+       "text": "C) (8 bodů) Dokažte, že pro každý podprostor existuje soustava lineárních rovnic taková, že daný podprostor je jejím řešením.",
+       "app": [
+        "proof:la1-k4-p-podpriestor-slr",
+        "gen:la1-k4-sustava"
+       ]
+      },
+      {
+       "kind": "variety-dims",
+       "text": "D) (4 body) Uvažujme varietu, která obsahuje vektory $(1, 2, 0, 0), (0, 1, 2, 0), (0, 0, 1, 2)$ z $\\mathbb{R}^4$. Jakou dimenzi tato varieta může mít? Uveďte pro každou možnost příklad takové variety.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 4,
+     "n": 4,
+     "points": 21,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (6 bodů) Napište definici determinantu matice, všechny použité pojmy také definujte.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "B) (6 bodů) Čemu se rovná determinant singulární matice? Dokažte své tvrzení.",
+       "app": []
+      },
+      {
+       "kind": "definition",
+       "text": "C) (2 body) Napište definici podobnosti matic.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "D) (4 body) Dokažte, že podobné matice mají stejný determinant. Pokud použijete v důkazu nějakou další vlastnost podobných matic, dokažte i ji.",
+       "app": []
+      },
+      {
+       "kind": "det-terms",
+       "text": "E) (3 body) O matici $\\mathbf{A}$ víme, že při počítání jejího determinantu z definice jsme potřebovali více než 150 sčítanců. Jaké nejmenší rozměry mohla matice $\\mathbf{A}$ mít?",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "F) (*5 bonusových bodů*) Mějme $\\mathbf{A}, \\mathbf{B} \\in \\mathbb{C}^{3,3}$ podobné matice. Ukažte, že i $\\mathbf{A}^T, \\mathbf{B}^T$ jsou podobné.",
+       "app": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "la1-zk-2024-01-04-dirichlet",
+   "name": "Dirichlet (4. 1. 2024)",
+   "date": "2024-01-04",
+   "variant": "Dirichlet",
+   "format": "2023+",
+   "total": 60,
+   "source": "fit-wiki, BI-LA1, zadané zkouškové testy 2023/24 (prepis obrázka, dva nezávislé prepisy porovnané s obrázkom)",
+   "problems": [
+    {
+     "pos": 1,
+     "n": 1,
+     "points": 8,
+     "parts": [
+      {
+       "kind": "eigen",
+       "text": "Máme matici $\\mathbf{B} = \\begin{pmatrix} 2 & 1 & -1 \\\\ 0 & 0 & 1 \\\\ 0 & -1 & 2 \\end{pmatrix} \\in \\mathbb{C}^{3,3}.$ Určete vlastní čísla a báze vlastních podprostorů příslušejících vlastním číslům této matice. Dále rozhodněte, zdali je tato matice diagonalizovatelná. Pokud ano, nalezněte $\\mathbf{D}, \\mathbf{Q} \\in \\mathbb{C}^{3,3}$, $\\mathbf{D}$ diagonální a $\\mathbf{Q}$ regulární, takové, že $\\mathbf{DQ} = \\mathbf{QB}$. *Případné inverzní matice nemusíte dopočítávat.*",
+       "app": []
+      },
+      {
+       "kind": "diag",
+       "text": "Máme matici $\\mathbf{B} = \\begin{pmatrix} 2 & 1 & -1 \\\\ 0 & 0 & 1 \\\\ 0 & -1 & 2 \\end{pmatrix} \\in \\mathbb{C}^{3,3}.$ Určete vlastní čísla a báze vlastních podprostorů příslušejících vlastním číslům této matice. Dále rozhodněte, zdali je tato matice diagonalizovatelná. Pokud ano, nalezněte $\\mathbf{D}, \\mathbf{Q} \\in \\mathbb{C}^{3,3}$, $\\mathbf{D}$ diagonální a $\\mathbf{Q}$ regulární, takové, že $\\mathbf{DQ} = \\mathbf{QB}$. *Případné inverzní matice nemusíte dopočítávat.*",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 2,
+     "n": 2,
+     "points": 12,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (4 body) Definujte pojem varieta a dimenze variety.",
+       "app": [
+        "concept:la1-k4-varieta"
+       ]
+      },
+      {
+       "kind": "points-to-equations",
+       "text": "B) (8 bodů) Najděte parametrické … rovnice roviny v $\\mathbb{Z}_5^5$, která obsahuje vektory $\\mathbf{x}=(1,1,0,0,1)$, $\\mathbf{y}=(2,1,1,0,1)$ a $\\mathbf{z}=(1,0,0,2,1)$.",
+       "app": [
+        "gen:la1-k4-equations",
+        "theorem:la1-k4-t-prevod",
+        "lesson:la1-k4-variety"
+       ]
+      },
+      {
+       "kind": "points-to-equations",
+       "text": "… a neparametrické rovnice téže roviny.",
+       "app": [
+        "gen:la1-k4-equations",
+        "theorem:la1-k4-t-prevod",
+        "lesson:la1-k4-variety"
+       ]
+      },
+      {
+       "kind": "variety-count",
+       "text": "C) (*5 bonusových bodů*) Kolik různých neparametrických rovnic této variety existuje? Zdůvodněte svou odpověď. Pokud to lze, napište alespoň dvě další takové rovnice.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 3,
+     "n": 3,
+     "points": 20,
+     "parts": [
+      {
+       "kind": "frobenius-statement",
+       "text": "A) (4 body) Napište kompletní znění Frobeniovy věty o řešitelnosti a množině řešení soustav lin. rovnic.",
+       "app": [
+        "theorem:la1-k4-t-frobenius",
+        "lesson:la1-k4-frobenius"
+       ]
+      },
+      {
+       "kind": "proof",
+       "text": "B) (6 bodů) Dokažte část Frobeniovy věty, která říká „*Pokud je soustava řešitelná, pak je splněna nějaká podmínka na matici soustavy*“.",
+       "app": [
+        "proof:la1-k4-p-frob-nutna"
+       ]
+      },
+      {
+       "kind": "solve-variety",
+       "text": "C) (3 body) Napište, jak vypadá řešení soustavy nad $\\mathbb{R}$, jejíž rozšířená matice soustavy je $\\left(\\begin{array}{ccc|c} 0 & 1 & 2 & 3 \\\\ 0 & 0 & 0 & 0 \\end{array}\\right).$",
+       "app": [
+        "gen:la1-k4-solve",
+        "lesson:la1-k4-riesenie",
+        "theorem:la1-k4-t-frobenius"
+       ]
+      },
+      {
+       "kind": "definition",
+       "text": "D) (3 body) Napište definici regulární matice. Pokud v definici použijete nějaký v dané kapitole nedefinovaný pojem, formulujte i ten.",
+       "app": [
+        "concept:la1-k3-inverzna"
+       ]
+      },
+      {
+       "kind": "proof",
+       "text": "E) (4 body) Jak vypadá množina řešení soustavy lineárních rovnic, pokud víme, že matice této soustavy je regulární? Své tvrzení dokažte.",
+       "app": [
+        "theorem:la1-k4-t-regularna"
+       ]
+      }
+     ]
+    },
+    {
+     "pos": 4,
+     "n": 4,
+     "points": 20,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (6 bodů) Napište definici vlastního čísla a definici diagonalizovatelné matice.",
+       "app": []
+      },
+      {
+       "kind": "similar-example",
+       "text": "B) (3 body) Mějme matici $\\mathbf{X} = \\begin{pmatrix} 0 & 1 \\\\ -1 & 2 \\end{pmatrix} \\in \\mathbb{Z}_7^{2,2}$. Nalezněte nějakou matici, která jí není podobná. Svou volbu odůvodněte.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "C) (8 bodů) Dokažte, že máme-li dvě podobné matice $\\mathbf{A}$ a $\\mathbf{B}$ a číslo $\\lambda \\in \\mathbb{C}$, které je vlastním číslem pro matici $\\mathbf{A}$ i $\\mathbf{B}$, tak potom algebraická násobnost tohoto vlastního čísla je stejná vůči oběma maticím. *Pokud využijete nějakou další vlastnost podobných matic, dokažte i tu.*",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "D) (3 body) Nechť jsou matice $\\mathbf{A}$ a $\\mathbf{B}$ podobné. Ukažte, že i matice $\\mathbf{A}^2$ a $\\mathbf{B}^2$ jsou si podobné.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "E) (*5 bonusových bodů*) Mějme matici $\\mathbf{A} \\in \\mathbb{C}^{n,n}$, která má $n$ různých vlastních čísel. Dokažte, že determinant této matice je roven součinu jejích vlastních čísel.",
+       "app": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "la1-zk-2024-01-04-abel",
+   "name": "Abel (4. 1. 2024)",
+   "date": "2024-01-04",
+   "variant": "Abel",
+   "format": "2023+",
+   "total": 60,
+   "source": "fit-wiki, BI-LA1, zadané zkouškové testy 2023/24 (prepis obrázka, dva nezávislé prepisy porovnané s obrázkom)",
+   "problems": [
+    {
+     "pos": 1,
+     "n": 1,
+     "points": 8,
+     "parts": [
+      {
+       "kind": "eigen",
+       "text": "Uvažujme matici $\\mathbf{B} = \\begin{pmatrix} -3 & 1 & 1 \\\\ -1 & -1 & -2 \\\\ 0 & 0 & 1 \\end{pmatrix} \\in \\mathbb{C}^{3,3}.$ Určete vlastní čísla a báze vlastních podprostorů příslušejících vlastním číslům této matice. Dále rozhodněte, jestli je daná matice diagonalizovatelná. Pokud ano, nalezněte $\\mathbf{D}, \\mathbf{Q} \\in \\mathbb{C}^{3,3}$, $\\mathbf{D}$ diagonální a $\\mathbf{Q}$ regulární, takové, že $\\mathbf{DQ} = \\mathbf{QB}$. *Případné inverzní matice nemusíte dopočítávat.*",
+       "app": []
+      },
+      {
+       "kind": "diag",
+       "text": "Uvažujme matici $\\mathbf{B} = \\begin{pmatrix} -3 & 1 & 1 \\\\ -1 & -1 & -2 \\\\ 0 & 0 & 1 \\end{pmatrix} \\in \\mathbb{C}^{3,3}.$ Určete vlastní čísla a báze vlastních podprostorů příslušejících vlastním číslům této matice. Dále rozhodněte, jestli je daná matice diagonalizovatelná. Pokud ano, nalezněte $\\mathbf{D}, \\mathbf{Q} \\in \\mathbb{C}^{3,3}$, $\\mathbf{D}$ diagonální a $\\mathbf{Q}$ regulární, takové, že $\\mathbf{DQ} = \\mathbf{QB}$. *Případné inverzní matice nemusíte dopočítávat.*",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 2,
+     "n": 2,
+     "points": 12,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (4 body) Definujte pojem varieta a dimenze variety.",
+       "app": [
+        "concept:la1-k4-varieta"
+       ]
+      },
+      {
+       "kind": "points-to-equations",
+       "text": "B) (8 bodů) Najděte parametrické … rovnice roviny v $\\mathbb{Z}_3^5$, která obsahuje vektory $\\mathbf{x}=(1,1,0,0,1)$, $\\mathbf{y}=(2,1,1,0,1)$ a $\\mathbf{z}=(1,0,0,2,1)$.",
+       "app": [
+        "gen:la1-k4-equations",
+        "theorem:la1-k4-t-prevod",
+        "lesson:la1-k4-variety"
+       ]
+      },
+      {
+       "kind": "points-to-equations",
+       "text": "… a neparametrické rovnice téže roviny.",
+       "app": [
+        "gen:la1-k4-equations",
+        "theorem:la1-k4-t-prevod",
+        "lesson:la1-k4-variety"
+       ]
+      },
+      {
+       "kind": "variety-count",
+       "text": "C) (*5 bonusových bodů*) Kolik různých neparametrických rovnic této variety existuje? Zdůvodněte svou odpověď. Pokud to lze, napište alespoň dvě další takové rovnice.",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 3,
+     "n": 3,
+     "points": 18,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (6 bodů) Definujte pojem determinant matice a vysvětlete všechny pojmy v definici použité.",
+       "app": []
+      },
+      {
+       "kind": "det-compute",
+       "text": "B) (4 body) Uvažujme matici $\\mathbf{A} = \\begin{pmatrix} 0 & 0 & 1 & 2 \\\\ 0 & 1 & 0 & 0 \\\\ 0 & 0 & 2 & 3 \\\\ 3 & 0 & 0 & 0 \\end{pmatrix} \\in \\mathbb{R}^{4,4}.$ Spočtěte **z definice** determinant této matice. Nulové sčítance nemusíte vypisovat.",
+       "app": []
+      },
+      {
+       "kind": "det-rules",
+       "text": "C) (2 body) Jakých hodnot může nabývat determinant regulární matice ze $\\mathbb{Z}_3^{2,2}$? Napište pro každou hodnotu příklad takové matice.",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "D) (6 bodů) Mějme matice $\\mathbf{A}, \\mathbf{B} \\in \\mathbb{R}^{n,n}$ takové, že první řádek matice $\\mathbf{B}$ je roven dvojnásobku prvního řádku matice $\\mathbf{A}$ a kromě prvního řádku jsou odpovídající prvky obou matic stejné. V jakém vztahu jsou determinanty daných matic? Své tvrzení dokažte pomocí definice determinantu.",
+       "app": []
+      },
+      {
+       "kind": "det-rules",
+       "text": "E) (*5 bonusových bodů*) Rozhodněte, zda existuje matice $\\mathbf{A} \\in \\mathbb{C}^{n,n}$, která má všechny složky celočíselné a platí pro ni, že $\\det(\\mathbf{A}^2) = 7$. *Buď takovou matici nalezněte, nebo odůvodněte, proč taková matice neexistuje.*",
+       "app": []
+      }
+     ]
+    },
+    {
+     "pos": 4,
+     "n": 4,
+     "points": 22,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "A) (6 bodů) Napište definici vlastního čísla a podobnosti matic.",
+       "app": []
+      },
+      {
+       "kind": "similar-example",
+       "text": "B) (4 body) Mějme matici $\\mathbf{X} = \\begin{pmatrix} 0 & 1 \\\\ -1 & 2 \\end{pmatrix} \\in \\mathbb{Z}_7^{2,2}$. Nalezněte nějakou matici různou od $\\mathbf{X}$, která je $\\mathbf{X}$ podobná. *Pokud z vaší konstrukce není zřejmé, proč je podobná, odůvodněte, proč tomu vskutku tak je.*",
+       "app": []
+      },
+      {
+       "kind": "proof",
+       "text": "C) (8 bodů) Dokažte, že máme-li dvě podobné matice $\\mathbf{A}$ a $\\mathbf{B}$ a číslo $\\lambda \\in \\mathbb{C}$, které je vlastním číslem pro matici $\\mathbf{A}$ i $\\mathbf{B}$, tak potom geometrická násobnost tohoto vlastního čísla je stejná vůči oběma maticím. *Pokud využijete nějakou další vlastnost podobných matic, dokažte i tu.*",
+       "app": []
+      },
+      {
+       "kind": "eigen-of-poly",
+       "text": "D) (4 body) Mějme $\\mathbf{A} \\in \\mathbb{C}^{4,4}$, která má vlastní číslo 3. Nalezněte nějaké vlastní číslo matice $\\mathbf{A}^2 + \\mathbf{A}$.",
+       "app": []
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

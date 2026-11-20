@@ -1,0 +1,1536 @@
+{
+ "title": "BI-DML, 2. zápočtová písomka",
+ "generated": "2026-11-19",
+ "page": {
+  "title": "Čo býva na 2. písomke",
+  "sub": "Z desiatich písomiek od roku 2023 (aj z opravnej v januári 2026), zo stránky predmetu a z prednášok. Variant písomky je písmeno na hárku (E, K…)."
+ },
+ "this_year": {
+  "terms": [
+   "st 2. 12. 2026 18:00, T9:105",
+   "št 3. 12. 16:15, T9:105",
+   "št 3. 12. 18:00, T9:105",
+   "pi 4. 12. 12:45, T9:105",
+   "pi 4. 12. 14:30, T9:105",
+   "ELSA: št 3. 12. 18:00, T9:155"
+  ],
+  "minutes": 75,
+  "points": 30,
+  "credit_rule": "Zápočet: aspoň 20 z 35 b (1. písomka 5 b + 2. písomka 30 b). 15 až 19 b a aspoň 5 zo 6 kvízov v MARASTe → opravná písomka (75 min, logika až teória čísel); za aspoň 50 % zápočet a 20 b.",
+  "quiz_deadline": "Kvíz č. 3 (množiny, zobrazenia) do ne 22. 11. 23:59, kvíz č. 4 (teória čísel) do ne 6. 12. 23:59; 5 zo 6 kvízov je podmienka opravnej písomky.",
+  "register": "V KOS na práve jeden termín (náhradníci nebudú), odhlásiť sa do 1. 12. Bez prihlásenia alebo neúčasti 0 b bez náhradného termínu.",
+  "aids": "Stránka predmetu ich pri 2. písomke neuvádza. Prepis hlavičky 2024 a 2025: „jediné pomůcky psací potřeby“ (obrázok neoverený).",
+  "sources": [
+   "KOS, termíny 2. písomky, stav 15. 11. 2026",
+   "stránka predmetu BI-DML na courses.fit.cvut.cz, stav 21. 10. 2026",
+   "MARAST, prehľad kvízov BI-DML (6. 11. 2026)"
+  ]
+ },
+ "format_now": {
+  "since": 2023,
+  "problems": 3,
+  "points": [
+   10,
+   10,
+   10
+  ],
+  "notes": [
+   "Po jednom príklade z indukcie, z množín a zobrazení a z teórie čísel; v 2025 po 10 b, v 2024 (varianty R a F) 9 + 10 + 11 b. Opravná písomka 5. 1. 2026 (Ř) mala ten istý tvar, 3 × 10 b na 75 minút.",
+   "Poradie býva indukcia, množiny, čísla; 8. 12. 2023 (variant D) bola podľa neistého priradenia obrázkov v prepise teória čísel 2. a množiny 3.",
+   "Hlavička podľa prepisu: „Postupujte metodicky, neopomeňte žádný logický krok a své řešení vysvětlujte a odpovědi i výsledky řádně označte.“",
+   "Pri indukcii (2025): „Nezapomeňte uvést, jak vypadá Váš indukční krok, a kde využíváte indukční předpoklad.“ Pri množinách: definovať „korektně, i se správnou volbou dotčených množin“, identitu dokázať „bez Vennova diagramu“ a o protipríklade ukázať, „že se o protipříklad skutečně jedná“.",
+   "Minulý rok opravoval „téměř jistě tři různí vyučující, každý jeden svůj příklad“ (novinka na stránke predmetu, december 2025).",
+   "Počty zahŕňajú aj N 2024: skrátený prepis s nečitateľnými bodmi, jej 3. príklad má rovnaké čísla ako E 2025 (neoverené, možná zámena).",
+   "Variant F je na fit-wiki pod rokom 2023, hlavička „PÁ 6. 12., 16:00“ však patrí roku 2024 (60 minút ako R)."
+  ],
+  "points_confirmed": false
+ },
+ "kinds": {
+  "mi-matrix": "Odhadni $\\mathbf A^n$ z prvých mocnín a dokáž indukciou",
+  "mi-rec2": "Uzavretý tvar rekurencie rádu 2, dôkaz silnou indukciou",
+  "mi-seq-ineq": "Postupnosť s odmocninou: pre ktoré $n$ platí nerovnosť (silná indukcia)",
+  "mi-sum-ineq": "Pre ktoré $n$ platí nerovnosť so súčtom (indukcia)",
+  "definition": "Definícia",
+  "mz-compose-exist": "Existujú zobrazenia so zadanou vlastnosťou zloženia? Príklad, alebo dôkaz, že nie",
+  "mz-sizes": "Veľkosti množín zo súčinu, rozdielu, potenčnej množiny: aké môžu byť, existujú?",
+  "mz-identity": "Množinová rovnosť alebo inklúzia: odvodenie cez formuly, alebo overený protipríklad",
+  "mz-injsurj": "Injektivita a surjektivita z definície, alebo protipríklad",
+  "tc-tower": "Dva zvyšky: $a^b \\bmod m$, potom mocnina s týmto exponentom modulo prvočíslo",
+  "tc-inv-min": "Kedy má $a$ inverziu v $\\mathbb Z_m$, najmenší taký modul a inverzia v ňom",
+  "tc-system": "Sústava dvoch lineárnych kongruencií: všetky riešenia, často aj najväčšie záporné",
+  "old-defs": "Definície (množiny, zobrazenia, relácie)",
+  "old-logic": "Výroková alebo predikátová logika (dnes na 1. písomke)",
+  "old-relation": "Relácie a usporiadania (dnes nie na zápočte)",
+  "old-mi": "Indukcia",
+  "old-sets": "Množiny a zobrazenia",
+  "mi-rec-ineq": "Rekurencia: pre ktoré $n$ platí nerovnosť, dôkaz silnou indukciou",
+  "tc-pow": "Veľká mocnina modulo $m$ Eulerovou vetou",
+  "tc-lkon": "Všetky riešenia lineárnej kongruencie"
+ },
+ "positions": [
+  {
+   "pos": 1,
+   "about": "Dôkaz indukciou: mocnina matice, rekurencia alebo nerovnosť.",
+   "title": "Indukcia",
+   "points": 10,
+   "seen": [
+    {
+     "test": "dml-2026-r",
+     "sheet": 1,
+     "kinds": [
+      "mi-rec-ineq"
+     ],
+     "points": 10
+    },
+    {
+     "test": "dml-2025-k",
+     "sheet": 1,
+     "kinds": [
+      "mi-seq-ineq"
+     ],
+     "points": 10
+    },
+    {
+     "test": "dml-2025-e",
+     "sheet": 1,
+     "kinds": [
+      "mi-matrix"
+     ],
+     "points": 10
+    },
+    {
+     "test": "dml-2024-r",
+     "sheet": 1,
+     "kinds": [
+      "mi-matrix"
+     ],
+     "points": 9
+    },
+    {
+     "test": "dml-2024-f",
+     "sheet": 1,
+     "kinds": [
+      "mi-rec2"
+     ],
+     "points": 9
+    },
+    {
+     "test": "dml-2024-j",
+     "sheet": 1,
+     "kinds": [
+      "mi-matrix"
+     ],
+     "points": 9
+    },
+    {
+     "test": "dml-2024-h",
+     "sheet": 1,
+     "kinds": [
+      "mi-sum-ineq"
+     ],
+     "points": null
+    },
+    {
+     "test": "dml-2024-n",
+     "sheet": 1,
+     "kinds": [
+      "mi-matrix"
+     ],
+     "points": null
+    },
+    {
+     "test": "dml-2023-d",
+     "sheet": 1,
+     "kinds": [
+      "mi-matrix"
+     ],
+     "points": null
+    },
+    {
+     "test": "dml-2023-a",
+     "sheet": 1,
+     "kinds": [
+      "mi-rec2"
+     ],
+     "points": null
+    }
+   ]
+  },
+  {
+   "pos": 2,
+   "about": "Dve až štyri definície doslova a úloha o veľkostiach množín, zložení či injektivite.",
+   "title": "Množiny a zobrazenia",
+   "points": 10,
+   "definitions": {
+    "row": "Dve až štyri definície doslova",
+    "group": "Definície doslova, v {n} z {of} písomiek:",
+    "min": 2
+   },
+   "seen": [
+    {
+     "test": "dml-2026-r",
+     "sheet": 2,
+     "kinds": [
+      "definition",
+      "definition",
+      "mz-injsurj"
+     ],
+     "points": 10
+    },
+    {
+     "test": "dml-2025-k",
+     "sheet": 2,
+     "kinds": [
+      "definition",
+      "definition",
+      "definition",
+      "mz-sizes",
+      "mz-injsurj"
+     ],
+     "points": 10
+    },
+    {
+     "test": "dml-2025-e",
+     "sheet": 2,
+     "kinds": [
+      "definition",
+      "definition",
+      "mz-compose-exist",
+      "mz-identity"
+     ],
+     "points": 10
+    },
+    {
+     "test": "dml-2024-r",
+     "sheet": 2,
+     "kinds": [
+      "definition",
+      "definition",
+      "mz-compose-exist",
+      "mz-injsurj"
+     ],
+     "points": 10
+    },
+    {
+     "test": "dml-2024-f",
+     "sheet": 2,
+     "kinds": [
+      "definition",
+      "definition",
+      "definition",
+      "definition",
+      "mz-injsurj"
+     ],
+     "points": 10
+    },
+    {
+     "test": "dml-2024-j",
+     "sheet": 2,
+     "kinds": [
+      "definition",
+      "definition",
+      "mz-sizes",
+      "mz-identity"
+     ],
+     "points": null
+    },
+    {
+     "test": "dml-2024-h",
+     "sheet": 2,
+     "kinds": [
+      "definition",
+      "definition",
+      "mz-sizes",
+      "mz-injsurj"
+     ],
+     "points": null
+    },
+    {
+     "test": "dml-2024-n",
+     "sheet": 2,
+     "kinds": [
+      "definition",
+      "definition",
+      "definition",
+      "mz-compose-exist",
+      "mz-identity"
+     ],
+     "points": null
+    },
+    {
+     "test": "dml-2023-d",
+     "sheet": 3,
+     "kinds": [
+      "definition",
+      "definition",
+      "definition",
+      "mz-sizes",
+      "mz-identity"
+     ],
+     "points": 10
+    },
+    {
+     "test": "dml-2023-a",
+     "sheet": 2,
+     "kinds": [
+      "definition",
+      "definition",
+      "definition",
+      "mz-sizes",
+      "mz-identity"
+     ],
+     "points": null
+    }
+   ]
+  },
+  {
+   "pos": 3,
+   "about": "Zvyšky mocnín, inverzia v $\\mathbb Z_m$ alebo sústava kongruencií.",
+   "title": "Teória čísel",
+   "points": 10,
+   "seen": [
+    {
+     "test": "dml-2026-r",
+     "sheet": 3,
+     "kinds": [
+      "tc-system"
+     ],
+     "points": 10
+    },
+    {
+     "test": "dml-2025-k",
+     "sheet": 3,
+     "kinds": [
+      "tc-tower"
+     ],
+     "points": 10
+    },
+    {
+     "test": "dml-2025-e",
+     "sheet": 3,
+     "kinds": [
+      "tc-inv-min"
+     ],
+     "points": 10
+    },
+    {
+     "test": "dml-2024-r",
+     "sheet": 3,
+     "kinds": [
+      "tc-tower"
+     ],
+     "points": 11
+    },
+    {
+     "test": "dml-2024-f",
+     "sheet": 3,
+     "kinds": [
+      "tc-system"
+     ],
+     "points": 11
+    },
+    {
+     "test": "dml-2024-j",
+     "sheet": 3,
+     "kinds": [
+      "tc-pow",
+      "tc-lkon"
+     ],
+     "points": null
+    },
+    {
+     "test": "dml-2024-h",
+     "sheet": 3,
+     "kinds": [
+      "tc-tower"
+     ],
+     "points": null
+    },
+    {
+     "test": "dml-2024-n",
+     "sheet": 3,
+     "kinds": [
+      "tc-inv-min"
+     ],
+     "points": null
+    },
+    {
+     "test": "dml-2023-d",
+     "sheet": 2,
+     "kinds": [
+      "tc-tower"
+     ],
+     "points": null
+    },
+    {
+     "test": "dml-2023-a",
+     "sheet": 3,
+     "kinds": [
+      "tc-system"
+     ],
+     "points": null
+    }
+   ]
+  }
+ ],
+ "definitions_by_concept_2023_2025": [
+  {
+   "app": "concept:dml-mz-injsurj",
+   "count": 6,
+   "tests": [
+    "dml-2026-r",
+    "dml-2025-k",
+    "dml-2024-r",
+    "dml-2024-f",
+    "dml-2024-h",
+    "dml-2024-n"
+   ]
+  },
+  {
+   "app": "concept:dml-mz-zobrazeni",
+   "count": 3,
+   "tests": [
+    "dml-2025-k",
+    "dml-2024-f",
+    "dml-2024-j"
+   ]
+  },
+  {
+   "app": "concept:dml-mz-slozeni",
+   "count": 3,
+   "tests": [
+    "dml-2025-k",
+    "dml-2025-e",
+    "dml-2024-r"
+   ]
+  },
+  {
+   "app": "concept:dml-mz-idzobr",
+   "count": 2,
+   "tests": [
+    "dml-2025-e",
+    "dml-2024-r"
+   ]
+  },
+  {
+   "app": "concept:dml-mz-kart",
+   "count": 2,
+   "tests": [
+    "dml-2024-h",
+    "dml-2023-a"
+   ]
+  },
+  {
+   "app": "concept:dml-mz-inkluze",
+   "count": 2,
+   "tests": [
+    "dml-2023-d",
+    "dml-2023-a"
+   ]
+  },
+  {
+   "app": "concept:dml-mz-operace",
+   "count": 2,
+   "tests": [
+    "dml-2023-d",
+    "dml-2023-a"
+   ]
+  },
+  {
+   "app": "concept:dml-mz-mocnina",
+   "count": 1,
+   "tests": [
+    "dml-2025-k"
+   ]
+  },
+  {
+   "app": "concept:dml-mz-mohutnost",
+   "count": 1,
+   "tests": [
+    "dml-2024-h"
+   ]
+  }
+ ],
+ "points_lost": [
+  {
+   "what": "Indukčný krok bez zátvoriek: predpokladať, že tvrdenie platí pre všetky $n$, a z toho odvodiť $V(n+1)$",
+   "quote": "„Co je důležité, když už se to takhle člověk mentálně představuje, tak mít tam správně závorky. To se málo ví, v tom se jako chybuje. to je strašně častá chyba v těch písemkách.“",
+   "quote_src": "Dombek, prednáška 19. 10. 2026, 39:57",
+   "source": "Dombek, prednáška 19. 10. 2026, 39:57–41:10; Legerský 22. 10. 2026, 1:12:08 („napište si tam přímo to, co chcete ukázat“); zadanie 2025: „Nezapomeňte uvést, jak vypadá Váš indukční krok, a kde využíváte indukční předpoklad.“",
+   "app": [
+    "lesson:dml-mi-zapis",
+    "lesson:dml-mi-slaba",
+    "paper:dml-2025-e:1"
+   ]
+  },
+  {
+   "what": "Množina a formula zmiešané v jednom zápise, napríklad prienik formuly s množinou",
+   "quote": "„Syntax error. Množinová operace aplikovaná na formuly, u které máte průnik s množinou. To nedělejte, takové věci.“",
+   "quote_src": "Dombek, prednáška 26. 10. 2026, 52:06",
+   "source": "Dombek, prednáška 26. 10. 2026, 51:36–52:36; Dombek, prednáška 19. 10. 2026, 7:35 (bonusové video „Syntax Error“: „za co se často strhávají body v druhé zápočtové písemce“)",
+   "app": [
+    "lesson:dml-mz-identity",
+    "concept:dml-mz-operace"
+   ]
+  },
+  {
+   "what": "Vennov diagram namiesto odvodenia cez formuly",
+   "quote": "„nechceme vám dávat body za to, že vybarvujete kolečka.“",
+   "quote_src": "Dombek, prednáška 26. 10. 2026, 55:48",
+   "source": "Dombek, prednáška 26. 10. 2026, 55:45–56:30; stránka predmetu: „pomocí znalostí z logiky (ne jen Vennových diagramů)“; zadanie E 2025: „(bez Vennova diagramu)“",
+   "app": [
+    "gen:dml-mz-rovnost",
+    "lesson:dml-mz-identity"
+   ]
+  },
+  {
+   "what": "Rovnosť namiesto kongruencie a vynechaný modul, hoci sa v príklade modul mení",
+   "quote": "„Prostě rovnost a konkurence nejsou to samé. Občas jsou lidi líní, tak to matlaj. Ale pak je to přesně něco, v čem se dá v těch písemkách jako vrtat.“",
+   "quote_src": "Dombek, prednáška 16. 11. 2026, 1:29:50 (prepis „konkurence“ = kongruencia)",
+   "source": "Dombek, prednáška 16. 11. 2026, 1:29:20–1:30:10 („mocnina s mocninou, kde se v jednom příkladu dvakrát změní modulo“)",
+   "app": [
+    "gen:dml-tc-tower",
+    "lesson:dml-tc-mocniny"
+   ]
+  },
+  {
+   "what": "Exponent zmenšený o násobky modulu, ako keby bol v kongruencii",
+   "quote": "„A další věc, to studenti strašně rádi dělají v písemkách. Když máte nějaký exponent a student je naučený, že může všude řezat ta modula, odečítat násobky modulů, jak se chce, a teďka to udělá i v exponentu. To je taky blbě.“",
+   "quote_src": "Dombek, prednáška 16. 11. 2026, 1:33:16",
+   "source": "Dombek, prednáška 16. 11. 2026, 1:33:16–1:34:01",
+   "app": [
+    "gen:dml-tc-pow",
+    "lesson:dml-tc-mocniny"
+   ]
+  },
+  {
+   "what": "Definícia bez množín, na ktorých pojem žije (zadanie ich výslovne chce; strhnutie bodov je odvodené zo zadania)",
+   "quote": "„Definujte (korektně, i se správnou volbou dotčených množin) pojmy identické zobrazení a složení zobrazení.“",
+   "quote_src": "zadanie E 2025 (rovnako R 2024)",
+   "source": "zadania E 2025 a R 2024; stránka predmetu: „znát všechny definice z kapitoly Množiny a zobrazení“",
+   "app": [
+    "concept:dml-mz-slozeni",
+    "concept:dml-mz-idzobr",
+    "concept:dml-mz-zobrazeni"
+   ]
+  },
+  {
+   "what": "Protipríklad napísaný, ale neoverený výpočtom oboch strán",
+   "quote": "„Tvrzení buď podrobně dokažte odvozením (bez Vennova diagramu), nebo nalezněte protipříklad a ukažte, že se o protipříklad skutečně jedná.“",
+   "quote_src": "zadanie E 2025",
+   "source": "zadanie E 2025; stránka predmetu: „k těm neplatným umět nalézt protipříklad“",
+   "app": [
+    "gen:dml-mz-rovnost",
+    "gen:dml-mz-injsurj"
+   ]
+  },
+  {
+   "what": "Dôkaz odzadu: z toho, čo treba dokázať, odvodiť niečo pravdivé",
+   "quote": "„A to je častá chyba, která se vyskytuje, když dokazujete implikaci, tak vy třeba začnete s něčím, co chcete dokázat a odvodíte z toho něco pravdivýho.“",
+   "quote_src": "Spěvák, prednáška 14. 10. 2026, 23:19",
+   "source": "Spěvák 14. 10. 2026, 23:19; proseminár 04 (indukcia), 35:47",
+   "app": [
+    "lesson:dml-mi-nerovnosti"
+   ]
+  },
+  {
+   "what": "Vynechaný základný krok",
+   "quote": "„Občas někdo zapomenuje na základní krok.“",
+   "quote_src": "Dombek, prednáška 19. 10. 2026, 52:35",
+   "source": "Dombek, prednáška 19. 10. 2026, 39:09 („Ani jeden nesmíte vynechat“) a 52:35; Spěvák 14. 10. 2026, 42:14 (základný krok do písomky označiť)",
+   "app": [
+    "lesson:dml-mi-slaba"
+   ]
+  },
+  {
+   "what": "Krátenie v kongruencii bez zmeny modulu",
+   "quote": "„Jak se krátí? Jde to, ale nejde to bez změny modula. Musíte u toho zmínit modulo.“",
+   "quote_src": "Dombek, prednáška 16. 11. 2026, 1:34:09",
+   "source": "Dombek, prednáška 16. 11. 2026, 1:32:51–1:34:30",
+   "app": [
+    "gen:dml-tc-lkon",
+    "lesson:dml-tc-lkon"
+   ]
+  },
+  {
+   "what": "Uhádnuté riešenie diofantickej rovnice bez postupu",
+   "quote": "„pokud to řešení neúhodnete, za což se dost blbě dávají body, tak v podstatě vždycky ten příklad začneme tím, že budeme řešit tuhle z tu rovnici.“",
+   "quote_src": "Dombek, prednáška 9. 11. 2026, 1:09:19",
+   "source": "Dombek, prednáška 9. 11. 2026, 1:09:19",
+   "app": [
+    "gen:dml-tc-rea",
+    "lesson:dml-tc-diofant"
+   ]
+  }
+ ],
+ "one_evening": [
+  {
+   "step": 1,
+   "what": "Indukcia: odhad $\\mathbf A^n$ z prvých mocnín a dôkaz so základným krokom, indukčným krokom a vyznačeným IP",
+   "why": "5 z 10 písomiek je mocnina matice; zadanie chce vidieť indukčný krok a kde je IP; silná indukcia 4× (K 2025, A 2023, F 2024, opravná Ř 2026)",
+   "app": [
+    "paper:dml-2025-e:1",
+    "gen:dml-mi-matica",
+    "paper:dml-2024-r:1",
+    "lesson:dml-mi-matice",
+    "lesson:dml-mi-zapis",
+    "lesson:dml-mi-silna",
+    "paper:dml-2025-k:1",
+    "gen:dml-mi-rek",
+    "paper:dml-2024-f:1",
+    "paper:dml-2026-r:1"
+   ]
+  },
+  {
+   "step": 2,
+   "what": "Definície z množín a zobrazení doslova a s množinami: zloženie, identita, zobrazenie, mocnina, injektivita, surjektivita, inklúzia, rozdiel, súčin",
+   "why": "2 až 4 definície v každej z 10 písomiek; prosté a na 6×, zloženie 3×",
+   "app": [
+    "concept:dml-mz-slozeni",
+    "concept:dml-mz-idzobr",
+    "concept:dml-mz-injsurj",
+    "concept:dml-mz-zobrazeni",
+    "concept:dml-mz-mocnina",
+    "concept:dml-mz-inkluze",
+    "concept:dml-mz-operace",
+    "concept:dml-mz-kart"
+   ]
+  },
+  {
+   "step": 3,
+   "what": "Množinová rovnosť cez formuly pre ľubovoľné $x$; keď neplatí, protipríklad s vypočítanými oboma stranami",
+   "why": "5 z 10 písomiek; Vennov diagram body nedostane",
+   "app": [
+    "paper:dml-2025-e:2",
+    "gen:dml-mz-rovnost",
+    "lesson:dml-mz-identity"
+   ]
+  },
+  {
+   "step": 4,
+   "what": "Teória čísel: dva zvyšky (Eulerova veta, potom malá Fermatova) a najmenší modul, v ktorom má číslo inverziu",
+   "why": "dva zvyšky 4×, sústava kongruencií 3× (A 2023, F 2024, opravná Ř 2026), inverzia 2× z 10; veľká mocnina a lineárna kongruencia raz (J 2024)",
+   "app": [
+    "paper:dml-2025-k:3",
+    "gen:dml-tc-tower",
+    "paper:dml-2025-e:3",
+    "gen:dml-tc-inv-min",
+    "gen:dml-tc-combo",
+    "paper:dml-2024-f:3"
+   ]
+  },
+  {
+   "step": 5,
+   "what": "Doplňujúca otázka „existujú…?“ (zloženie, veľkosti množín) a injektivita a surjektivita z definície",
+   "why": "doplňujúca otázka 8 z 10, z toho „existujú?“ 7; injektivita a surjektivita z definície 5 z 10",
+   "app": [
+    "gen:dml-mz-zlozenie",
+    "gen:dml-mz-velkosti",
+    "gen:dml-mz-injsurj",
+    "paper:dml-2024-r:2",
+    "paper:dml-2025-k:2",
+    "paper:dml-2024-h:2"
+   ]
+  },
+  {
+   "step": 6,
+   "what": "Jedna celá písomka na čas",
+   "why": "Nácvik má 9 písomiek z rokov 2023 až 2026 (aj opravnú z januára 2026) a nové čísla; kým nebude odprednášaná teória čísel, nácvik jej príklad vynechá a čas skráti",
+   "app": [
+    "mock:dml-2026-r",
+    "mock:dml-2025-k",
+    "mock:dml-2025-e",
+    "mock:dml-2024-r",
+    "mock:dml-2024-f",
+    "mock:dml-2024-j",
+    "mock:dml-2024-h",
+    "mock:dml-2023-d",
+    "mock:dml-2023-a"
+   ]
+  }
+ ],
+ "tests": [
+  {
+   "id": "dml-2026-r",
+   "name": "Ř opravná (5. 1. 2026)",
+   "year": 2026,
+   "date": "2026-01-05",
+   "slot": "po 15:00",
+   "variant": "Ř",
+   "format": "2023+ (opravná)",
+   "total": 30,
+   "app_paper": "dml-2026-r",
+   "verified": "foto (tri listy, 75 minút, Σ /30)",
+   "source": "fit-wiki bi-dml.21, stránka dml_zapoctovka_oprava_05-01-2026",
+   "problems": [
+    {
+     "n": 1,
+     "topic": "mi",
+     "points": 10,
+     "parts": [
+      {
+       "kind": "mi-rec-ineq",
+       "text": "Mějme nekonečnou posloupnost $(r_0,r_1,r_2,\\dots)$, jejíž členy pro každé $n\\in\\mathbb N_0$ splňují vztah $r_{n+2}=r_{n+1}+6r_n$ a dále platí $r_0=2$ a $r_1=1$. Určete pro která všechna čísla $n\\in\\mathbb N_0$ platí následující nerovnost. Vaše tvrzení pak dokažte matematickou indukcí. Nezapomeňte uvést, jak vypadá Váš indukční krok, a kde využíváte indukční předpoklad. $r_n>2^{n+1}$",
+       "app": [
+        "paper:dml-2026-r:1",
+        "gen:dml-mi-rek",
+        "lesson:dml-mi-silna",
+        "lesson:dml-mi-nerovnosti"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "topic": "mz",
+     "points": 10,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "(a) Mějme zobrazení $h:X\\to Y$. Užitím formule s omezenými kvantifikátory definujte, že je zobrazení $g$ prosté. Obdobně definujte, že je zobrazení $g$ na. Obě formule znegujte do tvaru, kde negace stojí jen před atomickými formulemi.",
+       "app": [
+        "concept:dml-mz-injsurj",
+        "paper:dml-2026-r:2"
+       ],
+       "definition": [
+        "concept:dml-mz-injsurj"
+       ],
+       "terms": 2,
+       "note": "zadanie píše raz $h$, raz $g$; negácie formúl sú z logiky (1. písomka)"
+      },
+      {
+       "kind": "mz-injsurj",
+       "text": "(b) Označme $S$ množinu všech sudých celých čísel. Zjistěte, zda je zobrazení $h:\\mathbb Z\\times\\mathbb Z\\to S$ dané předpisem $h(a,b)=484a+294b$ prosté a zda je na. Platnost dokažte formálně z definice, neplatnost ukažte vymyšlením protipříkladu.",
+       "app": [
+        "paper:dml-2026-r:2",
+        "gen:dml-mz-injsurj",
+        "lesson:dml-mz-injsurj",
+        "gen:dml-tc-rea"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "topic": "tc",
+     "points": 10,
+     "parts": [
+      {
+       "kind": "tc-system",
+       "text": "Nalezněte všechna řešení následující soustavy kongruencí. Každý svůj krok pečlivě vysvětlujte. Kongruence neřešte hrubou silou. $26^{488}x\\equiv 4\\pmod{21}$, $18x\\equiv 108\\pmod{60}$.",
+       "app": [
+        "paper:dml-2026-r:3",
+        "gen:dml-tc-combo",
+        "lesson:dml-tc-cvoz"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "dml-2025-k",
+   "name": "K 2025 (5. 12.)",
+   "year": 2025,
+   "date": "2025-12-05",
+   "slot": "pi 14:30",
+   "variant": "K",
+   "format": "2023+",
+   "total": 30,
+   "app_paper": "dml-2025-k",
+   "verified": "prepis z fit-wiki (obrázok); pri K-2 c) prepis nevie, či sú 1. a 3. zložka naozaj rovnaké",
+   "source": "fit-wiki bi-dml.21, stránka dml_zapoctovka_2_5-12-2025",
+   "problems": [
+    {
+     "n": 1,
+     "topic": "mi",
+     "points": 10,
+     "parts": [
+      {
+       "kind": "mi-seq-ineq",
+       "text": "Mějme posloupnost reálných čísel definovanou předpisem $x_1=5$, $x_2=5$ a $x_{n+2}=\\sqrt{1+2x_n+x_{n+1}}$ pro všechna $n\\in\\mathbb N$. Zjistěte, pro která $n\\in\\mathbb N$ platí $x_n<4$. Své tvrzení dokažte matematickou indukcí. Nezapomeňte uvést, jak vypadá Váš indukční krok, a kde využíváte indukční předpoklad.",
+       "app": [
+        "paper:dml-2025-k:1",
+        "gen:dml-mi-postupnost",
+        "lesson:dml-mi-nerovnosti",
+        "lesson:dml-mi-silna"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "topic": "mz",
+     "points": 10,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "a) Pro množinu $A$ definujte pojem zobrazení $f$ z $A$ do $A$. Dále, jsou-li $f$ a $g$ zobrazení z $A$ do $A$, definujte jejich složení $(f\\circ g)$ a pro každé $n\\in\\mathbb N_0$ definujte mocninu $f^n$.",
+       "app": [
+        "concept:dml-mz-zobrazeni",
+        "concept:dml-mz-slozeni",
+        "concept:dml-mz-mocnina"
+       ],
+       "definition": [
+        "concept:dml-mz-zobrazeni",
+        "concept:dml-mz-slozeni",
+        "concept:dml-mz-mocnina"
+       ],
+       "terms": 3
+      },
+      {
+       "kind": "mz-sizes",
+       "text": "b) Existují množiny $C$ a $D$ takové, že $|C|+|D|=7$ a současně platí $|C\\times D|=16$? Svou odpověď zdůvodněte (tj. nalezněte konkrétní příklad či dokažte, že takové množiny neexistují).",
+       "app": [
+        "paper:dml-2025-k:2",
+        "gen:dml-mz-velkosti",
+        "lesson:dml-mz-mohutnost"
+       ]
+      },
+      {
+       "kind": "mz-injsurj",
+       "text": "c) Vyšetřete injektivitu a surjektivitu zobrazení $f:(\\mathbb R^+)^3\\to(\\mathbb R^+)^3$ zadaného vztahem $f(x,y,z)=(\\sqrt{y\\cdot z},\\sqrt{x\\cdot z},\\sqrt{y\\cdot z})$ pro všechna $(x,y,z)\\in(\\mathbb R^+)^3$. Zkoumanou vlastnost vždy definujte. Platnost dokažte formálně z definice, neplatnost ukažte vymyšlením protipříkladu.",
+       "app": [
+        "paper:dml-2024-r:2",
+        "gen:dml-mz-injsurj",
+        "lesson:dml-mz-injsurj",
+        "concept:dml-mz-injsurj"
+       ],
+       "definition": [
+        "concept:dml-mz-injsurj"
+       ],
+       "note": "prepis: nejisté, či sú 1. a 3. zložka naozaj rovnaké"
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "topic": "tc",
+     "points": 10,
+     "parts": [
+      {
+       "kind": "tc-tower",
+       "text": "Určete hodnoty následujících dvou zbytků. Tip: při výpočtu toho druhého využijte výsledek a). a) $667^{325}\\bmod 60$ b) $917^{(667^{325})}\\bmod 61$.",
+       "app": [
+        "paper:dml-2025-k:3",
+        "gen:dml-tc-tower",
+        "lesson:dml-tc-mocniny"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "dml-2025-e",
+   "name": "E 2025 (4. 12.)",
+   "year": 2025,
+   "date": "2025-12-04",
+   "slot": "št 16:30",
+   "variant": "E",
+   "format": "2023+",
+   "total": 30,
+   "app_paper": "dml-2025-e",
+   "verified": "prepis z fit-wiki",
+   "source": "fit-wiki bi-dml.21, stránka dml_zapoctovka_2_4-12-2025",
+   "problems": [
+    {
+     "n": 1,
+     "topic": "mi",
+     "points": 10,
+     "parts": [
+      {
+       "kind": "mi-matrix",
+       "text": "Uvažujme matici $\\mathbf A=\\begin{pmatrix}-1&3\\\\0&-1\\end{pmatrix}\\in\\mathbb R^{2,2}$. Výpočtem pro několik prvních hodnot $n\\in\\mathbb N$ odhadněte, čemu se rovná $\\mathbf A^n$ pro obecné $n\\in\\mathbb N$ a tento svůj odhad dokažte matematickou indukcí. Nezapomeňte uvést, jak vypadá Váš indukční krok, a kde využíváte indukční předpoklad.",
+       "app": [
+        "paper:dml-2025-e:1",
+        "gen:dml-mi-matica",
+        "lesson:dml-mi-matice",
+        "paper:dml-2024-r:1"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "topic": "mz",
+     "points": 10,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "a) Definujte (korektně, i se správnou volbou dotčených množin) pojmy identické zobrazení a složení zobrazení.",
+       "app": [
+        "concept:dml-mz-idzobr",
+        "concept:dml-mz-slozeni"
+       ],
+       "definition": [
+        "concept:dml-mz-idzobr",
+        "concept:dml-mz-slozeni"
+       ],
+       "terms": 2
+      },
+      {
+       "kind": "mz-compose-exist",
+       "text": "b) Existují zobrazení $f:B\\to C$, $g:A\\to B$ taková, že obě $f,g$ jsou injektivní, ale $f\\circ g$ není? Svou odpověď zdůvodněte (tj. nalezněte konkrétní příklad, či dokažte, že taková zobrazení neexistují).",
+       "app": [
+        "paper:dml-2025-e:2",
+        "gen:dml-mz-zlozenie",
+        "lesson:dml-mz-skladanie"
+       ]
+      },
+      {
+       "kind": "mz-identity",
+       "text": "c) Nechť $A,B,C$ jsou libovolné podmnožiny společného universa $U$. Rozhodněte (zvlášť), zda níže uvedené vztahy vždy platí. Tvrzení buď podrobně dokažte odvozením (bez Vennova diagramu), nebo nalezněte protipříklad a ukažte, že se o protipříklad skutečně jedná. c1) $(C\\setminus B)\\cap(C\\setminus A)=C\\setminus(A\\cup B)$. c2) $(C\\setminus B)\\cup(C\\setminus A)=C\\setminus(A\\cup B)$.",
+       "app": [
+        "paper:dml-2025-e:2",
+        "gen:dml-mz-rovnost",
+        "lesson:dml-mz-identity"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "topic": "tc",
+     "points": 10,
+     "parts": [
+      {
+       "kind": "tc-inv-min",
+       "text": "Co musí celé číslo $m\\ge 422$ splňovat, aby číslo $a=420$ mělo v $\\mathbb Z_m$ multiplikativní inverzi? Nalezněte nejmenší modul $m\\ge422$, který toto splňuje, a v něm $420^{-1}$ vypočítejte. Své kroky poctivě zdůvodňujte.",
+       "app": [
+        "paper:dml-2025-e:3",
+        "gen:dml-tc-inv-min",
+        "gen:dml-tc-inv",
+        "lesson:dml-tc-kongruencie"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "dml-2024-r",
+   "name": "R 2024 (6. 12.)",
+   "year": 2024,
+   "date": "2024-12-06",
+   "slot": "pi 14:00",
+   "variant": "R",
+   "format": "2023+",
+   "total": 30,
+   "app_paper": "dml-2024-r",
+   "verified": "prepis z fit-wiki (obrázok zapoctovka-ii-r.jpg); časť pokynov prepis skracuje",
+   "source": "fit-wiki bi-dml.21, obrázok zapoctovka-ii-r.jpg",
+   "problems": [
+    {
+     "n": 1,
+     "topic": "mi",
+     "points": 9,
+     "parts": [
+      {
+       "kind": "mi-matrix",
+       "text": "Uvažujme matici $\\mathbf A=\\begin{pmatrix}1&0&1\\\\0&3&0\\\\0&0&1\\end{pmatrix}\\in\\mathbb R^{3,3}$. Výpočtem pro několik prvních hodnot $n$ odhadněte $\\mathbf A^n$ a odhad dokažte matematickou indukcí (uveďte indukční krok a využití IP).",
+       "app": [
+        "paper:dml-2025-e:1",
+        "gen:dml-mi-matica",
+        "lesson:dml-mi-matice",
+        "paper:dml-2024-r:1"
+       ],
+       "note": "prepis pokyn v zátvorke skracuje"
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "topic": "mz",
+     "points": 10,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "a) Definujte (korektně, i se správnou volbou dotčených množin) pojmy složení zobrazení a identické zobrazení.",
+       "app": [
+        "concept:dml-mz-slozeni",
+        "concept:dml-mz-idzobr"
+       ],
+       "definition": [
+        "concept:dml-mz-slozeni",
+        "concept:dml-mz-idzobr"
+       ],
+       "terms": 2
+      },
+      {
+       "kind": "mz-compose-exist",
+       "text": "b) Existují zobrazení $f$ a $g$ taková, že $f\\circ g$ i $g\\circ f$ jsou definované a $f\\circ g$ je identické zobrazení zatímco $g\\circ f$ není identické zobrazení? Svou odpověď zdůvodněte.",
+       "app": [
+        "paper:dml-2025-e:2",
+        "gen:dml-mz-zlozenie",
+        "lesson:dml-mz-skladanie"
+       ]
+      },
+      {
+       "kind": "mz-injsurj",
+       "text": "c) Vyšetřete injektivitu a surjektivitu $f:\\mathbb R^3\\to\\mathbb R^2$, $f(x,y,z)=(-x-y+z,\\,2x+2y-2z)$. Zkoumanou vlastnost vždy definujte; platnost dokažte z definice, neplatnost protipříkladem.",
+       "app": [
+        "paper:dml-2024-r:2",
+        "gen:dml-mz-injsurj",
+        "lesson:dml-mz-injsurj",
+        "concept:dml-mz-injsurj"
+       ],
+       "definition": [
+        "concept:dml-mz-injsurj"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "topic": "tc",
+     "points": 11,
+     "parts": [
+      {
+       "kind": "tc-tower",
+       "text": "Určete hodnoty zbytků. Tip: u druhého využijte a). a) $463^{221}\\bmod46$ b) $947^{(463^{221})}\\bmod47$.",
+       "app": [
+        "paper:dml-2025-k:3",
+        "gen:dml-tc-tower",
+        "lesson:dml-tc-mocniny"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "dml-2024-f",
+   "name": "F 2024 (6. 12.)",
+   "year": 2024,
+   "date": "2024-12-06",
+   "slot": "pi 16:00",
+   "variant": "F",
+   "format": "2023+",
+   "total": 30,
+   "app_paper": "dml-2024-f",
+   "verified": "foto (hlavička PÁ 6. 12., 16:00; na fit-wiki omylom pod 2023); body príkladu 3 dopočítané do 30",
+   "source": "fit-wiki bi-dml.21, obrázok patek6_12_variantaf.png",
+   "problems": [
+    {
+     "n": 1,
+     "topic": "mi",
+     "points": 9,
+     "parts": [
+      {
+       "kind": "mi-rec2",
+       "text": "Mějme nekonečnou posloupnost $(F_1,F_2,F_3,\\dots)$, jejíž členy pro každé $n\\in\\mathbb N$ splňují vztah $F_{n+2}=4F_{n+1}-4F_n$ a dále platí $F_1=2$ a $F_2=12$. Dokažte matematickou indukcí, že pro každé $n\\in\\mathbb N$ platí $F_n=2^n(2n-1)$.",
+       "app": [
+        "paper:dml-2024-f:1",
+        "gen:dml-mi-rek",
+        "lesson:dml-mi-silna"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "topic": "mz",
+     "points": 10,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "a) (4b) Pro množiny $A,B\\subseteq\\mathcal U$ a zobrazení $f:A\\to B$ definujte pojmy: „obor hodnot $f$“, „definiční obor $f$“. Dále definujte, kdy je $f$ „prosté“ a kdy je „na“.",
+       "app": [
+        "concept:dml-mz-zobrazeni",
+        "concept:dml-mz-injsurj"
+       ],
+       "definition": [
+        "concept:dml-mz-zobrazeni",
+        "concept:dml-mz-injsurj"
+       ],
+       "terms": 4
+      },
+      {
+       "kind": "mz-injsurj",
+       "text": "b) (6b) Definujme zobrazení $f:\\mathbb N\\times\\mathbb N\\to\\mathbb N$ předpisem $f(a,b)=2^a4^b$ pro všechna $(a,b)\\in\\mathbb N\\times\\mathbb N$. Zjistěte a zdůvodněte, zda je $f$ prosté a zda na.",
+       "app": [
+        "paper:dml-2024-f:2",
+        "gen:dml-mz-injsurj",
+        "lesson:dml-mz-injsurj"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "topic": "tc",
+     "points": 11,
+     "parts": [
+      {
+       "kind": "tc-system",
+       "text": "Nalezněte všechna řešení následující soustavy kongruencí. Které z těchto řešení je největší záporné? Všechna svá tvrzení zdůvodněte. $3^{30}x\\equiv 5\\pmod{11}$, $50x\\equiv 10\\pmod{65}$.",
+       "app": [
+        "paper:dml-2024-f:3",
+        "gen:dml-tc-combo",
+        "lesson:dml-tc-cvoz"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "dml-2024-j",
+   "name": "J 2024 (5. 12.)",
+   "year": 2024,
+   "date": "2024-12-05",
+   "slot": "št 16:00",
+   "variant": "J",
+   "format": "2023+ (body príkladov 2 a 3 nevidno)",
+   "total": 30,
+   "app_paper": "dml-2024-j",
+   "verified": "foto hárku J-1; príklady 2 a 3 ako výrezy nalepené na ten istý obrázok",
+   "source": "fit-wiki bi-dml.21, obrázok dml-j_1_5_12_2024_.png",
+   "problems": [
+    {
+     "n": 1,
+     "topic": "mi",
+     "points": 9,
+     "parts": [
+      {
+       "kind": "mi-matrix",
+       "text": "Uvažujme matici $\\mathbf A=\\begin{pmatrix}-1&0\\\\5&-1\\end{pmatrix}\\in\\mathbb R^{2,2}$. Výpočtem pro několik prvních hodnot $n\\in\\mathbb N$ odhadněte, čemu se rovná $\\mathbf A^n$ pro obecné $n\\in\\mathbb N$ a tento svůj odhad dokažte matematickou indukcí. Nezapomeňte uvést, jak vypadá Váš indukční krok, a kde využíváte indukční předpoklad.",
+       "app": [
+        "paper:dml-2024-j:1",
+        "gen:dml-mi-matica",
+        "lesson:dml-mi-matice"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "topic": "mz",
+     "points": null,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "a) Uvažujme zobrazení $f:A\\to B$. Definujte pro toto zobrazení definiční obor a obor hodnot a vysvětlete, co to znamená, když řekneme, že je totální.",
+       "app": [
+        "concept:dml-mz-zobrazeni"
+       ],
+       "definition": [
+        "concept:dml-mz-zobrazeni"
+       ],
+       "terms": 2
+      },
+      {
+       "kind": "mz-sizes",
+       "text": "b) Existují množiny $C$ a $D$ takové, že $|C|+|D|=14$ a zároveň platí $|C\\times D|=13$? Svou odpověď zdůvodněte (tj. nalezněte konkrétní příklad či dokažte, že takové množiny neexistují).",
+       "app": [
+        "paper:dml-2024-j:2",
+        "gen:dml-mz-velkosti",
+        "lesson:dml-mz-mohutnost"
+       ]
+      },
+      {
+       "kind": "mz-identity",
+       "text": "c) Nechť $X,Y,Z$ jsou libovolné podmnožiny společného universa $U$. Rozhodněte (zvlášť), zda níže uvedené vztahy vždy platí. Tvrzení buď podrobně dokažte odvozením (bez Vennova diagramu), nebo nalezněte protipříklad a ukažte, že se o protipříklad skutečně jedná. c1) $(X\\cup Y)\\cap Z\\subseteq(Y\\cap Z)\\cup X$ c2) $(X\\cup Y)\\setminus Z=(X\\setminus Z)\\cup Y$",
+       "app": [
+        "paper:dml-2024-j:2",
+        "gen:dml-mz-rovnost",
+        "lesson:dml-mz-identity"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "topic": "tc",
+     "points": null,
+     "parts": [
+      {
+       "kind": "tc-pow",
+       "text": "1. Spočtěte $3^{6624125}\\bmod 110$.",
+       "app": [
+        "paper:dml-2024-j:3",
+        "gen:dml-tc-pow",
+        "lesson:dml-tc-mocniny"
+       ]
+      },
+      {
+       "kind": "tc-lkon",
+       "text": "2. Nalezněte všechna řešení kongruence $308x\\equiv 231\\pmod{121}$.",
+       "app": [
+        "paper:dml-2024-j:3",
+        "gen:dml-tc-lkon"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "dml-2024-h",
+   "name": "H 2024 (5. 12.)",
+   "year": 2024,
+   "date": "2024-12-05",
+   "slot": null,
+   "variant": "H",
+   "format": "2023+ (body nevidno)",
+   "total": 30,
+   "app_paper": "dml-2024-h",
+   "verified": "foto bez hlavičky a bodov; príklad 3 je výrez väčším písmom, čísla ako K 2025",
+   "source": "fit-wiki bi-dml.21, obrázok dml_2024-12-05_h.png",
+   "problems": [
+    {
+     "n": 1,
+     "topic": "mi",
+     "points": null,
+     "parts": [
+      {
+       "kind": "mi-sum-ineq",
+       "text": "Určete pro která všechna přirozená čísla $n$ platí následující nerovnost. Vaše tvrzení pak dokažte matematickou indukcí. $\\sum_{i=2}^{n}\\frac{1}{i^2}<\\frac{n-1}{n+1}$. Nezapomeňte uvést, jak vypadá Váš indukční krok, a kde využíváte indukční předpoklad.",
+       "app": [
+        "paper:dml-2024-h:1",
+        "lesson:dml-mi-nerovnosti",
+        "proof:dml-mi-p-nerov"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "topic": "mz",
+     "points": null,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "a) Definujte pojmy kartézský součin $A\\times B$ a to, že množina $A$ má stejnou mohutnost jako množina $B$.",
+       "app": [
+        "concept:dml-mz-kart",
+        "concept:dml-mz-mohutnost"
+       ],
+       "definition": [
+        "concept:dml-mz-kart",
+        "concept:dml-mz-mohutnost"
+       ],
+       "terms": 2
+      },
+      {
+       "kind": "mz-sizes",
+       "text": "b) Existují neprázdné množiny $A$, $B$ takové, že $|A|=|B|=|A\\times B|$? Svou odpověď zdůvodněte (tj. nalezněte konkrétní příklad či dokažte, že taková dvojice množin neexistuje).",
+       "app": [
+        "paper:dml-2024-h:2",
+        "gen:dml-mz-velkosti",
+        "lesson:dml-mz-mohutnost"
+       ]
+      },
+      {
+       "kind": "mz-injsurj",
+       "text": "c) Vyšetřete injektivitu a surjektivitu zobrazení $f:\\mathbb Z^2\\to\\mathbb Z^2$ zadaného vztahem $f(m,n)=(2m-3n+3,5m-7n+2)$ pro všechna $(m,n)\\in\\mathbb Z^2$. Zkoumanou vlastnost vždy definujte. Platnost dokažte formálně z definice, neplatnost ukažte vymyšlením protipříkladu.",
+       "app": [
+        "paper:dml-2024-h:2",
+        "gen:dml-mz-injsurj",
+        "lesson:dml-mz-injsurj",
+        "concept:dml-mz-injsurj"
+       ],
+       "definition": [
+        "concept:dml-mz-injsurj"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "topic": "tc",
+     "points": null,
+     "parts": [
+      {
+       "kind": "tc-tower",
+       "text": "Určete hodnoty následujících dvou zbytků. a) $667^{325}\\bmod 60$ b) $917^{(667^{325})}\\bmod 61$.",
+       "app": [
+        "paper:dml-2024-h:3",
+        "gen:dml-tc-tower",
+        "lesson:dml-tc-mocniny"
+       ],
+       "note": "rovnaké čísla ako K 2025, príklad 3"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "dml-2024-n",
+   "name": "N 2024",
+   "year": 2024,
+   "date": null,
+   "slot": null,
+   "variant": "N",
+   "format": "2023+ (body nečitateľné)",
+   "total": 30,
+   "app_paper": null,
+   "verified": "len skrátený prepis z fit-wiki (obrázok test_dml_2024_n-1.png), body nečitateľné; nie doslova",
+   "source": "fit-wiki bi-dml.21, obrázok test_dml_2024_n-1.png",
+   "problems": [
+    {
+     "n": 1,
+     "topic": "mi",
+     "points": null,
+     "parts": [
+      {
+       "kind": "mi-matrix",
+       "text": "matice $\\mathbf A=\\begin{pmatrix}1&0&1\\\\0&3&0\\\\0&0&1\\end{pmatrix}$, odhad $\\mathbf A^n$ + indukce.",
+       "app": [
+        "paper:dml-2025-e:1",
+        "gen:dml-mi-matica",
+        "lesson:dml-mi-matice",
+        "paper:dml-2024-r:1"
+       ],
+       "note": "skrátený prepis; rovnaká matica ako R 2024"
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "topic": "mz",
+     "points": null,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "a) Pro $f:A\\to B$ definujte injektivní, surjektivní, bijektivní.",
+       "app": [
+        "concept:dml-mz-injsurj"
+       ],
+       "definition": [
+        "concept:dml-mz-injsurj"
+       ],
+       "terms": 3
+      },
+      {
+       "kind": "mz-compose-exist",
+       "text": "b) Existují $f:B\\to C$, $g:A\\to B$ taková, že $f\\circ g$ je injektivní, ale jedno z $f,g$ není? (Najděte příklad, nebo dokažte, že z injektivity $f\\circ g$ vždy plyne injektivita $f$ i $g$.)",
+       "app": [
+        "paper:dml-2025-e:2",
+        "gen:dml-mz-zlozenie",
+        "lesson:dml-mz-skladanie"
+       ]
+      },
+      {
+       "kind": "mz-identity",
+       "text": "c) $X,Y\\subseteq U$: platí vždy $\\overline X\\times\\overline Y\\subseteq\\overline{X\\times Y}$? (dokázat odvozením bez Vennova diagramu, nebo protipříklad).",
+       "app": [
+        "paper:dml-2025-e:2",
+        "gen:dml-mz-rovnost",
+        "lesson:dml-mz-identity"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "topic": "tc",
+     "points": null,
+     "parts": [
+      {
+       "kind": "tc-inv-min",
+       "text": "Co musí celé $m\\ge422$ splňovat, aby $a=420$ mělo v $\\mathbb Z_m$ multiplikativní inverzi? Najděte nejmenší takové $m$ a spočítejte $420^{-1}$.",
+       "app": [
+        "paper:dml-2025-e:3",
+        "gen:dml-tc-inv-min",
+        "gen:dml-tc-inv",
+        "lesson:dml-tc-kongruencie"
+       ],
+       "note": "v prepise rovnaké čísla ako E 2025; neoverené proti obrázku"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "dml-2023-d",
+   "name": "D 2023 (8. 12.)",
+   "year": 2023,
+   "date": "2023-12-08",
+   "slot": "pi 14:30",
+   "variant": "D",
+   "format": "2023+ (body príkladov 1 a 2 nečitateľné)",
+   "total": 30,
+   "app_paper": "dml-2023-d",
+   "verified": "prepis z fit-wiki (obrázky zapoctovka1/2/3.png); priradenie obrázkov k číslam príkladov podľa poradia na stránke, nejisté",
+   "source": "fit-wiki bi-dml.21, stránka test_08.12.2023-1430",
+   "problems": [
+    {
+     "n": 1,
+     "topic": "mi",
+     "points": null,
+     "parts": [
+      {
+       "kind": "mi-matrix",
+       "text": "Uvažujme matici $\\mathbf A=\\begin{pmatrix}1&-2\\\\-1&2\\end{pmatrix}\\in\\mathbb R^{2,2}$. Výpočtem pro několik prvních hodnot $n\\in\\mathbb N$ odhadněte, čemu se rovná $\\mathbf A^n$ pro obecné $n$ a tento odhad dokažte matematickou indukcí.",
+       "app": [
+        "paper:dml-2025-e:1",
+        "gen:dml-mi-matica",
+        "lesson:dml-mi-matice",
+        "paper:dml-2024-r:1"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "topic": "tc",
+     "points": null,
+     "parts": [
+      {
+       "kind": "tc-tower",
+       "text": "Určete hodnoty následujících dvou zbytků: a) $425^{181}\\bmod42$ b) $862^{(425^{181})}\\bmod43$.",
+       "app": [
+        "paper:dml-2025-k:3",
+        "gen:dml-tc-tower",
+        "lesson:dml-tc-mocniny"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "topic": "mz",
+     "points": 10,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "a) (3 b) Pro množiny $X,Y\\subseteq\\mathcal U$ definujte pojmy: „$X\\subseteq Y$“, „rozdíl množin $X,Y$“ a „potenční množina množiny $X$“.",
+       "app": [
+        "concept:dml-mz-inkluze",
+        "concept:dml-mz-operace"
+       ],
+       "definition": [
+        "concept:dml-mz-inkluze",
+        "concept:dml-mz-operace"
+       ],
+       "terms": 3
+      },
+      {
+       "kind": "mz-sizes",
+       "text": "b) (3 b) Nalezněte příklad množiny $A$ (v libovolném universu), pro kterou platí, že $\\mathcal P(A)$ má právě 7 prvků, nebo dokažte, že taková množina v žádném universu neexistuje.",
+       "app": [
+        "paper:dml-2025-k:2",
+        "gen:dml-mz-velkosti",
+        "lesson:dml-mz-mohutnost"
+       ],
+       "points": 3
+      },
+      {
+       "kind": "mz-identity",
+       "text": "c) (4 b) Uvažujme libovolné univerzum $\\mathcal U$ a množiny $A,B,C\\subseteq\\mathcal U$. S využitím definic z bodu a) přepište do ekvivalentní formule vztah $(A\\cap B\\cap\\overline C)\\subseteq(A\\cup B)\\setminus C$. Rozhodněte, zda uvedený vztah vždy platí a svou odpověď dokažte (pokud obecně neplatí, vymyslete protipříklad).",
+       "app": [
+        "paper:dml-2025-e:2",
+        "gen:dml-mz-rovnost",
+        "lesson:dml-mz-identity"
+       ],
+       "points": 4
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "dml-2023-a",
+   "name": "A 2023 (6. 12.)",
+   "year": 2023,
+   "date": "2023-12-06",
+   "slot": "st 14:30",
+   "variant": "A",
+   "format": "2023+ (body neuvedené)",
+   "total": 30,
+   "app_paper": "dml-2023-a",
+   "verified": "text stránky fit-wiki, body neuvedené",
+   "source": "fit-wiki bi-dml.21, stránka test_06.12.2023-1430",
+   "problems": [
+    {
+     "n": 1,
+     "topic": "mi",
+     "points": null,
+     "parts": [
+      {
+       "kind": "mi-rec2",
+       "text": "Mějme nekonečnou posloupnost $(A_1,A_2,A_3,\\dots)$, jejíž členy pro každé $n\\in\\mathbb N$ splňují vztah $A_{n+2}=A_{n+1}+6A_n$ a dále platí $A_1=-1,A_2=7$. Dokažte matematickou indukcí, že pro každé $n\\in\\mathbb N$ platí $A_n=3^{n-1}+(-2)^n$.",
+       "app": [
+        "paper:dml-2023-a:1",
+        "gen:dml-mi-rek",
+        "lesson:dml-mi-silna"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "topic": "mz",
+     "points": null,
+     "parts": [
+      {
+       "kind": "definition",
+       "text": "a) Pro množiny $A,B\\subseteq U$ definujte pojmy: „A = B“, rozdíl množin A,B a kartézský součin A,B.",
+       "app": [
+        "concept:dml-mz-inkluze",
+        "concept:dml-mz-operace",
+        "concept:dml-mz-kart"
+       ],
+       "definition": [
+        "concept:dml-mz-inkluze",
+        "concept:dml-mz-operace",
+        "concept:dml-mz-kart"
+       ],
+       "terms": 3
+      },
+      {
+       "kind": "mz-sizes",
+       "text": "b) Mějme 2 množiny $C\\subseteq D$, a platí že $|C\\times D|=36$; vysvětlete, jakých všech hodnot může nabývat $|D\\setminus C|$?",
+       "app": [
+        "paper:dml-2025-k:2",
+        "gen:dml-mz-velkosti",
+        "lesson:dml-mz-mohutnost"
+       ]
+      },
+      {
+       "kind": "mz-identity",
+       "text": "c) Dokažte nebo ukažte protipříklad: $(X\\setminus Y)\\times(X\\setminus Z)=(X\\setminus Z)\\times(X\\setminus Y)$.",
+       "app": [
+        "paper:dml-2025-e:2",
+        "gen:dml-mz-rovnost",
+        "lesson:dml-mz-identity"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "topic": "tc",
+     "points": null,
+     "parts": [
+      {
+       "kind": "tc-system",
+       "text": "Nalezněte všechna řešení soustavy kongruencí. Které z těchto řešení je největší záporné? Všechna svá tvrzení zdůvodněte. $6x\\equiv36\\pmod{195}$, $5x\\equiv4\\pmod{91}$.",
+       "app": [
+        "paper:dml-2023-a:3",
+        "gen:dml-tc-combo",
+        "gen:dml-tc-interval",
+        "gen:dml-tc-jedine",
+        "lesson:dml-tc-cvoz",
+        "lesson:dml-tc-lkon"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "app_has": [
+  "dml-2023-a",
+  "dml-2023-d",
+  "dml-2024-f",
+  "dml-2024-h",
+  "dml-2024-j",
+  "dml-2024-r",
+  "dml-2025-e",
+  "dml-2025-k",
+  "dml-2026-r"
+ ]
+}

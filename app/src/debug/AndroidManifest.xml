@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Debug builds only: the math check screen (adb shell am start -n <app id>/dev.hamper.tabula.MathCheckActivity), and plain
+     http so a test build can check for updates on a local server (-PfitestUpdateUrl). -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application android:usesCleartextTraffic="true">
+        <activity android:name=".MathCheckActivity" android:exported="true" android:theme="@style/Theme.Tabula.Starting" />
+        <activity android:name=".SadzbaActivity" android:exported="true" android:theme="@style/Theme.Tabula" />
+    </application>
+</manifest>

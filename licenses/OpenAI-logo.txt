@@ -1,0 +1,5 @@
+The OpenAI logo (the "blossom"), a trademark of OpenAI, used as a vector drawable only beside the "Prihlásiť sa cez ChatGPT"
+sign-in button: shared/src/commonMain/composeResources/drawable/ic_openai.xml. Its outline is OpenAI's own SVG as openai.com
+serves it (path in a 41×41 viewBox, taken 19. 11. 2026; openai.com/brand did not open for download then), unchanged:
+scaled uniformly to 20 dp in a 24 dp icon and drawn in one colour, the button's text colour. Not covered by the licence of
+this repository.

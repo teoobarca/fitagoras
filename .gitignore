@@ -1,0 +1,35 @@
+.gradle/
+build/
+local.properties
+.idea/
+.kotlin/
+*.iml
+.DS_Store
+captures/
+
+# release key: never in git (docs/VYVOJ.md says where it is). No trailing slash: "signing/" matched only a directory,
+# so a worktree's symlink named signing got committed, and checking that commit out deleted the real key.
+signing
+/signing
+*.jks
+*.keystore
+keystore.properties
+
+# the clip guest key: injected into BuildConfig at build time, never in git
+secrets.properties
+/secrets.properties
+
+# python caches
+__pycache__/
+*.pyc
+
+# other secrets and private notes: never in git, whatever their form (file, directory or symlink, so no trailing slash)
+.env
+.env.*
+*.p12
+*.pem
+*.key
+*.local.md
+# the course sources (lecture notes, captions, past papers) stay outside the repository even when linked in
+/kontext
+/zdroje

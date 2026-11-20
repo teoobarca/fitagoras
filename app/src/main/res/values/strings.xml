@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FITagoras</string>
+    <string name="shortcut_lesson">Pokračovať v lekcii</string>
+    <string name="shortcut_mock">Nácvik testu</string>
+    <string name="shortcut_gem">GEM v Z₅</string>
+    <string name="widget_desc">Dni do testu a ďalší krok</string>
+</resources>

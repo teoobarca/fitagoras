@@ -1,0 +1,8 @@
+<resources>
+    <color name="splash_bg">@color/board</color>
+    <style name="Theme.Tabula" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/board</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+</resources>

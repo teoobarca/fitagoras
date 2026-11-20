@@ -1,0 +1,17 @@
+# Stopy, ktoré do verejného repozitára nepatria: cesty na disku, adresy vnútornej siete, odkazy na poznámky mimo
+# repozitára a e-mailové adresy. Jeden regulárny výraz na riadok (Java aj Python, príznak MULTILINE), # je komentár.
+# Číta ich NoPrivateServerNameTest (každý sledovaný súbor) a scripts/verejne/kontrola.py (pred pushom: obsah,
+# správy commitov, autori). Mená konkrétnych súkromných strojov, serverov a nástrojov autora sem nepatria (tento
+# súbor je verejný): sú v súkromnom zozname mimo repozitára, $FITAGORAS_SUKROMNE_VZORY, predvolene
+# ~/.fitagoras/sukromne-vzory.txt, v rovnakom formáte; ak existuje, test aj kontrola ho čítajú navyše.
+# cesty na disku a adresy siete
+/User[s]/
+/Volume[s]/
+(?<![A-Za-z])/mn[t]/
+\b192\.16[8]\.\d+\.\d+
+# odkazy na poznámky mimo repozitára
+(?i)owner'?s (machine|notes|private)
+(?i)pozn[aá]mk\w* (vlastn[ií]k|autora mimo)
+(?i)lok[aá]lnych pozn[aá]mk
+# e-mailové adresy (okrem id nahrávok FIT, GitHub noreply a example.com; this@ je návestie v Kotline)
+(?<![A-Za-z0-9._%+-])(?!this@)[A-Za-z0-9._%+-]+@(?!sirius\.fit\.cvut\.cz\b)(?!github\.com\b)(?!users\.noreply\.github\.com\b)(?!example\.(com|org)\b)[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}\b

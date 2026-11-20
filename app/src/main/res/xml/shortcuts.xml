@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut android:shortcutId="lesson" android:enabled="true" android:icon="@drawable/shortcut_lesson" android:shortcutShortLabel="@string/shortcut_lesson">
+        <intent android:action="android.intent.action.VIEW" android:data="tabula://lesson" android:targetPackage="dev.hamper.fitest" android:targetClass="dev.hamper.tabula.MainActivity"/>
+    </shortcut>
+    <shortcut android:shortcutId="mock" android:enabled="true" android:icon="@drawable/shortcut_mock" android:shortcutShortLabel="@string/shortcut_mock">
+        <intent android:action="android.intent.action.VIEW" android:data="tabula://mock" android:targetPackage="dev.hamper.fitest" android:targetClass="dev.hamper.tabula.MainActivity"/>
+    </shortcut>
+    <shortcut android:shortcutId="gem" android:enabled="true" android:icon="@drawable/shortcut_gem" android:shortcutShortLabel="@string/shortcut_gem">
+        <intent android:action="android.intent.action.VIEW" android:data="tabula://gem" android:targetPackage="dev.hamper.fitest" android:targetClass="dev.hamper.tabula.MainActivity"/>
+    </shortcut>
+</shortcuts>

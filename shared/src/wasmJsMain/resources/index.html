@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8">
+  <!-- cover: the app draws edge to edge and #app keeps out of the notch and the home indicator (safe-area insets) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>FITagoras</title>
+  <meta name="description" content="Lekcie a príklady z BI-LA1 a BI-DML na FIT ČVUT.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#F5F0E6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#181D1B" media="(prefers-color-scheme: dark)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="FITagoras">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <style>
+    /* the app's page, the tone around its column in a wide window and the hairline between them (ui/AppColumn.kt);
+       the app sets them to its own theme once it runs (web.js chrome) */
+    :root { --bg: #F5F0E6; --around: #EBE4D6; --edge: #DFD5C4; }
+    @media (prefers-color-scheme: dark) { :root { --bg: #181D1B; --around: #111513; --edge: #2A322F; } }
+    html, body { margin: 0; height: 100%; overflow: hidden; overscroll-behavior: none; background: var(--bg); -webkit-text-size-adjust: 100%; }
+    body { position: fixed; inset: 0; }
+    #app { position: absolute; inset: 0; height: 100dvh; box-sizing: border-box;
+      padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+      -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
+    /* the splash while the app downloads (4.7 MB the first time): web.js fills the bar and shows a failure; the app
+       fades it out after its first frame (web/Main.kt), so nothing blinks between the two */
+    #splash { position: fixed; inset: 0; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 14px; padding: 24px; text-align: center; background: inherit; font: 16px/1.4 -apple-system, system-ui, sans-serif; color: #5b574f;
+      transition: opacity .18s ease-out; }
+    #splash img { width: 88px; height: 88px; border-radius: 22px; }
+    #splash h1 { margin: 4px 0 0; font-size: 22px; font-weight: 650; color: #1d1c1a; letter-spacing: -.01em; }
+    #splash .bar { width: 200px; height: 6px; border-radius: 3px; background: #e6dfd1; overflow: hidden; }
+    #splash .bar i { display: block; height: 100%; width: 0; border-radius: 3px; background: #2B6656; transition: width .25s linear; }
+    #splash.wait .bar i { width: 30%; animation: fit-wait 1.4s ease-in-out infinite; }
+    @keyframes fit-wait { from { transform: translateX(-100%); } to { transform: translateX(340%); } }
+    #splash p { margin: 0; max-width: 300px; min-height: 2.8em; font-size: 14px; }
+    #splash button { display: none; font: inherit; font-weight: 600; color: #fff; background: #2B6656; border: 0; border-radius: 22px; padding: 11px 26px; }
+    #splash.failed .bar { display: none; }
+    #splash.failed button, #splash.slow button { display: block; }
+    #splash.gone { opacity: 0; }
+    /* after an error once the app runs (web.js crashed): a way out of a screen that may have stopped */
+    #crash { position: fixed; z-index: 2; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); display: flex; align-items: center;
+      justify-content: space-between; gap: 12px; padding: 10px 10px 10px 16px; border-radius: 16px; background: #1d1c1a; color: #f5f0e6;
+      font: 15px/1.3 -apple-system, system-ui, sans-serif; box-shadow: 0 4px 16px rgba(0,0,0,.18); }
+    #crash span { flex: 1; }
+    #crash button { font: inherit; font-weight: 600; color: #1d1c1a; background: #f5f0e6; border: 0; border-radius: 12px; padding: 9px 14px; }
+    #crash button.x { color: #f5f0e6; background: none; padding: 9px 8px; }
+    /* a window wider than a phone: the app is a 480 px column in the middle (ui/AppColumn.kt), and so are the splash and the crash bar
+       (after their own rules, so these win) */
+    @media (min-width: 481px) {
+      html, body { background: var(--around); }
+      #splash::before { content: ""; position: absolute; z-index: -1; top: 0; bottom: 0; left: calc(50% - 240px); width: 480px;
+        background: var(--bg); box-shadow: -1px 0 0 var(--edge), 1px 0 0 var(--edge); }
+      #crash { left: calc(50% - 228px); right: calc(50% - 228px); }
+    }
+    @media (prefers-color-scheme: dark) { #splash { color: #b9b4a8; } #splash h1 { color: #ece7dc; } #splash .bar { background: #2c332f; } #splash .bar i, #splash button { background: #4f9a83; } }
+  </style>
+  <script src="web.js"></script>
+  <script>
+    // offline after the first visit: the service worker keeps this build's files (sw.js, written by scripts/web.sh)
+    if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "127.0.0.1" || location.hostname === "localhost")) addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
+  </script>
+  <!-- defer: the splash below shows while this and the wasm files download -->
+  <script src="fitest.js" defer></script>
+</head>
+<body>
+  <div id="app"></div>
+  <div id="splash" class="wait" role="status">
+    <img src="icon-192.png" alt="">
+    <h1>FITagoras</h1>
+    <div class="bar"><i></i></div>
+    <p>Načítava sa…</p>
+    <button type="button">Skúsiť znova</button>
+  </div>
+  <noscript>FITagoras potrebuje zapnutý JavaScript.</noscript>
+</body>
+</html>
