@@ -36,9 +36,14 @@ Teo: „tútora chcem fakt veľmi poriadne zakomponovať“, „streaming a nat�
   tam, kde je, a ukáže všetko prijaté.
 - **Čakanie** (`Cakanie`): tri bodky v zelenej appky a čo tútor robí („Čítam papier“, „Overujem výpočet“, „Hľadám
   vetu v skriptách“, `StavNastroja`); bez odhadu času. Prvý stav sa objaví v tom istom snímku ako ťuk.
-- **Posudok v kroku** (`PosudokKarta`): verdikt ide v schéme prvý, appka ho ukáže hneď, ako ho stream pomenuje
-  (`verdiktVPrude`, len zobrazenie; platí posudok rozobraný na konci), na mieste čakania; karta sa zafarbí (zelená
-  uznal, terakota neuznal), prvá veta je dôvod, zvyšok pod čiarou „Čo opraviť“.
+- **Posudok v kroku** (`PosudokKarta`, Teo 20. 11.): poradie ako pri opravenej písomke. Navrchu „Tvoj papier“, čo
+  Pytagoras prečítal, bežným písmom (hneď po čítaní, ešte počas posudzovania; nad 10 riadkov prvé riadky a „Zobraziť
+  celé“), potom verdikt, prvá veta ako dôvod a zvyšok pod obyčajným nadpisom „Čo opraviť“ (bez čiary a farby). Verdikt
+  ide v schéme prvý, appka ho ukáže hneď, ako ho stream pomenuje (`verdiktVPrude`, len zobrazenie; platí posudok
+  rozobraný na konci), na mieste čakania; karta sa zafarbí (zelená uznal, terakota neuznal), farbu má len verdikt.
+  Žiadny riadok, ktorý len hovorí, kto hovorí: v paneli to povie hlavička, v kroku verdikt („Pytagoras by to
+  neuznal“). Kontrola GEM má to isté poradie; že chybu našiel výpočet appky, hovorí štítok „Tvoj papier · prepočítané
+  appkou“.
 - **Vstup**: fotky z foťáka čakajú pod poľom (odobrať, pridať), Enter alebo kláves odoslania pošle, 2–3 tiché čipy
   podľa miesta (`navrhy`). Druhá otázka počas písania čaká na prvú (jedna história).
 - **Skutočné streamy**: `scripts/tutor.sh tutor … --zaznam FILE` zapíše udalosti streamu tak, ako ich dostane

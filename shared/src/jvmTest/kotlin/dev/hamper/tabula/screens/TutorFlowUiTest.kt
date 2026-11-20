@@ -149,13 +149,13 @@ class TutorFlowUiTest {
         onAllNodes(hasText("Odfoť riešenie", substring = true) and hasClickAction()).onFirst().performClick()
         waitForIdle()
         assertTrue(shows("dimenziou je presne to"))
-        assertTrue(shows("Uznal by som"))
+        assertTrue(shows("Pytagoras by to uznal"))
         assertEquals(listOf(0, 1, 2, 3), ticked)
         assertTrue(!shows("Na čo sa chceš opýtať"))
         // the follow-up: the panel opens with the paper's turn in it, and the question goes on in the same history
         onAllNodes(hasText("Opýtať sa ďalej") and hasClickAction()).onFirst().performClick()
         waitForIdle()
-        assertTrue(shows("Skontroluj mi to."))
+        assertTrue(shows("Uznal by som"))
         val pred = t.volania.size
         onAllNodes(hasSetTextAction()).onFirst().performTextInput("Prečo?")
         onAllNodes(hasContentDescription("Poslať")).onFirst().performClick()

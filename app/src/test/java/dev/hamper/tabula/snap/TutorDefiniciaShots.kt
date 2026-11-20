@@ -45,7 +45,7 @@ import java.io.File
 /**
  * A definition written from memory and photographed, for the app's web page (its Pytagoras section): the linear span
  * (Definice 2.33) with the coefficients' "α_i ∈ T" left out. The step as Steps.kt draws it after writing ("Porovnaj so
- * skriptami.", the textbook's card, the paper's check), "Odfoť riešenie" and "Čo som prečítal" tapped. The judgement
+ * skriptami.", the textbook's card, the paper's check), "Odfoť riešenie" tapped: the paper as read on top, the verdict under it. The judgement
  * is a real one: gpt-6.2-sol at low effort (Nastavenie.z) gave "neuznal_by" 14 times of 14 on this paper (20. 11.);
  * the text is one of those runs word for word, the one that quotes what the student wrote in its first sentence. `./gradlew :app:snap -Psnap.test=TutorDefiniciaShots -Psnap.out=DIR`:
  * tutor-definicia-<light|dark>-427-1.0.png, 1281 px wide like the Pixel's captures.
@@ -86,10 +86,6 @@ class TutorDefiniciaShots : Shots() {
             rule.waitForIdle()
             rule.onNodeWithText("Odfoť riešenie, Pytagoras ho skontroluje").performScrollTo().performClick()
             rule.mainClock.advanceTimeBy(30_000)
-            rule.waitForIdle()
-            // its click action, not a touch: a touch leaves the platform's ripple (drawn in real time) on the capture
-            rule.onNodeWithText("Čo som prečítal").performScrollTo().performSemanticsAction(androidx.compose.ui.semantics.SemanticsActions.OnClick)
-            rule.mainClock.advanceTimeBy(2_000)
             rule.waitForIdle()
             rule.onRoot().captureRoboImage(File(Snap.out, "tutor-definicia-${if (d) "dark" else "light"}-427-1.0.png").path,
                 com.github.takahirom.roborazzi.RoborazziOptions(taskType = com.github.takahirom.roborazzi.RoborazziTaskType.Record, recordOptions = com.github.takahirom.roborazzi.RoborazziOptions.RecordOptions(resizeScale = 1.0)))

@@ -153,29 +153,6 @@ internal fun ChatGptTlacidlo(label: String, onClick: () -> Unit) {
     }
 }
 
-/** The verdict as a word a teacher would say: "Uznal by som", "S výhradou", "Neuznal by som". */
-@Composable
-fun VerdiktCip(ps: Posudok) {
-    val c = T.c
-    val (slovo, fill, ink) = when (ps.verdikt) {
-        Posudok.Verdikt.UZNAL_BY -> Triple("Uznal by som", c.lesson.tint, c.lesson.text)
-        Posudok.Verdikt.S_VYHRADOU -> Triple("Uznal by som s výhradou", c.sand, c.ink)
-        Posudok.Verdikt.NEUZNAL_BY -> Triple("Neuznal by som", c.badTint, c.badInk)
-    }
-    Text(slovo, Modifier.clip(RoundedCornerShape(12.dp)).background(fill).padding(horizontal = 10.dp, vertical = 4.dp), style = MaterialTheme.typography.labelLarge, color = ink)
-}
-
-/** "Čo som prečítal": a quiet way to see the transcript, never a step to confirm (Teo, 18. 11.). */
-@Composable
-fun CoSomPrecital(pr: PrepisTextu?) {
-    val c = T.c
-    pr?.takeIf { it.riadky.isNotEmpty() } ?: return
-    var ukaz by remember { mutableStateOf(false) }
-    Text(if (ukaz) "Skryť prečítané" else "Čo som prečítal", Modifier.clip(RoundedCornerShape(8.dp)).clickable(role = Role.Button) { ukaz = !ukaz }.padding(vertical = 6.dp),
-        style = MaterialTheme.typography.labelSmall, color = c.ink3)
-    if (ukaz) pr.riadky.forEach { Rich(it, style = MaterialTheme.typography.bodySmall, color = c.ink2) }
-}
-
 /** What the student's paper got, one value per step or part: by the student's own tap or by a sure verdict of the tutor. */
 object Hodnotenie {
     const val MAM = 1

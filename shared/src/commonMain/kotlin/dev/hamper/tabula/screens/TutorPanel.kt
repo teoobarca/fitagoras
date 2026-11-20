@@ -14,7 +14,8 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.draw.clipToBounds
+import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
@@ -184,83 +185,132 @@ fun PapierKontrola(miesto: () -> MiestoAppky, otvorFotak: Boolean = false, onPos
     if (panel) TutorPanelDialog({ m!! }, onPosudok = onPosudok, stav = stav, zaostrit = true, onZavri = { panel = false })
 }
 
-/** The verdict's colours and word: right is green, wrong terracotta (as everywhere in the app), a reservation neutral. */
+/**
+ * The verdict's colours and word: right is green, wrong terracotta (as everywhere in the app), a reservation neutral.
+ * [vPaneli]: in Pytagoras's panel, whose header names him, he speaks ("Neuznal by som"); in a step, where nothing else
+ * says whose the judgement is, the verdict names him ("Pytagoras by to neuznal", as the step says it on a later visit).
+ */
 @Composable
-private fun verdiktVzhlad(v: Posudok.Verdikt?): Triple<androidx.compose.ui.graphics.Color, androidx.compose.ui.graphics.Color, String?> {
+private fun verdiktVzhlad(v: Posudok.Verdikt?, vPaneli: Boolean = true): Triple<androidx.compose.ui.graphics.Color, androidx.compose.ui.graphics.Color, String?> {
     val c = T.c
     return when (v) {
-        Posudok.Verdikt.UZNAL_BY -> Triple(c.goodTint, c.good, "Uznal by som")
-        Posudok.Verdikt.S_VYHRADOU -> Triple(c.sand, c.ink, "Uznal by som s výhradou")
-        Posudok.Verdikt.NEUZNAL_BY -> Triple(c.badTint, c.badInk, "Neuznal by som")
+        Posudok.Verdikt.UZNAL_BY -> Triple(c.goodTint, c.good, if (vPaneli) "Uznal by som" else "Pytagoras by to uznal")
+        Posudok.Verdikt.S_VYHRADOU -> Triple(c.sand, c.ink, if (vPaneli) "Uznal by som s výhradou" else "Pytagoras by to uznal s výhradou")
+        Posudok.Verdikt.NEUZNAL_BY -> Triple(c.badTint, c.badInk, if (vPaneli) "Neuznal by som" else "Pytagoras by to neuznal")
         null -> Triple(c.card, c.ink2, null)
     }
 }
 
 /**
- * The teacher's verdict on a paper, read at a glance: the verdict word in its colour (it comes first in the stream, so
- * it lands at once, in the place the waiting state held), the reason (the first sentence), then what to fix under a
- * rule. Nothing moves when a part lands: the verdict takes the waiting line's place, the words only grow at the end.
+ * The paper's judgement read the way a marked test is (Teo, 20. 11.): first what the student wrote ("Tvoj papier", in
+ * ordinary type, never hidden), then the verdict in its colour and why, then what to fix under a plain heading. No
+ * line that only says who speaks or what happens: the panel's header names Pytagoras, the verdict speaks for itself.
+ * Nothing jumps when a part lands: the paper comes as soon as it is read, the verdict takes the waiting line's place,
+ * the words only grow at the end.
  */
 @Composable
 private fun PosudokKarta(t: Tah, onZnova: () -> Unit, sluzba: TutorSluzba, nahlady: Boolean = true) {
     val c = T.c
     val v = t.posudok?.first?.verdikt ?: t.verdikt
-    val (tint, ink, slovo) = verdiktVzhlad(v)
+    val (tint, ink, slovo) = verdiktVzhlad(v, vPaneli = !nahlady)
     val fill by androidx.compose.animation.animateColorAsState(tint, androidx.compose.animation.core.tween(420))
-    val ram by androidx.compose.animation.animateColorAsState(if (v == Posudok.Verdikt.NEUZNAL_BY) c.badLine else c.line, androidx.compose.animation.core.tween(420))
-    Column(Modifier.fillMaxWidth().clip(RoundedCornerShape(24.dp)).background(fill).border(1.dp, ram, RoundedCornerShape(24.dp)).padding(16.dp)) {
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Text("Pytagoras k tvojmu papieru", style = MaterialTheme.typography.labelMedium, color = c.ink2, modifier = Modifier.weight(1f))
-            if (nahlady) Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) { t.fotky.take(3).forEachIndexed { i, f -> Nahlad(f, i, 40) } }
-        }
-        Spacer(Modifier.height(8.dp))
+    Column(Modifier.fillMaxWidth().clip(RoundedCornerShape(24.dp)).background(fill).border(1.dp, c.line, RoundedCornerShape(24.dp)).padding(16.dp)) {
+        // in the step the photos sit by the paper's text; in the panel they are the student's turn above
+        if (TvojPapier(t.posudok?.second ?: t.prepis, if (nahlady) t.fotky else emptyList())) Spacer(Modifier.height(14.dp))
         val chyba = t.chyba
         val zivo = remember(t) { !t.hotovo }
         val zobraz = plynulo(t.text, zivo, t.hotovo, hned = t.zastavene || chyba != null)
-        // the headline: what the tutor does now, then the verdict in the same place
+        // what the tutor does now, then the verdict in the same place
         val hlavicka: Any = when { slovo != null -> v!!; !t.hotovo -> "cakam"; else -> "nic" }
         androidx.compose.animation.AnimatedContent(hlavicka, transitionSpec = { fadeIn(androidx.compose.animation.core.tween(320, 80)) togetherWith fadeOut(androidx.compose.animation.core.tween(160)) }) { h ->
             when (h) {
-                is Posudok.Verdikt -> Row(verticalAlignment = Alignment.CenterVertically) {
-                    Icon24(if (h == Posudok.Verdikt.NEUZNAL_BY) Res.drawable.ic_x else Res.drawable.ic_check, tint = ink, modifier = Modifier.size(22.dp))
-                    Spacer(Modifier.width(8.dp))
-                    Text(slovo ?: "", style = MaterialTheme.typography.titleMedium, color = ink)
-                }
+                is Posudok.Verdikt -> VerdiktRiadok(h, slovo ?: "", ink)
                 "cakam" -> Cakanie(t.stav ?: if (t.text.isEmpty()) "Čítam papier" else "Posudzujem ako cvičiaci")
                 else -> Spacer(Modifier.height(0.dp))
             }
         }
         if (zobraz.isNotEmpty()) {
-            val (dovod, oprav) = remember(zobraz) { prvaVeta(vysaditelne(zobraz)) }
             Spacer(Modifier.height(8.dp))
-            CompositionLocalProvider(dev.hamper.tabula.ui.LocalNabehSlov provides zivo) {
-                Rich(dovod, style = MaterialTheme.typography.bodyLarge, color = c.ink)
-                if (oprav.isNotBlank()) {
-                    Spacer(Modifier.height(10.dp))
-                    // what to fix, under a rule in the verdict's colour; with a full verdict it is only a remark
-                    // the rule is drawn beside the text (an intrinsic height would lay the typeset text out twice)
-                    val linka = if (v == Posudok.Verdikt.UZNAL_BY) c.line else ink.copy(alpha = .55f)
-                    Box(Modifier.fillMaxWidth().drawBehind {
-                        drawRoundRect(linka, size = androidx.compose.ui.geometry.Size(3.dp.toPx(), size.height), cornerRadius = androidx.compose.ui.geometry.CornerRadius(2.dp.toPx()))
-                    }.padding(start = 15.dp)) {
-                        Column {
-                            if (v != null && v != Posudok.Verdikt.UZNAL_BY) { Text("Čo opraviť", style = MaterialTheme.typography.labelMedium, color = ink); Spacer(Modifier.height(2.dp)) }
-                            oprav.split(Regex("\\n\\s*\\n")).filter { it.isNotBlank() }.forEachIndexed { i, o -> key(i) { if (i > 0) Spacer(Modifier.height(6.dp)); Rich(o.trim(), style = MaterialTheme.typography.bodyLarge, color = c.ink) } }
-                        }
-                    }
-                }
-            }
+            CompositionLocalProvider(dev.hamper.tabula.ui.LocalNabehSlov provides zivo) { DovodAOprava(zobraz, v) }
         }
         if (chyba != null) {
             if (zobraz.isNotEmpty()) Spacer(Modifier.height(8.dp))
             ChybaRiadok(chyba, onZnova, sluzba)
         } else if (t.zastavene) {
             Text("Zastavené.", style = MaterialTheme.typography.bodyMedium, color = c.ink2)
-        } else if (t.hotovo) {
-            if (t.posudok == null && t.text.isBlank()) Text("Na fotke som nenašiel napísaný text. Skús ju odfotiť ostrejšie a celú.", style = MaterialTheme.typography.bodyLarge, color = c.ink)
-            CoSomPrecital(t.posudok?.second)
+        } else if (t.hotovo && t.posudok == null && t.text.isBlank()) {
+            Text("Na fotke som nenašiel napísaný text. Skús ju odfotiť ostrejšie a celú.", style = MaterialTheme.typography.bodyLarge, color = c.ink)
         }
     }
+}
+
+/** The verdict: its mark and word in the verdict's colour, the one coloured thing of the card. */
+@Composable
+private fun VerdiktRiadok(v: Posudok.Verdikt, slovo: String, ink: androidx.compose.ui.graphics.Color) {
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        Icon24(if (v == Posudok.Verdikt.NEUZNAL_BY) Res.drawable.ic_x else Res.drawable.ic_check, tint = ink, modifier = Modifier.size(22.dp))
+        Spacer(Modifier.width(8.dp))
+        Text(slovo, style = MaterialTheme.typography.titleMedium, color = ink)
+    }
+}
+
+/**
+ * The judgement's words: the first sentence is why, the rest what to fix, under a plain heading and a gap (Teo, 20. 11.:
+ * no rule beside it, no colour; with a full verdict the rest is only a remark and has no heading).
+ */
+@Composable
+private fun DovodAOprava(text: String, v: Posudok.Verdikt?) {
+    val c = T.c
+    val (dovod, oprav) = remember(text) { prvaVeta(vysaditelne(text)) }
+    Rich(dovod, style = MaterialTheme.typography.bodyLarge, color = c.ink)
+    if (oprav.isNotBlank()) {
+        Spacer(Modifier.height(14.dp))
+        if (v != null && v != Posudok.Verdikt.UZNAL_BY) { Label("Čo opraviť"); Spacer(Modifier.height(4.dp)) }
+        oprav.split(Regex("\\n\\s*\\n")).filter { it.isNotBlank() }.forEachIndexed { i, o -> key(i) { if (i > 0) Spacer(Modifier.height(6.dp)); Rich(o.trim(), style = MaterialTheme.typography.bodyLarge, color = c.ink) } }
+    }
+}
+
+/**
+ * What the student wrote, as Pytagoras read it, on top of the judgement it is about: ordinary type and colour, labelled
+ * as the student's paper, the photos beside the label ([fotky], in a step). A long paper (a proof over pages) shows its
+ * first lines and "Zobraziť celé". False when there is nothing to show (no text read yet, no photo here).
+ */
+@Composable
+private fun TvojPapier(pr: PrepisTextu?, fotky: List<ByteArray>): Boolean {
+    val riadky = pr?.riadky.orEmpty()
+    if (riadky.isEmpty() && fotky.isEmpty()) return false
+    val c = T.c
+    // nothing read yet (or nothing readable): the photos alone, at the right like the student's turn, no empty frame
+    if (riadky.isEmpty()) {
+        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(4.dp, Alignment.End)) { fotky.take(3).forEachIndexed { i, f -> Nahlad(f, i, 40) } }
+        return true
+    }
+    Column(Modifier.fillMaxWidth().panel(radius = 16.dp, fill = c.card).padding(horizontal = 14.dp, vertical = 12.dp)) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Label("Tvoj papier", Modifier.weight(1f))
+            if (fotky.isNotEmpty()) Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) { fotky.take(3).forEachIndexed { i, f -> Nahlad(f, i, 40) } }
+        }
+        Spacer(Modifier.height(6.dp))
+        val styl = MaterialTheme.typography.bodyMedium
+        val hustota = androidx.compose.ui.platform.LocalDensity.current
+        // up to ten lines stand whole; a longer paper (a proof over pages) shows its first lines, cut after a whole
+        // line of the paper, and the rest on a tap
+        val riadok = with(hustota) { styl.lineHeight.toPx() }
+        var cela by remember(pr) { mutableStateOf(false) }
+        val vysky = remember(pr) { mutableStateListOf<Int>().apply { repeat(riadky.size) { add(0) } } }
+        val spolu = vysky.sum()
+        val skrat = !cela && spolu > riadok * 10.5f
+        // the first lines that fit in six (at least one)
+        val vidno = if (!skrat) spolu else vysky.runningFold(0) { a, h -> a + h }.drop(1).let { s -> s.lastOrNull { it <= riadok * 6.5f } ?: s.first() }
+        Box(Modifier.fillMaxWidth().then(if (skrat) Modifier.height(with(hustota) { vidno.toDp() }).clipToBounds() else Modifier)) {
+            Column(Modifier.fillMaxWidth().wrapContentHeight(Alignment.Top, unbounded = true)) {
+                riadky.forEachIndexed { i, r -> Rich(r, Modifier.onSizeChanged { vysky[i] = it.height }, style = styl, color = c.ink) }
+            }
+        }
+        if (skrat) Text("Zobraziť celé", Modifier.heightIn(min = 48.dp).clip(RoundedCornerShape(8.dp)).clickable(role = Role.Button) { cela = true }.wrapContentHeight(Alignment.CenterVertically),
+            style = MaterialTheme.typography.labelLarge, color = c.lesson.text)
+    }
+    return true
 }
 
 /**
@@ -317,6 +367,8 @@ class Tah internal constructor(val otazka: String?, val fotky: List<ByteArray>) 
     var chyba by mutableStateOf<TutorChyba?>(null)
     var postup by mutableStateOf<Pair<Vysledok, Kontext>?>(null)
     var posudok by mutableStateOf<Pair<Posudok, PrepisTextu?>?>(null)
+    /** The paper as read, as soon as the reading ends (the judgement follows): the card shows it on top while it waits. */
+    var prepis by mutableStateOf<PrepisTextu?>(null)
     /** The judgement's verdict as soon as the stream names it (the parsed [posudok] replaces it at the end). */
     var verdikt by mutableStateOf<Posudok.Verdikt?>(null)
     /** The student stopped it: what was written stays, readable, with no error. */
@@ -354,7 +406,7 @@ class TutorStav {
                     sluzba.drz("Pytagoras odpovedá…")
                     val pred = r.art.postup; val predP = r.art.posudok
                     try {
-                        val o = r.opytaj(t.otazka, fotky, onStav = { s -> t.stav = s.ifEmpty { null } }, onReset = { t.text = ""; t.verdikt = null }, onVerdikt = { v -> t.verdikt = v }) { d -> t.stav = null; t.text += d }
+                        val o = r.opytaj(t.otazka, fotky, onStav = { s -> t.stav = s.ifEmpty { null }; if (fotky.isNotEmpty()) r.art.prepisPapiera?.let { t.prepis = it } }, onReset = { t.text = ""; t.verdikt = null }, onVerdikt = { v -> t.verdikt = v }) { d -> t.stav = null; t.text += d }
                         t.text = o.text
                     } finally {
                         sluzba.drz(null)
@@ -552,15 +604,16 @@ private fun odseky(s: String): List<String> = s.split(Regex("\\n\\s*\\n")).filte
 private fun TahView(t: Tah, m: MiestoAppky, art: Artefakty?, sluzba: TutorSluzba, onZnova: () -> Unit) {
     val c = T.c
     Spacer(Modifier.height(16.dp))
-    // the student's turn, right-aligned: the photos as thumbnails (a tap enlarges), the question in the accent
+    // the student's turn, right-aligned: the photos as thumbnails (a tap enlarges), the question in the accent; photos
+    // alone are the turn, with no words put in the student's mouth
     Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.End) {
-        if (t.fotky.isNotEmpty()) {
-            Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) { t.fotky.forEachIndexed { i, f -> Nahlad(f, i) } }
-            Spacer(Modifier.height(6.dp))
+        if (t.fotky.isNotEmpty()) Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) { t.fotky.forEachIndexed { i, f -> Nahlad(f, i) } }
+        if (t.otazka != null || t.fotky.isEmpty()) {
+            if (t.fotky.isNotEmpty()) Spacer(Modifier.height(6.dp))
+            Text(t.otazka ?: "Vysvetli mi to.",
+                Modifier.widthIn(max = 300.dp).clip(RoundedCornerShape(16.dp)).background(c.lesson.main).padding(horizontal = 14.dp, vertical = 10.dp),
+                style = MaterialTheme.typography.bodyMedium, color = c.onAcc)
         }
-        Text(t.otazka ?: if (t.fotky.isNotEmpty()) "Skontroluj mi to." else "Vysvetli mi to.",
-            Modifier.widthIn(max = 300.dp).clip(RoundedCornerShape(16.dp)).background(c.lesson.main).padding(horizontal = 14.dp, vertical = 10.dp),
-            style = MaterialTheme.typography.bodyMedium, color = c.onAcc)
     }
     Spacer(Modifier.height(12.dp))
     // a paper judged with no question: the same card as in the step
@@ -594,12 +647,16 @@ private fun TahView(t: Tah, m: MiestoAppky, art: Artefakty?, sluzba: TutorSluzba
     }
     t.chyba?.let { e -> if (zobraz.isNotEmpty()) Spacer(Modifier.height(10.dp)); ChybaRiadok(e, onZnova, sluzba) }
     if (t.zastavene && t.chyba == null) { Spacer(Modifier.height(6.dp)); Text("Zastavené.", style = MaterialTheme.typography.bodyMedium, color = c.ink2) }
-    t.posudok?.let { (ps, pr) -> Spacer(Modifier.height(10.dp)); Nabeh { Column {
-        VerdiktCip(ps)
-        // with a question, the words above are the answer to it: the judgement's own reasons go with the verdict
-        if (t.otazka != null && ps.text != t.text) { Spacer(Modifier.height(6.dp)); Rich(ps.text, style = MaterialTheme.typography.bodyMedium, color = c.ink2) }
-        CoSomPrecital(pr)
-    } } }
+    // with a question, the words above are the answer to it; the judgement of the paper follows as the same card as
+    // without one: the paper, the verdict, why and what to fix
+    t.posudok?.let { (ps, pr) -> Spacer(Modifier.height(12.dp)); Nabeh {
+        val (tint, ink, slovo) = verdiktVzhlad(ps.verdikt)
+        Column(Modifier.fillMaxWidth().clip(RoundedCornerShape(24.dp)).background(tint).border(1.dp, c.line, RoundedCornerShape(24.dp)).padding(16.dp)) {
+            if (TvojPapier(pr, emptyList())) Spacer(Modifier.height(14.dp))
+            VerdiktRiadok(ps.verdikt, slovo ?: "", ink)
+            if (ps.text != t.text) { Spacer(Modifier.height(8.dp)); DovodAOprava(ps.text, ps.verdikt) }
+        }
+    } }
 }
 
 /** A block that fades in once, when it first appears. */
@@ -659,21 +716,26 @@ private fun PostupBlok(vys0: Vysledok, k: Kontext) {
     var gem by remember(vys0) { mutableStateOf(vys0.prepis.gemy.getOrNull(vys0.verdikty.indexOf(vys0.hlavny))?.gem) }
     var potvrdene by remember(vys0) { mutableStateOf(emptySet<dev.hamper.tabula.tutor.Miesto>()) }
     val bad = v?.stav == Verdikt.Stav.CHYBA
-    Column(Modifier.fillMaxWidth().clip(RoundedCornerShape(24.dp)).background(if (bad) c.badTint else c.card).border(1.dp, if (bad) c.badLine else c.line, RoundedCornerShape(24.dp)).padding(16.dp)) {
-        Text("Appka skontrolovala tvoj postup GEM", style = MaterialTheme.typography.labelMedium, color = c.ink2)
-        Spacer(Modifier.height(4.dp))
-        Rich(nadpis(v, vys), style = MaterialTheme.typography.titleMedium, color = if (bad) c.badInk else c.ink)
-        val vv = v ?: return@Column
-        studentovPostup(vv)?.let { walk ->
-            Spacer(Modifier.height(10.dp))
-            val kk = vv.krok ?: vv.otazka?.miesto?.matica
+    // the same order as the judgement of a written paper: the student's steps with the mark, the verdict, the right
+    // step. That the app's computation found it (not the model) is said where the steps are, in their label.
+    Column(Modifier.fillMaxWidth().clip(RoundedCornerShape(24.dp)).background(if (bad) c.badTint else c.card).border(1.dp, c.line, RoundedCornerShape(24.dp)).padding(16.dp)) {
+        val vv0 = v
+        val walk = vv0?.let { studentovPostup(it) }
+        if (vv0 != null && walk != null) {
+            val kk = vv0.krok ?: vv0.otazka?.miesto?.matica
             val zn = when {
-                vv.stav == Verdikt.Stav.CHYBA && kk != null -> GemZnacky(kk, vv.riadky, vv.bunky.map { it.miesto.riadok to it.miesto.stlpec }.toSet(), neiste = vv.overitCitanie)
-                vv.stav == Verdikt.Stav.OTAZKA && vv.otazka != null -> vv.otazka.miesto.let { GemZnacky(it.matica, emptySet(), setOf(it.riadok to it.stlpec), neiste = true) }
+                vv0.stav == Verdikt.Stav.CHYBA && kk != null -> GemZnacky(kk, vv0.riadky, vv0.bunky.map { it.miesto.riadok to it.miesto.stlpec }.toSet(), neiste = vv0.overitCitanie)
+                vv0.stav == Verdikt.Stav.OTAZKA && vv0.otazka != null -> vv0.otazka.miesto.let { GemZnacky(it.matica, emptySet(), setOf(it.riadok to it.stlpec), neiste = true) }
                 else -> null
             }
-            SourceCard("Na papieri", fill = c.card) { GemWalkView(walk, znacky = zn, otvor = kk ?: walk.size) }
+            SourceCard("Tvoj papier · prepočítané appkou", fill = c.card) { GemWalkView(walk, znacky = zn, otvor = kk ?: walk.size) }
+            Spacer(Modifier.height(14.dp))
         }
+        Row(verticalAlignment = Alignment.Top) {
+            if (bad) { Icon24(Res.drawable.ic_x, tint = c.badInk, modifier = Modifier.padding(top = 1.dp).size(22.dp)); Spacer(Modifier.width(8.dp)) }
+            Rich(nadpis(v, vys), style = MaterialTheme.typography.titleMedium, color = if (bad) c.badInk else c.ink)
+        }
+        val vv = v ?: return@Column
         // the engine's own question when a reading is in doubt: the answer is checked again, without the model
         vv.otazka?.takeIf { vv.stav == Verdikt.Stav.OTAZKA }?.let { q ->
             Spacer(Modifier.height(10.dp))
