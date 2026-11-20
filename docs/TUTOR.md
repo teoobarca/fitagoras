@@ -42,8 +42,8 @@ Teo: „tútora chcem fakt veľmi poriadne zakomponovať“, „streaming a nat�
   ide v schéme prvý, appka ho ukáže hneď, ako ho stream pomenuje (`verdiktVPrude`, len zobrazenie; platí posudok
   rozobraný na konci), na mieste čakania; karta sa zafarbí (zelená uznal, terakota neuznal), farbu má len verdikt.
   Žiadny riadok, ktorý len hovorí, kto hovorí: v paneli to povie hlavička, v kroku verdikt („Pytagoras by to
-  neuznal“). Kontrola GEM má to isté poradie; že chybu našiel výpočet appky, hovorí štítok „Tvoj papier · prepočítané
-  appkou“.
+  neuznal“). Kontrola GEM má to isté poradie; že chybu našiel výpočet appky, hovorí pod verdiktom „Každú úpravu
+  prepočítala appka.“
 - **Vstup**: fotky z foťáka čakajú pod poľom (odobrať, pridať), Enter alebo kláves odoslania pošle, 2–3 tiché čipy
   podľa miesta (`navrhy`). Druhá otázka počas písania čaká na prvú (jedna história).
 - **Skutočné streamy**: `scripts/tutor.sh tutor … --zaznam FILE` zapíše udalosti streamu tak, ako ich dostane

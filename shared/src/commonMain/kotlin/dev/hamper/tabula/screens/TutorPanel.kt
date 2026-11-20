@@ -216,19 +216,27 @@ private fun PosudokKarta(t: Tah, onZnova: () -> Unit, sluzba: TutorSluzba, nahla
     val fill by androidx.compose.animation.animateColorAsState(tint, androidx.compose.animation.core.tween(420))
     Column(Modifier.fillMaxWidth().clip(RoundedCornerShape(24.dp)).background(fill).border(1.dp, c.line, RoundedCornerShape(24.dp)).padding(16.dp)) {
         // in the step the photos sit by the paper's text; in the panel they are the student's turn above
-        if (TvojPapier(t.posudok?.second ?: t.prepis, if (nahlady) t.fotky else emptyList())) Spacer(Modifier.height(14.dp))
+        val prepis = t.posudok?.second ?: t.prepis
+        val fotky = if (nahlady) t.fotky else emptyList()
+        val citane = prepis?.riadky.orEmpty().isNotEmpty()
+        if (citane && TvojPapier(prepis, fotky)) Spacer(Modifier.height(14.dp))
         val chyba = t.chyba
         val zivo = remember(t) { !t.hotovo }
         val zobraz = plynulo(t.text, zivo, t.hotovo, hned = t.zastavene || chyba != null)
         // what the tutor does now, then the verdict in the same place
         val hlavicka: Any = when { slovo != null -> v!!; !t.hotovo -> "cakam"; else -> "nic" }
-        androidx.compose.animation.AnimatedContent(hlavicka, transitionSpec = { fadeIn(androidx.compose.animation.core.tween(320, 80)) togetherWith fadeOut(androidx.compose.animation.core.tween(160)) }) { h ->
-            when (h) {
-                is Posudok.Verdikt -> VerdiktRiadok(h, slovo ?: "", ink)
-                "cakam" -> Cakanie(t.stav ?: if (t.text.isEmpty()) "Čítam papier" else "Posudzujem ako cvičiaci")
-                else -> Spacer(Modifier.height(0.dp))
+        // nothing read yet: the photos sit at the end of this line (the waiting, the verdict), not alone above it
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            androidx.compose.animation.AnimatedContent(hlavicka, Modifier.weight(1f), transitionSpec = { fadeIn(androidx.compose.animation.core.tween(320, 80)) togetherWith fadeOut(androidx.compose.animation.core.tween(160)) }) { h ->
+                when (h) {
+                    is Posudok.Verdikt -> VerdiktRiadok(h, slovo ?: "", ink)
+                    "cakam" -> Cakanie(t.stav ?: if (t.text.isEmpty()) "Čítam papier" else "Posudzujem ako cvičiaci")
+                    else -> Spacer(Modifier.height(0.dp))
+                }
             }
+            if (!citane && fotky.isNotEmpty()) Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) { fotky.take(3).forEachIndexed { i, f -> Nahlad(f, i, 40) } }
         }
+        if (!citane && fotky.isNotEmpty() && hlavicka == "nic") Spacer(Modifier.height(10.dp))
         if (zobraz.isNotEmpty()) {
             Spacer(Modifier.height(8.dp))
             CompositionLocalProvider(dev.hamper.tabula.ui.LocalNabehSlov provides zivo) { DovodAOprava(zobraz, v) }
@@ -273,18 +281,13 @@ private fun DovodAOprava(text: String, v: Posudok.Verdikt?) {
 /**
  * What the student wrote, as Pytagoras read it, on top of the judgement it is about: ordinary type and colour, labelled
  * as the student's paper, the photos beside the label ([fotky], in a step). A long paper (a proof over pages) shows its
- * first lines and "Zobraziť celé". False when there is nothing to show (no text read yet, no photo here).
+ * first lines and "Zobraziť celé". False when no text is read yet (the photos then sit by the waiting line).
  */
 @Composable
 private fun TvojPapier(pr: PrepisTextu?, fotky: List<ByteArray>): Boolean {
     val riadky = pr?.riadky.orEmpty()
-    if (riadky.isEmpty() && fotky.isEmpty()) return false
+    if (riadky.isEmpty()) return false
     val c = T.c
-    // nothing read yet (or nothing readable): the photos alone, at the right like the student's turn, no empty frame
-    if (riadky.isEmpty()) {
-        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(4.dp, Alignment.End)) { fotky.take(3).forEachIndexed { i, f -> Nahlad(f, i, 40) } }
-        return true
-    }
     Column(Modifier.fillMaxWidth().panel(radius = 16.dp, fill = c.card).padding(horizontal = 14.dp, vertical = 12.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Label("Tvoj papier", Modifier.weight(1f))
@@ -717,7 +720,7 @@ private fun PostupBlok(vys0: Vysledok, k: Kontext) {
     var potvrdene by remember(vys0) { mutableStateOf(emptySet<dev.hamper.tabula.tutor.Miesto>()) }
     val bad = v?.stav == Verdikt.Stav.CHYBA
     // the same order as the judgement of a written paper: the student's steps with the mark, the verdict, the right
-    // step. That the app's computation found it (not the model) is said where the steps are, in their label.
+    // step, and under the verdict that the app's computation found it (not the model).
     Column(Modifier.fillMaxWidth().clip(RoundedCornerShape(24.dp)).background(if (bad) c.badTint else c.card).border(1.dp, c.line, RoundedCornerShape(24.dp)).padding(16.dp)) {
         val vv0 = v
         val walk = vv0?.let { studentovPostup(it) }
@@ -728,7 +731,7 @@ private fun PostupBlok(vys0: Vysledok, k: Kontext) {
                 vv0.stav == Verdikt.Stav.OTAZKA && vv0.otazka != null -> vv0.otazka.miesto.let { GemZnacky(it.matica, emptySet(), setOf(it.riadok to it.stlpec), neiste = true) }
                 else -> null
             }
-            SourceCard("Tvoj papier · prepočítané appkou", fill = c.card) { GemWalkView(walk, znacky = zn, otvor = kk ?: walk.size) }
+            SourceCard("Tvoj papier", fill = c.card) { GemWalkView(walk, znacky = zn, otvor = kk ?: walk.size) }
             Spacer(Modifier.height(14.dp))
         }
         Row(verticalAlignment = Alignment.Top) {
@@ -736,6 +739,9 @@ private fun PostupBlok(vys0: Vysledok, k: Kontext) {
             Rich(nadpis(v, vys), style = MaterialTheme.typography.titleMedium, color = if (bad) c.badInk else c.ink)
         }
         val vv = v ?: return@Column
+        // what the verdict rests on: the app's own computation, not the model (a fresh read took a label on the paper
+        // for the app's numbers, so it is said here, under the finding)
+        if (walk != null) { Spacer(Modifier.height(4.dp)); Text("Každú úpravu prepočítala appka.", style = MaterialTheme.typography.bodySmall, color = c.ink2) }
         // the engine's own question when a reading is in doubt: the answer is checked again, without the model
         vv.otazka?.takeIf { vv.stav == Verdikt.Stav.OTAZKA }?.let { q ->
             Spacer(Modifier.height(10.dp))
