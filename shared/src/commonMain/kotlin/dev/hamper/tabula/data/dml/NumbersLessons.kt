@@ -252,7 +252,7 @@ internal val tcLessonLkon = lesson("dml-tc-lkon", "Lineárne kongruencie", 16, "
         wrong = mapOf(1 to """Modul sa delí §\gcd(15,3)=3§. So starým modulom by nebolo ani riešenie.""", 2 to """Vydelil si §9§ deviatimi, §12§ len tromi. Kráti sa to isté číslo na oboch stranách."""))
     def("dml-tc-lkon")
     thm("dml-tc-lkon-res", "dml-tc-lkon-pocet")
-    explain("Vydeliť znamená vynásobiť inverziou.", """Kongruenciu riešiš ako lineárnu rovnicu: najprv krátiš §d=\gcd(a,m)§ aj s modulom. Potom sú koeficient a nový modul nesúdeliteľné, koeficient má inverziu a obe strany ňou vynásobíš. Takto Spěvák dokázal Větu 6.17. Inverziu nájdeš REA, pri malom module aj z hlavy.""",
+    explain("Vydeliť znamená vynásobiť inverziou.", """Kongruenciu riešiš ako lineárnu rovnicu: najprv overíš, či §d=\gcd(a,m)§ delí §b§. Ak nie, riešenie neexistuje; inak krátiš §d§ aj s modulom. Potom sú koeficient a nový modul nesúdeliteľné. Ak nový modul vyjde §1§, vyhovuje každé celé §x§; inak má koeficient inverziu a obe strany ňou vynásobíš. Takto Spěvák dokázal Větu 6.17. Inverziu nájdeš REA, pri malom module aj z hlavy.""",
         formal = listOf(
             p("""Úlohy nalezení inverze a řešení lineární kongruence spolu těsně souvisí, každou z nich lze vyřešit pomocí druhé."""),
             i("""(řešení kongruencí §\to§ hledání inverze): Jak známo, nalézt multiplikativní inverzi k zadanému §a \in \mathbb{Z}_m§ znamená nalézt jediné §x \in \mathbb{Z}_m§ (v §\mathbb{Z}§ jich, pokud existuje nějaké, existuje nekonečně mnoho) splňující kongruenci §a \cdot x \equiv 1 \pmod{m}§. Je to tedy speciální případ řešení lineární kongruence! Jednak pro pravou stranu §b=1§, jednak nás zajímá pouze řešení v §\mathbb{Z}_m§."""),

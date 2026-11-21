@@ -390,7 +390,7 @@ private val nerovnosti = lesson("dml-mi-nerovnosti", "Nerovnosti a začiatok ind
     worked("Nerovnosť od §n=4§", """Matematickou indukcí dokažte §n^2\leq 2^n§, pro §n\geq 4§.""", "Skriptá, Cvičení 4.3 d)", MiWeakPostup) {
         val (claim, zk, ik, end) = MiWeakPostup
         claim("""Dokazujem slabou indukciou výrok §V(n)§ pre všetky §n\in\mathbb{N}§, §n\geq 4§; indukcia začína od §4§.""", eq("""n^2\leq 2^n"""))
-        zk("""Začínam pri §n=4§, kde tvrdenie má platiť prvý raz.""", eq("""4^2=16\leq 16=2^4"""))
+        zk("""Začínam pri §n=4§, od ktorého má tvrdenie platiť pre všetky ďalšie §n§.""", eq("""4^2=16\leq 16=2^4"""))
         ik("""Nech §n\geq 4§ je pevné a §n^2\leq 2^n§ (IP). Najprv odhadnem §(n+1)^2§ zhora.""",
             eq("""(n+1)^2=n^2+2n+1\leq n^2+n^2=2n^2""", "Pre §n\\geq 4§ je §2n+1\\leq n^2§, lebo §n^2-2n-1=(n-1)^2-2\\geq 7§."))
         ik("""Potom IP vynásobím kladným číslom §2§.""", eq("""2n^2\stackrel{IP}{\leq}2\cdot 2^n=2^{n+1}"""))
