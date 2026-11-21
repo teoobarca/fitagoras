@@ -294,7 +294,7 @@ fun k4EquationsExercise(r: Random): Exercise {
                     (f.plus(pts[0], f.scale(-Frac.ONE, pts[1])) + f.plus(pts[0], f.scale(-Frac.ONE, pts[2]))) to "Odčítal si opačne. Aj to sú smerové vektory, ale úloha chce §\\mathbf{b}-\\mathbf{a}§ a §\\mathbf{c}-\\mathbf{a}§.",
                     (pts[1] + pts[2]) to "Samotné body nemusia byť smerové vektory. Smer je rozdiel dvoch rôznych bodov variety.",
                 )) { "Smerový vektor je rozdiel dvoch rôznych bodov, po zložkách. " + (if (p != null) "Ber modulo $p." else "Skontroluj znamienka.") }),
-                    hint = m("Smerový vektor je rozdiel dvoch bodov: od zložiek §\\mathbf{b}§ odčítaj zložky §\\mathbf{a}§, rovnako pri §\\mathbf{c}§."), aim = 0) },
+                    hint = m("Smerový vektor je rozdiel dvoch rôznych bodov: od zložiek §\\mathbf{b}§ odčítaj zložky §\\mathbf{a}§, rovnako pri §\\mathbf{c}§."), aim = 0) },
                 { _ -> Part("Pre maticu §\\mathbf{A}=${am.tex()}§ dopočítaj pravú stranu §\\mathbf{d}§:".replace('§', '$'), Answer.Numbers(listOf("d_1", "d_2"), p, bv, "$\\mathbf{d}=\\mathbf{A}\\mathbf{a}=${bv.tex()}^T$", diagnose = diagnosis(f, bv, listOf(
                     List(2) { Frac.ZERO } to "Nulová pravá strana dá zameranie, nie rovinu cez §\\mathbf{a}§. Pravá strana je §\\mathbf{A}\\mathbf{a}§ (Věta 4.26).",
                     negB to "Vyšlo ti všetko s opačným znamienkom. Pravá strana je §\\mathbf{A}\\mathbf{a}§, nie §-\\mathbf{A}\\mathbf{a}§.",
