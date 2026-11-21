@@ -362,6 +362,9 @@ of lines and every screen guessed what it says. Now a statement is stored in par
   not show (a definition's why and examples, a theorem's proof).
 - **A quote is not a copy.** `explain(formal = …)` only for text that is not a card of the app (a remark, a test's
   wording), with a `src` of one number at most; a definition or theorem the app has is shown by `cards`.
+- **Adjacent remarks:** a definition may carry `Concept.remarks`, each with its own number and source card. Use this
+  for terminology or dimension supplied by a numbered remark, not by the definition itself. Lessons and reading
+  sheets use the same stored quote.
 - **Definitions:** `units` are only what `ask` asks (Definice 6.1: §a,b\in\mathbb{Z}§, §\exists k\in\mathbb{Z}§,
   §a\cdot k=b§); the rest the textbook says goes to `extra` ("Navyše zo skrípt, nepočíta sa"). "Z pamäti" and the
   review count `units` only.

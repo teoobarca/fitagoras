@@ -150,7 +150,7 @@ internal val k4lVariety = lesson("la1-k4-variety", "Lineárne variety", 20, "Var
     explore("""V §\mathbb{R}^2§: Body variety §(2,1)+\langle(1,0)\rangle§""", """Prvý koeficient nechaj §1§ (posunutie §(2,1)§), druhým sa posúvaj po smere §(1,0)§. Dostaň sa do §(4,1)§.""", Pic.Plane(2 to 1, 1 to 0, 4 to 1, range = 3),
         """§1\cdot(2,1)+2\cdot(1,0)=(4,1)§: posunutie plus vektor zo zamerania.""", """Všetky body §(2,1)+t(1,0)§ tvoria priamku §y=1§, rovnobežnú s osou §x§ (Obrázok v skriptách pri Poznámke 4.17).""")
     explain("Varieta je posunutý podpriestor.", """Množina riešení riešiteľnej sústavy je presne taká: §S=\tilde{\mathbf{x}}+S_0§. Podpriestor je varieta s posunutím §\theta§.""",
-        formal = listOf(p("""Máme-li §W=\mathbf{a}+P§ varietu z předchozí definice, potom"""), i("""vektor §\mathbf{a}§ nazýváme **vektorem posunutí variety** §W§,"""), i("""podprostor §P§ nazýváme **zaměřením** variety §W§ a značíme ho §Z(W)§,"""), i("""každý nenulový vektor ze §Z(W)§ nazýváme **směrovým vektorem variety** §W§,"""), i("""číslo §\dim Z(W)§ nazýváme **dimenzí variety** §W§.""")), src = "Skriptá, Poznámka 4.17", cards = listOf("la1-k4-varieta"))
+        cards = listOf("la1-k4-varieta"))
     clip("k4-varieta-definicia")
     clip("k4-varieta-zamerenie")
     check("""Dimenzia variety §(1,2,3)+\langle(1,0,0),(0,1,0)\rangle\subseteq\mathbb{R}^3§ je""", "§2§", "§3§", "§1§", correct = 0,

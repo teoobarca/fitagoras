@@ -83,7 +83,7 @@ class DomainTest {
 
     private fun concept(c: Concept) {
         // ConceptFlow shows a judge on its own screen: the earlier formal definition is not its premise.
-        val formal = c.czech.joinToString(" ", transform = ::lineText)
+        val formal = (c.czech + c.remarks.flatMap { it.lines }).joinToString(" ", transform = ::lineText)
         c.judge.forEachIndexed { i, j -> inspect("concept:${c.id}/judge:$i", c.name + " " + c.question + " " + j.tex, j.tex + j.because + j.wrong) }
         c.why.forEachIndexed { i, w -> inspect("concept:${c.id}/why:$i", c.name + " " + w.part, w.part + w.because) }
         c.trap?.let { inspect("concept:${c.id}/trap", c.name + " " + it.sentence, it.sentence + it.because) }

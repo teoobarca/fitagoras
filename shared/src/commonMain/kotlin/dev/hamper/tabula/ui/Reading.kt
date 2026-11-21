@@ -123,7 +123,7 @@ private fun ColumnScope.RefBody(target: RefTarget, onCard: (String) -> Unit, onC
     Spacer(Modifier.height(2.dp))
     // the quote itself, drawn from its parts like every card; its source is already named in the sheet's head
     when (target) {
-        is RefTarget.Def -> SourceCard(null, fill = c.bg) { SourceLines(target.k.czech) }
+        is RefTarget.Def -> { SourceCard(null, fill = c.bg) { SourceLines(target.k.czech) }; ConceptRemarks(target.k) }
         is RefTarget.Thm -> SourceCard(null, fill = c.bg) { StatementText(target.t.wording); ProofLine(target.t) }
         is RefTarget.Quote -> SourceCard(null, fill = c.bg) { SourceLines(target.n.lines) }
     }

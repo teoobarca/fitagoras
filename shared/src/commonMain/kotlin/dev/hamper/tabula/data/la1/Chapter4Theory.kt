@@ -9,6 +9,9 @@ import dev.hamper.tabula.data.dsl.*
  * Numbering: one counter per chapter (Pozorování 4.1, Věta 4.2, ...). \vx of the source is written \mathbf{x}.
  */
 
+internal val k4VarietaTerminology = Quote("Skriptá, Poznámka 4.17",
+    listOf(p("""Máme-li §W=\mathbf{a}+P§ varietu z předchozí definice, potom"""), i("""vektor §\mathbf{a}§ nazýváme **vektorem posunutí variety** §W§,"""), i("""podprostor §P§ nazýváme **zaměřením** variety §W§ a značíme ho §Z(W)§,"""), i("""každý nenulový vektor ze §Z(W)§ nazýváme **směrovým vektorem variety** §W§,"""), i("""číslo §\dim Z(W)§ nazýváme **dimenzí variety** §W§.""")))
+
 internal val k4Varieta = Concept(
     id = "la1-k4-varieta", name = "Lineárna varieta", src = "Skriptá, Definice 4.16",
     czech = listOf(
@@ -33,6 +36,7 @@ internal val k4Varieta = Concept(
     ask = "Napište definici lineární variety a její dimenze.",
     question = "Sedí to s definíciou variety?",
     short = "lineárnej variety",
+    remarks = listOf(k4VarietaTerminology),
 )
 
 internal val K4Concepts = listOf(k4Varieta)

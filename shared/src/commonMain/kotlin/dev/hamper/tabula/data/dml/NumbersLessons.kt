@@ -179,7 +179,7 @@ internal val tcLessonKongruencie = lesson("dml-tc-kongruencie", "Kongruencie a i
         wrong = mapOf(1 to """§1§ by vyšlo z §(-1)\cdot(-1)§. Ale §241=243-2§, teda §241\equiv -2§, a súčin je §\equiv 2§.""",
             2 to """§241§ by vyšlo pri §242\equiv 1§. Ale §242\equiv -1§, teda súčin je §\equiv -241\equiv 2§."""))
     explain("Kongruencia: §m§ delí rozdiel.", """Keď nás zaujíma len zvyšok, rovnosť nahradíme slabším vzťahom: §a\equiv b\pmod{m}§, keď §m\mid(a-b)§, teda keď sa čísla líšia o celý násobok §m§. Dombek pripomína, že definícia berie §m\in\mathbb{N}§ a povoľuje aj §m=1§, hoci je to zbytočné.""",
-        src = "Skriptá, Definice 6.7; Dombek, 8. prednáška")
+        src = "Dombek, 8. prednáška", cards = listOf(tcKongruence.id))
     clip("dml-tc-c-kongruence")
     def("dml-tc-kongruence")
     clip("dml-tc-c-zapis")
@@ -201,10 +201,10 @@ internal val tcLessonKongruencie = lesson("dml-tc-kongruencie", "Kongruencie a i
         wrong = mapOf(1 to """To by platilo pre §665\equiv 1§. Ale §665=666-1§, teda §665\equiv -1§ a súčin §\equiv -7§.""",
             2 to """§-7§ je kongruentné, ale zvyšok musí byť z §\{0,\dots,665\}§: §-7+666=659§."""))
     explain("Čo sa stane v §\\mathbb{Z}_m§, zostane v §\\mathbb{Z}_m§.", """Tak to Dombek nazval: v §\mathbb{Z}_m§ sčítaš alebo vynásobíš ako v §\mathbb{Z}§ a vezmeš zvyšok. Redukovať smieš aj medzivýsledky, výsledok sa nezmení (Pozorování 6.2). Takto ste počítali v LA1 nad §\mathbb{Z}_p§.""",
-        src = "Skriptá, Definice 6.8 a Pozorování 6.2; Dombek, 8. prednáška")
+        src = "Dombek, 8. prednáška", cards = listOf(tcZm.id))
     def("dml-tc-zm")
     explain("Odčítať vieme vždy, deliť nie.", """Opačný prvok k §a\neq 0§ je §m-a§, k §0§ je to §0§. Delenie znamená hľadať §x§ s §a\cdot_m x=1§, multiplikatívnu inverziu §a^{-1}§. Dombek: „inverzia“ bez prívlastku je obvykle multiplikatívna.""",
-        src = "Skriptá, Věta 6.11 a Definice 6.9; Dombek, 8. prednáška")
+        src = "Dombek, 8. prednáška", cards = listOf(tcInverze.id))
     def("dml-tc-inverze")
     explore("""Hľadaj §3^{-1}§ v §\mathbb{Z}_{10}§.""", """Skúšaj násobky §3k\bmod 10§, kým nepríde §1§.""", ClockPic(10, 3, ClockMode.Multiples, 1),
         """§3\cdot 7=21\equiv 1§: §3^{-1}=7§ v §\mathbb{Z}_{10}§.""")
@@ -320,7 +320,7 @@ internal val tcLessonMocniny = lesson("dml-tc-mocniny", "Veľké mocniny", 17, "
     explore("""Mocniny §2§ v §\mathbb{Z}_9§.""", """Umocňuj, kým sa nevrátiš do §1§.""", ClockPic(9, 2, ClockMode.Powers, 1),
         """§2^6\equiv 1\pmod 9§: po §6§ krokoch si späť. A §6§ je počet čísel z §1,\dots,9§ nesúdeliteľných s §9§.""")
     explain("Eulerova funkcia", """§\varphi(n)§ počíta čísla z §1,\dots,n§ nesúdeliteľné s §n§. Spěvák: §\varphi(2)=1§, §\varphi(3)=2§, §\varphi(4)=2§, §\varphi(5)=4§, §\varphi(6)=2§. Funkcia teda nemusí rásť.""",
-        src = "Spěvák, 8. prednáška")
+        src = "Spěvák, 8. prednáška", cards = listOf(tcEuler.id))
     def("dml-tc-euler")
     explain("Eulerova veta", """Pri §\gcd(a,m)=1§ je §a^{\varphi(m)}\equiv 1\pmod m§, exponent preto stačí poznať modulo §\varphi(m)§. Spěvák ju dokázal: zvyšky nesúdeliteľné s §m§ vynásobené §a§ sú tie isté zvyšky v inom poradí. Súčin oboch zoznamov je teda rovnaký, len vľavo navyše §a^{\varphi(m)}§, a súčin zvyškov smieš vykrátiť bez zmeny modulu (Věta 6.13).""",
         src = "Spěvák, 8. prednáška", cards = listOf("dml-tc-ev"))

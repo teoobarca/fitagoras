@@ -40,7 +40,8 @@ class WordingTest {
     @Test fun one_number_per_card() = check("a card names more than one numbered statement (split it: one card per number, Step.Thm also / explain cards)",
         theorems.filter { numbers(it.src) > 1 }.map { "${it.id}: ${it.src}" } +
             concepts.filter { numbers(it.src) > 1 }.map { "${it.id}: ${it.src}" } +
-            theorems.flatMap { t -> t.remarks.filter { numbers(it.src) != 1 }.map { "${t.id} remark: ${it.src}" } })
+            theorems.flatMap { t -> t.remarks.filter { numbers(it.src) != 1 }.map { "${t.id} remark: ${it.src}" } } +
+            concepts.flatMap { k -> k.remarks.filter { numbers(it.src) != 1 }.map { "${k.id} remark: ${it.src}" } })
 
     @Test fun hypotheses_apart_from_the_claim() = check("the claim opens with its hypotheses (move them to assume, word for word)",
         (theorems.map { it.id to it.wording } + proofs.mapNotNull { p -> p.wording?.let { p.id to it } }).mapNotNull { (id, w) ->

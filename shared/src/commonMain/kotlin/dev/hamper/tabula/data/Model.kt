@@ -40,6 +40,8 @@ data class Concept(
      * a remark). Shown after the check from memory, never counted.
      */
     val extra: List<String> = emptyList(),
+    /** Numbered remarks needed beside this definition, each shown as its own source card. */
+    val remarks: List<Quote> = emptyList(),
 )
 
 data class Why(val part: String, val because: String)

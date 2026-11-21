@@ -227,7 +227,7 @@ class ContentExporter(private val seeds: Int = 2) {
             is Step.Def -> {
                 val k = ConceptById[s.concept]
                 ln("#### $i. Definícia `concept:${s.concept}` · `$route`${at(where)}")
-                if (k != null) { ln("- ${k.name} (${k.src})"); lines(k.czech, "  > ") } else ln("- CHÝBA karta ${s.concept}")
+                if (k != null) { ln("- ${k.name} (${k.src})"); lines(k.czech, "  > "); k.remarks.forEach { q -> ln("- ${q.src}"); lines(q.lines, "  > ") } } else ln("- CHÝBA karta ${s.concept}")
             }
             is Step.Thm -> {
                 val t = TheoremById[s.theorem]
@@ -279,7 +279,7 @@ class ContentExporter(private val seeds: Int = 2) {
     private fun concept(k: Concept) {
         self = setOf(k.id)
         ln("### ${k.name} · `concept:${k.id}`${at(src.of(k.id, "concept"))}")
-        ln("- Zdroj: ${k.src}"); ln("- Znenie (karta):"); k.czech.forEach { r((it as? Para)?.tex ?: (it as? Item)?.tex) }; lines(k.czech, "  > ")
+        ln("- Zdroj: ${k.src}"); ln("- Znenie (karta):"); k.czech.forEach { r((it as? Para)?.tex ?: (it as? Item)?.tex) }; lines(k.czech, "  > "); k.remarks.forEach { q -> ln("- ${q.src}"); lines(q.lines, "  > ") }
         if (k.why.isNotEmpty()) { ln("- Prečo každá časť:"); k.why.forEach { ln("  - „${r(it.part)}“: ${r(it.because)}") } }
         if (k.judge.isNotEmpty()) { ln("- Príklady (${r(k.question).orEmpty().ifBlank { "Je to ono?" }}):"); k.judge.forEach { j -> ln("  - ${r(j.tex)} → ${if (j.yes) "áno" else "nie"}"); why("pri správnej", r(j.because)); why("pri zlej (appka spojí wrong + because)", r(j.wrong + " " + j.because)) } }
         k.trap?.let { ln("- Pasca: „${r(it.sentence)}“ (${it.src}) → ${r(it.because)}") }
