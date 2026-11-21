@@ -31,6 +31,11 @@ A new LA1 chapter file gets one line in `La1Topics` (Courses.kt); that one line 
 
 ## Domain before the answer
 
+General definition/property questions without concrete numerical vectors or matrices and without field-dependent
+reasoning need no concrete-field label. Keep the course's hypotheses in `T` where the statement carries them.
+Concrete numerical data still declare a domain even when their result is field-independent. Integrate the domain
+into the sentence where natural, rather than adding a standalone label.
+
 Every domain-dependent question, picture task and generated exercise declares its field, space, modulus or number
 set in the visible question, subtitle or caption before answering ([ZASADY.md](ZASADY.md), “Teleso a obor sú súčasť
 zadania”). A lesson-opening convention is insufficient for a step reviewed alone. Use the course notation, e.g.

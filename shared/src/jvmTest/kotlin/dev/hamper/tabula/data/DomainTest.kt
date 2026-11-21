@@ -32,9 +32,15 @@ class DomainTest {
     private val used = mutableSetOf<String>()
     private val bad = linkedSetOf<String>()
 
+    // Definitions and universal facts need no field label. Concrete data, typed arithmetic, or a
+    // scalar-cancellation argument do: a nonzero integer can become zero in positive characteristic.
+    private val cancellation = Regex("""[2-9]\\(?:alpha|beta|gamma)\s*=\s*0""")
+    private fun needsDomain(visible: String, evidence: String, typed: Boolean) =
+        typed || concrete.containsMatchIn(visible) || concrete.containsMatchIn(evidence) || cancellation.containsMatchIn(evidence)
+
     private fun inspect(id: String, visible: String, evidence: String = visible, typed: Boolean = false) {
-        if (!typed && !concrete.containsMatchIn(evidence)) return
-        val algebra = typed && !id.contains("dml") ||
+        if (!needsDomain(visible, evidence, typed)) return
+        val algebra = (typed || cancellation.containsMatchIn(evidence)) && !id.contains("dml") ||
             Regex("""\\begin\{[pbv]matrix""").containsMatchIn(evidence) ||
             (!id.contains("dml") && concrete.containsMatchIn(evidence))
         if (if (algebra) fieldDomain.containsMatchIn(visible) else numberDomain.containsMatchIn(visible) || integerContract.containsMatchIn(visible)) return
@@ -185,6 +191,14 @@ class DomainTest {
         assertTrue(bad.any { it.startsWith("concept:${c.id}/judge:0:") })
         assertTrue(bad.any { it.startsWith("gen:mutation/part:0:") })
         assertTrue(bad.any { it.startsWith("clip:") })
+    }
+
+    @Test fun universal_statements_need_no_label_but_field_dependent_reasons_do() {
+        inspect("definition", "Čo zaručuje jednoznačnosť súradníc?", "Lineárna nezávislosť bázy.")
+        inspect("general", "Je hodnosť počet nenulových riadkov?", "Len v HST; rovnaké nenulové riadky sú LZ.")
+        assertTrue(bad.isEmpty())
+        inspect("cancellation", "Je súbor LN?", "Z §2\\alpha=0§ plynie §\\alpha=0§.")
+        assertTrue(bad.any { it.startsWith("cancellation:") })
     }
 
     @Test fun rendered_domains_match_the_typed_field() {
