@@ -72,6 +72,55 @@ class TemplatesTest {
         }
     }
 
+
+    /** Read the generated premise, then enumerate in Z_p without using Field's arithmetic or the stored answer. */
+    @Test fun matrix_product_answers_agree_with_brute_force_in_each_field() {
+        val seen = mutableSetOf<Pair<Int?, Int>>()
+        repeat(300) { seed ->
+            val ex = Generators.getValue("la1-k3-product")(Random(seed))
+            val prior = if (ex.parts.size == 1) emptyList() else listOf<Any>(0)
+            val answer = ex.parts.last()(prior).answer as Answer.Numbers
+            val p = answer.p
+            seen += p to ex.parts.size
+            assertTrue(ex.prompt, if (p == null) "\\mathbb{R}" in ex.prompt else "\\mathbb{Z}_{$p}" in ex.prompt)
+            fun residue(x: Int) = if (p == null) x else Math.floorMod(x, p)
+            fun ints(text: String) = Regex("-?\\d+").findAll(text).map { it.value.toInt() }.toList()
+            val expected: List<Int>
+            if (ex.parts.size == 1) {
+                val matrix = ex.prompt.substringAfter("\\begin{pmatrix}").substringBefore("\\end{pmatrix}")
+                val a = matrix.split("\\\\").map(::ints)
+                val x = ints(ex.prompt.substringAfter("\\mathbf{x}=(").substringBefore(")"))
+                assertEquals(2, a.size); assertTrue(a.all { it.size == 3 }); assertEquals(3, x.size)
+                val target = a.map { row -> residue(row.indices.sumOf { row[it] * x[it] }) }
+                // Enumerate every possible output, retaining exactly the one satisfying both component equations.
+                expected = if (p == null) target else (0 until p).flatMap { u -> (0 until p).map { v -> listOf(u, v) } }
+                    .single { y -> y.indices.all { y[it] == target[it] } }
+            } else {
+                val rows = ex.prompt.substringAfter("má v prvním řádku ").removeSuffix(".")
+                    .split(", v druhém řádku ", " a v třetím řádku ")
+                assertEquals(3, rows.size)
+                fun coefficients(text: String): List<Int> = when {
+                    text == "nulový řádek" -> listOf(0, 0)
+                    "prvního řádku" in text || "první řádek" in text -> listOf(if ("násobek" in text) ints(text).single() else 1, 0)
+                    "druhého řádku" in text || "druhý řádek" in text -> listOf(0, if ("násobek" in text) ints(text).single() else 1)
+                    else -> (1..2).map { j ->
+                        val term = Regex("([+-]?\\d*)\\\\mathbf\\{A}_\\{$j:}").find(text)
+                        when (val c = term?.groupValues?.get(1)) { null -> 0; "", "+" -> 1; "-" -> -1; else -> c.toInt() }
+                    }
+                }
+                expected = rows.flatMap { text ->
+                    val target = coefficients(text).map(::residue)
+                    // On A=(e1,e2), enumerate all coefficient pairs; the requested row uniquely determines B's row.
+                    if (p == null) target else (0 until p).flatMap { u -> (0 until p).map { v -> listOf(u, v) } }
+                        .single { c -> (0..1).all { j -> residue(c[0] * (if (j == 0) 1 else 0) + c[1] * (if (j == 1) 1 else 0)) == target[j] } }
+                }
+            }
+            assertEquals("seed $seed: ${ex.prompt}", expected.map { it.toLong() }, answer.expected.map { it.num })
+            assertTrue(answer.expected.all { it.isInt })
+        }
+        assertEquals(setOf(null, 3, 5, 7).flatMap { p -> listOf(p to 1, p to 2) }.toSet(), seen)
+    }
+
     companion object {
         fun checkText(where: String, s0: String) {
             // a display formula ($$...$$) is one formula; == around a key word is markup, not text
