@@ -230,7 +230,7 @@ fun miStep(t: MiStepTask): Exercise {
         aim = 2, hint = mm("Krok ide po §$k§ len hore. Pre každý zvyšok §n§ po delení §$k§ treba jeden ZK.")) }
     return Exercise(
         "dml-mi-krok", "Indukcia s krokom o k", "Šablóna podľa proseminára 25/26 č. 4 a Spěvákovej 4. prednášky",
-        mm("Tvrzení §V(n)§ dokazujeme pro všechna §$dom§. Ověřili jsme §$basesTex§ a pro všechna §$dom§ implikaci §V(n)\\Rightarrow V(n+$k)§. Plyne z toho §V(n)§ pro všechna §$dom§? Zdůvodněte."),
+        mm("Pro §n\\in\\mathbb{Z}§: tvrzení §V(n)§ dokazujeme pro všechna §$dom§. Ověřili jsme §$basesTex§ a pro všechna §$dom§ implikaci §V(n)\\Rightarrow V(n+$k)§. Plyne z toho §V(n)§ pro všechna §$dom§? Zdůvodněte."),
         parts = parts,
         postup = MiStepKPostup,
         solution = { _ ->

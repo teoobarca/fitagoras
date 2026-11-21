@@ -130,7 +130,7 @@ internal val tcLessonLdr = lesson("dml-tc-diofant", "Diofantické rovnice", 15, 
     check("""Dá sa presýpacími hodinami na §11§ a §5§ minút odmerať §7§ minút?""", """Áno, §\gcd(11,5)§ je §1§ a delí §7§""", """Nie, §7§ nie je násobok §5§ ani §11§""", correct = 0,
         why = """Áno, napr. §2\cdot 11-3\cdot 5=7§ (Cvičení 6.9).""",
         wrong = mapOf(1 to """Stačí kombinácia s celými koeficientmi: §2\cdot 11-3\cdot 5=7§ (Věta 6.7)."""))
-    worked("Jedno riešenie", """§7x+13y=125§""", "Skriptá, Příklad 6.5", TcLdrOnePostup) {
+    worked("Jedno riešenie", """Pre §x,y\in\mathbb{Z}§: §7x+13y=125§""", "Skriptá, Příklad 6.5", TcLdrOnePostup) {
         val (gcdAim, exists, one) = TcLdrOnePostup
         gcdAim("""REA zapíšem v poradí rovnice: §\alpha§ pri §7§, §\beta§ pri §13§.""",
             Formula(reaWalk(rea137, swap = true)))
@@ -152,10 +152,10 @@ internal val tcLessonLdr = lesson("dml-tc-diofant", "Diofantické rovnice", 15, 
             b("""(x_0,y_0) \softbreak[1]+ k \cdot \left(\frac{b}{\gcd(a,b)}, \frac{-a}{\gcd(a,b)}\right),"""),
             p("""tedy „pokud je součtem nějakého partikulárního řešení a nějakého řešení přidružené homogenní rovnice“."""),
         ), src = "Skriptá, Poznámka 6.5", cards = listOf("dml-tc-ldr-vsetky"))
-    check("""Všetky riešenia §6x+4y=0§ sú""", """§k\cdot(2,-3)§""", """§k\cdot(4,-6)§""", """§k\cdot(6,-4)§""", correct = 0,
+    check("""Pre §x,y,k\in\mathbb{Z}§: Všetky riešenia §6x+4y=0§ sú""", """§k\cdot(2,-3)§""", """§k\cdot(4,-6)§""", """§k\cdot(6,-4)§""", correct = 0,
         why = """Najprv krátiš §\gcd=2§: §3x+2y=0§, krok §(2,-3)§.""",
         wrong = mapOf(1 to """Bez krátenia stratíš riešenia: §(2,-3)§ nie je celý násobok §(4,-6)§ (Poznámka 6.5).""", 2 to """§6\cdot 6+4\cdot(-4)=20\neq 0§. Krok musí riešiť homogénnu rovnicu."""))
-    worked("Riešenie bez vydávania", """§7x+13y=125§ s §x,y\geq 0§""", "Skriptá, Příklad 6.6", TcLdrNonnegPostup) {
+    worked("Riešenie bez vydávania", """Pre §x,y\in\mathbb{Z}§: §7x+13y=125§ s §x,y\geq 0§""", "Skriptá, Příklad 6.6", TcLdrNonnegPostup) {
         val (all, cond, pick) = TcLdrNonnegPostup
         val l = ldr125
         val step = "(${l.sx},${l.sy})"
@@ -166,7 +166,7 @@ internal val tcLessonLdr = lesson("dml-tc-diofant", "Diofantické rovnice", 15, 
         pick("""${if (ks.count() == 2) "Obe riešenia sú" else "Všetky sú"} nezáporné.""")
     }
     practice("dml-tc-ldr", solo = false)
-    check("""Všetky riešenia §4x+6y=10§ sú §(1,1)+k\cdot(s,-t)§. Koľko je §(s,t)§?""", "§(3,2)§", "§(6,4)§", "§(2,3)§", correct = 0,
+    check("""Pre §x,y,k\in\mathbb{Z}§: Všetky riešenia §4x+6y=10§ sú §(1,1)+k\cdot(s,-t)§. Koľko je §(s,t)§?""", "§(3,2)§", "§(6,4)§", "§(2,3)§", correct = 0,
         why = """§\gcd(4,6)=2§, krok §(\tfrac{6}{2},-\tfrac{4}{2})=(3,-2)§.""",
         wrong = mapOf(1 to """Nevydelil si §\gcd=2§. Vynecháš napr. riešenie §(4,-1)§.""", 2 to """Prehodil si: pri §x§ je §\tfrac{b}{\gcd}=3§, pri §y§ je §\tfrac{a}{\gcd}=2§."""))
     def("dml-tc-ldr")

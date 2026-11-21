@@ -15,6 +15,12 @@ fun vstex(vs: List<Vec>) = "(" + vs.joinToString(",") { it.tex() } + ")"
 fun ptex(v: PVec) = "(" + v.joinToString(",") { it.tex() } + ")"
 fun fieldPow(f: Field, n: Int) = if (f is Field.Zp) "\\mathbb{Z}_{${f.p}}^{$n}" else "\\mathbb{R}^{$n}"
 
+/** A numerical task carries the same field that its engine uses; callers cannot omit it. */
+fun fieldTask(field: Field, task: String): String {
+    val tex = if (field is Field.Zp) "\\mathbb{Z}_{${field.p}}" else "\\mathbb{R}"
+    return "Nad $$tex$: $task"
+}
+
 /** The GEM chain as one walk (screens/GemWalk.kt): one kind of operation per ∼, the matrix in place from step to step. */
 fun gemLines(e: Echelon): List<Formula> = listOf(Formula(GemWalk.of(e)))
 

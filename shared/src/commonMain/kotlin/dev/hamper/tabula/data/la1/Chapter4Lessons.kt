@@ -62,7 +62,7 @@ internal val k4lFrobenius = lesson("la1-k4-frobenius", "Frobeniova veta", 16, "K
     ask("""Matica §\mathbf{A}\in\mathbb{R}^{2,2}§ má stĺpce §(1,2)^T§ a §(2,4)^T§. Má sústava §\mathbf{A}\mathbf{x}=(3,1)^T§ riešenie?""", "Áno", "Nie", correct = 1,
         after = """Nie: oba stĺpce ležia na priamke §\langle(1,2)\rangle§ a §(3,1)§ na nej neleží.""", sub = "Ešte bez výkladu. Stačí odhad.",
         wrong = mapOf(0 to """Kombinácie §(1,2)^T§ a §(2,4)^T§ sú len násobky §(1,2)^T§. Vektor §(3,1)^T§ medzi nimi nie je."""))
-    explore("""Skús §x_1(1,2)^T+x_2(2,4)^T=(3,1)^T§.""", "Posúvaj koeficienty pri stĺpcoch.", Pic.Plane(1 to 2, 2 to 4, 3 to 1, range = 2, goal = Goal.Explore),
+    explore("""Nad §\mathbb{R}§: Skús §x_1(1,2)^T+x_2(2,4)^T=(3,1)^T§.""", "Posúvaj koeficienty pri stĺpcoch.", Pic.Plane(1 to 2, 2 to 4, 3 to 1, range = 2, goal = Goal.Explore),
         """Z priamky §y=2x§ neujdeš: §\mathbf{b}§ nie je v obale stĺpcov.""", """§h(\mathbf{A})=1§, ale s pravou stranou §h(\mathbf{A}\mid\mathbf{b})=2§. Presne toto rozhoduje Frobeniova veta.""")
     explain("Riešenie existuje, keď §\\mathbf{b}§ nepridá hodnosť.", """Sústava hľadá kombináciu stĺpcov rovnú §\mathbf{b}§. Tá existuje práve vtedy, keď §\mathbf{b}§ leží v obale stĺpcov, teda §h(\mathbf{A})=h(\mathbf{A}\mid\mathbf{b})§.""",
         cards = listOf("la1-k4-t-frobenius"))
@@ -108,7 +108,7 @@ internal val k4lRiesenie = lesson("la1-k4-riesenie", "Celá množina riešení",
         after = """§5-3=2§: jeden vektor za každú voľnú premennú.""", sub = "Ešte bez výkladu. Stačí odhad.",
         wrong = mapOf(1 to """Tri sú viazané premenné, pri hlavných stĺpcoch. Báza §S_0§ má vektor za každú voľnú: §5-3=2§.""",
             2 to """Päť je neznámych. Vektory bázy §S_0§ sú len pre voľné premenné."""))
-    explore("Krokuj sústavu z Príkladu 4.12", "Ktoré stĺpce budú hlavné a ktoré premenné voľné?", Pic.Gem(listOf(row(1, 3, 2, 0, 3, 3), row(1, 1, 1, -1, 5, -2), row(2, 8, 5, 3, 7, 13), row(3, 9, 6, 2, 12, 11)), 0, bar = 5, caption = "Skriptá, Příklad 4.12"),
+    explore("Nad §\\mathbb{R}§: Krokuj sústavu z Príkladu 4.12", "Ktoré stĺpce budú hlavné a ktoré premenné voľné?", Pic.Gem(listOf(row(1, 3, 2, 0, 3, 3), row(1, 1, 1, -1, 5, -2), row(2, 8, 5, 3, 7, 13), row(3, 9, 6, 2, 12, 11)), 0, bar = 5, caption = "Skriptá, Příklad 4.12"),
         """Hlavné stĺpce 1, 2, 4: viazané §x_1,x_2,x_4§, voľné §x_3,x_5§.""", """Pravá strana nie je hlavný stĺpec, riešenie existuje. §\dim S_0=5-3=2§.""")
     explain("Viazané a voľné premenné", """Do voľných dosadíš čokoľvek, viazané dopočítaš. Partikulárne: voľné §0§, s pravou stranou. Báza §S_0§: voľné postupne §\mathbf{e}_1,\mathbf{e}_2,\dots§, bez pravej strany.""",
         cards = listOf("la1-k4-t-postup", "la1-k4-t-postup-nehomogenna"))
@@ -124,11 +124,11 @@ internal val k4lRiesenie = lesson("la1-k4-riesenie", "Celá množina riešení",
         why = """§S_0§ sú riešenia homogénnej sústavy, pravá strana nulová (Varování 4.11).""",
         wrong = mapOf(1 to """S pravou stranou vyjdú riešenia pôvodnej sústavy, nie vektory z §S_0§. Vektor §\mathbf{z}\in S_0§ musí spĺňať §\mathbf{A}\mathbf{z}=\theta§, preto pravú stranu zakry (Varování 4.11)."""))
     clip("k4-riesenie-pekna-baza")
-    check("""Smieš do §(x_3,x_5)§ dosadiť §(2,0)§ a §(1,2)§ namiesto §(1,0)§ a §(0,1)§?""", "Áno", "Nie", correct = 0,
+    check("""Nad §\mathbb{R}§: Smieš do §(x_3,x_5)§ dosadiť §(2,0)§ a §(1,2)§ namiesto §(1,0)§ a §(0,1)§?""", "Áno", "Nie", correct = 0,
         why = """Áno: stačí ľubovoľná báza priestoru voľných premenných (Postup 4.5).""",
         wrong = mapOf(1 to """Postup 4.5 dovoľuje ľubovoľnú bázu §T^{n-h}§. Skriptá tak v Príklade 4.6 obchádzajú zlomky."""))
     clip("k4-riesenie-iny-zapis")
-    check("""Tebe vyšlo §S=(1,0)+\langle(1,1)\rangle§, spolužiakovi §S=(2,1)+\langle(2,2)\rangle§. Opisujete tú istú množinu?""", "Áno", "Nie, líšia sa bodom aj smerom", "Nie, zápis je jednoznačný", correct = 0,
+    check("""V §\mathbb{R}^2§: Tebe vyšlo §S=(1,0)+\langle(1,1)\rangle§, spolužiakovi §S=(2,1)+\langle(2,2)\rangle§. Opisujete tú istú množinu?""", "Áno", "Nie, líšia sa bodom aj smerom", "Nie, zápis je jednoznačný", correct = 0,
         why = """Áno: rozdiel §(2,1)-(1,0)=(1,1)§ leží v zameraní a §\langle(2,2)\rangle=\langle(1,1)\rangle§ (Věta 4.18, bod 4). Správnosť voči sústave to neoverí: Kleprlík hovorí, že potom máte obaja rovnako dobre, alebo rovnako zle.""",
         wrong = mapOf(1 to """Iný bod a iný smerový vektor môžu opísať tú istú priamku. Bod §(2,1)§ na nej leží a §(2,2)§ je násobok §(1,1)§.""",
             2 to """Zápis množiny riešení jednoznačný nie je. Bod aj bázu zamerania môžeš zvoliť inak."""))
@@ -147,7 +147,7 @@ internal val k4lVariety = lesson("la1-k4-variety", "Lineárne variety", 20, "Var
     ask("""Je množina §\{(x,y)\in\mathbb{R}^2 : y=2x+1\}§, priamka v rovine, podpriestor §\mathbb{R}^2§?""", "Áno", "Nie", correct = 1,
         after = """Nie, neobsahuje §\theta§. Je to však posunutý podpriestor, varieta.""", sub = "Ešte bez výkladu. Stačí odhad.",
         wrong = mapOf(0 to """§(0,0)§ na nej neleží, a každý podpriestor obsahuje §\theta§ (Pozorování 2.8)."""))
-    explore("""Body variety §(2,1)+\langle(1,0)\rangle§""", """Prvý koeficient nechaj §1§ (posunutie §(2,1)§), druhým sa posúvaj po smere §(1,0)§. Dostaň sa do §(4,1)§.""", Pic.Plane(2 to 1, 1 to 0, 4 to 1, range = 3),
+    explore("""V §\mathbb{R}^2§: Body variety §(2,1)+\langle(1,0)\rangle§""", """Prvý koeficient nechaj §1§ (posunutie §(2,1)§), druhým sa posúvaj po smere §(1,0)§. Dostaň sa do §(4,1)§.""", Pic.Plane(2 to 1, 1 to 0, 4 to 1, range = 3),
         """§1\cdot(2,1)+2\cdot(1,0)=(4,1)§: posunutie plus vektor zo zamerania.""", """Všetky body §(2,1)+t(1,0)§ tvoria priamku §y=1§, rovnobežnú s osou §x§ (Obrázok v skriptách pri Poznámke 4.17).""")
     explain("Varieta je posunutý podpriestor.", """Množina riešení riešiteľnej sústavy je presne taká: §S=\tilde{\mathbf{x}}+S_0§. Podpriestor je varieta s posunutím §\theta§.""",
         formal = listOf(p("""Máme-li §W=\mathbf{a}+P§ varietu z předchozí definice, potom"""), i("""vektor §\mathbf{a}§ nazýváme **vektorem posunutí variety** §W§,"""), i("""podprostor §P§ nazýváme **zaměřením** variety §W§ a značíme ho §Z(W)§,"""), i("""každý nenulový vektor ze §Z(W)§ nazýváme **směrovým vektorem variety** §W§,"""), i("""číslo §\dim Z(W)§ nazýváme **dimenzí variety** §W§.""")), src = "Skriptá, Poznámka 4.17", cards = listOf("la1-k4-varieta"))

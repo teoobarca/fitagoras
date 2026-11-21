@@ -8959,7 +8959,7 @@
   "before": "Ako Spěvák spočíta mocninu s obrovským exponentom modulo §22§ rýchlejšie než Wolfram Alpha?",
   "warning": false,
   "task": {
-   "q": "Prečo Spěvák zmenil základ z §2§ na §3§?",
+   "q": "Pri počítaní modulo §22§: Prečo Spěvák zmenil základ z §2§ na §3§?",
    "options": [
     "§\\gcd(2,22)=2§, Eulerova veta by neplatila",
     "§3§ je prvočíslo",

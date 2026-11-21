@@ -7939,7 +7939,7 @@
   "before": "Ako je dimenzia definovaná cez lineárne nezávislé súbory?",
   "warning": false,
   "task": {
-   "q": "Podpriestor P má dimenziu d, keď:",
+   "q": "Nad §\\mathbb{R}§: Podpriestor P má dimenziu d, keď:",
    "options": [
     "Pre §d\\in\\mathbb{N}§: existuje LN súbor vektorov z P dĺžky d a každý súbor vektorov z P dĺžky §d+1§ je LZ",
     "Každý súbor dĺžky d v P je LN",
@@ -10513,7 +10513,7 @@
   "before": "Ktorá vlastnosť bázy zaručuje, že vektor má v nej jediné vyjadrenie?",
   "warning": false,
   "task": {
-   "q": "Čo zaručuje, že vektor sa dá z bázy nakombinovať jediným spôsobom?",
+   "q": "Nad §\\mathbb{R}§: Čo zaručuje, že vektor sa dá z bázy nakombinovať jediným spôsobom?",
    "options": [
     "Že báza generuje podpriestor",
     "Že báza je lineárne nezávislá",

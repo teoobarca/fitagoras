@@ -518,10 +518,10 @@ private val maticaESolution: Solution = MiMatrixPostup.let { pp ->
 }
 
 private val matice = lesson("dml-mi-matice", "Mocnina matice", 16, "Najčastejší príklad písomky: odhadnúť §A^n§ a dokázať odhad indukciou.", art = 6, topics = listOf("MI2", "MI3")) {
-    ask("""§A=\begin{pmatrix}1&1\\0&1\end{pmatrix}§. Aké je §A^5§?""", """§\begin{pmatrix}1&5\\0&1\end{pmatrix}§""", """§\begin{pmatrix}1&1\\0&1\end{pmatrix}§""", """§\begin{pmatrix}5&5\\0&5\end{pmatrix}§""", correct = 0,
+    ask("""Nad §\mathbb{R}§: §A=\begin{pmatrix}1&1\\0&1\end{pmatrix}§. Aké je §A^5§?""", """§\begin{pmatrix}1&5\\0&1\end{pmatrix}§""", """§\begin{pmatrix}1&1\\0&1\end{pmatrix}§""", """§\begin{pmatrix}5&5\\0&5\end{pmatrix}§""", correct = 0,
         after = """Každé násobenie §A§ pridá vpravo hore §1§. Odtiaľ odhad §A^n=\begin{pmatrix}1&n\\0&1\end{pmatrix}§ (Cvičení 4.9 a).""", sub = "Ešte bez výkladu. Stačí odhad.",
         wrong = mapOf(1 to """Mocnina sa mení: už §A^2=\begin{pmatrix}1&2\\0&1\end{pmatrix}\neq A§.""", 2 to """Mocnina nie je §5A§. §A^5=A\cdot A\cdot A\cdot A\cdot A§."""))
-    explore("Mocniny matice z písomky 2025.", "Zvyšuj §n§ a sleduj, čo sa deje s prvkami.", MiPowers(maticaE),
+    explore("Nad §\\mathbb{R}§: Mocniny matice z písomky 2025.", "Zvyšuj §n§ a sleduj, čo sa deje s prvkami.", MiPowers(maticaE),
         """Diagonála strieda §-1§ a §1§, vpravo hore je §3n§ so striedavým znamienkom.""", """Odhad: §A^n=\begin{pmatrix}(-1)^n&3n(-1)^{n-1}\\0&(-1)^n\end{pmatrix}§.""")
     explain("Postup v troch krokoch.",
         """Spočítaj §A^2§, §A^3§, prípadne §A^4§. Odhadni vzorec a over ho na nich. Potom indukcia: ZK pre §n=1§ a krok §A^{n+1}=A^n\cdot A§ s IP.""",
@@ -531,7 +531,7 @@ private val matice = lesson("dml-mi-matice", "Mocnina matice", 16, "Najčastejš
         wrong = mapOf(1 to """Komutativitu tu netreba. §A^n\cdot A§ aj §A\cdot A^n§ sú §A^{n+1}§ vďaka asociativite.""", 2 to "Mocnina je súčin, nie súčet."))
     worked("Písomka 4. 12. 2025 (variant E)", pMatice.task.replace('$', '§'), "Písomka 4. 12. 2025 (variant E), príklad 1", maticaESolution)
     // the matrices under the question at body size: inside the title they broke over four lines (Zásada 11)
-    check("""Matica z písomky 2023: aký je odhad §A^n§?""", "§A^n=3^{n-1}A§", "§A^n=3^nA§", "§A^n=3nA§", correct = 0,
+    check("""Nad §\mathbb{R}§: Matica z písomky 2023: aký je odhad §A^n§?""", "§A^n=3^{n-1}A§", "§A^n=3^nA§", "§A^n=3nA§", correct = 0,
         sub = """§§\begin{aligned}A&=\begin{pmatrix}1&-2\\-1&2\end{pmatrix},\\A^2&=\begin{pmatrix}3&-6\\-3&6\end{pmatrix}=3A.\end{aligned}§§""",
         why = """§A^2=3A§, teda každé ďalšie násobenie pridá činiteľ §3§. Pre §n=1§ musí vyjsť §A§, preto §3^{n-1}§.""",
         wrong = mapOf(1 to """Pre §n=1§ by vyšlo §3A\neq A§. Exponent je o jedna menší.""", 2 to """Pre §n=2§ by vyšlo §6A§, ale §A^2=3A§."""))
@@ -539,7 +539,7 @@ private val matice = lesson("dml-mi-matice", "Mocnina matice", 16, "Najčastejš
     explain("Na čo si dať pozor v zápise.",
         """Odhad bez výpočtu mocnín, chýbajúci ZK, IP „pre všetky §n§“ a krok bez vyznačeného IP. Zadanie to pripomína výslovne.""",
         formal = cz("Nezapomeňte uvést, jak vypadá Váš indukční krok, a kde využíváte indukční předpoklad."), src = "Písomky 2024 a 2025, príklad 1; $Dombek")
-    check("""§A=\begin{pmatrix}1&0&1\\0&3&0\\0&0&1\end{pmatrix}§ (písomka 2024). Aký je odhad §A^n§?""",
+    check("""Nad §\mathbb{R}§: §A=\begin{pmatrix}1&0&1\\0&3&0\\0&0&1\end{pmatrix}§ (písomka 2024). Aký je odhad §A^n§?""",
         """§\begin{pmatrix}1&0&n\\0&3^n&0\\0&0&1\end{pmatrix}§""", """§\begin{pmatrix}1&0&1\\0&3^n&0\\0&0&1\end{pmatrix}§""", """§\begin{pmatrix}1&0&n\\0&3n&0\\0&0&1\end{pmatrix}§""", correct = 0,
         why = """§A^2§ má vpravo hore §2§ a v strede §9§. Rohový prvok rastie o §1§, stred sa násobí §3§.""",
         wrong = mapOf(1 to """§A^2§ má vpravo hore §1+1=2§, nie §1§.""", 2 to """Stred sa pri každom násobení násobí §3§: §3,9,27§, nie §3,6,9§."""))
@@ -547,10 +547,10 @@ private val matice = lesson("dml-mi-matice", "Mocnina matice", 16, "Najčastejš
     check("Spočítal si §A^2,A^3§ a odhad sedí. Treba ešte ZK?", "Áno, jeden riadok: §n=1§ v odhade dá §A§", "Nie, výpočet mocnín ho nahrádza", "Nie, pri maticiach sa ZK nerobí", correct = 0,
         why = "Áno, ZK patrí do dôkazu a stačí jeden riadok. Výpočty pred odhadom sú len hľadanie vzorca.",
         wrong = mapOf(1 to "Nenahrádza, chýba overenie pre §n=1§, kde indukcia začína. Výpočty overia len §n=2,3§ (Varování 4.3).", 2 to "ZK patrí ku každej indukcii, aj pri maticiach (Cvičení 4.9)."))
-    check("""§A=\begin{pmatrix}2&1\\0&1\end{pmatrix}§. Vpravo hore v §A^2,A^3,A^4§ je §3,7,15§. Odhad?""", "§2^n-1§", "§2n-1§", "§n§", correct = 0,
+    check("""Nad §\mathbb{R}§: §A=\begin{pmatrix}2&1\\0&1\end{pmatrix}§. Vpravo hore v §A^2,A^3,A^4§ je §3,7,15§. Odhad?""", "§2^n-1§", "§2n-1§", "§n§", correct = 0,
         why = """§3=2^2-1§, §7=2^3-1§, §15=2^4-1§. Pre §n=1§ dá §2^1-1=1§, sedí s §A§.""",
         wrong = mapOf(1 to """§2n-1§ dá §3,5,7§, nie §3,7,15§.""", 2 to """Prvok rastie rýchlejšie než §n§: §3,7,15§."""))
-    check("""Krok pre §A=\begin{pmatrix}2&1\\0&1\end{pmatrix}§: v súčine §\begin{pmatrix}2^n&2^n-1\\0&1\end{pmatrix}\begin{pmatrix}2&1\\0&1\end{pmatrix}§ je vpravo hore""",
+    check("""Nad §\mathbb{R}§: Krok pre §A=\begin{pmatrix}2&1\\0&1\end{pmatrix}§: v súčine §\begin{pmatrix}2^n&2^n-1\\0&1\end{pmatrix}\begin{pmatrix}2&1\\0&1\end{pmatrix}§ je vpravo hore""",
         """§2^n+(2^n-1)=2^{n+1}-1§""", """§2(2^n-1)=2^{n+1}-2§""", """§2^n\cdot 1=2^n§""", correct = 0,
         why = """Prvý riadok krát druhý stĺpec dá §2^n\cdot 1+(2^n-1)\cdot 1=2^{n+1}-1§, teda odhad pre §n+1§.""",
         wrong = mapOf(1 to """Riadok krát stĺpec je §2^n\cdot 1+(2^n-1)\cdot 1§, nie prvok krát §2§.""", 2 to """Chýba druhý sčítanec §(2^n-1)\cdot 1§. Riadok krát stĺpec sčíta dva súčiny."""))

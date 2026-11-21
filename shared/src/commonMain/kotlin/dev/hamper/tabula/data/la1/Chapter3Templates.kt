@@ -336,7 +336,7 @@ fun k3ProductExercise(r: Random): Exercise {
         val cols = (0 until 3).map { j -> a.rows.map { it[j] } }
         return Exercise(
             "la1-k3-product", "Súčin ako kombinácia stĺpcov", "Věta 3.15, Pozorování 3.16",
-            "Spočtěte $\\mathbf{A}\\mathbf{x}$ pro $\\mathbf{A}=${a.tex()}$ a $\\mathbf{x}=${x.tex()}^T$ jako lineární kombinaci sloupců $\\mathbf{A}$.",
+            fieldTask(f, "Spočtěte $\\mathbf{A}\\mathbf{x}$ pro $\\mathbf{A}=${a.tex()}$ a $\\mathbf{x}=${x.tex()}^T$ jako lineární kombinaci sloupců $\\mathbf{A}$."),
             parts = listOf({ _ -> Part("$\\mathbf{A}\\mathbf{x}=$", Answer.Numbers(listOf("y_1", "y_2"), null, ax, "$${ax.tex()}^T$", diagnose = diagnosis(f, ax, listOf(
                 listOf(cols.indices.fold(Frac.ZERO) { acc, j -> acc + cols[j][0] }, cols.indices.fold(Frac.ZERO) { acc, j -> acc + cols[j][1] }) to "Zabudol si koeficienty: §\\mathbf{A}\\mathbf{x}=x_1\\mathbf{A}_{:1}+x_2\\mathbf{A}_{:2}+x_3\\mathbf{A}_{:3}§.",
             )) { g -> val i = if (g[0] != ax[0]) 0 else 1; "Nesedí §y_${i + 1}§: má byť §${(0 until 3).joinToString("+") { j -> "(${x[j].tex(true)})\\cdot(${a[i, j].tex(true)})" }}=${ax[i].tex(true)}§." })) }),

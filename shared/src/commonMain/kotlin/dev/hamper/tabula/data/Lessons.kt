@@ -33,7 +33,7 @@ val La1Lessons: List<LessonDef> = listOf(
         ask("""Koľko je §(1,2,0,4)+(3,3,0,1)§ v §\mathbb{Z}_5^4§?""", "§(4,5,0,5)§", "§(4,0,0,0)§", "§(4,0,0,5)§", correct = 1,
             after = """V §\mathbb{Z}_5§ sú len čísla §0,\dots,4§. Každú zložku zvlášť: §2+3=5\equiv 0\pmod{5}§ a §4+1=5\equiv 0\pmod{5}§.""", sub = "Ešte bez výkladu. Stačí odhad.",
             wrong = mapOf(0 to """Takto sa sčíta v §\mathbb{Z}^4§, nie v §\mathbb{Z}_5^4§. Číslo §5§ nie je prvok §\mathbb{Z}_5=\{0,\dots,4\}§, každú zložku treba vziať modulo §5§.""", 2 to """Modulo §5§ si vzal len v druhej zložke. Platí v každej zložke zvlášť, aj vo štvrtej: §5§ nie je prvok §\mathbb{Z}_5§."""))
-        explore("""Sčítaj šípky: dostaň sa do §(3,4)§.""", """Posúvaj koeficienty pri §\mathbf{u}=(2,1)§ a §\mathbf{v}=(1,3)§.""", Pic.Plane(2 to 1, 1 to 3, 3 to 4, range = 3),
+        explore("""V §\mathbb{R}^2§: Sčítaj šípky: dostaň sa do §(3,4)§.""", """Posúvaj koeficienty pri §\mathbf{u}=(2,1)§ a §\mathbf{v}=(1,3)§.""", Pic.Plane(2 to 1, 1 to 3, 3 to 4, range = 3),
             """§1\mathbf{u}+1\mathbf{v}=(2+1,1+3)=(3,4)§: sčítanie po zložkách je skladanie šípok.""", "Skriptá, Pozorovanie 2.1: v §\\mathbb{R}^2§ zodpovedá sčítanie po zložkách skladaniu šípok, súčet je uhlopriečkou rovnobežníka.")
         explain("Vektor je len §n§-tica čísel.", """Šípka je obrázok pre §n=2§. Pre §n=4§ alebo v §\mathbb{Z}_5§ obrázok nemáme, ale počíta sa rovnako: po zložkách, a v §\mathbb{Z}_p§ modulo §p§.""",
             cards = listOf("tn"))
@@ -70,16 +70,16 @@ val La1Lessons: List<LessonDef> = listOf(
     lesson("podpriestor", "Podpriestor", 17, "Tri podmienky podpriestoru, prečo v ňom je nulový vektor a ako ukázať, že niečo podpriestor nie je.", 1) {
         ask("""Je priamka §y=x+1§ podpriestor §\mathbb{R}^2§?""", "Áno", "Nie", correct = 1, after = """Neobsahuje §(0,0)§. Podpriestor s každým vektorom §\mathbf{x}§ obsahuje aj §0\cdot\mathbf{x}=(0,0)§, takže priamka bez počiatku podpriestorom byť nemôže (Pozorovanie 2.8).""", sub = "Ešte bez výkladu. Stačí odhad.",
             wrong = mapOf(0 to """„Rovná“ nestačí: podpriestor musí byť uzavretý na sčítanie, a táto priamka nie je. §(0,1)§ na nej leží, §(0,1)+(0,1)=(0,2)§ už nie."""))
-        explore("""Vezmi dva body priamky §y=2x§.""", "Ťukni na dva body. Uvidíš ich súčet a dvojnásobok.", Pic.Closure(SetKind.LineThroughZero),
+        explore("""V §\mathbb{R}^2§: Vezmi dva body priamky §y=2x§.""", "Ťukni na dva body. Uvidíš ich súčet a dvojnásobok.", Pic.Closure(SetKind.LineThroughZero),
             "Súčet aj násobok ostali na priamke. Z nej sa operáciami nedá ujsť.")
-        explore("""Teraz priamka §y=x+1§.""", "Zase dva body a ich súčet.", Pic.Closure(SetKind.LineOffZero),
+        explore("""V §\mathbb{R}^2§: Teraz priamka §y=x+1§.""", "Zase dva body a ich súčet.", Pic.Closure(SetKind.LineOffZero),
             """Súčet vyskočil z priamky. Množina nie je uzavretá na sčítanie, podpriestor to nie je.""")
         explain("Podpriestor sa nedá opustiť.", """Tri podmienky: neprázdny, uzavretý na sčítanie a na násobenie skalárom. Kvantifikátor §\forall§ znamená všetky dvojice: jeden príklad nič nedokazuje, jeden protipríklad vyvráti. Zápis §P\ssub T^n§ čítaj „§P§ je podpriestor §T^n§“.""",
             cards = listOf("podpriestor"))
         clip("l2-def")
         explain("Nulový vektor je dôsledok, nie podmienka.", """Vezmi hocijaké §\mathbf{x}\in P§: §0\cdot\mathbf{x}=\theta§ musí byť v §P§. Naopak sa to hodí: §\theta\notin P§ hneď znamená, že §P§ podpriestor nie je. Opačne nie: §\theta\in P§ nestačí.""",
             formal = cz("""§\theta\notin P\Rightarrow P\text{ není podprostorem }T^n§."""), src = "Skriptá, Poznámka 2.10", cards = listOf("t2-8"))
-        explore("""Množina §|x|=|y|§ nulu obsahuje.""", "Je podpriestor? Skús dva body.", Pic.Closure(SetKind.Abs),
+        explore("""V §\mathbb{R}^2§: Množina §|x|=|y|§ nulu obsahuje.""", "Je podpriestor? Skús dva body.", Pic.Closure(SetKind.Abs),
             """§(1,1)+(1,-1)=(2,0)§ vypadne. Nulový vektor nestačí (Príklad 2.12).""")
         check("""Zjednotenie osí §x§ a §y§ v §\mathbb{R}^2§ je podpriestor?""", "Áno", "Nie", correct = 1, why = """Zjednotenie osí nie je uzavreté na sčítanie. §(1,0)§ aj §(0,1)§ v ňom sú, ale ich súčet §(1,1)§ nie (Príklad 2.17).""", pic = Pic.Closure(SetKind.Cross),
             wrong = mapOf(0 to """Zjednotenie podpriestorov podpriestorom byť nemusí, hoci každá os je podpriestor. Zjednotenie síce obsahuje §\theta§, ale uzavretosť na sčítanie tu zlyhá (Veta 2.18)."""))
@@ -113,7 +113,7 @@ val La1Lessons: List<LessonDef> = listOf(
     lesson("lk", "Lineárna kombinácia", 11, "Súčet násobkov s koeficientmi z telesa, triviálna a netriviálna kombinácia.", 2) {
         ask("""Existujú čísla §\alpha,\beta\in\mathbb{R}§, pre ktoré §\alpha(1,1)+\beta(1,2)=(3,4)§?""", "Áno", "Nie", correct = 0, after = """Áno: §2(1,1)+1(1,2)=(3,4)§.""", sub = "Ešte bez výkladu. Stačí odhad.",
             wrong = mapOf(1 to """Koeficienty nemusia byť §0§ ani §1§, smú byť ľubovoľné reálne čísla. Stačí, že nejaké §\alpha,\beta§ s §\alpha(1,1)+\beta(1,2)=(3,4)§ existujú."""))
-        explore("""Trafíš §(3,4)§?""", """Natiahni §\mathbf{u}=(1,1)§ a §\mathbf{v}=(1,2)§ a sčítaj.""", Pic.Plane(1 to 1, 1 to 2, 3 to 4, range = 3),
+        explore("""V §\mathbb{R}^2§: Trafíš §(3,4)§?""", """Natiahni §\mathbf{u}=(1,1)§ a §\mathbf{v}=(1,2)§ a sčítaj.""", Pic.Plane(1 to 1, 1 to 2, 3 to 4, range = 3),
             """§2\mathbf{u}+1\mathbf{v}=(3,4)§. Čísla §2§ a §1§ sú koeficienty lineárnej kombinácie.""")
         explain("Natiahni, potom sčítaj.", """Lineárna kombinácia je súčet násobkov. Stačí, že nejaké koeficienty z telesa **existujú**. Triviálna má všetky koeficienty nulové a dá vždy §\theta§.""",
             cards = listOf("lk"))
@@ -122,16 +122,16 @@ val La1Lessons: List<LessonDef> = listOf(
             wrong = mapOf(1 to """Koeficient pri §\mathbf{x}_3§ je §1\neq 0§. Triviálna kombinácia má **všetky** koeficienty nulové; jeden nenulový ju robí netriviálnou.""", 2 to """Triviálna neznamená „najjednoduchšia“. Koeficienty §1§ dajú súčet vektorov, triviálna kombinácia má všetky koeficienty nulové."""))
         check("""§0\mathbf{x}_1+5\mathbf{x}_2+0\mathbf{x}_3§ nad §\mathbb{R}§ je""", "triviálna", "netriviálna", correct = 1, why = "Stačí jeden nenulový koeficient, aby bola netriviálna.",
             wrong = mapOf(0 to """Na netriviálnosť stačí jediný nenulový koeficient, tu §5\neq 0§. Triviálna kombinácia má všetky koeficienty nulové."""))
-        worked("Príklad zo skrípt", """Over rovnosť §\left(\tfrac{7}{2},-1\right)=2(1,1)+\left(-\tfrac{3}{2}\right)(-1,2)§.""", "Skriptá, Príklad 2.22", ArithPostup) {
+        worked("Príklad zo skrípt", """Nad §\mathbb{R}§: Over rovnosť §\left(\tfrac{7}{2},-1\right)=2(1,1)+\left(-\tfrac{3}{2}\right)(-1,2)§.""", "Skriptá, Príklad 2.22", ArithPostup) {
             arithSteps(Field.R, Frac.of(2), Field.R.vec(listOf(1, 1)), Frac.of(-3, 2), Field.R.vec(listOf(-1, 2)))
             val (_, add) = ArithPostup
             add("""Vektor §(\tfrac{7}{2},-1)§ je teda lineárnou kombináciou súboru §((1,1),(-1,2))§ s koeficientmi §2§ a §-\tfrac{3}{2}§.""")
         }
-        explore("""Skús §(3,1)§ z §(1,2)§ a §(2,4)§.""", "Posúvaj, ako chceš.", Pic.Plane(1 to 2, 2 to 4, 3 to 1, range = 2, goal = Goal.Explore),
+        explore("""V §\mathbb{R}^2§: Skús §(3,1)§ z §(1,2)§ a §(2,4)§.""", "Posúvaj, ako chceš.", Pic.Plane(1 to 2, 2 to 4, 3 to 1, range = 2, goal = Goal.Explore),
             """Neujdeš z priamky §y=2x§: §(3,1)§ nie je lineárnou kombináciou tohto súboru.""")
-        check("""Je §(0,0)§ lineárnou kombináciou súboru §((1,2),(3,1))§?""", "Áno", "Nie", correct = 0, why = """Triviálna kombinácia dá §\theta§ pre každý súbor.""",
+        check("""V §\mathbb{R}^2§: Je §(0,0)§ lineárnou kombináciou súboru §((1,2),(3,1))§?""", "Áno", "Nie", correct = 0, why = """Triviálna kombinácia dá §\theta§ pre každý súbor.""",
             wrong = mapOf(1 to """Nulové koeficienty sú dovolené: §0(1,2)+0(3,1)=(0,0)§. Definícia 2.21 chce len existenciu koeficientov. Netriviálna kombinácia rovná §\theta§ tu síce neexistuje, ale na tú sa otázka nepýta."""))
-        worked("Je to kombinácia?", """Je §(1,5)§ lineárnou kombináciou súboru §((1,1),(1,3))§?""", null, MemberPostup) {
+        worked("Je to kombinácia?", """V §\mathbb{R}^2§: Je §(1,5)§ lineárnou kombináciou súboru §((1,1),(1,3))§?""", null, MemberPostup) {
             val (system, gem, side, end) = MemberPostup
             system("""Hľadám koeficienty §\alpha,\beta\in\mathbb{R}§ s §\alpha(1,1)+\beta(1,3)=(1,5)§. Po zložkách §\alpha+\beta=1§ a §\alpha+3\beta=5§; stĺpce sú dané vektory.""")
             gem("""Od druhého riadku odčítam prvý a mám horný stupňovitý tvar.""", Formula(Field.R.walk(intMat(listOf(1, 1, 1), listOf(1, 3, 5), bar = 2), listOf(rowSub(2, 1, 1)))))
@@ -152,19 +152,19 @@ val La1Lessons: List<LessonDef> = listOf(
     lesson("ln", "LN a LZ", 28, "Kedy je súbor lineárne nezávislý, ako to overiť z definície a cez GEM.", 3) {
         ask("""Existujú čísla §\alpha,\beta\in\mathbb{R}§, nie obe nulové, pre ktoré §\alpha(1,2)+\beta(2,4)=(0,0)§?""", "Áno", "Nie", correct = 0, after = """Áno: §2(1,2)-(2,4)=(0,0)§ a koeficienty §2§, §-1§ nie sú nulové. Súbor, z ktorého sa dá takto netriviálne nakombinovať §\theta§, sa volá lineárne závislý; v tejto lekcii to zavedieme presne.""", sub = "Ešte bez výkladu. Stačí odhad.",
             wrong = mapOf(1 to """Existujú, lebo §(2,4)§ je dvojnásobok §(1,2)§. Koeficienty smú byť aj záporné, takže jeden vektor sa dá druhým „vynulovať“."""))
-        explore("""Nájdi §\alpha,\beta§, nie obe nulové, s §\alpha\mathbf{u}+\beta\mathbf{v}=\theta§.""", """§\mathbf{u}=(1,2)§, §\mathbf{v}=(2,4)§.""", Pic.Plane(1 to 2, 2 to 4, null, range = 3, goal = Goal.Zero),
+        explore("""V §\mathbb{R}^2§: Nájdi §\alpha,\beta§, nie obe nulové, s §\alpha\mathbf{u}+\beta\mathbf{v}=\theta§.""", """§\mathbf{u}=(1,2)§, §\mathbf{v}=(2,4)§.""", Pic.Plane(1 to 2, 2 to 4, null, range = 3, goal = Goal.Zero),
             """Netriviálna kombinácia rovná §\theta§: súbor §(\mathbf{u},\mathbf{v})§ je LZ.""")
-        explore("""Teraz §\mathbf{v}=(2,1)§. Nájdeš netriviálnu?""", "Skúšaj.", Pic.Plane(1 to 2, 2 to 1, null, range = 3, goal = Goal.Zero),
+        explore("""V §\mathbb{R}^2§: §\mathbf{u}=(1,2)§, teraz §\mathbf{v}=(2,1)§. Nájdeš netriviálnu?""", "Skúšaj.", Pic.Plane(1 to 2, 2 to 1, null, range = 3, goal = Goal.Zero),
             """Nenájdeš: §\alpha(1,2)+\beta(2,1)=\theta§ len pre §\alpha=\beta=0§. Súbor je LN.""")
         explain("Len triviálna dá nulu.", """LN: jediná kombinácia rovná §\theta§ je tá s nulami. LZ: existuje aj iná. Pozor na kvantifikátory: „pre všetky §\alpha_i§: ak súčet je §\theta§, potom sú všetky nulové“.""",
             cards = listOf("ln"))
         clip("l4-subor")
-        check("""Súbor §((1,0),(0,1),(1,1))§ je""", "LN", "LZ", correct = 1, why = """§1(1,0)+1(0,1)-1(1,1)=\theta§, netriviálna.""",
+        check("""V §\mathbb{R}^2§: Súbor §((1,0),(0,1),(1,1))§ je""", "LN", "LZ", correct = 1, why = """§1(1,0)+1(0,1)-1(1,1)=\theta§, netriviálna.""",
             wrong = mapOf(0 to """Tretí vektor je súčtom prvých dvoch, takže súbor je LZ. Každé dva z nich sú síce LN, ale LN je vlastnosť celého súboru."""))
         thm("t2-25", proof = "p-nula")
-        check("""Súbor §((1,2,3),(0,0,0))§ je""", "LN", "LZ", correct = 1, why = """Obsahuje §\theta§: §0(1,2,3)+1\cdot\theta=\theta§ je netriviálna.""",
+        check("""V §\mathbb{R}^3§: Súbor §((1,2,3),(0,0,0))§ je""", "LN", "LZ", correct = 1, why = """Obsahuje §\theta§: §0(1,2,3)+1\cdot\theta=\theta§ je netriviálna.""",
             wrong = mapOf(0 to """Každý súbor s §\theta§ je LZ. Nulový vektor nie je „nič“: koeficient pri ňom môže byť nenulový a súčet ostane §\theta§ (Pozorovanie 2.25)."""))
-        check("""Súbor §((2,5))§ s jedným vektorom je""", "LN", "LZ", correct = 0, why = """Súbor s jediným nenulovým vektorom je LN. Súbor dĺžky §1§ je LZ, len keď je §(\theta)§ (Pozorovanie 2.25, bod 4).""",
+        check("""V §\mathbb{R}^2§: Súbor §((2,5))§ s jedným vektorom je""", "LN", "LZ", correct = 0, why = """Súbor s jediným nenulovým vektorom je LN. Súbor dĺžky §1§ je LZ, len keď je §(\theta)§ (Pozorovanie 2.25, bod 4).""",
             wrong = mapOf(1 to """LZ by znamenalo §\alpha(2,5)=\theta§ pre nejaké §\alpha\neq 0§. Z §2\alpha=0§ však plynie §\alpha=0§: jediná kombinácia rovná §\theta§ je triviálna."""))
         worked("Overenie LN v §\\mathbb{Z}_5^3§", """Je §((1,2,3),(4,2,3),(3,4,2))§ v §\mathbb{Z}_5^3§ lineárne nezávislý?""", "Skriptá, Príklad 2.28", LnPostup) {
             val (system, gem, side, end) = LnPostup
@@ -200,15 +200,15 @@ val La1Lessons: List<LessonDef> = listOf(
     lesson("obal", "Lineárny obal", 22, "Všetko, kam sa z daných vektorov dostaneš; prečo je to podpriestor a ako zistiť, či doň vektor patrí.", 4) {
         ask("""Existujú čísla §\alpha,\beta\in\mathbb{R}§, pre ktoré §\alpha\mathbf{u}+\beta\mathbf{v}=(3,1)§, kde §\mathbf{u}=(1,2)§ a §\mathbf{v}=(2,4)§?""", "Áno", "Nie", correct = 1, after = """Nie. §\mathbf{u}§ aj §\mathbf{v}§ ležia na priamke §y=2x§, a tak aj každá ich kombinácia; §(3,1)§ na nej neleží.""", pic = Pic.Still(listOf(1 to 2, 2 to 4), null, 3 to 1, listOf("\\U=(1,2)", "\\V=(2,4)")), sub = "Ešte bez výkladu. Stačí odhad.",
             wrong = mapOf(0 to """Tieto dva vektory celú rovinu nedajú, lebo §(2,4)=2(1,2)§. Každá ich kombinácia je násobok §(1,2)§ a leží na priamke §y=2x§."""))
-        explore("Posúvaj, kam sa dostaneš.", """Koeficienty pri §\mathbf{u}§ a §\mathbf{v}§.""", Pic.Plane(1 to 2, 2 to 4, 3 to 1, range = 2, goal = Goal.Explore),
+        explore("V §\\mathbb{R}^2§: Posúvaj, kam sa dostaneš.", """Koeficienty pri §\mathbf{u}=(1,2)§ a §\mathbf{v}=(2,4)§.""", Pic.Plane(1 to 2, 2 to 4, 3 to 1, range = 2, goal = Goal.Explore),
             """Posúvaj, koľko chceš, z priamky §y=2x§ neujdeš. To je lineárny obal §\langle\mathbf{u},\mathbf{v}\rangle§.""")
         clip("l5-vlastne")
         explain("Všetko, kam sa dostaneš, je lineárny obal.", """Obal je množina **všetkých** kombinácií. Je v ňom §\theta§ aj vektory súboru samy. Obal je nástroj, ktorý zo súboru vyrobí množinu.""",
             cards = listOf("obal"))
-        explore("""Ťukni na všetky body obalu §\langle(1,2)\rangle§.""", "Pozor, môže ich byť viac.", Pic.TapSpan(1 to 2, null, listOf(2 to 4, 3 to 1, -1 to -2, 0 to 0, -2 to 1, 3 to 6)),
+        explore("""V §\mathbb{R}^2§: Ťukni na všetky body obalu §\langle(1,2)\rangle§.""", "Pozor, môže ich byť viac.", Pic.TapSpan(1 to 2, null, listOf(2 to 4, 3 to 1, -1 to -2, 0 to 0, -2 to 1, 3 to 6)),
             """Druhá zložka je vždy dvojnásobok prvej. Aj §(0,0)§: stačí koeficient §0§.""")
         // the picture names its vectors u and v: the new second vector is v too, no longer a multiple of u
-        explore("""Teraz §\mathbf{v}=(1,1)§, už nie násobok §\mathbf{u}§. Trafíš §(3,1)§?""", """Kombinuj §\mathbf{u}=(1,2)§ a §\mathbf{v}=(1,1)§.""", Pic.Plane(1 to 2, 1 to 1, 3 to 1, range = 5),
+        explore("""V §\mathbb{R}^2§: Teraz §\mathbf{v}=(1,1)§, už nie násobok §\mathbf{u}§. Trafíš §(3,1)§?""", """Kombinuj §\mathbf{u}=(1,2)§ a §\mathbf{v}=(1,1)§.""", Pic.Plane(1 to 2, 1 to 1, 3 to 1, range = 5),
             """§-2\mathbf{u}+5\mathbf{v}=(3,1)§. Dva vektory mimo jednej priamky: obal je celá rovina.""")
         clip("l5-pridanie")
         thm("t2-34", "t2-35", proof = "p-obal")
@@ -235,7 +235,7 @@ val La1Lessons: List<LessonDef> = listOf(
         clip("l5-predlzenie")
         thm("t2-42")
         def("obal")
-        check("""Aký je rozdiel medzi lineárnym obalom a podpriestorom?""", "Obal je nástroj, ako zo súboru vyrobiť množinu; podpriestor je vlastnosť množiny", "Sú to dve mená pre to isté", "Obal je vždy celé §T^n§", correct = 0,
+        check("""Nad §\mathbb{R}§: Aký je rozdiel medzi lineárnym obalom a podpriestorom?""", "Obal je nástroj, ako zo súboru vyrobiť množinu; podpriestor je vlastnosť množiny", "Sú to dve mená pre to isté", "Obal je vždy celé §T^n§", correct = 0,
             why = """Obal je operácia na súbore vektorov, podpriestor je vlastnosť množiny. Obal tú vlastnosť má vždy (Veta 2.38). Tak to rozlíšil vyučujúci LA1 na Discorde #la1 (25. 10. 2026).""",
             wrong = mapOf(1 to """Pojmy sú rôzne, hoci každý obal je podpriestor. §\langle\cdot\rangle§ je operácia na súbore vektorov, „byť podpriestorom“ je vlastnosť množiny. Že ju obal má vždy, hovorí Veta 2.38.""", 2 to """Obal je celé §T^n§ len vtedy, keď súbor §T^n§ generuje. Napríklad §\langle(1,2)\rangle§ je len priamka v §\mathbb{R}^2§."""))
         practice("param-span", solo = true)
@@ -252,7 +252,7 @@ val La1Lessons: List<LessonDef> = listOf(
         explain("Báza: dosť vektorov, ale ani jeden navyše.", """Generovanie dá každý vektor. LN zaručí, že nič nie je navyše, a preto sú súradnice jednoznačné. Jedna podmienka nestačí.""",
             cards = listOf("baza"))
         clip("l6-baza")
-        check("""§((1,2),(2,4))§ je báza §\langle(1,2)\rangle§?""", "Áno", "Nie", correct = 1, why = "Generuje tú priamku, ale je LZ.",
+        check("""V §\mathbb{R}^2§: §((1,2),(2,4))§ je báza §\langle(1,2)\rangle§?""", "Áno", "Nie", correct = 1, why = "Generuje tú priamku, ale je LZ.",
             wrong = mapOf(0 to """Generovanie sedí, ale súbor je LZ: §2(1,2)-(2,4)=\theta§. Báza musí byť aj LN. Bázou §\langle(1,2)\rangle§ je napríklad §((1,2))§."""))
         check("""§((1,1),(1,-1))§ je báza §\mathbb{R}^2§?""", "Áno", "Nie", correct = 0, why = """Je LN aj generuje, teda je to báza. Jeden nie je násobkom druhého a §(a,b)=\tfrac{a+b}{2}(1,1)+\tfrac{a-b}{2}(1,-1)§.""",
             wrong = mapOf(1 to """Je to báza: súbor je LN, lebo ani jeden vektor nie je násobkom druhého. Dva LN vektory v priestore dimenzie §2§ sú báza (Veta 2.55)."""))
@@ -310,7 +310,7 @@ val La1Lessons: List<LessonDef> = listOf(
         check("""Stačí na teste ako definícia dimenzie veta „Dimenze je rovna počtu prvků báze.“?""", "Áno", "Nie", correct = 1, why = "Pravdivé tvrdenie, nie definícia. Ukážková písomka v MARASTe ju výslovne neuznáva.",
             wrong = mapOf(0 to """Tvrdenie je pravdivé, ale definícia to nie je. Je to Veta 2.57: používa bázu a predpokladá, že existuje a že všetky bázy majú rovnako prvkov. Definícia 2.49 hovorí o LN súboroch."""))
         thm("t2-52")
-        check("""§\dim\langle(1,2),(2,4)\rangle=§""", "§0§", "§1§", "§2§", correct = 1, why = """§((1,2))§ je LN, a každé dva vektory z tej priamky sú LZ.""",
+        check("""Nad §\mathbb{R}§: §\dim\langle(1,2),(2,4)\rangle=§""", "§0§", "§1§", "§2§", correct = 1, why = """§((1,2))§ je LN, a každé dva vektory z tej priamky sú LZ.""",
             wrong = mapOf(0 to """Dimenziu §0§ má len §\{\theta\}§ (Veta 2.53). Tu je §((1,2))§ LN súbor dĺžky §1§, teda dimenzia je aspoň §1§.""", 2 to """Vektory sú dva, ale LZ: §(2,4)=2(1,2)§. Dimenzia nie je počet daných vektorov, ale dĺžka najdlhšieho LN súboru v obale."""))
         check("""§\dim\{\theta\}=§""", "§0§", "§1§", correct = 0, why = """Neexistuje LN súbor dĺžky 1: §(\theta)§ je LZ.""",
             wrong = mapOf(1 to """Dimenzia §1§ by chcela LN súbor dĺžky §1§, ale jediný kandidát §(\theta)§ je LZ. Jeden prvok množiny neznamená dimenziu §1§."""))
@@ -358,7 +358,7 @@ val La1Lessons: List<LessonDef> = listOf(
             count("""Súbor je LZ práve vtedy, keď §\mathbf{y}\in\langle\mathbf{u},\mathbf{v}\rangle§. Vektory §\mathbf{u},\mathbf{v}§ sú totiž LN: vektor v obale je ich kombináciou a vektor mimo obalu súbor LN nechá (Veta 2.39 a Veta 2.42). Obal má §5^2=25§ prvkov, nenulových je §24§.""")
         }
         clip("l8-tip")
-        explore("Pozri, ako GEM vyberie bázu", """§M=\langle(1,1,1,0),(1,-1,0,1),(2,0,1,1),(4,6,5,-1)\rangle§, vektory v stĺpcoch. Krokuj a sleduj, ktoré stĺpce budú hlavné.""", Pic.Gem(listOf(listOf(1, 1, 2, 4), listOf(1, -1, 0, 6), listOf(1, 0, 1, 5), listOf(0, 1, 1, -1)), 0, caption = "MARAST, lekce 292, príklad 2"),
+        explore("V §\\mathbb{R}^4§: Pozri, ako GEM vyberie bázu", """§M=\langle(1,1,1,0),(1,-1,0,1),(2,0,1,1),(4,6,5,-1)\rangle§, vektory v stĺpcoch. Krokuj a sleduj, ktoré stĺpce budú hlavné.""", Pic.Gem(listOf(listOf(1, 1, 2, 4), listOf(1, -1, 0, 6), listOf(1, 0, 1, 5), listOf(0, 1, 1, -1)), 0, caption = "MARAST, lekce 292, príklad 2"),
             """Hlavné stĺpce sú 1. a 2.: báza §M§ je §((1,1,1,0),(1,-1,0,1))§ a §\dim M=2§ (Veta 2.59).""")
         check("Dopĺňaš súbor §(\\mathbf{u},\\mathbf{v})§ na bázu §\\mathbb{Z}_5^4§ a tipneš si §\\mathbf{e}_3,\\mathbf{e}_4§. Smieš?", "Áno, ak GEM ukáže, že je to báza", "Nie, tipovať sa nesmie", "Áno, aj bez overenia", correct = 0, why = "Tip je legitímny, ak ho overíš (Klouda, 6. prednáška).",
             wrong = mapOf(1 to """Tipovať smieš, len tip musíš overiť. Veta 2.60 hovorí len, že doplnenie existuje, nie ako ho nájdeš. Body sú za to, že ukážeš, že doplnený súbor je báza.""", 2 to """Neoverený tip nie je dôkaz: nie každé dva jednotkové vektory súbor doplnia. Ak niektorý leží v obale daných vektorov, vyjde súbor LZ."""))
@@ -378,13 +378,13 @@ val La1Lessons: List<LessonDef> = listOf(
     lesson("suradnice", "Súradnice", 28, "Súradnice vzhľadom na bázu, prečo sú jednoznačné, výpočet oboma smermi a počet prvkov podpriestoru v §\\mathbb{Z}_p^n§.", 8) {
         ask("""§\mathcal{B}=((1,0),(1,1))§ je báza §\mathbb{R}^2§. Aké sú súradnice vektora §(3,2)§ vzhľadom na bázu §\mathcal{B}§?""", "§(3,2)§", "§(1,2)§", "§(2,1)§", correct = 1, after = """§1(1,0)+2(1,1)=(3,2)§.""", sub = "Ešte bez výkladu. Stačí odhad.",
             wrong = mapOf(0 to """To sú zložky vektora, teda súradnice v štandardnej báze. V báze §\mathcal{B}§ sú súradnice koeficienty §\alpha,\beta§ s §\alpha(1,0)+\beta(1,1)=(3,2)§.""", 2 to """Poradie je obrátené: §2(1,0)+1(1,1)=(3,1)\neq(3,2)§. Súradnice idú v poradí vektorov bázy."""))
-        explore("""Dostaň sa do §\mathbf{x}=(3,2)§ po mriežke bázy.""", """Posúvaj počet krokov po §\mathbf{u}=(1,0)§ a po §\mathbf{v}=(1,1)§.""", Pic.Coords(1 to 0, 1 to 1, 3 to 2),
+        explore("""V §\mathbb{R}^2§: Dostaň sa do §\mathbf{x}=(3,2)§ po mriežke bázy.""", """Posúvaj počet krokov po §\mathbf{u}=(1,0)§ a po §\mathbf{v}=(1,1)§.""", Pic.Coords(1 to 0, 1 to 1, 3 to 2),
             """§(\mathbf{x})_{\mathcal{B}}=(1,2)§: koľko z ktorého vektora bázy. Mriežka sa mení s bázou, vektor ostáva ten istý.""")
         explain("Súradnice: koľko z ktorého vektora bázy.", """Súradníc je toľko, koľko prvkov má báza, a záleží na poradí. Vektor mimo §P§ súradnice vzhľadom na bázu podpriestoru §P§ nemá.""",
             cards = listOf("suradnice"))
         clip("l9-standardna")
         clip("l9-jednoznacnost")
-        explore("""Iná báza: §\mathbf{u}=(1,2)§, §\mathbf{v}=(-1,1)§.""", """Nájdi súradnice §\mathbf{x}=(1,5)§.""", Pic.Coords(1 to 2, -1 to 1, 1 to 5),
+        explore("""V §\mathbb{R}^2§: Iná báza: §\mathbf{u}=(1,2)§, §\mathbf{v}=(-1,1)§.""", """Nájdi súradnice §\mathbf{x}=(1,5)§.""", Pic.Coords(1 to 2, -1 to 1, 1 to 5),
             """§2\mathbf{u}+1\mathbf{v}=(2-1,4+1)=(1,5)§, teda §(\mathbf{x})_{\mathcal{B}}=(2,1)§.""")
         clip("l9-dokaz")
         thm("t2-66")
@@ -396,7 +396,7 @@ val La1Lessons: List<LessonDef> = listOf(
             back("""Spätne dosadím zdola: §\gamma=-2§, §\beta=-1-2\gamma=3§, §\alpha=4-\beta-\gamma=3§.""", Formula("""(\mathbf{w})_{\mathcal{B}}=(3,3,-2)"""))
             check("""Skúška: kombinácia bázy s týmito koeficientmi dá §\mathbf{w}§.""", Formula("""3(1,1,1)+3(1,1,2)-2(1,2,3)=(4,2,3)"""))
         }
-        check("""Ktorý vektor má súradnice §(1,-1,2)§ v báze §((1,0,0),(1,1,0),(0,0,1))§?""", "§(1,-1,2)§", "§(0,-1,2)§", "§(2,-1,2)§", correct = 1, why = """§1(1,0,0)-1(1,1,0)+2(0,0,1)=(0,-1,2)§. Zo súradníc sa vektor dostane bez sústavy: je to kombinácia vektorov bázy s týmito koeficientmi (otázka zo skrípt pri Definícii 2.68).""",
+        check("""V §\mathbb{R}^3§: Ktorý vektor má súradnice §(1,-1,2)§ v báze §((1,0,0),(1,1,0),(0,0,1))§?""", "§(1,-1,2)§", "§(0,-1,2)§", "§(2,-1,2)§", correct = 1, why = """§1(1,0,0)-1(1,1,0)+2(0,0,1)=(0,-1,2)§. Zo súradníc sa vektor dostane bez sústavy: je to kombinácia vektorov bázy s týmito koeficientmi (otázka zo skrípt pri Definícii 2.68).""",
             wrong = mapOf(0 to """Zamenil si súradnice a vektor. Vektor je §1\mathbf{b}_1-1\mathbf{b}_2+2\mathbf{b}_3§ a treba ho vypočítať. So svojimi súradnicami sa každý vektor zhoduje len v štandardnej báze, v tejto nie.""", 2 to """Znamienko: koeficient pri §(1,1,0)§ je §-1§, teda tento vektor sa odčíta. Prvá zložka je §1-1§, nie §1+1§."""))
         check("""§\mathcal{B}§ je báza §\mathbb{Z}_5^4§. Ktorá rovnosť je zmysluplná?""", """§(\mathbf{x})_{\mathcal{B}}=(1,2)§""", """§(\mathbf{x})_{\mathcal{B}}=(1,2,1)§""", """§(\mathbf{x})_{\mathcal{B}}=(1,3,0,0)§""", correct = 2, why = "Zmysluplná je len štvorica, lebo báza §\\mathbb{Z}_5^4§ má 4 prvky. Súradnice sú koeficienty lineárnej kombinácie vektorov bázy, jeden pri každom z nich (Definícia 2.68); dvojica a trojica by patrili k báze s 2 alebo 3 prvkami. Úloha z testu 20. 11. 2024 (variant Slon).",
             wrong = mapOf(0 to """Dvojica by sedela pre bázu s dvoma prvkami. Báza §\mathbb{Z}_5^4§ má §4§ prvky (§\dim\mathbb{Z}_5^4=4§) a súradníc je toľko, koľko prvkov má báza.""", 1 to """Trojica by sedela pre bázu s tromi prvkami, napríklad podpriestoru dimenzie §3§. Báza celého §\mathbb{Z}_5^4§ má §4§ prvky."""))
@@ -408,7 +408,7 @@ val La1Lessons: List<LessonDef> = listOf(
             wrong = mapOf(1 to """§10=2\cdot 5§ je §\dim P\cdot n§. Počet prvkov určujú súradnice: každý prvok §P§ zodpovedá jedinej dvojici zo §\mathbb{Z}_7§ (Veta 2.66).""", 2 to """§14=2\cdot 7§: voľby dvoch súradníc sa násobia, nie sčítajú. Každá zo §7§ hodnôt prvej súradnice ide s každou zo §7§ hodnôt druhej."""))
         practice("count", solo = true)
         def("suradnice")
-        check("""Súradnice §\mathbf{x}+\mathbf{y}§ v báze §(\mathbf{x},\mathbf{y},\mathbf{z})§ sú""", "§(1,1,0)§", "§(1,1,1)§", "§(2,0,0)§", correct = 0, why = """§\mathbf{x}+\mathbf{y}=1\mathbf{x}+1\mathbf{y}+0\mathbf{z}§. Súradnice sú koeficienty pri všetkých vektoroch bázy v ich poradí, aj pri §\mathbf{z}§, ktorý vo výraze chýba (otázka zo skrípt pri Definícii 2.68).""",
+        check("""V §T^3§: Súradnice §\mathbf{x}+\mathbf{y}§ v báze §(\mathbf{x},\mathbf{y},\mathbf{z})§ sú""", "§(1,1,0)§", "§(1,1,1)§", "§(2,0,0)§", correct = 0, why = """§\mathbf{x}+\mathbf{y}=1\mathbf{x}+1\mathbf{y}+0\mathbf{z}§. Súradnice sú koeficienty pri všetkých vektoroch bázy v ich poradí, aj pri §\mathbf{z}§, ktorý vo výraze chýba (otázka zo skrípt pri Definícii 2.68).""",
             wrong = mapOf(1 to """§\mathbf{z}§ v súčte nie je, jeho koeficient je §0§. Súradnice sú koeficienty pri všetkých vektoroch bázy, aj pri tých, ktoré vo výraze chýbajú.""", 2 to """§(2,0,0)§ sú súradnice §2\mathbf{x}§. Každá súradnica patrí k jednému vektoru bázy: pri §\mathbf{x}§ aj pri §\mathbf{y}§ je koeficient §1§."""))
         practice("coords", solo = true)
         prove("p-pd")

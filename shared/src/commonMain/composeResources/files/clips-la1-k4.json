@@ -4832,7 +4832,7 @@
   "before": "Čo dosadiť do voľných premenných, aby vyšla báza §S_0§?",
   "warning": false,
   "task": {
-   "q": "Homogénna sústava má voľné premenné §x_1, x_3§. Čo do nich dosadíš, aby si dostal bázu §S_0§?",
+   "q": "Nad §\\mathbb{R}§: Homogénna sústava má voľné premenné §x_1, x_3§. Čo do nich dosadíš, aby si dostal bázu §S_0§?",
    "options": [
     "Najprv §(x_1, x_3) = (1, 0)§, potom §(0, 1)§, a vždy dopočítam viazané",
     "§(x_1, x_3) = (0, 0)§",
@@ -6591,7 +6591,7 @@
   "before": "Musíš do voľných premenných dosadzovať práve jednotky a nuly?",
   "warning": false,
   "task": {
-   "q": "Môžeš do voľných premenných §(x_3, x_5)§ dosadiť §(2, 0)§ a §(0, 4)§ namiesto §(1, 0)§ a §(0, 1)§?",
+   "q": "Nad §\\mathbb{R}§: Môžeš do voľných premenných §(x_3, x_5)§ dosadiť §(2, 0)§ a §(0, 4)§ namiesto §(1, 0)§ a §(0, 1)§?",
    "options": [
     "Áno, je to tiež báza §\\mathbb{R}^2§ a dostaneš inú bázu §S_0§",
     "Nie, správna je len štandardná báza",

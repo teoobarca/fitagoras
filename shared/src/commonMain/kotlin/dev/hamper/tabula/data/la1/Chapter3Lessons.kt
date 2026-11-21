@@ -32,7 +32,7 @@ internal val k3lHodnost = lesson("la1-k3-hodnost", "Hodnosť matice", 16, "Čo j
     explain("Hodnosť je dimenzia obalu riadkov.", """Riadky ber ako vektory z §T^n§ a pýtaj sa, koľko smerov dávajú spolu. Nie koľko je riadkov, ani koľko je nenulových.""",
         cards = listOf("la1-k3-hodnost"))
     clip("k3-hodnost-def-riadky")
-    check("""§h\begin{pmatrix}1&3&1\\2&1&-1\end{pmatrix}=§""", "§1§", "§2§", "§3§", correct = 1, why = """Riadky nie sú násobky, sú LN: obal má dimenziu §2§ (Příklad 3.3).""",
+    check("""Nad §\mathbb{R}§: §h\begin{pmatrix}1&3&1\\2&1&-1\end{pmatrix}=§""", "§1§", "§2§", "§3§", correct = 1, why = """Riadky nie sú násobky, sú LN: obal má dimenziu §2§ (Příklad 3.3).""",
         wrong = mapOf(0 to """Hodnosť §1§ by chcela oba riadky na jednej priamke. §(2,1,-1)§ však nie je násobkom §(1,3,1)§.""",
             2 to """Dva riadky dajú najviac dva smery. Tri stĺpce na tom nič nezmenia (Důsledek 3.13)."""))
     explain("GEM obal riadkov nemení.", """Každý nový riadok je kombináciou starých a každý krok sa dá vrátiť. Obal riadkov ostane ten istý, a s ním aj jeho dimenzia, hodnosť.""",
@@ -50,7 +50,7 @@ internal val k3lHodnost = lesson("la1-k3-hodnost", "Hodnosť matice", 16, "Čo j
         count("""V HST sú dva nenulové riadky, teda §h(\mathbf{A})=2§ (Věta 3.7).""")
         rows("""Riadky nie sú LN: tretí bol súčtom prvých dvoch, preto po GEM vyšiel nulový.""")
     }
-    check("""Po GEM vyšlo §\begin{pmatrix}1&2&0\\0&0&3\\0&0&0\end{pmatrix}§. Hodnosť je""", "§1§", "§2§", "§3§", correct = 1, why = """Dva nenulové riadky v HST, hodnosť §2§ (Věta 3.7).""",
+    check("""Nad §\mathbb{R}§: Po GEM vyšlo §\begin{pmatrix}1&2&0\\0&0&3\\0&0&0\end{pmatrix}§. Hodnosť je""", "§1§", "§2§", "§3§", correct = 1, why = """Dva nenulové riadky v HST, hodnosť §2§ (Věta 3.7).""",
         wrong = mapOf(0 to """Nenulové riadky sú dva. Druhý má schod až v treťom stĺpci, ale nenulový je.""",
             2 to """Nulový riadok do obalu nič nepridá. V HST sa počítajú len nenulové riadky."""))
     practice("la1-k3-rank", solo = false)
@@ -61,7 +61,7 @@ internal val k3lHodnost = lesson("la1-k3-hodnost", "Hodnosť matice", 16, "Čo j
     explain("Čo je a čo nie je krok GEM", """§\mathbf{A}\sim\mathbf{B}§ píšeš len pre matice rovnakého typu. Nulový riadok pri sústave vynechať smieš, ale krok GEM to nie je.""",
         cards = listOf("la1-k3-sim"))
     def("la1-k3-sim")
-    check("Ktorý zápis je správny?", """§\begin{pmatrix}1&2\\2&4\end{pmatrix}\sim\begin{pmatrix}1&2\\0&0\end{pmatrix}§""", """§\begin{pmatrix}1&2\\2&4\end{pmatrix}\sim\begin{pmatrix}1&2\end{pmatrix}§""", """§\begin{pmatrix}1&2\\2&4\end{pmatrix}=\begin{pmatrix}1&2\\0&0\end{pmatrix}§""", correct = 0,
+    check("Nad §\\mathbb{R}§: Ktorý zápis je správny?", """§\begin{pmatrix}1&2\\2&4\end{pmatrix}\sim\begin{pmatrix}1&2\\0&0\end{pmatrix}§""", """§\begin{pmatrix}1&2\\2&4\end{pmatrix}\sim\begin{pmatrix}1&2\end{pmatrix}§""", """§\begin{pmatrix}1&2\\2&4\end{pmatrix}=\begin{pmatrix}1&2\\0&0\end{pmatrix}§""", correct = 0,
         why = """Zápis platí: je to jeden dovolený krok (G3) medzi maticami rovnakého typu.""",
         wrong = mapOf(1 to """Rôzne typy: vyškrtnutie riadku nie je krok GEM (Definice 3.4).""",
             2 to """Matice sa nerovnajú, len sa jedna dá previesť na druhú. Rovnosť matíc znamená rovnaké všetky prvky a tu sa líši druhý riadok; §\sim§ hovorí len, že druhá vznikla z prvej úpravami GEM (Definice 3.4)."""))
@@ -101,7 +101,7 @@ internal val k3lAplikacie = lesson("la1-k3-aplikacie", "Hodnosť v úlohách", 1
             p("""Stačí tedy ověřit rovnost hodností příslušných matic."""),
         ), src = "Skriptá, Poznámka 3.9")
     clip("k3-hodnost-dim-obalu")
-    worked("Dimenzia obalu a patrí doň vektor?", """Mějme §\mathbf{x}_1=(1,2,0,1)§, §\mathbf{x}_2=(2,3,1,0)§, §\mathbf{x}_3=(0,1,-1,2)§. Určete §\dim\langle\mathbf{x}_1,\mathbf{x}_2,\mathbf{x}_3\rangle§ a rozhodněte, zda §\mathbf{y}=(1,1,1,-1)§ do tohoto obalu patří.""", "Postup podľa Poznámky 3.9", K3SpanRankPostup) {
+    worked("Dimenzia obalu a patrí doň vektor?", """V §\mathbb{R}^4§: Mějme §\mathbf{x}_1=(1,2,0,1)§, §\mathbf{x}_2=(2,3,1,0)§, §\mathbf{x}_3=(0,1,-1,2)§. Určete §\dim\langle\mathbf{x}_1,\mathbf{x}_2,\mathbf{x}_3\rangle§ a rozhodněte, zda §\mathbf{y}=(1,1,1,-1)§ do tohoto obalu patří.""", "Postup podľa Poznámky 3.9", K3SpanRankPostup) {
         val (dim, add, end) = K3SpanRankPostup
         dim("""Vektory píšem do riadkov a upravím GEM; nič neriešim, len počítam nenulové riadky.""",
             Formula(Field.R.walk(intMat(listOf(1, 2, 0, 1), listOf(2, 3, 1, 0), listOf(0, 1, -1, 2)), listOf(rowSub(2, 2, 1)), listOf(rowAdd(3, 1, 2)))))
@@ -141,16 +141,16 @@ internal val k3lAplikacie = lesson("la1-k3-aplikacie", "Hodnosť v úlohách", 1
 }
 
 internal val k3lNasobenie = lesson("la1-k3-nasobenie", "Násobenie a kombinácie", 15, "Matica krát stĺpec kombinuje stĺpce, riadok krát matica kombinuje riadky; hodnosť súčinu.", 2, S3) {
-    ask("""Čo je §\begin{pmatrix}1&2\\3&4\end{pmatrix}\begin{pmatrix}1\\1\end{pmatrix}§?""", "§(3,7)^T§", "§(4,6)^T§", "§(1,3)^T§", correct = 0,
+    ask("""Nad §\mathbb{R}§: Čo je §\begin{pmatrix}1&2\\3&4\end{pmatrix}\begin{pmatrix}1\\1\end{pmatrix}§?""", "§(3,7)^T§", "§(4,6)^T§", "§(1,3)^T§", correct = 0,
         after = """Súčet stĺpcov: §1\cdot(1,3)^T+1\cdot(2,4)^T=(3,7)^T§.""", sub = "Ešte bez výkladu. Stačí odhad.",
         wrong = mapOf(1 to """Sčítal si riadky. Stĺpec sprava kombinuje stĺpce: §(1,3)^T+(2,4)^T§.""",
             2 to """Matica stĺpec nevyberie, kombinuje všetky stĺpce. Oba tu majú koeficient §1§."""))
-    explore("""Vyrieš §\mathbf{A}\mathbf{x}=\mathbf{b}§ posúvaním.""", """§\mathbf{A}=\begin{pmatrix}2&1\\1&2\end{pmatrix}§, §\mathbf{b}=(4,5)^T§. Posúvaj §x_1§ pri prvom stĺpci a §x_2§ pri druhom.""", Pic.Plane(2 to 1, 1 to 2, 4 to 5, range = 3),
+    explore("""Nad §\mathbb{R}§: Vyrieš §\mathbf{A}\mathbf{x}=\mathbf{b}§ posúvaním.""", """§\mathbf{A}=\begin{pmatrix}2&1\\1&2\end{pmatrix}§, §\mathbf{b}=(4,5)^T§. Posúvaj §x_1§ pri prvom stĺpci a §x_2§ pri druhom.""", Pic.Plane(2 to 1, 1 to 2, 4 to 5, range = 3),
         """§x_1=1§, §x_2=2§: §1\cdot(2,1)^T+2\cdot(1,2)^T=(4,5)^T§.""", """Riešenie sústavy sú koeficienty kombinácie stĺpcov, ktorá dá pravú stranu (Pozorování 3.16).""")
     explain("Riadok zľava kombinuje riadky, stĺpec sprava stĺpce.", """§\mathbf{A}\mathbf{b}§ je kombinácia stĺpcov §\mathbf{A}§ s koeficientmi z §\mathbf{b}§. §\mathbf{a}\mathbf{A}§ je kombinácia riadkov s koeficientmi z §\mathbf{a}§. Sústava §\mathbf{A}\mathbf{x}=\mathbf{b}§ hľadá koeficienty stĺpcov.""",
         cards = listOf("la1-k3-t-kombinacie", "la1-k3-t-slr-kombinacie"))
     clip("k3-nasobenie-ax-stlpce")
-    check("""§\begin{pmatrix}1&-1\end{pmatrix}\begin{pmatrix}2&0&5\\1&3&1\end{pmatrix}=§""", """§\begin{pmatrix}1&-3&4\end{pmatrix}§""", """§\begin{pmatrix}3&3&6\end{pmatrix}§""", """§\begin{pmatrix}2&-3\end{pmatrix}§""", correct = 0,
+    check("""Nad §\mathbb{R}§: §\begin{pmatrix}1&-1\end{pmatrix}\begin{pmatrix}2&0&5\\1&3&1\end{pmatrix}=§""", """§\begin{pmatrix}1&-3&4\end{pmatrix}§""", """§\begin{pmatrix}3&3&6\end{pmatrix}§""", """§\begin{pmatrix}2&-3\end{pmatrix}§""", correct = 0,
         why = """Prvý riadok mínus druhý: §(2,0,5)-(1,3,1)=(1,-3,4)§.""",
         wrong = mapOf(1 to """Sčítal si riadky. Koeficient §-1§ pri druhom riadku znamená odčítanie.""",
             2 to """Výsledok má toľko prvkov ako riadok matice, tri. Riadok zľava kombinuje celé riadky."""))
@@ -172,7 +172,7 @@ internal val k3lNasobenie = lesson("la1-k3-nasobenie", "Násobenie a kombinácie
     check("""§\mathbf{A}\in\mathbb{R}^{3,2}§, §\mathbf{B}\in\mathbb{R}^{2,3}§. Môže byť §h(\mathbf{A}\mathbf{B})=3§?""", "Nie", "Áno", correct = 0,
         why = """Nie: §h(\mathbf{A}\mathbf{B})\leq h(\mathbf{A})\leq 2§ (Věta 3.19).""",
         wrong = mapOf(1 to """Súčin je síce typu §3\times 3§, ale §h(\mathbf{A}\mathbf{B})\leq h(\mathbf{A})\leq\min\{3,2\}=2§."""))
-    check("""Platí vždy §h(\mathbf{A}\mathbf{B})=\min\{h(\mathbf{A}),h(\mathbf{B})\}§?""", "Nie, len §\\leq§", "Áno", correct = 0,
+    check("""Nad ľubovoľným telesom §T§: Platí vždy §h(\mathbf{A}\mathbf{B})=\min\{h(\mathbf{A}),h(\mathbf{B})\}§?""", "Nie, len §\\leq§", "Áno", correct = 0,
         why = """Len nerovnosť: §\begin{pmatrix}1&0\\0&0\end{pmatrix}\begin{pmatrix}0&0\\0&1\end{pmatrix}=\Theta§, hoci obe majú hodnosť §1§.""",
         wrong = mapOf(1 to """Rovnosť neplatí: súčin dvoch matíc hodnosti §1§ môže byť nulová matica. Napríklad §\begin{pmatrix}1&0\\0&0\end{pmatrix}\begin{pmatrix}0&0\\0&1\end{pmatrix}=\Theta§."""))
     prove("la1-k3-p-obraz-lz")
@@ -183,7 +183,7 @@ internal val k3lInverzia = lesson("la1-k3-inverzia", "Inverzná matica", 18, "Je
     ask("""Existuje matica §\mathbf{B}\in\mathbb{R}^{2,2}§, pre ktorú §\begin{pmatrix}0&0\\0&0\end{pmatrix}\mathbf{B}=\mathbf{E}§ (jednotková matica §2\times 2§)?""", "Áno", "Nie", correct = 1,
         after = """Nie: súčin s nulovou maticou je vždy nulová matica.""", sub = "Ešte bez výkladu. Stačí odhad.",
         wrong = mapOf(0 to """Každý prvok súčinu je súčet súčinov, v ktorých je vždy prvok nulovej matice, teda §0§. Na diagonále §\mathbf{E}§ sú však jednotky (Otázka za Definicí 3.23)."""))
-    explore("""Skús invertovať §\begin{pmatrix}1&2\\2&4\end{pmatrix}§""", "GEM na §(\\mathbf{A}\\mid\\mathbf{E})§. Čo vznikne v ľavom bloku?", Pic.Gem(listOf(row(1, 2, 1, 0), row(2, 4, 0, 1)), 0, bar = 2),
+    explore("""Nad §\mathbb{R}§: Skús invertovať §\begin{pmatrix}1&2\\2&4\end{pmatrix}§""", "GEM na §(\\mathbf{A}\\mid\\mathbf{E})§. Čo vznikne v ľavom bloku?", Pic.Gem(listOf(row(1, 2, 1, 0), row(2, 4, 0, 1)), 0, bar = 2),
         """Vľavo nulový riadok: §h(\mathbf{A})=1§ a inverzia neexistuje.""", """Táto matica je singulárna. Prečo nulový riadok inverziu vylučuje, ukáže Věta 3.35 v ďalšej lekcii.""")
     explain("Jednotková matica je jednotka násobenia.", """§\mathbf{A}\mathbf{E}=\mathbf{A}=\mathbf{E}\mathbf{A}§ (Pozorování 3.22). K tejto jednotke hľadáme inverzné prvky, ako §2\cdot\tfrac12=1§ pri číslach.""",
         cards = listOf("la1-k3-jednotkova"))
@@ -191,7 +191,7 @@ internal val k3lInverzia = lesson("la1-k3-inverzia", "Inverzná matica", 18, "Je
     explain("Inverzná: súčin v oboch poradiach je §\\mathbf{E}§.", """Regulárna je matica, ku ktorej inverzná **existuje**; ostatné sú singulárne. Len štvorcové matice.""",
         cards = listOf("la1-k3-inverzna"))
     clip("k3-inverzia-definicia")
-    check("""Je §\begin{pmatrix}0&-1\\1&1\end{pmatrix}§ inverzná k §\begin{pmatrix}1&1\\-1&0\end{pmatrix}§?""", "Áno", "Nie", correct = 0,
+    check("""Nad §\mathbb{R}§: Je §\begin{pmatrix}0&-1\\1&1\end{pmatrix}§ inverzná k §\begin{pmatrix}1&1\\-1&0\end{pmatrix}§?""", "Áno", "Nie", correct = 0,
         why = """Áno: súčin v oboch poradiach je §\mathbf{E}§ (Otázka za Definicí 3.23).""",
         wrong = mapOf(1 to """Sú inverzné, lebo ich súčin v oboch poradiach je §\mathbf{E}§. Over: §\begin{pmatrix}1&1\\-1&0\end{pmatrix}\begin{pmatrix}0&-1\\1&1\end{pmatrix}=\mathbf{E}§."""))
     clip("k3-regularna-len-stvorcova")
@@ -236,7 +236,7 @@ internal val k3lRegularita = lesson("la1-k3-regularita", "Regularita a výpočet
     explain("GEM je násobenie regulárnou maticou.", """Výmena riadkov, násobenie riadku a pripočítanie násobku sú násobenia zľava maticami §\mathbf{P}(i,j)§, §\mathbf{P}_i(\alpha)§ a §\mathbf{Q}_{i,j}(\alpha)§. Všetky sú regulárne, a tak aj ich súčin.""",
         cards = listOf("la1-k3-t-gem-matica", "la1-k3-t-regularna-gem", "la1-k3-t-regularna-hodnost"))
     clip("k3-regularita-gem-matice")
-    worked("Matica, ktorá robí GEM", """Úpravy §\begin{pmatrix}6&15&0\\2&4&1\end{pmatrix}\sim\begin{pmatrix}2&4&1\\6&15&0\end{pmatrix}\sim\begin{pmatrix}2&4&1\\0&3&-3\end{pmatrix}\sim\begin{pmatrix}2&4&1\\0&1&-1\end{pmatrix}§: aká matica §\mathbf{P}§ im zodpovedá?""", "Skriptá, Příklad 3.33", K3OpsMatrixPostup) {
+    worked("Matica, ktorá robí GEM", """Nad §\mathbb{R}§: Úpravy §\begin{pmatrix}6&15&0\\2&4&1\end{pmatrix}\sim\begin{pmatrix}2&4&1\\6&15&0\end{pmatrix}\sim\begin{pmatrix}2&4&1\\0&3&-3\end{pmatrix}\sim\begin{pmatrix}2&4&1\\0&1&-1\end{pmatrix}§: aká matica §\mathbf{P}§ im zodpovedá?""", "Skriptá, Příklad 3.33", K3OpsMatrixPostup) {
         val (each, product, check) = K3OpsMatrixPostup
         // each operation done on E gives its matrix (Poznámky 3.29 až 3.31); the product is computed, not typed
         val ops = listOf(rowSwap(1, 2), rowSub(2, 3, 1), rowTimes(2, Frac.of(1, 3)))
