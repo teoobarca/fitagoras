@@ -241,8 +241,8 @@ async def timed_test(p, engine: str, device: str, url: str) -> None:
         # so one paper of each course, and the one that opens is used.
         opened = False
         for paper in ("slon-2024", "dml-2025-k"):
+            await page.goto("about:blank")  # a changed fragment alone wouldn't load the app again
             await page.goto(url + f"#mock:{paper}", wait_until="commit")
-            await page.reload(wait_until="commit")
             await ready(page)
             opened = await has(page, re.compile(r"^Spustiť \d+ minút"), 4000)
             if opened:
