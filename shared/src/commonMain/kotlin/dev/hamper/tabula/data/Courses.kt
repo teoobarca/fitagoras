@@ -228,7 +228,7 @@ val NotYetLectured: Set<String> = setOf(
     // congruences, systems and the generalised Chinese theorem, and closed number theory (87:26). The binary method is its
     // own lesson after dml-tc-mocniny, dml-tc-mocnenie, built from that lecture; the step ids of dml-tc-mocniny stayed as
     // released. Since then the power generators also draw a base sharing a factor with the modulus (dml-tc-binary) and a
-    // power left after Euler bigger than TcSmallPower, which the solutions compute by the binary method. Not lectured
+    // power left after Euler bigger than TcSmallPower (dml-tc-pow-binary), computed by the binary method. Not lectured
     // anywhere yet: a power through a factorisation of the modulus and the Chinese theorem (Cvičení 6.25). Spěvák
     // (paralelka 2) announced the binary method for 25. 11. (8. prednáška, 1:35:29); not checked yet.
 )

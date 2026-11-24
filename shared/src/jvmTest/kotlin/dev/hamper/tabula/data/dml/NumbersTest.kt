@@ -193,6 +193,12 @@ class NumbersTest {
                 val ph = (1..t.m).count { bruteGcd(it, t.m) == 1L }.toLong()
                 assertEquals(listOf(ph), nums(ans[0])); assertEquals(listOf(t.n % ph), nums(ans[1]))
             }
+            tcPowTask(r, big = true).let { t ->
+                val ans = run(tcPow(t, "dml-tc-pow-binary"), "pow big $t")
+                assertEquals(listOf(bi(t.base).modPow(bi(t.n), bi(t.m)).toLong()), nums(ans.last()))
+                val ph = (1..t.m).count { bruteGcd(it, t.m) == 1L }.toLong()
+                assertTrue("pow big $t: a power left beyond the small ones", t.n % ph > TcSmallPower)
+            }
             tcBinaryTask(r).let { t ->
                 val ans = run(tcBinary(t), "binary $t")
                 // a shared factor, the largest power of two in the exponent, its square row and the power, by BigInteger

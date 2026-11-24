@@ -11285,7 +11285,7 @@
   "teacher": "Dombek",
   "from": 2869.8,
   "to": 2896.6,
-  "why": "Každá ďalšia mocnina trojky je druhá mocnina predošlej; keď presiahne modul, hneď ju zredukuj.",
+  "why": "Počítame 3, 3², 3⁴, 3⁸, …: každú ďalšiu dostaneme umocnením predošlej na druhú a zvyšok hneď zredukujeme modulo 645.",
   "before": "Čo robí Dombek v každom kroku s mocninou trojky?",
   "warning": false,
   "task": {

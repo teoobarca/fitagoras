@@ -326,7 +326,7 @@ Istota o uvedených časoch a obsahu je vysoká; neisté sú obraz tabule, neúp
 - Meno prosemináristu zdroj nemá; úvod ho neuvádza. `dml-prosem2526-06` končí o 43:15 pri LDR; nie je pokračovaním výkladu kongruencií.
 
 **Hranica tvorby lekcií (19. 11.):** po Spěvákovej 8. prednáške je odprednášané všetko až po redukciu mocniny s nesúdeliteľným základom: krátenie, lineárna kongruencia, ZČVOZ/ČVOZ s dosadzovaním, $\varphi$, Eulerova veta, MFV a inverzia cez EV. Lekcie `dml-tc-lkon`, `dml-tc-cvoz` a `dml-tc-mocniny` sú podľa nej prerobené a odomknuté.
-**Binárne mocnenie (24. 11.):** odprednášal Dombek na 9. prednáške (23. 11.), lekcia `dml-tc-mocnenie` je postavená z nej; Spěvák ho ohlásil na 25. 11. Generátory odvtedy dávajú aj základ súdeliteľný s modulom (`dml-tc-binary`) a zvyšnú mocninu po EV väčšiu než 7, počítanú binárnym mocnením.
+**Binárne mocnenie (24. 11.):** odprednášal Dombek na 9. prednáške (23. 11.), lekcia `dml-tc-mocnenie` je postavená z nej; Spěvák ho ohlásil na 25. 11. Generátory odvtedy dávajú aj základ súdeliteľný s modulom (`dml-tc-binary`) a zvyšnú mocninu po EV väčšiu než 7 (`dml-tc-pow-binary`), počítanú binárnym mocnením.
 **Ešte neodprednášané:** rozklad modulu a ČVOZ pri mocnine (Cvičení 6.25).
 Proseminár precvičuje aj neodprednášané; **nenahrádza dôkaz, že boli odprednášané**.
 

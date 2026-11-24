@@ -113,7 +113,7 @@ val TcComboAllPostup = postup(
  * 2^4 = 16 ≡ 7 mod 9): multiply by the base and reduce after every step (Tvrzení 6.6). A bigger one goes by the binary
  * method (Příklad 6.16) as Dombek lectured it (9. prednáška, 23. 11. 2026): Euler applied, "furt je třeba trojciferný",
  * then square and multiply. The past tests leave at most 8 (5^8 mod 21, 2026 Ř); the tower and the paper problems keep
- * that size, the practice of a single power (dml-tc-pow) also draws bigger ones as the proseminars and Cvičení 6.22 do.
+ * that size and so does dml-tc-pow; dml-tc-pow-binary draws bigger ones as the proseminars and Cvičení 6.22 do.
  */
 const val TcSmallPower = 7
 
@@ -500,18 +500,18 @@ private fun squaresFormula(b: Long, e: Long, m: Long) =
 data class TcPowTask(val base: Long, val n: Long, val m: Long)
 
 /**
- * The base is coprime to m. Half of the time the exponent leaves at most [TcSmallPower] after Euler, as on the tests
- * (K 2025: 7^5 and 2^7); otherwise more, as the proseminars and Cvičení 6.22 (6^12 mod 19, 7^17 mod 23), computed by the
- * binary method. A base sharing a factor with m is its own template, dml-tc-binary.
+ * The base is coprime to m. The exponent leaves at most [TcSmallPower] after Euler, as on the tests (K 2025: 7^5 and
+ * 2^7); with [big] more, as the proseminars and Cvičení 6.22 (6^12 mod 19, 7^17 mod 23), computed by the binary method
+ * (dml-tc-pow-binary, practised after the lesson that teaches it). A base sharing a factor with m is dml-tc-binary.
  */
-fun tcPowTask(r: Random): TcPowTask {
+fun tcPowTask(r: Random, big: Boolean = false): TcPowTask {
     while (true) {
         val m = r.rl(9, 99)
         val b0 = r.rl(2, m - 1)
         val ph = phi(m)
         if (gcd(b0, m) != 1L || ph < 4) continue
         val base = if (r.nextBoolean()) b0 + m * r.rl(1, 30) else b0
-        val big = ph - 1 > TcSmallPower && r.nextBoolean()
+        if (big && ph - 1 <= TcSmallPower) continue
         val e = if (big) r.rl(TcSmallPower + 1L, minOf(ph - 1, 40L)) else r.rl(1, minOf(TcSmallPower.toLong(), ph - 1))
         if (e.countOneBits() > TcMaxBits) continue
         val n = ph * r.rl(maxOf(1L, 100L / ph), 2000L / ph) + e
@@ -519,7 +519,7 @@ fun tcPowTask(r: Random): TcPowTask {
     }
 }
 
-fun tcPow(task: TcPowTask): Exercise {
+fun tcPow(task: TcPowTask, id: String = "dml-tc-pow"): Exercise {
     val (b, n, m) = task
     require(gcd(b, m) == 1L) { "tcPow: the base must be coprime to the modulus" }
     val res = powMod(b, n, m)
@@ -549,7 +549,7 @@ fun tcPow(task: TcPowTask): Exercise {
     }, aim = 2, hint = tx(if (e > TcSmallPower) "Základ zredukuj modulo §m§. Exponent z predošlej časti je veľký: umocňuj na druhú s redukciou a vynásob riadky pri jednotkách jeho dvojkového zápisu."
         else "Základ zredukuj modulo §m§ a umocni ho na exponent z predošlej časti: násob základom a po každom kroku redukuj.")) }
     return Exercise(
-        "dml-tc-pow", "Veľká mocnina modulo §m§".let(::tx), "Šablóna Cvičení 6.22; Věty 6.14, 6.15, Příklad 6.14",
+        id, "Veľká mocnina modulo §m§".let(::tx), "Šablóna Cvičení 6.22; Věty 6.14, 6.15, Příklad 6.14",
         tx("Vypočtěte §$b^{$n}$MOD$m§."),
         parts = parts,
         postup = TcPowPostup,
@@ -607,7 +607,7 @@ fun tcBinary(task: TcBinaryTask): Exercise {
     parts += { _ -> Part(tx("§\\gcd($bb,$m)§:"), nums(listOf("\\gcd"), listOf(g), "§\\gcd($bb,$m)=$g§") { gv ->
         pickDiag(listOf(g), gv, listOf(
             listOf(1L) to "§$bb§ a §$m§ nie sú nesúdeliteľné: obe delí §$g§. Preto tu Eulerova veta neplatí.",
-        )) { "§\\gcd($bb,$m)=$g§, lebo §$bb=${tcFactorTex(bb)}§ a §$m=${tcFactorTex(m)}§." }
+        )) { "§\\gcd($bb,$m)=$g§, lebo " + listOf(bb, m).filterNot(::isPrime).joinToString(" a ") { "§$it=${tcFactorTex(it)}§" } + "." }
     }, aim = 0, hint = tx("Rozlož základ aj modul na prvočísla, alebo použi Euklidov algoritmus.")) }
     parts += { _ -> Part(tx("Najväčšia mocnina dvojky, ktorá je nanajvýš §$n§:"), nums(listOf("2^k"), listOf(top), "§2^{$k}=$top\\leq $n§") { gv ->
         pickDiag(listOf(top), gv, listOf(
@@ -625,7 +625,7 @@ fun tcBinary(task: TcBinaryTask): Exercise {
         pickDiag(listOf(res), gv, listOf(
             listOf(powMod(bb, n % ph, m)) to "Exponent si zmenšil modulo §\\varphi($m)=$ph§, ale Eulerova veta chce §\\gcd(a,m)=1§. Tu je §\\gcd=$g§.",
             listOf(sq.fold(1L) { acc, (_, v) -> md(acc * v, m) }) to "Vynásobil si všetky riadky tabuľky. Len tie pri jednotkách: §$n=${binarySum(n)}§.",
-            listOf(powMod(bb, n % m, m)) to "Exponent sa modulo §m§ nezmenšuje. Modulo §m§ sa redukuje len základ a medzivýsledky.",
+            listOf(powMod(bb, n % m, m)) to "Redukciu exponentu modulo §m§ nič nezdôvodňuje. Modulo §m§ sa redukuje len základ a medzivýsledky.",
         )) { "§$n=${binarySum(n)}§, teda vynásob zvyšky týchto riadkov: §${binaryChain(bb, n, m)}§." }
     }, aim = 3, hint = tx("§$n=${binarySum(n)}§: vynásob zvyšky riadkov s týmito exponentmi a po každom súčine redukuj.")) }
     return Exercise(
@@ -638,7 +638,7 @@ fun tcBinary(task: TcBinaryTask): Exercise {
             TcBinaryPostup.solve {
                 euler(tx((if (b != bb) "Základ nahradím zvyškom §$b\\equiv $bb\\pmod{$m}§, lebo kongruencia sa pri súčine zachová (Tvrzení 6.6). " else "") +
                     "§\\gcd($bb,$m)=$g§, teda základ a modul sú súdeliteľné, preto Eulerova veta (Věta 6.15) neplatí. Binárne mocnenie nesúdeliteľnosť nepotrebuje."),
-                    "$bb=${tcFactorTex(bb)},\\quad $m=${tcFactorTex(m)}")
+                    listOf(bb, m).filterNot(::isPrime).joinToString(",\\quad ") { "$it=${tcFactorTex(it)}" })
                 binary(tx("Najväčšia mocnina dvojky nanajvýš §$n§ je §$top=2^{$k}§; zvyšok exponentu rozložím rovnako."),
                     "$n=${binarySum(n)}=(${n.toString(2)})_2")
                 square(tx("Tabuľka ide po §${Terms.pow(bb, top.toInt())}§, lebo väčšiu mocninu dvojky exponent neobsahuje."), squaresFormula(bb, n, m))
@@ -1026,6 +1026,7 @@ val TcGenerators: Map<String, (Random) -> Exercise> = mapOf(
     "dml-tc-inv" to { r -> var t = tcInvTask(r); while (t.bound) t = tcInvTask(r); tcInv(t) },
     "dml-tc-inv-min" to { r -> tcInv(TcInvTask(SmallPrimeProducts.random(r), 0, true)) },
     "dml-tc-pow" to { r -> tcPow(tcPowTask(r)) },
+    "dml-tc-pow-binary" to { r -> tcPow(tcPowTask(r, big = true), "dml-tc-pow-binary") },
     "dml-tc-binary" to { r -> tcBinary(tcBinaryTask(r)) },
     "dml-tc-tower" to { r -> tcTower(tcTowerTask(r)) },
     "dml-tc-lkon" to { r -> tcLkon(tcLkonTask(r)) },
@@ -1056,7 +1057,8 @@ val TcTemplateList = listOf(
     TemplateInfo("dml-tc-inv", "Inverzia v $\\mathbb{Z}_m$", "REA na m a a"),
     TemplateInfo("dml-tc-inv-euler", "Inverzia cez Eulerovu vetu", "\$a^{\\varphi(m)-1}\$; Tvrzení 6.7 a 6.11"),
     TemplateInfo("dml-tc-tower", "Dva zvyšky, druhý z prvého", "Príklad 3 z testov 2023 až 2025"),
-    TemplateInfo("dml-tc-pow", "Veľká mocnina modulo m", "Fermat, Euler, binárne mocnenie"),
+    TemplateInfo("dml-tc-pow", "Veľká mocnina modulo m", "Fermat, Euler; malá zvyšná mocnina ako na písomkách"),
+    TemplateInfo("dml-tc-pow-binary", "Euler, potom binárne mocnenie", "Zvyšný exponent nad 7; Cvičení 6.22, proseminár"),
     TemplateInfo("dml-tc-binary", "Binárne mocnenie", "Základ súdeliteľný s modulom; Příklad 6.16"),
     TemplateInfo("dml-tc-lkon", "Lineárna kongruencia", "Krátenie modulu, riešenia v $\\mathbb{Z}_m$"),
     TemplateInfo("dml-tc-crt", "Sústava kongruencií", "ČVOZ aj súdeliteľné moduly"),

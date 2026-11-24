@@ -152,7 +152,7 @@ CLIPS = [
                    wrong={1: "§\\gcd(2,9)=1§, Eulerova veta platí: §\\varphi(9)=6§ a §2^{268}\\equiv 2^4\\pmod 9§.",
                           2: "§\\gcd(17,35)=1§, Eulerova veta platí: §\\varphi(35)=24§ a §17^{110}\\equiv 17^{14}\\pmod{35}§."})),
     dict(id="dml-tc-c-umocni", lesson=8, src=D9, t0=2869.8, t1=2896.6,
-         why="Každá ďalšia mocnina trojky je druhá mocnina predošlej; keď presiahne modul, hneď ju zredukuj.",
+         why="Počítame 3, 3², 3⁴, 3⁸, …: každú ďalšiu dostaneme umocnením predošlej na druhú a zvyšok hneď zredukujeme modulo 645.",
          before="Čo robí Dombek v každom kroku s mocninou trojky?",
          task=dict(q="Máš §3^8\\equiv 111\\pmod{645}§. Ako dostaneš zvyšok §3^{16}§?",
                    options=["§111^2=12321\\equiv 66§", "§111\\cdot 2=222§", "§111\\cdot 3=333§"], correct=0,

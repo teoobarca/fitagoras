@@ -370,7 +370,7 @@ internal val tcLessonMocnenie = lesson("dml-tc-mocnenie", "Binárne mocnenie", 1
         formal = cz("""Podkapitolu zakončíme vysvětlením, jak efektivně redukovat mocniny modulo §m§ v případě, že z jakéhokoli důvodu nechceme nebo nemůžeme využít Malou Fermatovu či Eulerovu větu (typicky v případě, kdy základ exponenciály je soudělný s modulem, nebo když mocnina je moc malá na to, aby MFV/EV pomohla, ale moc velká na ruční přímočarý výpočet). Je to tzv. binární mocnění modulo §m§."""),
         src = "Dombek, 9. prednáška; Skriptá, text pred Příkladom 6.16", cards = listOf("dml-tc-ev"))
     clip("dml-tc-c-kedy-binarne")
-    explain("Umocni na druhú a zredukuj", """Dombek: „Umocni na druhou, pokud jsi přelezl přes modulo, udělej redukci modulo M.“ Z §3§ tak dostaneš §3^2,3^4,3^8,3^{16},\dots§, každú mocninu z predošlej jedným násobením, lebo §\big(a^{2^j}\big)^2=a^{2^{j+1}}§. Redukovať po každom kroku smieš: pre §a\in\mathbb{Z}§ a §m\geq 2§ z §a^{2^j}\equiv r\pmod m§ plynie §a^{2^{j+1}}\equiv r^2\pmod m§, lebo kongruencia sa zachová pri súčine (Tvrzení 6.6). Podmienku §\gcd(a,m)=1§ to nepotrebuje. Skončíš pri najväčšej mocnine dvojky, ktorá je nanajvýš exponent; pri §644§ je to §512=2^9§.""",
+    explain("Umocni na druhú a zredukuj", """Dombek: „Umocni na druhou, pokud jsi přelezl přes modulo, udělej redukci modulo M.“ Z §3§ tak dostaneš §3^2,3^4,3^8,3^{16},\dots§, každú mocninu z predošlej jedným násobením, lebo §\big(a^{2^j}\big)^2=a^{2^{j+1}}§. Redukovať po každom kroku smieš: pre §a,r\in\mathbb{Z}§, §m\in\mathbb{N}§, §m\geq 2§ a §j\in\mathbb{N}_0§ z §a^{2^j}\equiv r\pmod m§ plynie §a^{2^{j+1}}\equiv r^2\pmod m§, lebo kongruencia sa zachová pri súčine (Tvrzení 6.6). Podmienku §\gcd(a,m)=1§ to nepotrebuje. Skončíš pri najväčšej mocnine dvojky, ktorá je nanajvýš exponent; pri §644§ je to §512=2^9§.""",
         src = "Dombek, 9. prednáška; Skriptá, Příklad 6.16", cards = listOf("dml-tc-operace"))
     clip("dml-tc-c-umocni")
     check("""§3^{16}\equiv 66\pmod{645}§. Zvyšok §3^{32}§ modulo §645§ je""", "§486§", "§132§", "§4356§", correct = 0,
@@ -385,7 +385,7 @@ internal val tcLessonMocnenie = lesson("dml-tc-mocnenie", "Binárne mocnenie", 1
         why = """Od §81§ sa riadky opakujú, preto §3^{1024}\equiv 66§ ako §3^{16}§. Každý riadok vznikne z predošlého tým istým umocnením: §3^{512}\equiv 111§ ako §3^8§. Dombek ďalší zvyšok §66§ napísal bez počítania.""",
         wrong = mapOf(1 to """§111§ je zvyšok §3^{512}§. §3^{1024}=(3^{512})^2§ a §111^2=12321\equiv 66§.""",
             2 to """§81§ je zvyšok §3^{256}§. Riadky sa opakujú od §3^4\equiv 81§: po §81§ ide §111§, potom §66§."""))
-    check("""Čo potrebuje binárne mocnenie §a^N\bmod m§ pre §a\in\mathbb{Z}§, §N\in\mathbb{N}§, §m\geq 2§?""", "Nič ďalšie, stačí Tvrzení 6.6", """§\gcd(a,m)=1§""", "Prvočíselný modul", correct = 0,
+    check("""Čo potrebuje binárne mocnenie §a^N\bmod m§ pre §a\in\mathbb{Z}§, §N,m\in\mathbb{N}§, §m\geq 2§?""", "Nič ďalšie, stačí Tvrzení 6.6", """§\gcd(a,m)=1§""", "Prvočíselný modul", correct = 0,
         why = """Redukcia po každom súčine stojí len na Tvrzení 6.6, a to platí pre všetky §a,b,c,d,m\in\mathbb{Z}§, §m\geq 2§. Preto ide aj §3^{644}\bmod 645§, kde §\gcd(3,645)=3§.""",
         wrong = mapOf(1 to """§\gcd(a,m)=1§ chce Eulerova veta (Věta 6.15), nie binárne mocnenie. Dombek ho ukazuje práve na §3^{644}\bmod 645§, kde §\gcd(3,645)=3§.""",
             2 to """Prvočíselný modul chce malá Fermatova veta. Binárne mocnenie funguje pre každý modul §m\geq 2§, aj pre §645=3\cdot 5\cdot 43§."""))
@@ -396,7 +396,8 @@ internal val tcLessonMocnenie = lesson("dml-tc-mocnenie", "Binárne mocnenie", 1
         wrong = mapOf(1 to """To je §8+4+2+1=15§. §14§ je párne, riadok §17§ do súčinu nepatrí.""",
             2 to """§6§ nie je mocnina dvojky, riadok §17^6§ tabuľka nemá. §14=8+4+2§."""))
     worked("Euler, potom binárne mocnenie", """§17^{110}\bmod 35§""", "Rozstřel 11. 1. 2023, otázka 5", tcPow(TcPowTask(17, 110, 35)).solution(emptyList()))
-    explain("Čo z toho máme", """Dombek takto uzavrel modulárnu aritmetiku. Krátiť smieš, len si strážiš modul (Věta 6.13). Exponent modulo §m§ redukovať nesmieš, modulo §\varphi(m)§ smieš, ak §\gcd(a,m)=1§ (Věta 6.15). Keď to nejde alebo exponent ostal veľký, binárne mocnenie dôjde k výsledku vždy: pri exponente s §L§ dvojkovými číslicami je to §L-1§ umocnení na druhú a o jedno menej násobení, než má zápis jednotiek. Pri §644§ teda §9§ a §2§ namiesto §643§ násobení.""",
+    practice("dml-tc-pow-binary", solo = false)
+    explain("Čo z toho máme", """Dombek takto uzavrel modulárnu aritmetiku. Krátiť smieš, len si strážiš modul (Věta 6.13). Exponent modulo §m§ všeobecne redukovať nemožno; modulo §\varphi(m)§ smieš, ak §\gcd(a,m)=1§ (Věta 6.15). Keď to nejde alebo exponent ostal veľký, binárne mocnenie dôjde k výsledku vždy: pri exponente s §L§ dvojkovými číslicami je to §L-1§ umocnení na druhú a o jedno menej násobení, než má zápis jednotiek. Pri §644§ teda §9§ a §2§ namiesto §643§ násobení.""",
         src = "Dombek, 9. prednáška")
     practice("dml-tc-binary", solo = true)
 }

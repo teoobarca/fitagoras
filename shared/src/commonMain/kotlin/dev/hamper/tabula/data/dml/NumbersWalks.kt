@@ -73,7 +73,7 @@ fun powWalk(b: Long, e: Long, m: Long): TableWalk {
     val sq = squares(b, e, m)
     val bb = par(b) // (-3)^2, not -3^2
     val bits = sq.indices.map { j -> (e shr j) and 1L }
-    val rows = sq.mapIndexed { j, (k, v) -> listOf("$j", Terms.pow(bb, k.toInt()), "$v", "${bits[j]}") }
+    val rows = sq.mapIndexed { j, (k, v) -> listOf("$j", Terms.pow(bb, k.toString()), "$v", "${bits[j]}") }
     val steps = (1 until sq.size).map { j ->
         val prev = sq[j - 1].second
         TableStep(listOf("${prev}^2=${prev * prev}\\equiv ${sq[j].second}\\pmod{$m}"), sources = listOf(j - 1))
