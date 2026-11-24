@@ -367,6 +367,10 @@ of lines and every screen guessed what it says. Now a statement is stored in par
   not show (a definition's why and examples, a theorem's proof).
 - **A quote is not a copy.** `explain(formal = …)` only for text that is not a card of the app (a remark, a test's
   wording), with a `src` of one number at most; a definition or theorem the app has is shown by `cards`.
+- **A statement is read once** (Teo, 24. 11.). An `explain` may name in `cards` the definition or theorem of the `def`
+  or `thm` step beside it; in the lesson its card is left to that step and the explanation shows its own words
+  (`data/Once.kt`), so its `title` and `body` must read without the card. `CoursesTest` fails when a lesson shows the
+  same whole statement in two steps in a row.
 - **Adjacent remarks:** a definition may carry `Concept.remarks`, each with its own number and source card. Use this
   for terminology or dimension supplied by a numbered remark, not by the definition itself. Lessons and reading
   sheets use the same stored quote.

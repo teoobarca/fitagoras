@@ -95,7 +95,8 @@ fun LessonFlow(lesson: LessonDef, store: Store, clips: ClipHost, onReport: (Stri
     }
     CompositionLocalProvider(LocalStepBarTap provides { list = true }) {
         AnimatedContent(run.at, label = "step", transitionSpec = { StepSwap }) { k ->
-            val step = lesson.steps[k]
+            // a statement is read once: an explanation leaves it to the step beside it (data/Once.kt)
+            val step = remember(lesson.id, k) { shownStep(lesson, k) }
             CompositionLocalProvider(LocalStepNav provides remember(run, k) { StepNav(run, k) }, LocalTutorMiesto provides remember(lesson.id, k) { { dev.hamper.tabula.tutor.miesto(lesson.id, k, step, lesson.name) } }) {
                 // the header's bar is the lesson's, cut into its pieces, without words (Teo, 19. 11.: no panel and no
                 // second count at a piece's end); the bar only ever moves on (18. 11.: a bar that jumps back blinks)

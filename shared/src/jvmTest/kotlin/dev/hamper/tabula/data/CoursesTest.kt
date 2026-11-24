@@ -52,6 +52,22 @@ class CoursesTest {
         }
     }
 
+    /** Teo, 24. 11.: a definition stood whole in an explanation and whole again in the next step. */
+    @Test fun no_statement_stands_whole_in_two_steps_in_a_row() {
+        val twice = Courses.flatMap { it.lessons }.flatMap { l ->
+            l.steps.indices.drop(1).mapNotNull { i ->
+                val both = statementsOf(shownStep(l, i - 1)) intersect statementsOf(shownStep(l, i))
+                if (both.isEmpty()) null else "${l.steps[i - 1].id} and ${l.steps[i].id}: $both"
+            }
+        }
+        assertEquals(twice.joinToString("\n"), 0, twice.size)
+        // and no statement of a lesson is lost by it: what its steps name, some step of it still shows
+        for (l in Courses.flatMap { it.lessons }) {
+            val named = l.steps.flatMap { statementsOf(it) }.toSet()
+            assertEquals(l.id, named, l.steps.indices.flatMap { statementsOf(shownStep(l, it)) }.toSet())
+        }
+    }
+
     @Test fun topic_lessons_follow_the_spec_shape() {
         for ((c, t) in topics) for (l in t.lessons) {
             assertTrue("${l.id}: ${l.steps.size} steps, want 15 to 25", l.steps.size in 15..25)
