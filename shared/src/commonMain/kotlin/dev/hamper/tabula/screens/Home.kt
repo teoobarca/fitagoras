@@ -114,7 +114,7 @@ fun justWritten(store: Store, course: Course = store.course, now: dev.hamper.tab
     return e.takeIf { end <= now && end.plusDays(7) > now }
 }
 
-fun resumeAt(store: Store, l: LessonDef) = store.runAt(l)
+fun resumeAt(store: Store, l: LessonDef) = store.farAt(l)
 
 /* ---- Dnes ------------------------------------------------------------------------------------------------------- */
 
@@ -952,7 +952,7 @@ fun PathScreen(store: Store, bottom: Dp, onRoute: (String) -> Unit) {
                 is PathItem.Lesson -> { val l = item.lesson
                     when {
                         l == current -> NowCard(store, l, { sheet = l }) { onRoute("lesson:${l.id}") }
-                        else -> LessonRow(l, l.id in store.lessonsDone, if (store.inProgress(l)) store.runAt(l) else 0) { sheet = l }
+                        else -> LessonRow(l, l.id in store.lessonsDone, if (store.inProgress(l)) store.farAt(l) else 0) { sheet = l }
                     }
                 }
                 is PathItem.Check -> { val cp = item.checkpoint
@@ -996,7 +996,7 @@ fun PathScreen(store: Store, bottom: Dp, onRoute: (String) -> Unit) {
         ModalBottomSheet({ sheet = null }, sheetState = rememberModalBottomSheetState(true), containerColor = c.card, contentColor = c.ink, sheetMaxWidth = AppWidth) {
             Column(Modifier.padding(horizontal = 20.dp).padding(bottom = 16.dp).navigationBarsPadding()) {
                 val done = l.id in store.lessonsDone
-                val at = store.runAt(l)
+                val at = store.farAt(l)
                 val started = store.inProgress(l)
                 Label(when { done -> "Hotová lekcia"; started -> "Rozrobená, ${pieceFar(l, at, true).first}"; l == current -> "Na rade"; else -> "Čaká ťa" })
                 Spacer(Modifier.height(2.dp))
@@ -1083,7 +1083,7 @@ private fun DoneMark() {
 private fun NowCard(store: Store, l: LessonDef, onInfo: () -> Unit, onGo: () -> Unit) {
     val c = T.c
     val started = store.inProgress(l)
-    val at = store.runAt(l)
+    val at = store.farAt(l)
     Column(Modifier.fillMaxWidth().padding(top = 2.dp, bottom = 8.dp).card().clip(RoundedCornerShape(24.dp))) {
         val (far, time) = pieceFar(l, at, started)
         Row(

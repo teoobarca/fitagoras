@@ -46,19 +46,18 @@ fun order(id: String, n: Int): List<Int> = if (n < 3) (0 until n).toList() else 
 /**
  * A lesson: one step after another, as one history (state/LessonRun.kt). The system back is handled here and only
  * here: exactly one screen back, a step's own screens included; on the first screen it leaves ([onLeave]), and the
- * run stays, so the lesson opens again where it was. A tap on the step bar lists the steps reached so far.
+ * run stays, so the lesson opens again where it was. A tap on the step bar opens the lesson's contents (StepList).
  * A practice step of a type already mastered is left out.
  */
 @Composable
 fun LessonFlow(lesson: LessonDef, store: Store, clips: ClipHost, onReport: (String) -> Unit, onClose: () -> Unit, onLeave: () -> Unit, onDone: () -> Unit) {
     // looked up again when a run is replaced (a link that starts the open lesson over); a finished lesson keeps its
     // run while it animates out
-    val run = remember(lesson.id, store.restarts) { store.run(lesson) }
+    // one ended with steps skipped opens on the first of them, not on the step its end was left on
+    val run = remember(lesson.id, store.restarts) { store.run(lesson).also { r -> if (lesson.id in store.lessonGaps && r.done(r.at)) r.left().firstOrNull()?.let(r::jump) } }
     remember(lesson.id) { BarMemory.reset() }
     val total = lesson.steps.size
     var list by remember { mutableStateOf(false) }
-    // the end reached with steps jumped over (the step list goes ahead too): how many, offered once to finish
-    var gaps by remember { mutableStateOf<List<Int>?>(null) }
     // a series of right answers counts within one lesson
     LaunchedEffect(lesson.id) { Series.n = 0; store.lessonOpened(lesson.id) }
     // statistics: the step on screen (its time, answers and help belong to it), how it was left
@@ -84,13 +83,17 @@ fun LessonFlow(lesson: LessonDef, store: Store, clips: ClipHost, onReport: (Stri
     val next: (Int) -> Unit = { from ->
         if (from == run.at && !finished && settled[0]) {
             Telemetry.stepLeft()
+            val first = !run.done(from)
             val more = run.next { k -> (lesson.steps[k] as? Step.Practice)?.let { store.mastered(practiceKey(it)) } == true }
-            store.lessonStep(lesson.id, if (more) run.at else total)
-            if (!more) {
-                val left = run.unseen()
-                if (left.isEmpty()) { finished = true; store.finishLesson(lesson.id); onDone() }
-                else { store.lessonEndedWithGaps(lesson.id); gaps = left }
-            }
+            // the end reached with steps jumped over (Teo, 24. 11.: skipping ahead asks for nothing): the lesson closes, not
+            // done. Opened again, each skipped step done leads to the next skipped one, and the last one ends the lesson
+            val left = run.left()
+            val filling = lesson.id in store.lessonGaps
+            val whole = left.isEmpty() && (!more || (filling && first))
+            if (more && !whole && filling && first && run.done(run.at)) run.jump(left.firstOrNull { it > from } ?: left.first())
+            store.lessonStep(lesson.id, if (whole) total else run.at)
+            if (whole) { finished = true; store.finishLesson(lesson.id); onDone() }
+            else if (!more) { finished = true; store.lessonEndedWithGaps(lesson.id); leave() }
         }
     }
     CompositionLocalProvider(LocalStepBarTap provides { list = true }) {
@@ -106,23 +109,7 @@ fun LessonFlow(lesson: LessonDef, store: Store, clips: ClipHost, onReport: (Stri
             }
         }
     }
-    if (list) StepList(lesson, run, { list = false }) { k -> list = false; run.jump(k) }
-    gaps?.let { left ->
-        val n = left.size
-        androidx.compose.material3.AlertDialog(
-            onDismissRequest = { gaps = null },
-            title = { Text("Ešte ${slovakPlural(n, "jeden preskočený krok", "$n preskočené kroky", "$n preskočených krokov")}", style = MaterialTheme.typography.headlineSmall) },
-            text = { Text("Lekcia bude hotová, keď ${if (n == 1) "ho prejdeš" else "ich prejdeš"}, alebo keď povieš, že ju vieš. Inak ju nájdeš na Dnes medzi rozrobenými.", style = MaterialTheme.typography.bodyMedium) },
-            confirmButton = { androidx.compose.material3.TextButton({ gaps = null; run.jump(left.first()) }) { Text(if (n == 1) "Prejsť ho" else "Prejsť ich") } },
-            dismissButton = {
-                Row {
-                    androidx.compose.material3.TextButton({ gaps = null; leave() }) { Text("Neskôr") }
-                    androidx.compose.material3.TextButton({ gaps = null; store.knowLesson(lesson.id); leave() }) { Text("Viem to") }
-                }
-            },
-            containerColor = T.c.card, shape = androidx.compose.foundation.shape.RoundedCornerShape(24.dp), modifier = Modifier.widthIn(max = DialogWidth),
-        )
-    }
+    if (list) StepList(lesson, ps, run, { list = false }) { k -> list = false; run.jump(k) }
 }
 
 /** A grid to count from (its goal is a tap) whose text asks for no tap: nothing to do on it before going on. */

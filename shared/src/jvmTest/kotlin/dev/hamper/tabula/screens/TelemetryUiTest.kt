@@ -99,7 +99,7 @@ class TelemetryUiTest {
     @Test fun knowItIsASkipAndTheLastStepFinishes() = runComposeUiTest {
         val l = LessonById.getValue("dml-tc-rea")
         val store = Store(MemoryStateFile())
-        store.restartLesson(l, 14)                         // the solo exercise at the end
+        store.restartLesson(l); repeat(14) { store.run(l).next() }   // walked to the solo exercise at the end
         Telemetry.opened("dml", null)
         setContent { TabulaTheme(ThemeMode.Light) { LessonFlow(l, store, ClipHost(SilentPlayer(), onPip = {}), {}, {}, {}) {} } }
         waitForIdle()

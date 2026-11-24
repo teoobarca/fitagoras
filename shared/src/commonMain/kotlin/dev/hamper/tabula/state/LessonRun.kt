@@ -34,11 +34,14 @@ class LessonRun(val ids: List<String>, private val changed: () -> Unit = {}) {
     private val subs = mutableStateMapOf<String, List<Int>>()
     /** Steps the lesson left out (a problem type already mastered): not in the history, back passes over them. */
     private val skipped = mutableStateMapOf<String, Boolean>()
-    /**
-     * Steps that were on screen. The step list jumps anywhere, also ahead (Teo, 18. 11.: "mohol by som mať možnosť
-     * skipnúť na ďalšie kroky"), so the steps passed over in a jump are not seen and the lesson is not done with them.
-     */
+    /** Steps that were on screen: a step shown once is never left out by itself. */
     private val seen = mutableStateMapOf<String, Boolean>()
+    /**
+     * Steps gone on from by their own way on. The contents jump anywhere, also ahead (Teo, 18. 11.: "mohol by som mať
+     * možnosť skipnúť na ďalšie kroky"): a step jumped over, or only looked at and jumped away from, is not done, and
+     * the lesson is not done with it.
+     */
+    private val done = mutableStateMapOf<String, Boolean>()
     /** Per step id, what the student did there (picks, how far a proof got), as strings. Read once per screen. */
     private val mem = mutableMapOf<String, MutableMap<String, String>>()
 
@@ -50,10 +53,10 @@ class LessonRun(val ids: List<String>, private val changed: () -> Unit = {}) {
     /** The screens step [i] showed, in order. */
     fun trail(i: Int = at): List<Int> = subs[ids[i]] ?: listOf(0)
     fun skipped(i: Int): Boolean = skipped[ids[i]] == true
-    /** A step with anything remembered: it was on screen in this run. */
-    fun visited(i: Int): Boolean = seen[ids[i]] == true && !skipped(i)
-    /** Steps of the lesson never on screen and not left out: what a jump ahead passed over. */
-    fun unseen(): List<Int> = ids.indices.filter { !visited(it) && !skipped(it) }
+    /** Step [i] was gone on from, or left out as mastered already. */
+    fun done(i: Int): Boolean = done[ids[i]] == true || skipped(i)
+    /** Steps of the lesson not done yet. */
+    fun left(): List<Int> = ids.indices.filter { !done(it) }
 
     private fun show(k: Int) { at = k; if (k > furthest) furthest = k; seen[ids[k]] = true }
 
@@ -81,14 +84,19 @@ class LessonRun(val ids: List<String>, private val changed: () -> Unit = {}) {
     }
 
     /**
-     * On to the next step; steps [skip] says to leave out (only ones never shown in this run) are passed over.
-     * Returns false at the end of the lesson.
+     * On to the next step, the one on screen done; steps [skip] says to leave out (only ones never shown in this run)
+     * are passed over. Returns false at the end of the lesson.
      */
     fun next(skip: (Int) -> Boolean = { false }): Boolean {
+        done[id] = true
         var k = at + 1
         // a step left out stays out (also when the lesson is walked again after going back); a new one is decided once
-        while (k < size && (skipped(k) || (k > furthest && skip(k)))) { skipped[ids[k]] = true; k++ }
-        if (k >= size) return false
+        while (k < size && (skipped(k) || (seen[ids[k]] != true && skip(k)))) { skipped[ids[k]] = true; k++ }
+        if (k >= size) {
+            // the end: what a jump passed over is left out by the same rule as when walked past
+            for (i in ids.indices) if (seen[ids[i]] != true && !done(i) && skip(i)) skipped[ids[i]] = true
+            changed(); return false
+        }
         forward = true
         show(k)
         changed()
@@ -108,9 +116,9 @@ class LessonRun(val ids: List<String>, private val changed: () -> Unit = {}) {
         return true
     }
 
-    /** Straight to step [k] (the step list), back or ahead; the steps jumped over stay unseen. */
+    /** Straight to step [k] (the contents), back or ahead, a left-out one too; what is jumped over or left is not done by it. */
     fun jump(k: Int): Boolean {
-        if (k !in ids.indices || skipped(k) || k == at) return false
+        if (k !in ids.indices || k == at) return false
         forward = k > at
         show(k)
         changed()
@@ -123,14 +131,15 @@ class LessonRun(val ids: List<String>, private val changed: () -> Unit = {}) {
         put("subs", JSONObject().apply { subs.forEach { (k, v) -> put(k, JSONArray(v)) } })
         put("skipped", JSONArray(skipped.filterValues { it }.keys.toList()))
         put("seen", JSONArray(seen.filterValues { it }.keys.toList()))
+        put("done", JSONArray(done.filterValues { it }.keys.toList()))
         put("mem", JSONObject().apply { mem.forEach { (k, m) -> if (m.isNotEmpty()) put(k, JSONObject().apply { m.forEach { (a, b) -> put(a, b) } }) } })
     }
 
     companion object {
-        /** A run of a lesson with steps [ids] at step [at] (an older install remembered only that). */
-        fun start(ids: List<String>, at: Int = 0, changed: () -> Unit = {}): LessonRun = LessonRun(ids, changed).apply {
+        /** A run of a lesson with steps [ids] at step [at]; [walked]: the steps before it are done (an older install remembered only the place). */
+        fun start(ids: List<String>, at: Int = 0, changed: () -> Unit = {}, walked: Boolean = true): LessonRun = LessonRun(ids, changed).apply {
             this.at = at.coerceIn(0, (ids.size - 1).coerceAtLeast(0)); furthest = this.at
-            for (i in 0..this.at) if (i < ids.size) seen[ids[i]] = true
+            for (i in 0..this.at) if (i < ids.size) { seen[ids[i]] = true; if (walked && i < this.at) done[ids[i]] = true }
         }
 
         /** The saved run; steps no longer in the lesson are forgotten, positions kept within it. */
@@ -146,6 +155,11 @@ class LessonRun(val ids: List<String>, private val changed: () -> Unit = {}) {
             if (sa != null) for (i in 0 until sa.length()) sa.getString(i).takeIf { it in ids }?.let { seen[it] = true }
             else for (i in 0..furthest) if (i < ids.size) seen[ids[i]] = true
             if (ids.isNotEmpty()) seen[ids[at]] = true
+            // a run saved before "done" counted what was on screen: it all stays done, but for the furthest step, where
+            // the student stands; the last one is kept too (its end may have been reached, and it is passed again anyway)
+            val da = o.optJSONArray("done")
+            if (da != null) for (i in 0 until da.length()) da.getString(i).takeIf { it in ids }?.let { done[it] = true }
+            else for (id in seen.keys.toList()) if (id != ids[furthest] || furthest == last) done[id] = true
             o.optJSONObject("mem")?.let { m -> m.keys().forEach { k -> if (k in ids) { val s = m.getJSONObject(k); mem[k] = s.keys().asSequence().associateWith { s.getString(it) }.toMutableMap() } } }
         }
     }

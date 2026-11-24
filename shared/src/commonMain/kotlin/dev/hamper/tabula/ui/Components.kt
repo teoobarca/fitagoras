@@ -498,7 +498,7 @@ object BarMemory {
 /** Tests: every value the step bar draws, frame by frame (the bar never jumps ahead and back). */
 object BarTrace { var sink: ((Float) -> Unit)? = null }
 
-/** In a lesson: what a tap on the step bar does (opens the list of steps reached). Null elsewhere. */
+/** In a lesson: what a tap on the step bar does (opens the lesson's contents). Null elsewhere. */
 val LocalStepBarTap = compositionLocalOf<(() -> Unit)?> { null }
 
 /** Steps of a lesson tell their frame how they come and go: the header stays put, the rest moves. */
@@ -635,11 +635,15 @@ private fun StepFrameBody(
             val barTap = LocalStepBarTap.current
             val pieces = LocalStepPieces.current?.takeIf { it.isNotEmpty() && it.last().last + 1 == total }
             val bar = @Composable { m: Modifier ->
-                // in a lesson the whole bar is one big target: it lists the steps reached so far
-                Box(
-                    m.clip(RoundedCornerShape(14.dp)).then(if (barTap != null) Modifier.clickable(role = Role.Button, onClickLabel = "Kroky lekcie", onClick = barTap) else Modifier),
-                    contentAlignment = Alignment.Center,
-                ) { StepBar(step, total, Modifier.fillMaxWidth(), part, pieces) }
+                // in a lesson the whole bar is one big target: it opens the lesson's contents, and the chevron at its end
+                // says so (Teo, 24. 11.: nobody found the steps under a bare bar)
+                Row(
+                    m.clip(RoundedCornerShape(14.dp)).then(if (barTap != null) Modifier.clickable(role = Role.Button, onClickLabel = "Obsah lekcie", onClick = barTap) else Modifier),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    StepBar(step, total, Modifier.weight(1f), part, pieces)
+                    if (barTap != null) Icon24(Res.drawable.ic_chev_down, tint = c.ink2, modifier = Modifier.padding(start = 6.dp).size(20.dp))
+                }
             }
             // in a lesson the bar alone, cut into the lesson's pieces: one quiet measure, not a bar and a count of
             // pieces or steps beside it (Teo, 19. 11.)

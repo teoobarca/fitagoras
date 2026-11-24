@@ -168,7 +168,7 @@ class LookShots : Shots() {
             "dml-mz-injsurj", "dml-mz-skladanie", "dml-mz-mohutnost", "dml-tc-delitelnost", "dml-tc-rea", "dml-tc-diofant").forEach { s.lessonsDone += it }
         if (!diofant) s.lessonsDone.remove("dml-tc-diofant")
         val l = LessonById.getValue(kong)
-        s.restartLesson(l, 5); s.lessonAt[kong] = 5
+        s.restartLesson(l); repeat(5) { s.run(l).next() }; s.lessonAt[kong] = 5
         fun ex(gen: String) = Generators.getValue(gen)(Random(0))
         // last Friday twice wrong: the weak spot of "Dnes ešte"
         val inj = ex("dml-mz-injsurj")

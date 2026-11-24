@@ -5,6 +5,7 @@
 #   - Dnes offers the next lesson; a lesson opens, a question answers ("Neviem, ukáž mi to") and the step moves on;
 #   - the address keeps the open lesson, a reload comes back into it, and the browser's back leaves it for Dnes;
 #   - the progress survives the reload (localStorage);
+#   - the lesson's bar opens its contents and a tap there jumps to a step ahead, nothing answered;
 #   - offline, a second visit opens from the service worker;
 #   - the console has no errors (beyond the known ones below) and nothing is fetched from another host;
 #   - the whole test on time starts at its full time and counts down, keeps the time across a switch to another tab, a
@@ -141,6 +142,14 @@ async def shot(page, name: str) -> None:
         await page.screenshot(path=os.path.join(SHOTS, name + ".png"))
 
 
+async def step_now(page, bar) -> int:
+    """The step on screen, as the lesson's bar says it ("Kúsok 1 z 5, krok 2 z 18")."""
+    el = page.get_by_role("button", name=bar).first
+    await el.wait_for(state="attached", timeout=15000)
+    said = await el.get_attribute("aria-label") or await el.inner_text()
+    return int(re.search(r"krok (\d+)", said, re.I).group(1))
+
+
 async def walk(p, engine: str, device: str, url: str) -> None:
     print(f"{engine} ({device})")
     browser = await getattr(p, engine).launch()
@@ -195,6 +204,26 @@ async def walk(p, engine: str, device: str, url: str) -> None:
         await link.wait_for_timeout(1500)
         check(ok and not await has(link, "Zavrieť lekciu") and await has(link, "Dnes"), "z lekcie z odkazu späť na Dnes a tam ostane")
         await link.close()
+
+        # the contents under the lesson's bar: every step listed, a tap goes there without answering
+        skip = await ctx.new_page()
+        await skip.goto(lesson_url, wait_until="commit")
+        await ready(skip)
+        bar = re.compile(r"krok \d+ z \d+", re.I)
+        before = await step_now(skip, bar)
+        await tap(skip, bar, 1500)
+        row = re.compile(r"Výklad$")  # the third step of the first lesson
+        check(await has(skip, row, 4000), "ťuk na lištu otvorí obsah lekcie")
+        await shot(skip, f"{engine}-3-obsah")
+        await tap(skip, row, 1500)
+        await shot(skip, f"{engine}-3-po-skoku")
+        # Compose for the web keeps a closed sheet in the accessibility tree, so the step is read after a reload, which
+        # also says that the jump was saved
+        await skip.reload(wait_until="commit")
+        await ready(skip)
+        after = await step_now(skip, bar)
+        check(after > before + 1, f"ťuk v obsahu preskočí na krok, po obnovení stránky tam ostane ({before} → {after})")
+        await skip.close()
 
         # offline: the service worker has the whole build once it is active
         await page.wait_for_timeout(1500)

@@ -34,8 +34,8 @@ class LessonRunTest {
         // on from there: the left-out practice stays out
         assertTrue(run.next()); assertEquals(3, run.at)
 
-        // the step list: anywhere up to the furthest reached, never past it, never a left-out step
-        assertTrue(run.jump(1)); assertFalse(run.jump(2)); assertTrue(run.jump(3)); assertEquals(3, run.at)
+        // the contents: anywhere, a left-out step too
+        assertTrue(run.jump(1)); assertTrue(run.jump(2)); assertTrue(run.jump(3)); assertEquals(3, run.at)
 
         // a new version with a step inserted before: the saved place is the same step, found by its id
         val moved = LessonRun.parse(listOf("intro") + run.ids, run.json())
@@ -47,5 +47,22 @@ class LessonRunTest {
         assertTrue(again.back()); assertEquals(1, again.at)        // over the left-out step, back to the definition
         assertEquals("1", again.get("def", "judge0"))
         assertEquals(listOf(0), again.trail(1))                    // its screens were gone back over before the save
+    }
+
+    @Test fun onlyAStepGoneOnFromIsDone() {
+        val ids = listOf("a", "b", "c", "d", "e")
+        val run = LessonRun.start(ids)
+        run.next()                                                 // a done, b looked at
+        run.jump(3)                                                // d looked at, c never
+        run.jump(4); assertFalse(run.next())                       // e done, b, c and d not
+        assertEquals(listOf(1, 2, 3), run.left())
+        assertEquals(run.left(), LessonRun.parse(ids, run.json()).left())
+
+        // at the end, a step jumped over is left out by the same rule as when walked past
+        run.jump(4); assertFalse(run.next { it == 2 }); assertEquals(listOf(1, 3), run.left())
+
+        // a run saved by a version without "done": what it counted stays, the step it stands on is still to do
+        val old = LessonRun.start(ids).json().apply { remove("done"); put("seen", dev.hamper.tabula.compat.json.JSONArray(listOf("a", "b", "c"))); put("at", 2); put("atId", "c"); put("furthest", 2); put("furthestId", "c") }
+        assertEquals(listOf(2, 3, 4), LessonRun.parse(ids, old).left())
     }
 }

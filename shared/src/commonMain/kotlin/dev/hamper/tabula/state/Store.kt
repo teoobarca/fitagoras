@@ -324,14 +324,14 @@ class Store(private val file: StateFile) {
         runs.remove(id); runsSaved.remove(id); save()
     }
 
-    /** The end of a lesson reached with steps jumped over: it is offered there once, then Dnes lists it (data/Today.kt). */
-    fun lessonEndedWithGaps(id: String) { if (id !in lessonGaps) { lessonGaps += id; save() } }
+    /** The end of a lesson reached with steps jumped over: it is not done, Dnes lists it (data/Today.kt). */
+    fun lessonEndedWithGaps(id: String) { if (id !in lessonGaps && id !in lessonsDone) { lessonGaps += id; save() } }
 
-    /** Steps of a lesson still to see: all of a lesson never begun, none of a finished one. */
+    /** Steps of a lesson still to do: all of a lesson never begun, none of a finished one. */
     fun stepsLeft(l: dev.hamper.tabula.data.LessonDef): Int = when {
         l.id in lessonsDone -> 0
         !inProgress(l) -> l.steps.size
-        else -> run(l).unseen().size
+        else -> run(l).left().size
     }
 
     /**
@@ -372,10 +372,21 @@ class Store(private val file: StateFile) {
     fun runAt(l: dev.hamper.tabula.data.LessonDef): Int =
         runs[l.id]?.at ?: runsSaved[l.id]?.let { o -> l.steps.indexOfFirst { it.id == o.optString("atId") }.takeIf { it >= 0 } ?: o.optInt("at", 0).coerceIn(0, l.steps.lastIndex) } ?: if (l.id in lessonsDone) 0 else (lessonAt[l.id] ?: 0).coerceAtMost(l.steps.lastIndex)
 
+    /**
+     * How far a lesson is, in steps, for what shows its progress: where it stands, but never past what is done (a jump
+     * ahead is not progress); one ended with steps skipped stands on the first of them and is as far as it is done.
+     */
+    fun farAt(l: dev.hamper.tabula.data.LessonDef): Int {
+        if (!inProgress(l)) return runAt(l)
+        val done = (l.steps.size - stepsLeft(l)).coerceIn(0, l.steps.lastIndex)
+        return if (l.id in lessonGaps) done else minOf(runAt(l), done)
+    }
+
     /** A lesson from step [at] with nothing remembered ("Od začiatku", "Zopakovať", a link to a step). */
     fun restartLesson(l: dev.hamper.tabula.data.LessonDef, at: Int = 0) {
         runsSaved.remove(l.id)
-        runs[l.id] = LessonRun.start(l.steps.map { it.id }, at, ::save)
+        runs[l.id] = LessonRun.start(l.steps.map { it.id }, at, ::save, walked = false)
+        lessonGaps.remove(l.id)
         restarts++
         save()
     }

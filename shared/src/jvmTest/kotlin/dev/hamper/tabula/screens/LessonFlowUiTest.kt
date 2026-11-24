@@ -17,6 +17,7 @@ import dev.hamper.tabula.compat.media.SilentPlayer
 import dev.hamper.tabula.data.Dml
 import dev.hamper.tabula.data.LessonById
 import dev.hamper.tabula.data.LessonDef
+import dev.hamper.tabula.data.Step
 import dev.hamper.tabula.data.dueKeys
 import dev.hamper.tabula.platform.installJvmAssets
 import dev.hamper.tabula.state.MemoryStateFile
@@ -110,6 +111,37 @@ class LessonFlowUiTest {
         while (!out.left && presses < 60) { back(); presses++ }
         assertTrue(out.left)
         assertEquals("the definition's 3 screens, 12 steps back to the first, then one more to leave", 3 + 12 + 1, presses)
+    }
+
+    /**
+     * Through the contents to any step without answering (Teo, 24. 11.). The end reached so closes the lesson at once,
+     * but the lesson is not done: nothing it feeds (review, the test) counts it until the skipped steps are done.
+     */
+    @Test fun skippingThroughTheContentsIsNotDone() = runComposeUiTest {
+        val l = LessonDef("skok", "Skok", 1, "", listOf("Prvý", "Druhý", "Tretí", "Štvrtý").mapIndexed { i, t -> Step.Explain("skok-$i", t, "Text.") }, 0)
+        val file = MemoryStateFile()
+        val store = Store(file)
+        val shown = androidx.compose.runtime.mutableStateOf(true)
+        var left = 0; var done = 0
+        setContent { TabulaTheme(ThemeMode.Light) { if (shown.value) LessonFlow(l, store, ClipHost(SilentPlayer(), onPip = {}), {}, {}, { left++; shown.value = false }) { done++ } } }
+        waitForIdle()
+        onNode(hasContentDescription("Krok 1 z 4", substring = true)).performClick(); waitForIdle()
+        tap("Štvrtý")
+        assertEquals(3, store.run(l).at)
+        mainClock.advanceTimeBy(1000)
+        tap("Pokračovať")
+        assertEquals("closed, not finished", 1 to 0, left to done)
+        assertTrue(l.id !in store.lessonsDone && l.id in store.lessonGaps)
+        assertEquals(3, store.stepsLeft(l))
+
+        assertEquals("as far as it is done", 1, Store(file).farAt(l))
+
+        // opened again: on the first step skipped; the last skipped one done, the lesson is done
+        shown.value = true; waitForIdle()
+        assertEquals(0, store.run(l).at)
+        repeat(3) { mainClock.advanceTimeBy(1000); tap("Pokračovať") }
+        assertEquals(1 to 1, left to done)
+        assertTrue(l.id in store.lessonsDone)
     }
 
     /**
