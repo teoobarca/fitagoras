@@ -754,8 +754,11 @@ private fun StepFrameBody(
             // terracotta, seen many times, it outshouted the math; critic, 18. 11.)
             val smer = SmerNow
             val bad = footerTint != null && footerTint == c.badTint
+            // only a right answer fills its panel: a guess and a shown solution are no verdict, their panels keep the
+            // light tint they ask for (Teo, 24. 11.: a guess stood in the page's dark ink on the full green)
+            val filled = smer.bold && feedback && footerTint == c.goodTint
             val solid = if (bad) c.bad else if (smer.bold) goodFill(c) else c.good
-            val tint by animateColorAsState(if (smer.bold && feedback && !bad) solid else if (smer == Smer.Sadzba && feedback) c.bg else footerTint ?: c.bg, if (still) snap() else tween(200), label = "footerTint")
+            val tint by animateColorAsState(if (filled) solid else if (smer == Smer.Sadzba && feedback) c.bg else footerTint ?: c.bg, if (still) snap() else tween(200), label = "footerTint")
             val top by animateDpAsState(if (feedback) 20.dp else 8.dp, if (still) snap() else Motion.settle(), label = "footerTop")
             val slide = remember(feedback) { Animatable(if (feedback && rest == 0 && !still) 1f else 0f) }
             LaunchedEffect(feedback) { if (slide.value > 0f) slide.animateTo(0f, Motion.settle()) }
@@ -789,7 +792,7 @@ private fun StepFrameBody(
                     .verticalScroll(rememberScrollState(), reverseScrolling = true)
                     .navigationBarsPadding().padding(start = 20.dp, end = 20.dp, top = top, bottom = 14.dp),
                 // the way on sits at the bottom, where the thumb is, however tall the panel
-                verticalArrangement = arrange, content = { CompositionLocalProvider(LocalSheetCard provides card, LocalPalette provides (if (smer.bold && feedback && !bad) solidOn(c, solid) else c)) { footer(this) } },
+                verticalArrangement = arrange, content = { CompositionLocalProvider(LocalSheetCard provides card, LocalPalette provides (if (filled) solidOn(c, solid) else c)) { footer(this) } },
             )
         }
     }

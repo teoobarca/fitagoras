@@ -173,11 +173,11 @@ private fun AskStep(s: Step.Ask, frame: Frame, report: () -> Unit, onNext: () ->
             } else {
                 val head = when { unsure -> "Nevadí, ideme na to."; pick == s.correct -> "Odhad sedí."; else -> "Odhad bol iný." }
                 // a guess is never right or wrong: a calm head, Pytagoras pleased with a good guess, else thinking it over
-                SheetHead(head, if (pick == s.correct && !unsure) Mood.Pleased else Mood.Pondering, c.ink, pick == s.correct, style = MaterialTheme.typography.headlineSmall) {
+                SheetHead(head, if (pick == s.correct && !unsure) Mood.Pleased else Mood.Pondering, T.c.ink, pick == s.correct, style = MaterialTheme.typography.headlineSmall) {
                     // the answer's first sentence shows; what the wrong guess got wrong waits behind "Prečo?" with the rest
                     val why = listOfNotNull(s.after, pick?.takeIf { !unsure && it != s.correct }?.let { s.wrong[it] }).joinToString(" ")
                     Spacer(Modifier.height(6.dp))
-                    Explain(why, style = MaterialTheme.typography.bodyLarge, color = c.ink)
+                    Explain(why, style = MaterialTheme.typography.bodyLarge, color = T.c.ink)
                 }
                 Spacer(Modifier.height(4.dp))
                 Cta("Pokračovať", onNext)
