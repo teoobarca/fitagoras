@@ -10923,7 +10923,7 @@
   "before": "V akých dvoch prípadoch Dombek siahne po metóde square and multiply?",
   "warning": false,
   "task": {
-   "q": "Pri ktorej úlohe Eulerova veta exponent zmenšiť nedovolí?",
+   "q": "Pri ktorej úlohe §a^N\\bmod m§ Eulerova veta exponent zmenšiť nedovolí?",
    "options": [
     "§3^{644}\\bmod 645§",
     "§2^{268}\\bmod 9§",
