@@ -236,10 +236,18 @@ async def timed_test(p, engine: str, device: str, url: str) -> None:
         ctx = await browser.new_context(**p.devices[device])
         page = await ctx.new_page()
         await page.clock.install()
-        # the intro of one LA1 paper by its route (the tab's "Celý test na čas" sits below the fold on a phone)
-        await page.goto(url + "#mock:slon-2024", wait_until="commit")
-        await ready(page)
-        check(await has(page, re.compile(r"^Spustiť \d+ minút"), 4000), "úvod testu na čas sa otvorí")
+        # the intro of one paper by its route (the tab's "Celý test na čas" sits below the fold on a phone). A new
+        # student starts in the course whose test comes first, and a paper of the other course doesn't open there:
+        # so one paper of each course, and the one that opens is used.
+        opened = False
+        for paper in ("slon-2024", "dml-2025-k"):
+            await page.goto(url + f"#mock:{paper}", wait_until="commit")
+            await page.reload(wait_until="commit")
+            await ready(page)
+            opened = await has(page, re.compile(r"^Spustiť \d+ minút"), 4000)
+            if opened:
+                break
+        check(opened, "úvod testu na čas sa otvorí")
         intro = await page.locator("body").aria_snapshot()
         check("oznámení" not in intro and "pokračuje" in intro, "úvod na webe nesľubuje oznámenie, sľubuje pokračovanie")
         full = int(re.search(r"Spustiť (\d+) minút", await page.locator("body").aria_snapshot()).group(1))
