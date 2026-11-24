@@ -292,9 +292,9 @@ fun k4EquationsExercise(r: Random): Exercise {
             parts = listOf(
                 { _ -> Part("Smerové vektory: §\\mathbf{b}-\\mathbf{a}§ (prvé štyri čísla) a §\\mathbf{c}-\\mathbf{a}§:".replace('§', '$'), Answer.Numbers(listOf("u_1", "u_2", "u_3", "u_4", "w_1", "w_2", "w_3", "w_4"), p, us[0] + us[1], "$\\mathbf{u}=${us[0].tex()}$, $\\mathbf{w}=${us[1].tex()}$", fractions = false, diagnose = diagnosis(f, us[0] + us[1], listOf(
                     (f.plus(pts[0], f.scale(-Frac.ONE, pts[1])) + f.plus(pts[0], f.scale(-Frac.ONE, pts[2]))) to "Odčítal si opačne. Aj to sú smerové vektory, ale úloha chce §\\mathbf{b}-\\mathbf{a}§ a §\\mathbf{c}-\\mathbf{a}§.",
-                    (pts[1] + pts[2]) to "Samotné body nie sú smerové vektory. Smer je rozdiel dvoch bodov variety.",
-                )) { "Smerový vektor je rozdiel dvoch bodov, po zložkách. " + (if (p != null) "Ber modulo $p." else "Skontroluj znamienka.") }),
-                    hint = m("Smerový vektor je rozdiel dvoch bodov: od zložiek §\\mathbf{b}§ odčítaj zložky §\\mathbf{a}§, rovnako pri §\\mathbf{c}§."), aim = 0) },
+                    (pts[1] + pts[2]) to "Samotné body nemusia byť smerové vektory. Smer je rozdiel dvoch rôznych bodov variety.",
+                )) { "Smerový vektor je rozdiel dvoch rôznych bodov, po zložkách. " + (if (p != null) "Ber modulo $p." else "Skontroluj znamienka.") }),
+                    hint = m("Smerový vektor je rozdiel dvoch rôznych bodov: od zložiek §\\mathbf{b}§ odčítaj zložky §\\mathbf{a}§, rovnako pri §\\mathbf{c}§."), aim = 0) },
                 { _ -> Part("Pre maticu §\\mathbf{A}=${am.tex()}§ dopočítaj pravú stranu §\\mathbf{d}§:".replace('§', '$'), Answer.Numbers(listOf("d_1", "d_2"), p, bv, "$\\mathbf{d}=\\mathbf{A}\\mathbf{a}=${bv.tex()}^T$", diagnose = diagnosis(f, bv, listOf(
                     List(2) { Frac.ZERO } to "Nulová pravá strana dá zameranie, nie rovinu cez §\\mathbf{a}§. Pravá strana je §\\mathbf{A}\\mathbf{a}§ (Věta 4.26).",
                     negB to "Vyšlo ti všetko s opačným znamienkom. Pravá strana je §\\mathbf{A}\\mathbf{a}§, nie §-\\mathbf{A}\\mathbf{a}§.",

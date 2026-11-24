@@ -29,6 +29,26 @@ maintainer in an issue).
 LA1 kapitola 2 (`Lessons.kt`, `Concepts.kt`, `Theorems.kt`, `Papers.kt`, `Templates.kt`) predates topics; leave it alone.
 A new LA1 chapter file gets one line in `La1Topics` (Courses.kt); that one line is the only shared edit allowed.
 
+## Domain before the answer
+
+General definition/property questions without concrete numerical vectors or matrices and without field-dependent
+reasoning need no concrete-field label. Keep the course's hypotheses in `T` where the statement carries them.
+Concrete numerical data still declare a domain even when their result is field-independent. Integrate the domain
+into the sentence where natural, rather than adding a standalone label.
+
+Every domain-dependent question, picture task and generated exercise declares its field, space, modulus or number
+set in the visible question, subtitle or caption before answering ([ZASADY.md](ZASADY.md), “Teleso a obor sú súčasť
+zadania”). A lesson-opening convention is insufficient for a step reviewed alone. Use the course notation, e.g.
+`nad §\mathbb{R}§`, `v §\mathbb{Z}_5^4§`, `x,y,k\in\mathbb{Z}`; declare index bounds separately. A defined task
+name may provide its mathematical domain contract (a Diophantine equation has integer unknowns).
+
+`DomainTest` walks both complete course registries, standalone concept judges and formal cards, all clip files, papers and
+every generator over many seeds and valid prior-answer branches. It uses typed pictures and answers and numerical
+task/feedback evidence to find domain-sensitive tasks, then checks **only the pre-answer premise**. Feedback, hints,
+solutions and hidden `p`/`Field` metadata cannot supply it. Generic field facts use their visible `T` hypotheses;
+undecidable cases have explicit reasoned exceptions, never a blanket skip for a course or task type. Numerical
+examples need their own field even when an earlier formal definition quantifies over a generic `T`.
+
 ## Coverage: start from the sources (`assets/coverage/`, `CoverageTest`)
 
 A topic is done when every question its sources ask can be practised without help, not when it has lessons.
@@ -347,6 +367,9 @@ of lines and every screen guessed what it says. Now a statement is stored in par
   not show (a definition's why and examples, a theorem's proof).
 - **A quote is not a copy.** `explain(formal = …)` only for text that is not a card of the app (a remark, a test's
   wording), with a `src` of one number at most; a definition or theorem the app has is shown by `cards`.
+- **Adjacent remarks:** a definition may carry `Concept.remarks`, each with its own number and source card. Use this
+  for terminology or dimension supplied by a numbered remark, not by the definition itself. Lessons and reading
+  sheets use the same stored quote.
 - **Definitions:** `units` are only what `ask` asks (Definice 6.1: §a,b\in\mathbb{Z}§, §\exists k\in\mathbb{Z}§,
   §a\cdot k=b§); the rest the textbook says goes to `extra` ("Navyše zo skrípt, nepočíta sa"). "Z pamäti" and the
   review count `units` only.

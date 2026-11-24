@@ -38,6 +38,29 @@ Podrobne: [CONTENT.md](CONTENT.md), prvý odstavec.
 - ✅ Kontrola „každý vzorec sa vykreslí len príkazmi, ktoré sadzba pozná“ (`MathSourceTest`) prechádza aj jadrá a časti
   viet; a autor pred odovzdaním pozrel záber kroku s lištou, kde by „textstyle“ videl hneď.
 
+### 1a. Teleso a obor sú súčasť zadania
+
+Každá otázka, úloha, obrázková úloha aj generovaný príklad, ktorých odpoveď alebo uvedené zdôvodnenie závisí od
+telesa, vektorového priestoru, modulu či číselného oboru, ich uvedú **pred odpoveďou** v texte zadania, podnadpise
+alebo viditeľnom popise obrázka. Použi značenie kurzu: „nad $\mathbb{R}$“, „nad $\mathbb{Z}_5$“,
+„v $\mathbb{Z}_5^4$“, „$x\in\mathbb{Z}$“. Kde to veta umožňuje, zapoj obor prirodzene do zadania, nie ako
+samostatný štítok pred dvojbodkou. Pri celočíselných riešeniach uveď aj obor parametra; pri indukcii
+obor indexu a dolnú hranicu. Definovaný názov úlohy smie určiť obor, ak ho jednoznačne určuje jeho definícia
+(napr. diofantická rovnica má celočíselné neznáme).
+
+Vyhlásenie na začiatku lekcie samo osebe nestačí: krok sa môže ukázať samostatne v Opakovaní. Preto každý taký
+krok uvedie svoj obor. Všeobecné tvrdenie platné nad ľubovoľným telesom smie pracovať s deklarovaným $T$ a
+príslušným priestorom. Všeobecná otázka na definíciu či vlastnosť bez konkrétnych číselných vektorov alebo matíc
+a bez zdôvodnenia závislého od telesa nepotrebuje konkrétne teleso ani úvodný štítok; predpoklady s $T$ uveď
+tam, kde ich má tvrdenie kurzu. Konkrétne číselné údaje majú svoj obor aj pri výsledku platnom vo všetkých telesách.
+Skrytý údaj enginu, predchádzajúci krok ani spätná väzba (`after`, `wrong`, `why`, riešenie)
+nie sú predpoklady zadania. Rovnaké pravidlo platí pre každú vetvu generátora a každú časť úlohy; spoločný kontext
+sa počíta len vtedy, keď ostáva pri otázke viditeľný. (Nález vyučujúcich, 21. 11. 2026.)
+
+- ❌ Matica s otázkou na hodnosť a možnosťami 1, 2, 3 bez telesa; až riešenie počíta nad $\mathbb{R}$.
+- ✅ „Určte hodnosť matice $A\in\mathbb{R}^{2,3}$ …“; generátor skladá zadanie spolu s telesom a celoplošná kontrola číta iba
+  kontext viditeľný pred odpoveďou. Nerozhodnuteľné prípady majú krátky explicitný zoznam výnimiek s dôvodom.
+
 ### 2. Postupy tak, ako sa učia na prednáške, proseminári a cvičení
 
 Každý postup (GEM, doplnenie na bázu, súradnice, Euklid, REA, indukcia, dôkaz injektivity…) robíme krokmi

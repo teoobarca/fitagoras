@@ -453,6 +453,7 @@ fun ConceptFlow(k: Concept, store: Store, frame: Frame, onDone: () -> Unit) {
                     H1(k.name)
                     Spacer(Modifier.height(12.dp))
                     SourceCard(k.src, statement = true) { SourceLines(k.czech) }
+                    ConceptRemarks(k)
                     SymbolHint(store, k.czech)
                     Spacer(Modifier.height(10.dp))
                     Sub("Na ${courseOfRoute("concept:${k.id}")?.test?.word?.loc ?: "teste"} ju treba napísať celú: so všetkými predpokladmi a kvantifikátormi, ako vetu.")
@@ -555,6 +556,7 @@ fun ConceptFlow(k: Concept, store: Store, frame: Frame, onDone: () -> Unit) {
                     H1("Porovnaj so skriptami.")
                     Spacer(Modifier.height(10.dp))
                     SourceCard(k.src, statement = true) { SourceLines(k.czech) }
+                    ConceptRemarks(k)
                     Spacer(Modifier.height(14.dp))
                     // one way after the sample: the photo and a teacher's verdict, or one tap without it (NaPapier.kt)
                     if (!recorded) key("papier:concept:${k.id}") {

@@ -7948,8 +7948,8 @@
    "correct": 0,
    "why": "Presne Definícia 2.49. Z LZ všetkých súborov dĺžky §d+1§ plynie, že LZ je aj každý dlhší, takže §d§ je najväčšia dĺžka LN súboru v P; §\\dim P=0§, keď neexistuje LN súbor dĺžky §1§.",
    "wrong": {
-    "1": "Nie každý: v §\\mathbb{R}^2§ (dimenzia §2§) je §((1,2),(2,4))§ súbor dĺžky §2§, a je LZ. Definícia 2.49 chce existenciu jedného LN súboru dĺžky §d§ a LZ každého súboru dĺžky §d+1§.",
-    "2": "Podpriestor nad §\\mathbb{R}§ okrem §\\{\\theta\\}§ obsahuje nekonečne veľa vektorov. Dimenzia hovorí o dĺžke LN súborov, nie o počte prvkov."
+    "1": "Nie každý: súbor môže obsahovať nulový vektor, a potom je LZ. Definícia 2.49 chce existenciu jedného LN súboru dĺžky §d§ a LZ každého súboru dĺžky §d+1§.",
+    "2": "Počet prvkov závisí aj od telesa. Dimenzia hovorí o dĺžke LN súborov, nie o počte prvkov."
    }
   },
   "cues": [
@@ -10522,8 +10522,8 @@
    "correct": 1,
    "why": "Vyjadriť vektor ako kombináciu vie každý generujúci súbor; jednoznačnosť pridáva lineárna nezávislosť.",
    "wrong": {
-    "0": "Generujúci súbor môže vektor vyjadriť viacerými spôsobmi: v §((1,0),(0,1),(1,1))§ je §(1,1)=1(1,1)=1(1,0)+1(0,1)§.",
-    "2": "Báza štandardné vektory obsahovať nemusí: §((1,1),(1,-1))§ je báza §\\mathbb{R}^2§ bez nich."
+    "0": "Generujúci súbor môže obsahovať nulový vektor: jeho koeficient potom zmeníš bez zmeny výsledku.",
+    "2": "Báza štandardné vektory obsahovať nemusí: rozhoduje lineárna nezávislosť a generovanie podpriestoru."
    }
   },
   "cues": [

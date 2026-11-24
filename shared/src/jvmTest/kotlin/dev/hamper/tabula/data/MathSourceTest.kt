@@ -55,7 +55,7 @@ class MathSourceTest {
                     }
                 }
                 for (k in course.concepts) {
-                    k.czech.forEach { c.line(k.id, it) }; k.why.forEach { c.t(k.id, it.part); c.t(k.id, it.because) }
+                    k.czech.forEach { c.line(k.id, it) }; k.remarks.forEach { q -> q.lines.forEach { c.line(k.id, it) } }; k.why.forEach { c.t(k.id, it.part); c.t(k.id, it.because) }
                     k.judge.forEach { c.t(k.id, it.tex); c.t(k.id, it.because); c.t(k.id, it.wrong) }
                     k.units.forEach { c.t(k.id, it) }; c.t(k.id, k.ask); c.t(k.id, k.name)
                     k.trap?.let { c.t(k.id, it.sentence); c.t(k.id, it.because) }

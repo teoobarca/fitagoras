@@ -102,6 +102,16 @@ fun ConceptCard(k: Concept, named: Boolean = true) {
         if (named) { Rich(k.name, style = MaterialTheme.typography.titleMedium, color = c.ink); Spacer(Modifier.height(6.dp)) }
         SourceLines(k.czech)
     }
+    ConceptRemarks(k)
+}
+
+/** A remark beside a definition keeps its own number and the same rendering as a theorem's remarks. */
+@Composable
+fun ConceptRemarks(k: Concept) {
+    k.remarks.forEach { q ->
+        Spacer(Modifier.height(if (lekcia()) 18.dp else 10.dp))
+        if (lekcia()) RemarkBlock(q.src) { SourceLines(q.lines) } else SourceCard(q.src) { SourceLines(q.lines) }
+    }
 }
 
 /**

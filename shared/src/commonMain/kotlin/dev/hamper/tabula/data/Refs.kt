@@ -196,7 +196,8 @@ private val remarkSrc = Regex("""^Skriptá, Poznámka (\d+\.\d+)$""")
 
 /** Every remark the course quotes whole, once, with its title. */
 fun remarkQuotes(c: Course, titles: Map<String, RemarkTitle>): List<RefName> {
-    val quotes = c.theorems.flatMap { t -> t.remarks.map { it.src to it.lines } } +
+    val quotes = c.concepts.flatMap { k -> k.remarks.map { it.src to it.lines } } +
+        c.theorems.flatMap { t -> t.remarks.map { it.src to it.lines } } +
         c.lessons.flatMap { l -> l.steps.filterIsInstance<Step.Explain>().mapNotNull { s -> s.formal?.let { f -> s.src.orEmpty() to f } } }
     return quotes.mapNotNull { (src, lines) ->
         val n = remarkSrc.find(src)?.groupValues?.get(1) ?: return@mapNotNull null

@@ -9,6 +9,9 @@ import dev.hamper.tabula.data.dsl.*
  * Numbering: one counter per chapter (Pozorování 4.1, Věta 4.2, ...). \vx of the source is written \mathbf{x}.
  */
 
+internal val k4VarietaTerminology = Quote("Skriptá, Poznámka 4.17",
+    listOf(p("""Máme-li §W=\mathbf{a}+P§ varietu z předchozí definice, potom"""), i("""vektor §\mathbf{a}§ nazýváme **vektorem posunutí variety** §W§,"""), i("""podprostor §P§ nazýváme **zaměřením** variety §W§ a značíme ho §Z(W)§,"""), i("""každý nenulový vektor ze §Z(W)§ nazýváme **směrovým vektorem variety** §W§,"""), i("""číslo §\dim Z(W)§ nazýváme **dimenzí variety** §W§.""")))
+
 internal val k4Varieta = Concept(
     id = "la1-k4-varieta", name = "Lineárna varieta", src = "Skriptá, Definice 4.16",
     czech = listOf(
@@ -25,14 +28,15 @@ internal val k4Varieta = Concept(
         j("""§(2,1)+\langle(1,0)\rangle\subseteq\mathbb{R}^2§""", true, """Priamka cez §(2,1)§ rovnobežná s osou §x§: posunutý podpriestor.""", """Je to varieta: §\langle(1,0)\rangle§ je podpriestor a §(2,1)§ vektor posunutia. Počiatkom prechádzať nemusí."""),
         j("""Každý podpriestor §P\ssub T^n§""", true, """§P=\theta+P§: posunutie o nulový vektor.""", """Podpriestor varietou je: stačí vektor posunutia §\theta§. Varieta je zovšeobecnenie podpriestoru."""),
         j("""Množina riešení sústavy §x+y=1,\ x+y=2§""", false, """Je prázdna, a varieta prázdna nie je (obsahuje aspoň §\mathbf{a}§).""", """Sústava nemá riešenie, množina je §\emptyset§. Každá varieta obsahuje svoj vektor posunutia (Věta 4.18), teda je neprázdna."""),
-        j("""Kružnica §x^2+y^2=1§""", false, """Nie je: obsahuje §(1,0)§ a §(-1,0)§, ale nie bod §(0,0)§ medzi nimi. Varieta nad §\mathbb{R}§ s dvoma bodmi obsahuje celú priamku cez ne.""", """Kružnica nie je posunutý podpriestor. Posunutím priamky či roviny vznikne opäť priamka či rovina, nie krivka."""),
-        j("""§(1,2,3)+\langle(1,0,0),(0,1,0)\rangle§ má dimenziu §3§""", false, """Dimenzia je §\dim Z(W)=2§: je to rovina.""", """Dimenzia variety je dimenzia zamerania, nie počet zložiek vektora posunutia. Zameranie má bázu z dvoch vektorov."""),
+        j("""Kružnica §x^2+y^2=1§ v §\mathbb{R}^2§""", false, """Nie je: obsahuje §(1,0)§ a §(-1,0)§, ale nie bod §(0,0)§ medzi nimi. Varieta nad §\mathbb{R}§ s dvoma bodmi obsahuje celú priamku cez ne.""", """Kružnica nie je posunutý podpriestor. Posunutím priamky či roviny vznikne opäť priamka či rovina, nie krivka."""),
+        j("""Varieta §(1,2,3)+\langle(1,0,0),(0,1,0)\rangle§ v §\mathbb{R}^3§ má dimenziu §3§""", false, """Dimenzia je §\dim Z(W)=2§: je to rovina.""", """Dimenzia variety je dimenzia zamerania, nie počet zložiek vektora posunutia. Zameranie má bázu z dvoch vektorov."""),
     ),
     units = listOf("Podmnožina §W\\subseteq T^n§", "Existuje §\\mathbf{a}\\in T^n§ a podpriestor §P§", "§W=\\mathbf{a}+P§", "Zameranie §Z(W)=P§, dimenzia §\\dim Z(W)§"),
     trap = Trap("Varieta je podprostor, který neprochází počátkem.", "Podpriestor je tiež varieta (§P=\\theta+P§), a varieta je posunutý podpriestor, nie hocijaká množina mimo počiatku.", "Definice 4.16"),
     ask = "Napište definici lineární variety a její dimenze.",
     question = "Sedí to s definíciou variety?",
     short = "lineárnej variety",
+    remarks = listOf(k4VarietaTerminology),
 )
 
 internal val K4Concepts = listOf(k4Varieta)

@@ -66,6 +66,10 @@ class ReadingTest {
             for (k in c.concepts) {
                 assertTrue("${k.id}: at most 2 key words per card", keys(k.czech) <= 2)
                 assertTrue("${k.id}: at most 2 display formulas", displays(k.czech) <= 2)
+                for (q in k.remarks) {
+                    assertTrue("${k.id}/${q.src}: at most 2 key words per card", keys(q.lines) <= 2)
+                    assertTrue("${k.id}/${q.src}: at most 2 display formulas", displays(q.lines) <= 2)
+                }
             }
             // a colour per named object only where a statement has two or three of them
             for (t in c.theorems) {

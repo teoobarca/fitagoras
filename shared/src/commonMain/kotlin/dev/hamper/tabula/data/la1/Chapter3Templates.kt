@@ -327,19 +327,22 @@ val K3SpanRankPostup = postup(
 /* ---- 5. product as combinations (Věty 3.15 a 3.18, Otázka za Větou 3.18) --------------------------------------- */
 
 fun k3ProductExercise(r: Random): Exercise {
-    val f = Field.R
-    val a = Mat(List(2) { vec(*IntArray(3) { r.pick(-2, 4) }) })
+    val f: Field = listOf(Field.R, Field.Zp(3), Field.Zp(5), Field.Zp(7)).random(r)
+    val p = (f as? Field.Zp)?.p
+    val lo = if (p == null) -2 else 0
+    val hi = p?.minus(1) ?: 4
+    val a = Mat(List(2) { f.vec(List(3) { r.pick(lo, hi) }) })
     if (r.nextBoolean()) {
-        val x = vec(*IntArray(3) { r.nonzero(-2, 3) })
+        val x = f.vec(List(3) { r.nonzero(if (p == null) -2 else 1, p?.minus(1) ?: 3) })
         val ax = f.mulVec(a, x)
-        val asRows = (0 until 2).map { i -> (0 until 3).fold(Frac.ZERO) { acc, j -> acc + x[j] * a[i, j] } } // the same, here for the text
+        val asRows = (0 until 2).map { i -> f.norm((0 until 3).fold(Frac.ZERO) { acc, j -> acc + x[j] * a[i, j] }) }
         val cols = (0 until 3).map { j -> a.rows.map { it[j] } }
         return Exercise(
             "la1-k3-product", "Súčin ako kombinácia stĺpcov", "Věta 3.15, Pozorování 3.16",
-            "Spočtěte $\\mathbf{A}\\mathbf{x}$ pro $\\mathbf{A}=${a.tex()}$ a $\\mathbf{x}=${x.tex()}^T$ jako lineární kombinaci sloupců $\\mathbf{A}$.",
-            parts = listOf({ _ -> Part("$\\mathbf{A}\\mathbf{x}=$", Answer.Numbers(listOf("y_1", "y_2"), null, ax, "$${ax.tex()}^T$", diagnose = diagnosis(f, ax, listOf(
-                listOf(cols.indices.fold(Frac.ZERO) { acc, j -> acc + cols[j][0] }, cols.indices.fold(Frac.ZERO) { acc, j -> acc + cols[j][1] }) to "Zabudol si koeficienty: §\\mathbf{A}\\mathbf{x}=x_1\\mathbf{A}_{:1}+x_2\\mathbf{A}_{:2}+x_3\\mathbf{A}_{:3}§.",
-            )) { g -> val i = if (g[0] != ax[0]) 0 else 1; "Nesedí §y_${i + 1}§: má byť §${(0 until 3).joinToString("+") { j -> "(${x[j].tex(true)})\\cdot(${a[i, j].tex(true)})" }}=${ax[i].tex(true)}§." })) }),
+            "Spočtěte $\\mathbf{A}\\mathbf{x}$ pro $\\mathbf{A}=${a.tex()}\\in ${matSpace(f, 2, 3)}$ a $\\mathbf{x}=${x.tex()}^T$ jako lineární kombinaci sloupců $\\mathbf{A}$.",
+            parts = listOf({ _ -> Part("$\\mathbf{A}\\mathbf{x}=$", Answer.Numbers(listOf("y_1", "y_2"), p, ax, "$${ax.tex()}^T$", diagnose = diagnosis(f, ax, listOf(
+                List(2) { i -> f.norm(cols.indices.fold(Frac.ZERO) { acc, j -> acc + cols[j][i] }) } to "Zabudol si koeficienty: §\\mathbf{A}\\mathbf{x}=x_1\\mathbf{A}_{:1}+x_2\\mathbf{A}_{:2}+x_3\\mathbf{A}_{:3}§.",
+            )) { g -> val i = if (f.norm(g[0]) != ax[0]) 0 else 1; "Nesedí §y_${i + 1}§: má byť §${(0 until 3).joinToString("+") { j -> "(${x[j].tex(true)})\\cdot(${a[i, j].tex(true)})" }} ${if (p == null) "=" else "\\equiv"} ${ax[i].tex(true)}${if (p == null) "" else "\\pmod{$p}"}§." })) }),
             postup = K3ColumnsPostup,
             solution = {
                 val (split, sum) = K3ColumnsPostup
@@ -352,7 +355,7 @@ fun k3ProductExercise(r: Random): Exercise {
         )
     }
     // a matrix B with B·A having prescribed rows: combinations of the rows of A
-    val coefs = List(3) { vec(r.pick(-2, 2), r.pick(-2, 2)) }
+    val coefs = List(3) { f.vec(List(2) { r.pick(lo, p?.minus(1) ?: 2) }) }
     val b = Mat(coefs)
     fun say(c: Vec): String = when {
         c.isZero() -> "nulový řádek"
@@ -360,27 +363,27 @@ fun k3ProductExercise(r: Random): Exercise {
         c[0].isZero -> if (c[1] == Frac.ONE) "druhý řádek matice \$\\mathbf{A}$" else "\$(${c[1].tex(true)})\$-násobek druhého řádku matice \$\\mathbf{A}$"
         else -> "\$${comboTexF(c, listOf("\\mathbf{A}_{1:}", "\\mathbf{A}_{2:}"))}$"
     }
-    val text = "Mějme matici \$\\mathbf{A}\\in\\mathbb{R}^{2,3}$. Napište matici \$\\mathbf{B}$ takovou, že součin \$\\mathbf{B}\\mathbf{A}$ má v prvním řádku ${say(coefs[0])}, v druhém řádku ${say(coefs[1])} a v třetím řádku ${say(coefs[2])}."
+    val text = "Mějme matici \$\\mathbf{A}\\in${matSpace(f, 2, 3)}$. Napište matici \$\\mathbf{B}$ takovou, že součin \$\\mathbf{B}\\mathbf{A}$ má v prvním řádku ${say(coefs[0])}, v druhém řádku ${say(coefs[1])} a v třetím řádku ${say(coefs[2])}."
     val expected = nums(b)
     return Exercise(
         "la1-k3-product", "Matica, ktorá kombinuje riadky", "Otázka za Větou 3.18, šablóna",
         text,
         parts = listOf(
-            { _ -> Part("Typ matice §\\mathbf{B}§ a poradie súčinu:".replace('§', '$'), Answer.Choice(listOf("\$\\mathbf{B}\\in\\mathbb{R}^{3,2}$, súčin \$\\mathbf{B}\\mathbf{A}$", "\$\\mathbf{B}\\in\\mathbb{R}^{2,3}$, súčin \$\\mathbf{A}\\mathbf{B}$", "\$\\mathbf{B}\\in\\mathbb{R}^{3,3}$, súčin \$\\mathbf{B}\\mathbf{A}$"), 0,
+            { _ -> Part("Typ matice §\\mathbf{B}§ a poradie súčinu:".replace('§', '$'), Answer.Choice(listOf("\$\\mathbf{B}\\in${matSpace(f, 3, 2)}$, súčin \$\\mathbf{B}\\mathbf{A}$", "\$\\mathbf{B}\\in${matSpace(f, 2, 3)}$, súčin \$\\mathbf{A}\\mathbf{B}$", "\$\\mathbf{B}\\in${matSpace(f, 3, 3)}$, súčin \$\\mathbf{B}\\mathbf{A}$"), 0,
                 "§\\mathbf{B}§ je typu §3\\times 2§ a stojí vľavo. Riadky súčinu kombinujú riadky pravého činiteľa, teda §\\mathbf{A}§.".replace('§', '$'),
-                wrong = mapOf(1 to "Súčin §\\mathbf{A}\\mathbf{B}§ by tu nebol definovaný: §\\mathbf{A}§ má 3 stĺpce, §\\mathbf{B}§ 2 riadky. Riadky §\\mathbf{A}§ kombinuje §\\mathbf{B}\\mathbf{A}§ s §\\mathbf{B}\\in\\mathbb{R}^{3,2}§ (Věta 3.18).",
-                    2 to "Typ §3\\times 3§ sa s §\\mathbf{A}\\in\\mathbb{R}^{2,3}§ nedá vynásobiť. §\\mathbf{B}§ potrebuje toľko stĺpcov, koľko má §\\mathbf{A}§ riadkov.")),
+                wrong = mapOf(1 to "Súčin §\\mathbf{A}\\mathbf{B}§ by tu nebol definovaný: §\\mathbf{A}§ má 3 stĺpce, §\\mathbf{B}§ 2 riadky. Riadky §\\mathbf{A}§ kombinuje §\\mathbf{B}\\mathbf{A}§ s §\\mathbf{B}\\in${matSpace(f, 3, 2)}§ (Věta 3.18).",
+                    2 to "Typ §3\\times 3§ sa s §\\mathbf{A}\\in${matSpace(f, 2, 3)}§ nedá vynásobiť. §\\mathbf{B}§ potrebuje toľko stĺpcov, koľko má §\\mathbf{A}§ riadkov.")),
                 hint = m("Riadky súčinu sú kombinácie riadkov pravého činiteľa. Koľko riadkov má mať súčin a koľko stĺpcov musí mať ľavý činiteľ?"), aim = 0) },
-            { _ -> Part("§\\mathbf{B}§ (po riadkoch):".replace('§', '$'), Answer.Numbers(List(6) { "b_{${it / 2 + 1}${it % 2 + 1}}" }, null, expected, "$\\mathbf{B}=${b.tex()}$", diagnose = diagnosis(f, expected, listOf(
+            { _ -> Part("§\\mathbf{B}§ (po riadkoch):".replace('§', '$'), Answer.Numbers(List(6) { "b_{${it / 2 + 1}${it % 2 + 1}}" }, p, expected, "$\\mathbf{B}=${b.tex()}$", diagnose = diagnosis(f, expected, listOf(
                 nums(Mat(b.rows.map { it.reversed() })) to "Koeficienty sú prehodené. V §i§-tom riadku §\\mathbf{B}§ je najprv koeficient pri §\\mathbf{A}_{1:}§, potom pri §\\mathbf{A}_{2:}§.",
-            )) { g -> val i = (0 until 6).first { g[it] != expected[it] } / 2; "Nesedí §${i + 1}§. riadok §\\mathbf{B}§. Jeho prvky sú koeficienty, ktorými sa kombinujú riadky §\\mathbf{A}§ (Věta 3.15)." }),
+            )) { g -> val i = (0 until 6).first { f.norm(g[it]) != expected[it] } / 2; "Nesedí §${i + 1}§. riadok §\\mathbf{B}§. Jeho prvky sú koeficienty, ktorými sa kombinujú riadky §\\mathbf{A}§ (Věta 3.15)." }),
                 hint = m("§i§-tý riadok §\\mathbf{B}\\mathbf{A}§ je §i§-tý riadok §\\mathbf{B}§ krát §\\mathbf{A}§. V §i§-tom riadku §\\mathbf{B}§ sú teda koeficienty pri §\\mathbf{A}_{1:}§ a §\\mathbf{A}_{2:}§."), aim = 1) },
         ),
         postup = K3RowsPostup,
         solution = {
             val (which, coefs) = K3RowsPostup
             K3RowsPostup.solve {
-                which("Riadok súčinu je riadok ľavého činiteľa krát pravý činiteľ. Prvok na mieste §(i,j)§ je totiž súčin §i§-teho riadku ľavého činiteľa so §j§-tým stĺpcom pravého (Věta 3.18). Celý riadok súčinu je preto kombináciou riadkov pravého činiteľa s koeficientmi z riadku ľavého (Věta 3.15). Preto §\\mathbf{A}§ ide vpravo a §\\mathbf{B}\\in\\mathbb{R}^{3,2}§.",
+                which("Riadok súčinu je riadok ľavého činiteľa krát pravý činiteľ. Prvok na mieste §(i,j)§ je totiž súčin §i§-teho riadku ľavého činiteľa so §j§-tým stĺpcom pravého (Věta 3.18). Celý riadok súčinu je preto kombináciou riadkov pravého činiteľa s koeficientmi z riadku ľavého (Věta 3.15). Preto §\\mathbf{A}§ ide vpravo a §\\mathbf{B}\\in${matSpace(f, 3, 2)}§.",
                     "(\\mathbf{B}\\mathbf{A})_{i:}=\\mathbf{B}_{i:}\\mathbf{A}=b_{i1}\\mathbf{A}_{1:}+b_{i2}\\mathbf{A}_{2:}")
                 coefs("V §i§-tom riadku §\\mathbf{B}§ sú koeficienty, ktorými sa kombinujú riadky §\\mathbf{A}§ do §i§-teho riadku súčinu.", "\\mathbf{B}=${b.tex()}")
             }

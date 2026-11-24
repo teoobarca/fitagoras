@@ -130,7 +130,7 @@ internal val tcLessonLdr = lesson("dml-tc-diofant", "Diofantické rovnice", 15, 
     check("""Dá sa presýpacími hodinami na §11§ a §5§ minút odmerať §7§ minút?""", """Áno, §\gcd(11,5)§ je §1§ a delí §7§""", """Nie, §7§ nie je násobok §5§ ani §11§""", correct = 0,
         why = """Áno, napr. §2\cdot 11-3\cdot 5=7§ (Cvičení 6.9).""",
         wrong = mapOf(1 to """Stačí kombinácia s celými koeficientmi: §2\cdot 11-3\cdot 5=7§ (Věta 6.7)."""))
-    worked("Jedno riešenie", """§7x+13y=125§""", "Skriptá, Příklad 6.5", TcLdrOnePostup) {
+    worked("Jedno riešenie", """Pre §x,y\in\mathbb{Z}§: §7x+13y=125§""", "Skriptá, Příklad 6.5", TcLdrOnePostup) {
         val (gcdAim, exists, one) = TcLdrOnePostup
         gcdAim("""REA zapíšem v poradí rovnice: §\alpha§ pri §7§, §\beta§ pri §13§.""",
             Formula(reaWalk(rea137, swap = true)))
@@ -152,10 +152,10 @@ internal val tcLessonLdr = lesson("dml-tc-diofant", "Diofantické rovnice", 15, 
             b("""(x_0,y_0) \softbreak[1]+ k \cdot \left(\frac{b}{\gcd(a,b)}, \frac{-a}{\gcd(a,b)}\right),"""),
             p("""tedy „pokud je součtem nějakého partikulárního řešení a nějakého řešení přidružené homogenní rovnice“."""),
         ), src = "Skriptá, Poznámka 6.5", cards = listOf("dml-tc-ldr-vsetky"))
-    check("""Všetky riešenia §6x+4y=0§ sú""", """§k\cdot(2,-3)§""", """§k\cdot(4,-6)§""", """§k\cdot(6,-4)§""", correct = 0,
+    check("""Pre §x,y,k\in\mathbb{Z}§: Všetky riešenia §6x+4y=0§ sú""", """§k\cdot(2,-3)§""", """§k\cdot(4,-6)§""", """§k\cdot(6,-4)§""", correct = 0,
         why = """Najprv krátiš §\gcd=2§: §3x+2y=0§, krok §(2,-3)§.""",
         wrong = mapOf(1 to """Bez krátenia stratíš riešenia: §(2,-3)§ nie je celý násobok §(4,-6)§ (Poznámka 6.5).""", 2 to """§6\cdot 6+4\cdot(-4)=20\neq 0§. Krok musí riešiť homogénnu rovnicu."""))
-    worked("Riešenie bez vydávania", """§7x+13y=125§ s §x,y\geq 0§""", "Skriptá, Příklad 6.6", TcLdrNonnegPostup) {
+    worked("Riešenie bez vydávania", """Pre §x,y\in\mathbb{Z}§: §7x+13y=125§ s §x,y\geq 0§""", "Skriptá, Příklad 6.6", TcLdrNonnegPostup) {
         val (all, cond, pick) = TcLdrNonnegPostup
         val l = ldr125
         val step = "(${l.sx},${l.sy})"
@@ -166,7 +166,7 @@ internal val tcLessonLdr = lesson("dml-tc-diofant", "Diofantické rovnice", 15, 
         pick("""${if (ks.count() == 2) "Obe riešenia sú" else "Všetky sú"} nezáporné.""")
     }
     practice("dml-tc-ldr", solo = false)
-    check("""Všetky riešenia §4x+6y=10§ sú §(1,1)+k\cdot(s,-t)§. Koľko je §(s,t)§?""", "§(3,2)§", "§(6,4)§", "§(2,3)§", correct = 0,
+    check("""Pre §x,y,k\in\mathbb{Z}§: Všetky riešenia §4x+6y=10§ sú §(1,1)+k\cdot(s,-t)§. Koľko je §(s,t)§?""", "§(3,2)§", "§(6,4)§", "§(2,3)§", correct = 0,
         why = """§\gcd(4,6)=2§, krok §(\tfrac{6}{2},-\tfrac{4}{2})=(3,-2)§.""",
         wrong = mapOf(1 to """Nevydelil si §\gcd=2§. Vynecháš napr. riešenie §(4,-1)§.""", 2 to """Prehodil si: pri §x§ je §\tfrac{b}{\gcd}=3§, pri §y§ je §\tfrac{a}{\gcd}=2§."""))
     def("dml-tc-ldr")
@@ -179,7 +179,7 @@ internal val tcLessonKongruencie = lesson("dml-tc-kongruencie", "Kongruencie a i
         wrong = mapOf(1 to """§1§ by vyšlo z §(-1)\cdot(-1)§. Ale §241=243-2§, teda §241\equiv -2§, a súčin je §\equiv 2§.""",
             2 to """§241§ by vyšlo pri §242\equiv 1§. Ale §242\equiv -1§, teda súčin je §\equiv -241\equiv 2§."""))
     explain("Kongruencia: §m§ delí rozdiel.", """Keď nás zaujíma len zvyšok, rovnosť nahradíme slabším vzťahom: §a\equiv b\pmod{m}§, keď §m\mid(a-b)§, teda keď sa čísla líšia o celý násobok §m§. Dombek pripomína, že definícia berie §m\in\mathbb{N}§ a povoľuje aj §m=1§, hoci je to zbytočné.""",
-        src = "Skriptá, Definice 6.7; Dombek, 8. prednáška")
+        src = "Dombek, 8. prednáška", cards = listOf(tcKongruence.id))
     clip("dml-tc-c-kongruence")
     def("dml-tc-kongruence")
     clip("dml-tc-c-zapis")
@@ -201,10 +201,10 @@ internal val tcLessonKongruencie = lesson("dml-tc-kongruencie", "Kongruencie a i
         wrong = mapOf(1 to """To by platilo pre §665\equiv 1§. Ale §665=666-1§, teda §665\equiv -1§ a súčin §\equiv -7§.""",
             2 to """§-7§ je kongruentné, ale zvyšok musí byť z §\{0,\dots,665\}§: §-7+666=659§."""))
     explain("Čo sa stane v §\\mathbb{Z}_m§, zostane v §\\mathbb{Z}_m§.", """Tak to Dombek nazval: v §\mathbb{Z}_m§ sčítaš alebo vynásobíš ako v §\mathbb{Z}§ a vezmeš zvyšok. Redukovať smieš aj medzivýsledky, výsledok sa nezmení (Pozorování 6.2). Takto ste počítali v LA1 nad §\mathbb{Z}_p§.""",
-        src = "Skriptá, Definice 6.8 a Pozorování 6.2; Dombek, 8. prednáška")
+        src = "Dombek, 8. prednáška", cards = listOf(tcZm.id))
     def("dml-tc-zm")
     explain("Odčítať vieme vždy, deliť nie.", """Opačný prvok k §a\neq 0§ je §m-a§, k §0§ je to §0§. Delenie znamená hľadať §x§ s §a\cdot_m x=1§, multiplikatívnu inverziu §a^{-1}§. Dombek: „inverzia“ bez prívlastku je obvykle multiplikatívna.""",
-        src = "Skriptá, Věta 6.11 a Definice 6.9; Dombek, 8. prednáška")
+        src = "Dombek, 8. prednáška", cards = listOf(tcInverze.id))
     def("dml-tc-inverze")
     explore("""Hľadaj §3^{-1}§ v §\mathbb{Z}_{10}§.""", """Skúšaj násobky §3k\bmod 10§, kým nepríde §1§.""", ClockPic(10, 3, ClockMode.Multiples, 1),
         """§3\cdot 7=21\equiv 1§: §3^{-1}=7§ v §\mathbb{Z}_{10}§.""")
@@ -252,7 +252,7 @@ internal val tcLessonLkon = lesson("dml-tc-lkon", "Lineárne kongruencie", 16, "
         wrong = mapOf(1 to """Modul sa delí §\gcd(15,3)=3§. So starým modulom by nebolo ani riešenie.""", 2 to """Vydelil si §9§ deviatimi, §12§ len tromi. Kráti sa to isté číslo na oboch stranách."""))
     def("dml-tc-lkon")
     thm("dml-tc-lkon-res", "dml-tc-lkon-pocet")
-    explain("Vydeliť znamená vynásobiť inverziou.", """Kongruenciu riešiš ako lineárnu rovnicu: najprv krátiš §d=\gcd(a,m)§ aj s modulom. Potom sú koeficient a nový modul nesúdeliteľné, koeficient má inverziu a obe strany ňou vynásobíš. Takto Spěvák dokázal Větu 6.17. Inverziu nájdeš REA, pri malom module aj z hlavy.""",
+    explain("Vydeliť znamená vynásobiť inverziou.", """Kongruenciu riešiš ako lineárnu rovnicu: najprv overíš, či §d=\gcd(a,m)§ delí §b§. Ak nie, riešenie neexistuje; inak krátiš §d§ aj s modulom. Potom sú koeficient a nový modul nesúdeliteľné. Ak nový modul vyjde §1§, vyhovuje každé celé §x§; inak má koeficient inverziu a obe strany ňou vynásobíš. Takto Spěvák dokázal Větu 6.17. Inverziu nájdeš REA, pri malom module aj z hlavy.""",
         formal = listOf(
             p("""Úlohy nalezení inverze a řešení lineární kongruence spolu těsně souvisí, každou z nich lze vyřešit pomocí druhé."""),
             i("""(řešení kongruencí §\to§ hledání inverze): Jak známo, nalézt multiplikativní inverzi k zadanému §a \in \mathbb{Z}_m§ znamená nalézt jediné §x \in \mathbb{Z}_m§ (v §\mathbb{Z}§ jich, pokud existuje nějaké, existuje nekonečně mnoho) splňující kongruenci §a \cdot x \equiv 1 \pmod{m}§. Je to tedy speciální případ řešení lineární kongruence! Jednak pro pravou stranu §b=1§, jednak nás zajímá pouze řešení v §\mathbb{Z}_m§."""),
@@ -320,7 +320,7 @@ internal val tcLessonMocniny = lesson("dml-tc-mocniny", "Veľké mocniny", 17, "
     explore("""Mocniny §2§ v §\mathbb{Z}_9§.""", """Umocňuj, kým sa nevrátiš do §1§.""", ClockPic(9, 2, ClockMode.Powers, 1),
         """§2^6\equiv 1\pmod 9§: po §6§ krokoch si späť. A §6§ je počet čísel z §1,\dots,9§ nesúdeliteľných s §9§.""")
     explain("Eulerova funkcia", """§\varphi(n)§ počíta čísla z §1,\dots,n§ nesúdeliteľné s §n§. Spěvák: §\varphi(2)=1§, §\varphi(3)=2§, §\varphi(4)=2§, §\varphi(5)=4§, §\varphi(6)=2§. Funkcia teda nemusí rásť.""",
-        src = "Spěvák, 8. prednáška")
+        src = "Spěvák, 8. prednáška", cards = listOf(tcEuler.id))
     def("dml-tc-euler")
     explain("Eulerova veta", """Pri §\gcd(a,m)=1§ je §a^{\varphi(m)}\equiv 1\pmod m§, exponent preto stačí poznať modulo §\varphi(m)§. Spěvák ju dokázal: zvyšky nesúdeliteľné s §m§ vynásobené §a§ sú tie isté zvyšky v inom poradí. Súčin oboch zoznamov je teda rovnaký, len vľavo navyše §a^{\varphi(m)}§, a súčin zvyškov smieš vykrátiť bez zmeny modulu (Věta 6.13).""",
         src = "Spěvák, 8. prednáška", cards = listOf("dml-tc-ev"))

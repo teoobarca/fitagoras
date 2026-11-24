@@ -7174,7 +7174,7 @@
   "before": "Čo musí platiť pre pravú stranu §\\mathbf{b}§, aby sústava §\\mathbf{A}\\mathbf{x} = \\mathbf{b}§ mala riešenie?",
   "warning": false,
   "task": {
-   "q": "Matica §\\mathbf{A}§ má stĺpce §\\mathbf{a}_1, \\mathbf{a}_2, \\mathbf{a}_3§ a §\\mathbf{x} = (2, 0, -1)^T§. Čo je §\\mathbf{A}\\mathbf{x}§?",
+   "q": "Matica nad §\\mathbb{R}§ §\\mathbf{A}§ má stĺpce §\\mathbf{a}_1, \\mathbf{a}_2, \\mathbf{a}_3§ a §\\mathbf{x} = (2, 0, -1)^T§. Čo je §\\mathbf{A}\\mathbf{x}§?",
    "options": [
     "§2\\mathbf{a}_1 - \\mathbf{a}_3§",
     "Prvý stĺpec §\\mathbf{A}§ krát súčet §2 + 0 - 1§",
@@ -8587,7 +8587,7 @@
   "before": "Čo robí s maticou §\\mathbf{B}§ násobenie riadkovým vektorom zľava?",
   "warning": false,
   "task": {
-   "q": "Čo je §(1, 3) \\cdot \\mathbf{B}§ pre maticu §\\mathbf{B}§ s dvoma riadkami?",
+   "q": "Čo je nad §\\mathbb{R}§ §(1, 3) \\cdot \\mathbf{B}§ pre maticu §\\mathbf{B}§ s dvoma riadkami?",
    "options": [
     "Prvý riadok §\\mathbf{B}§ plus trojnásobok druhého riadku",
     "Prvý stĺpec §\\mathbf{B}§ plus trojnásobok druhého stĺpca",
