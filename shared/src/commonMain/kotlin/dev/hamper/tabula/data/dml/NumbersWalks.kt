@@ -1,5 +1,6 @@
 package dev.hamper.tabula.data.dml.numbers
 
+import dev.hamper.tabula.data.Terms
 import dev.hamper.tabula.la.Align
 import dev.hamper.tabula.la.TableStep
 import dev.hamper.tabula.la.TableWalk
@@ -63,15 +64,16 @@ fun reaWalk(t: Rea, swap: Boolean = false, back: String? = null): TableWalk {
 
 /**
  * Binary powering of Příklad 6.16 as a table: j | b^{2^j} mod m | a_j, each row the square of the one above reduced
- * mod m; the end frames the rows of the 1-bits and multiplies them. A component for the lessons on powers, which stay
- * locked until their lecture (docs/CONTENT.md, "Only what has been lectured").
+ * mod m; the end frames the rows of the 1-bits and multiplies them. Dombek lectured it on the same example
+ * (9. prednáška, 23. 11. 2026); used by the lesson dml-tc-mocnenie and every solution whose remaining power is too big
+ * to multiply out one factor at a time.
  */
 fun powWalk(b: Long, e: Long, m: Long): TableWalk {
     require(e >= 1) { "binárne mocnenie má zmysel pre exponent aspoň 1" }
     val sq = squares(b, e, m)
     val bb = par(b) // (-3)^2, not -3^2
     val bits = sq.indices.map { j -> (e shr j) and 1L }
-    val rows = sq.mapIndexed { j, (k, v) -> listOf("$j", "$bb^{$k}", "$v", "${bits[j]}") }
+    val rows = sq.mapIndexed { j, (k, v) -> listOf("$j", Terms.pow(bb, k.toInt()), "$v", "${bits[j]}") }
     val steps = (1 until sq.size).map { j ->
         val prev = sq[j - 1].second
         TableStep(listOf("${prev}^2=${prev * prev}\\equiv ${sq[j].second}\\pmod{$m}"), sources = listOf(j - 1))

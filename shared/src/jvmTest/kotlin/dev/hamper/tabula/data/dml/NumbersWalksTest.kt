@@ -79,7 +79,9 @@ class NumbersWalksTest {
         // b divides a: one division, the gcd is the divisor
         val one = euclidWalk(rea(12, 6))
         assertEquals(setOf(0 to 4), one.result)
-        // a negative base is bracketed: (-3)^2, not -3^2
-        assertTrue(powWalk(-3, 2, 5).rows.all { it[1].startsWith("(-3)^") })
+        // a negative base is bracketed: (-3)^2, not -3^2; the first row is the base itself, not (-3)^1
+        val rows = powWalk(-3, 2, 5).rows
+        assertEquals("(-3)", rows[0][1])
+        assertTrue(rows.drop(1).all { it[1].startsWith("(-3)^") })
     }
 }

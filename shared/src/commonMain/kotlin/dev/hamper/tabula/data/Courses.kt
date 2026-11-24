@@ -217,24 +217,27 @@ fun courseOfRoute(route: String): Course? {
  * with everything only they lead to. Integrator-owned: remove an id once a lecture covers its topic.
  */
 val NotYetLectured: Set<String> = setOf(
-    // DML, checked 19. 11. 2026 against the captions: Spěvák (paralelka 2, 8. prednáška, 18. 11.) lectured cancelling
+    // DML, checked 24. 11. 2026 against the captions. Spěvák (paralelka 2, 8. prednáška, 18. 11.) lectured cancelling
     // with a change of modulus (Věta 6.13, proved), linear congruences (Věta 6.17, 12x ≡ 18 mod 75), lcm of several
     // numbers, the generalised Chinese theorem and the Chinese theorem (stated) with substitution, Euler's function, Euler's
     // theorem with its proof, Fermat as its corollary, the inverse through Euler and the reduction of a power with a
-    // coprime base (2^268 mod 9). So dml-tc-lkon, dml-tc-cvoz and dml-tc-mocniny are offered, each rebuilt from that lecture.
-    // Dombek (paralelka 1, 16. 11.) stopped at cancelling, before its proof; Legerský (paralelka 3, 12. 11.) before primes.
-    // Not lectured anywhere yet: the binary method and a power whose base shares a factor with the modulus (3^644 mod 645,
-    // Spěvák: "algoritmus, který si ukážeme příště", 9. prednáška 25. 11.). Decision: dml-tc-mocniny is opened with the
-    // lectured part only, not split. A split-off lesson would need 15 steps written from the textbook before the lecture
-    // (CoursesTest), against the rule above; so the binary method comes after that lecture as its own lesson built from
-    // it, and the step ids of dml-tc-mocniny stay as released. Until then the power generators draw only coprime bases
-    // and small remaining powers, as on the tests (TcSmallPower in NumbersTemplates.kt).
+    // coprime base (2^268 mod 9): dml-tc-lkon, dml-tc-cvoz and dml-tc-mocniny are built from that lecture.
+    // Dombek (paralelka 1, 9. prednáška, 23. 11.) lectured the binary method, "square and multiply", on 3^644 mod 645
+    // (46:45 to 50:46: when Euler cannot be used because the base shares a factor with the modulus, or leaves a big
+    // exponent; squaring with a reduction, the repeating remainders, the binary digits of the exponent), then linear
+    // congruences, systems and the generalised Chinese theorem, and closed number theory (87:26). The binary method is its
+    // own lesson after dml-tc-mocniny, dml-tc-mocnenie, built from that lecture; the step ids of dml-tc-mocniny stayed as
+    // released. Since then the power generators also draw a base sharing a factor with the modulus (dml-tc-binary) and a
+    // power left after Euler bigger than TcSmallPower, which the solutions compute by the binary method. Not lectured
+    // anywhere yet: a power through a factorisation of the modulus and the Chinese theorem (Cvičení 6.25). Spěvák
+    // (paralelka 2) announced the binary method for 25. 11. (8. prednáška, 1:35:29); not checked yet.
 )
 // LA1, checked 19. 11. 2026 11:00 against the captions: Klouda (paralelka 2, 8. prednáška, 18. 11.) finished kapitola 4
 // (basis of S_0, two notations of one solution set, varieties, lines over Z_p, Věta 4.18, names, Věta 4.23 with its proof,
 // Věta 4.26, Postup 4.30, parametric and non-parametric equations, the plane through three points); next: determinant.
 // Kleprlík (1, 10. 11.) stopped before Věta 4.23, Krásenský (3, 13. 11.) after the proof of solvability in Věta 4.2.
-val LecturesCheckedAt: LocalDateTime = LocalDateTime.parse("2026-11-19T11:00")
+// The date below moved to 24. 11. for Dombek's DML lecture; LA1 was not checked again after 19. 11.
+val LecturesCheckedAt: LocalDateTime = LocalDateTime.parse("2026-11-24T10:00")
 
 /** The end of the first lecture, in any parallel, that covers [code] (MI2, TČ3, S4; a family like MI matches MI1). */
 fun Course.firstLectureEnd(code: String): LocalDateTime? = schedule.parallels.flatMap { p ->

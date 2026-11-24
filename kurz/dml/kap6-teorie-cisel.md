@@ -319,13 +319,15 @@ Istota o uvedených časoch a obsahu je vysoká; neisté sú obraz tabule, neúp
 - Príklady dosadzovaním: Příklad 6.20, $x=23+30u$, posledná kongruencia $0u\equiv0$ nič nepridá, živá chyba „neskrátil jsem ten modul“ (54:34–1:00:42); sústava upravená na $x\equiv2\pmod4$, $x\equiv4\pmod6$, $x\equiv4\pmod{21}$, $\lcm=84$, $x=46+84n$ so skúškou (1:00:42–1:10:22). Pôvodné kongruencie s koeficientmi titulky presne nezachytili.
 - Eulerova funkcia, $\varphi(2..6)$ (1:12:55–1:14:55), Eulerova veta a **jej dôkaz** permutáciou zvyškov nesúdeliteľných s $m$ (1:14:55–1:22:39), príklad $3^{10q+1}\bmod22$ s opravou „dvojka je soudělná“. $\varphi(p^\alpha)$ s $\varphi(8),\varphi(27),\varphi(81)$, multiplikativita bez dôkazu s protipríkladom $\varphi(12)\neq\varphi(2)\varphi(6)$, Věta 6.16 a $\varphi(100)=40$ (1:22:39–1:30:42).
 - $2^{268}\bmod9=7$ (Příklad 6.14, 1:30:42–1:32:12), MFV ako dôsledok EV aj v tvare $a^p\equiv a\pmod p$ (1:32:12–1:33:37), inverzia ako $a^{\varphi(m)-1}$, $7^{-1}$ v $\mathbb Z_9$ (1:33:43–1:35:18). Na záver $3^{644}\bmod645$: „algoritmus, který si ukážeme příště“ (1:35:29); binárne mocnenie teda ešte nebolo.
+- **Dombek, paralelka 1, 9. prednáška (23. 11.):** `3674210640@sirius.fit.cvut.cz`. Eulerova funkcia a veta (~25–46 min), inverzia cez EV „pro ruční počítání úplně nepropagoval“ (46:19). Potom binárne mocnenie: „co dělat, když nejde nic?“, buď základ a modul súdeliteľné, alebo po EV „furt je třeba trojciferný“ exponent, „pomůže metoda square and multiply“ (46:45–47:14); $3^{644}\bmod645$: „Umocni na druhou, pokud jsi přelezl přes modulo, udělej redukci modulo M“, mocniny $3^1,3^2,3^4,\ldots$ po $3^{512}$ (47:49–48:56); zvyšky sa opakujú, ďalší „bez počítání napíšu, že je 66“ (48:56–49:40); dvojkový zápis $644=2^9+2^7+2^2$, súčet v exponente je súčin mocnín (titulky tu skomolené, 49:42–50:44); zhrnutie modulárnej aritmetiky (50:46–51:40). Titulky raz počujú exponent ako 664, prečítané dvojkové číslice dávajú 644. Ďalej lineárne kongruencie a inverzia (~52–69), sústavy a zovšeobecnená čínska veta (~70–87), „tím končí téma teorie čísel“ (87:26).
 - **Legerský, paralelka 3:** v dodanom `dml-P8-par3-legersky` nie je súvislý úsek tejto druhej časti. O 1:38:10–1:38:40 dokončuje LDR a piastry; o 1:38:40 oznamuje prvočísla na nabudúce.
 - INDEX ho označuje `partial`; titulky majú dozvuk do 1:44:52. Nemožno z toho tvrdiť úplnosť prepisu, no dostupný koniec výučby je stále pred prvočíslami.
 - **Proseminár:** `dml-prosem2526-07` 00:00–41:38. MFV a veľké mocniny približne 00:28–07:55, úprava kongruencií a REA 08:55–16:04, ZČVOZ a dosadzovanie 16:12–26:29, mocninové koeficienty a ČVOZ 26:55–41:28.
 - Meno prosemináristu zdroj nemá; úvod ho neuvádza. `dml-prosem2526-06` končí o 43:15 pri LDR; nie je pokračovaním výkladu kongruencií.
 
 **Hranica tvorby lekcií (19. 11.):** po Spěvákovej 8. prednáške je odprednášané všetko až po redukciu mocniny s nesúdeliteľným základom: krátenie, lineárna kongruencia, ZČVOZ/ČVOZ s dosadzovaním, $\varphi$, Eulerova veta, MFV a inverzia cez EV. Lekcie `dml-tc-lkon`, `dml-tc-cvoz` a `dml-tc-mocniny` sú podľa nej prerobené a odomknuté.
-**Ešte neodprednášané:** binárne mocnenie a mocnina so súdeliteľným základom ($3^{644}\bmod645$, Spěvák 9. prednáška 25. 11.), rozklad modulu a ČVOZ pri mocnine (Cvičení 6.25). Generátory mocnín zatiaľ dávajú len nesúdeliteľný základ a malý zvyšný exponent ako písomky; binárne mocnenie príde ako vlastná lekcia z tej prednášky.
+**Binárne mocnenie (24. 11.):** odprednášal Dombek na 9. prednáške (23. 11.), lekcia `dml-tc-mocnenie` je postavená z nej; Spěvák ho ohlásil na 25. 11. Generátory odvtedy dávajú aj základ súdeliteľný s modulom (`dml-tc-binary`) a zvyšnú mocninu po EV väčšiu než 7, počítanú binárnym mocnením.
+**Ešte neodprednášané:** rozklad modulu a ČVOZ pri mocnine (Cvičení 6.25).
 Proseminár precvičuje aj neodprednášané; **nenahrádza dôkaz, že boli odprednášané**.
 
 ### 2. Príbeh kapitoly, ako ho rozprávajú prednášky
@@ -425,7 +427,7 @@ Dombek: $3x\equiv9\pmod{15}\Leftrightarrow x\equiv3\pmod5$; $x=8$ ukazuje, preč
 [dml-P8-par1-dombek 1:32:21–1:34:45; Věta 6.13, chap-06-tc.woo:2420]
 Proseminár: $10k\equiv8\pmod{36}\Leftrightarrow5k\equiv4\pmod{18}$. [dml-prosem2526-07 19:29–20:39]
 
-**Postupy E, F, H, I a dosadzovanie z J odprednášal Spěvák na 8. prednáške (18. 11.); G (binárne mocnenie, súdeliteľný základ) a rozklad modulu ešte nie.** Spěvák pri E počíta zvyšnú malú mocninu priamo ($2^4=16\equiv7$); pri H kráti $\gcd(a,m)$ alebo aj väčším spoločným deliteľom oboch strán, vždy s modulom $m/\gcd(m,c)$, a inverziu nájde REA alebo z hlavy; pri I a J najprv overí podmienku pre každú dvojicu, potom dosadzuje a robí skúšku.
+**Postupy E, F, H, I a dosadzovanie z J odprednášal Spěvák na 8. prednáške (18. 11.); G (binárne mocnenie, súdeliteľný základ) Dombek na 9. prednáške (23. 11.); rozklad modulu ešte nikto.** Spěvák pri E počíta zvyšnú malú mocninu priamo ($2^4=16\equiv7$); pri H kráti $\gcd(a,m)$ alebo aj väčším spoločným deliteľom oboch strán, vždy s modulom $m/\gcd(m,c)$, a inverziu nájde REA alebo z hlavy; pri I a J najprv overí podmienku pre každú dvojicu, potom dosadzuje a robí skúšku.
 
 **E. Veľká mocnina pomocou MFV alebo EV.**
 
@@ -453,6 +455,7 @@ Vnútorný výpočet má vlastný modul a vlastnú kontrolu podmienok; výsledok
 Tak sú zostavené dvojice úloh K-3, R-3 a D-2. [testy-dml-2.md:14; :25; :39; cv-06-tc.woo:1974–1984]
 Ak $\gcd(a,m)>1$, EV sa priamo použiť nesmie. Univerzálna alternatíva je binárne mocnenie: vypočítať $a,a^2,a^4,\ldots$ modulo $m$ a vynásobiť faktory podľa binárneho rozvoja exponentu.
 [chap-06-tc.woo:2856–2860; cv-06-tc.woo:1679–1696]
+Dombek: tabuľka $3^{2^j}\bmod645$ (opakované umocnenie na druhú s redukciou) po najväčšiu mocninu dvojky nanajvýš exponent, potom súčin riadkov pri jednotkách dvojkového zápisu, $111\cdot396\cdot81\equiv36$. Nesúdeliteľnosť netreba, stačí Tvrzení 6.6. [Dombek P9 46:45–50:46; Příklad 6.16]
 Iná alternatíva v cvičeniach rozkladá modul na po dvoch nesúdeliteľné faktory a výsledky skladá ČVOZ; nevyhlasovať ju za už odprednášanú. [cv-06-tc.woo:2684–2705]
 
 **H. Jedna lineárna kongruencia.**

@@ -188,11 +188,21 @@ class NumbersTest {
                 val ans = run(tcPow(t), "pow $t")
                 val res = bi(t.base).modPow(bi(t.n), bi(t.m)).toLong()
                 assertEquals(listOf(res), nums(ans.last()))
-                // a coprime base until the binary method is lectured (TcSmallPower): φ, the exponent, then the small power
+                // a coprime base (a shared factor is dml-tc-binary): φ, the exponent, then the power left
                 assertEquals("pow $t: coprime base", 1L, bruteGcd(t.base, t.m))
                 val ph = (1..t.m).count { bruteGcd(it, t.m) == 1L }.toLong()
                 assertEquals(listOf(ph), nums(ans[0])); assertEquals(listOf(t.n % ph), nums(ans[1]))
-                assertTrue("pow $t: the power left is small", t.n % ph <= TcSmallPower)
+            }
+            tcBinaryTask(r).let { t ->
+                val ans = run(tcBinary(t), "binary $t")
+                // a shared factor, the largest power of two in the exponent, its square row and the power, by BigInteger
+                val g = bruteGcd(t.base, t.m)
+                assertTrue("binary $t: base shares a factor", g > 1L)
+                assertEquals(listOf(g), nums(ans[0]))
+                val top = (0..62).map { 1L shl it }.last { it <= t.n }
+                assertEquals(listOf(top), nums(ans[1]))
+                assertEquals(listOf(bi(t.base).modPow(bi(top), bi(t.m)).toLong()), nums(ans[2]))
+                assertEquals(listOf(bi(t.base).modPow(bi(t.n), bi(t.m)).toLong()), nums(ans[3]))
             }
             tcTowerTask(r).let { t ->
                 val ans = run(tcTower(t), "tower $t")

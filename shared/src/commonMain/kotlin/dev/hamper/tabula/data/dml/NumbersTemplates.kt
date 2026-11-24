@@ -48,11 +48,19 @@ val TcInvMinPostup = postup(
     "Skúška" to "§a\\cdot a^{-1}§ musí dať zvyšok §1§.",
 )
 
-/** A big power modulo m with the base coprime to m (Věty 6.14, 6.15, Příklad 6.14; Spěvák, 8. prednáška). */
+/** A big power modulo m with the base coprime to m (Věty 6.14, 6.15, Příklady 6.14, 6.16; Spěvák, 8. prednáška; Dombek, 9. prednáška). */
 val TcPowPostup = postup(
     "Zredukuj základ" to "Základ nahraď jeho zvyškom modulo §m§.",
     "Zmenši exponent" to "Pri §\\gcd(a,m)=1§ dovolí Eulerova veta (pri prvočísle MFV) brať exponent modulo §\\varphi(m)§.",
-    "Dopočítaj malú mocninu" to "Násob základom a po každom kroku redukuj modulo §m§.",
+    "Dopočítaj zvyšnú mocninu" to "Malú násob základom a po každom kroku redukuj modulo §m§; väčšiu binárnym mocnením.",
+)
+
+/** A power whose base shares a factor with the modulus, by the binary method (Příklad 6.16; Dombek, 9. prednáška). */
+val TcBinaryPostup = postup(
+    "Dá sa použiť Eulerova veta?" to "Over §\\gcd(a,m)§. Pri §\\gcd(a,m)>1§ Eulerova veta neplatí; binárne mocnenie túto podmienku nepotrebuje.",
+    "Dvojkový zápis exponentu" to "Exponent rozlož na súčet rôznych mocnín dvojky, od najväčšej, ktorá je nanajvýš exponent.",
+    "Umocňuj na druhú" to "Zvyšok §a^{2^j}§ umocni na druhú a zredukuj modulo §m§, to je zvyšok §a^{2^{j+1}}§.",
+    "Poskladaj výsledok" to "Vynásob zvyšky pri jednotkách dvojkového zápisu a po každom súčine redukuj modulo §m§.",
 )
 
 /** A remainder of a tower c^(a^n) modulo p, through a^n modulo p-1 (testy 2023 až 2025). */
@@ -101,11 +109,48 @@ val TcComboAllPostup = postup(
 )
 
 /*
- * The small power left after Euler or Fermat, computed as Spěvák computes it (8. prednáška, 2^4 = 16 ≡ 7 mod 9): multiply
- * by the base and reduce after every step (Tvrzení 6.6). The binary method (Příklad 6.16) is the algorithm he announced
- * for the next lecture (3^644 mod 645); until it is lectured the generators draw only powers that need no more than this.
+ * The power left after Euler or Fermat. Up to this many factors it is multiplied out as Spěvák does it (8. prednáška,
+ * 2^4 = 16 ≡ 7 mod 9): multiply by the base and reduce after every step (Tvrzení 6.6). A bigger one goes by the binary
+ * method (Příklad 6.16) as Dombek lectured it (9. prednáška, 23. 11. 2026): Euler applied, "furt je třeba trojciferný",
+ * then square and multiply. The past tests leave at most 8 (5^8 mod 21, 2026 Ř); the tower and the paper problems keep
+ * that size, the practice of a single power (dml-tc-pow) also draws bigger ones as the proseminars and Cvičení 6.22 do.
  */
 const val TcSmallPower = 7
+
+/** The most 1-bits a binary-method exponent is drawn with: the product of the rows stays one line on a phone (644 has 3). */
+private const val TcMaxBits = 4
+
+/**
+ * The rows of the 1-bits of [e] multiplied, the largest power first, reduced after every product (Příklad 6.16):
+ * 3^{644} = 3^{512}·3^{128}·3^{4} ≡ 111·396·81 ≡ 96·81 ≡ 36 (mod 645).
+ */
+internal fun binaryProduct(b: Long, e: Long, m: Long): Formula {
+    val bb = md(b, m)
+    val used = squares(bb, e, m).filterIndexed { j, _ -> (e shr j) and 1L == 1L }.reversed()
+    val rows = mutableListOf(Terms.pow(bb, e.toInt()) + "&=" + used.joinToString("\\cdot ") { (k, _) -> Terms.pow(bb, k.toInt()) })
+    var vals = used.map { it.second }
+    rows += "&\\equiv " + vals.joinToString("\\cdot ")
+    val products = ArrayList<String>()
+    while (vals.size > 1) {
+        val p = vals[0] * vals[1]; val r = md(p, m)
+        products += "§${vals[0]}\\cdot ${vals[1]}=$p" + (if (p >= m) "\\equiv $r" else "") + "§"
+        vals = listOf(r) + vals.drop(2)
+        rows += "&\\equiv " + vals.joinToString("\\cdot ")
+    }
+    val note = if (products.isEmpty()) "Jednotka je v dvojkovom zápise jediná, výsledok je zvyšok jej riadku."
+        else "Násobím zľava a hneď redukujem: " + products.joinToString(", ") + "."
+    return disp("\\begin{aligned}" + rows.joinToString("\\\\") + "\\pmod{$m}\\end{aligned}", note)
+}
+
+/** The binary method in one line, for a diagnosis: the squares, then the result. */
+internal fun binaryChain(b: Long, e: Long, m: Long): String {
+    val bb = md(b, m)
+    return squares(bb, e, m).drop(1).joinToString(",\\ ") { (k, v) -> "${Terms.pow(bb, k.toInt())}\\equiv $v" } +
+        ";\\ ${Terms.pow(bb, e.toInt())}\\equiv ${powMod(bb, e, m)}"
+}
+
+/** [e] as a sum of powers of two, the largest first: "512+128+4". */
+internal fun binarySum(e: Long): String = (62 downTo 0).filter { (e shr it) and 1L == 1L }.joinToString("+") { "${1L shl it}" }
 
 /** b^2, b^3, ..., b^e modulo m, one product a row: "b^3 ≡ r·b = P ≡ R (mod m)". */
 internal fun chainFormula(b: Long, e: Long, m: Long): Formula {
@@ -438,16 +483,26 @@ fun tcInv(task: TcInvTask): Exercise {
 private fun SolutionScope.smallPower(aim: Aim, b: Long, e: Long, m: Long) {
     if (e == 0L) { aim("Exponent je §0§, mocnina je §1§."); return }
     if (e == 1L) { aim("Exponent je §1§, zvyšok je samotný základ §${md(b, m)}§."); return }
+    if (e > TcSmallPower) {
+        aim(tx("Po jednom činiteli by to bolo §${e - 1}§ násobení, preto zvyšnú mocninu dopočítam binárnym mocnením (Příklad 6.16): §$e=${binarySum(e)}§."),
+            squaresFormula(b, e, m), binaryProduct(b, e, m))
+        return
+    }
     aim("Malú mocninu dopočítam postupne: násobím základom a hneď redukujem, lebo kongruencia sa pri násobení zachová (Tvrzení 6.6).", chainFormula(b, e, m))
 }
+
+/** The table of the binary method, each row the square of the one above (Příklad 6.16). */
+private fun squaresFormula(b: Long, e: Long, m: Long) =
+    Formula(powWalk(md(b, m), e, m), tx("Každý riadok je druhá mocnina predošlého, hneď zredukovaná; smiem, lebo kongruencia sa pri súčine zachová (Tvrzení 6.6)."))
 
 /* ---- 4. A large power modulo m (Cvičení 6.22, Příklady 6.11, 6.14; Spěvák, 8. prednáška) ---------------------- */
 
 data class TcPowTask(val base: Long, val n: Long, val m: Long)
 
 /**
- * The base is coprime to m and the exponent leaves at most [TcSmallPower] after Euler, as on the tests (K 2025: 7^5 and
- * 2^7). A base sharing a factor with m needs the binary method (3^644 mod 645), which Spěvák left for his 9. prednáška.
+ * The base is coprime to m. Half of the time the exponent leaves at most [TcSmallPower] after Euler, as on the tests
+ * (K 2025: 7^5 and 2^7); otherwise more, as the proseminars and Cvičení 6.22 (6^12 mod 19, 7^17 mod 23), computed by the
+ * binary method. A base sharing a factor with m is its own template, dml-tc-binary.
  */
 fun tcPowTask(r: Random): TcPowTask {
     while (true) {
@@ -456,7 +511,9 @@ fun tcPowTask(r: Random): TcPowTask {
         val ph = phi(m)
         if (gcd(b0, m) != 1L || ph < 4) continue
         val base = if (r.nextBoolean()) b0 + m * r.rl(1, 30) else b0
-        val e = r.rl(1, minOf(TcSmallPower.toLong(), ph - 1))
+        val big = ph - 1 > TcSmallPower && r.nextBoolean()
+        val e = if (big) r.rl(TcSmallPower + 1L, minOf(ph - 1, 40L)) else r.rl(1, minOf(TcSmallPower.toLong(), ph - 1))
+        if (e.countOneBits() > TcMaxBits) continue
         val n = ph * r.rl(maxOf(1L, 100L / ph), 2000L / ph) + e
         return TcPowTask(base, n, m)
     }
@@ -488,8 +545,9 @@ fun tcPow(task: TcPowTask): Exercise {
             listOf(powMod(b, n % m, m)) to "Exponent si redukoval modulo §m§. Správne je modulo §\\varphi($m)=$ph§ (Věta 6.15).",
             (if (!prime) listOf(powMod(b, n % (m - 1), m)) else null) to "Exponent si redukoval modulo §m-1§; to je MFV a §$m§ nie je prvočíslo. Treba §\\varphi($m)=$ph§.",
             listOf(bb) to "To je len redukovaný základ. Ešte ho umocni na §$e§.",
-        )) { "§${Terms.pow(bb, e.toInt())}\\bmod $m=$res§, tvoje číslo sa líši. Over medzivýsledky: §${stepChain(b, e, m)}§." }
-    }, aim = 2, hint = tx("Základ zredukuj modulo §m§ a umocni ho na exponent z predošlej časti: násob základom a po každom kroku redukuj.")) }
+        )) { "§${Terms.pow(bb, e.toInt())}\\bmod $m=$res§, tvoje číslo sa líši. Over medzivýsledky: §${if (e > TcSmallPower) binaryChain(b, e, m) else stepChain(b, e, m)}§." }
+    }, aim = 2, hint = tx(if (e > TcSmallPower) "Základ zredukuj modulo §m§. Exponent z predošlej časti je veľký: umocňuj na druhú s redukciou a vynásob riadky pri jednotkách jeho dvojkového zápisu."
+        else "Základ zredukuj modulo §m§ a umocni ho na exponent z predošlej časti: násob základom a po každom kroku redukuj.")) }
     return Exercise(
         "dml-tc-pow", "Veľká mocnina modulo §m§".let(::tx), "Šablóna Cvičení 6.22; Věty 6.14, 6.15, Příklad 6.14",
         tx("Vypočtěte §$b^{$n}$MOD$m§."),
@@ -507,6 +565,87 @@ fun tcPow(task: TcPowTask): Exercise {
             }
         },
         hint = tx("Najprv základ modulo §m§. Pri §\\gcd(a,m)=1§ redukuj exponent modulo §\\varphi(m)§."),
+    )
+}
+
+/* ---- 4b. A base sharing a factor with the modulus: the binary method (Příklad 6.16; Dombek, 9. prednáška) ----- */
+
+data class TcBinaryTask(val base: Long, val n: Long, val m: Long)
+
+/**
+ * As Dombek's 3^644 mod 645 (9. prednáška, 23. 11. 2026) on a phone's scale: a composite modulus below 100, a base
+ * sharing a factor with it (Euler does not apply), a three-digit exponent with 2 to [TcMaxBits] ones in binary. Never
+ * a square that is 0 and never a table of fewer than three different remainders (nothing to compute then).
+ */
+fun tcBinaryTask(r: Random): TcBinaryTask {
+    while (true) {
+        val m = r.rl(12, 99)
+        if (isPrime(m)) continue
+        val b0 = r.rl(2, m - 1)
+        if (gcd(b0, m) == 1L) continue
+        val n = r.rl(100, 999)
+        if (n.countOneBits() !in 2..TcMaxBits) continue
+        val sq = squares(b0, n, m).map { it.second }
+        if (sq.any { it == 0L } || sq.toSet().size < 3 || powMod(b0, n, m) <= 1L) continue
+        val base = if (r.nextInt(3) == 0) b0 + m * r.rl(1, 30) else b0
+        return TcBinaryTask(base, n, m)
+    }
+}
+
+fun tcBinary(task: TcBinaryTask): Exercise {
+    val (b, n, m) = task
+    val bb = md(b, m)
+    val g = gcd(bb, m)
+    require(g > 1L) { "tcBinary: the base shares a factor with the modulus, else Euler is the way (tcPow)" }
+    val sq = squares(bb, n, m)
+    val k = sq.size - 1
+    val (top, topV) = sq.last()
+    val res = powMod(bb, n, m)
+    val ph = phi(m)
+    val power = Terms.pow(b, n.toInt())
+    val parts = ArrayList<(List<Any>) -> Part>()
+    parts += { _ -> Part(tx("§\\gcd($bb,$m)§:"), nums(listOf("\\gcd"), listOf(g), "§\\gcd($bb,$m)=$g§") { gv ->
+        pickDiag(listOf(g), gv, listOf(
+            listOf(1L) to "§$bb§ a §$m§ nie sú nesúdeliteľné: obe delí §$g§. Preto tu Eulerova veta neplatí.",
+        )) { "§\\gcd($bb,$m)=$g§, lebo §$bb=${tcFactorTex(bb)}§ a §$m=${tcFactorTex(m)}§." }
+    }, aim = 0, hint = tx("Rozlož základ aj modul na prvočísla, alebo použi Euklidov algoritmus.")) }
+    parts += { _ -> Part(tx("Najväčšia mocnina dvojky, ktorá je nanajvýš §$n§:"), nums(listOf("2^k"), listOf(top), "§2^{$k}=$top\\leq $n§") { gv ->
+        pickDiag(listOf(top), gv, listOf(
+            listOf(k.toLong()) to "To je exponent §k=$k§. Odpoveď je mocnina §2^{$k}=$top§.",
+            listOf(2 * top) to "§${2 * top}>$n§, taká mocnina sa do exponentu nezmestí. Najväčšia je §$top§.",
+        )) { "§2^{$k}=$top\\leq $n<${2 * top}=2^{${k + 1}}§." }
+    }, aim = 1, hint = tx("Zdvojnásobuj §1,2,4,8,\\dots§, kým neprekročíš §$n§.")) }
+    parts += { _ -> Part(tx("§${Terms.pow(bb, top.toInt())}\\bmod $m§, posledný riadok tabuľky:"), nums(listOf("r"), listOf(topV), "§${Terms.pow(bb, top.toInt())}\\equiv $topV\\pmod{$m}§") { gv ->
+        pickDiag(listOf(topV), gv, listOf(
+            sq.getOrNull(k - 1)?.let { (kk, v) -> listOf(v) to "To je zvyšok §${Terms.pow(bb, kk.toInt())}§. Ešte raz ho umocni na druhú a zredukuj." } ?: (null to ""),
+            listOf(powMod(bb, top % ph, m)) to "Exponent si zmenšil modulo §\\varphi($m)=$ph§, ale Eulerova veta chce §\\gcd(a,m)=1§. Tu je §\\gcd=$g§.",
+        )) { "Každý riadok je druhá mocnina predošlého, hneď zredukovaná: §${binaryChain(bb, top, m)}§." }
+    }, aim = 2, hint = tx("Začni §$bb§; každý ďalší riadok je druhá mocnina predošlého zvyšku, zredukovaná modulo §$m§.")) }
+    parts += { _ -> Part(tx("§$power\\bmod $m§:"), nums(listOf("x"), listOf(res), "§$power\\equiv $res\\pmod{$m}§") { gv ->
+        pickDiag(listOf(res), gv, listOf(
+            listOf(powMod(bb, n % ph, m)) to "Exponent si zmenšil modulo §\\varphi($m)=$ph§, ale Eulerova veta chce §\\gcd(a,m)=1§. Tu je §\\gcd=$g§.",
+            listOf(sq.fold(1L) { acc, (_, v) -> md(acc * v, m) }) to "Vynásobil si všetky riadky tabuľky. Len tie pri jednotkách: §$n=${binarySum(n)}§.",
+            listOf(powMod(bb, n % m, m)) to "Exponent sa modulo §m§ nezmenšuje. Modulo §m§ sa redukuje len základ a medzivýsledky.",
+        )) { "§$n=${binarySum(n)}§, teda vynásob zvyšky týchto riadkov: §${binaryChain(bb, n, m)}§." }
+    }, aim = 3, hint = tx("§$n=${binarySum(n)}§: vynásob zvyšky riadkov s týmito exponentmi a po každom súčine redukuj.")) }
+    return Exercise(
+        "dml-tc-binary", "Binárne mocnenie", "Šablóna Příkladu 6.16; Dombek, 9. prednáška",
+        tx("Vypočtěte §$power\\bmod $m§."),
+        parts = parts,
+        postup = TcBinaryPostup,
+        solution = { _ ->
+            val (euler, binary, square, product) = TcBinaryPostup
+            TcBinaryPostup.solve {
+                euler(tx((if (b != bb) "Základ nahradím zvyškom §$b\\equiv $bb\\pmod{$m}§, lebo kongruencia sa pri súčine zachová (Tvrzení 6.6). " else "") +
+                    "§\\gcd($bb,$m)=$g§, teda základ a modul sú súdeliteľné, preto Eulerova veta (Věta 6.15) neplatí. Binárne mocnenie nesúdeliteľnosť nepotrebuje."),
+                    "$bb=${tcFactorTex(bb)},\\quad $m=${tcFactorTex(m)}")
+                binary(tx("Najväčšia mocnina dvojky nanajvýš §$n§ je §$top=2^{$k}§; zvyšok exponentu rozložím rovnako."),
+                    "$n=${binarySum(n)}=(${n.toString(2)})_2")
+                square(tx("Tabuľka ide po §${Terms.pow(bb, top.toInt())}§, lebo väčšiu mocninu dvojky exponent neobsahuje."), squaresFormula(bb, n, m))
+                product(tx("Súčtu v exponente zodpovedá súčin mocnín, §a^{s+t}=a^s\\cdot a^t§, preto vynásobím zvyšky pri jednotkách."), binaryProduct(bb, n, m))
+            }
+        },
+        hint = tx("Pri §\\gcd(a,m)>1§ Eulerova veta neplatí. Umocňuj na druhú s redukciou a vynásob riadky pri jednotkách dvojkového zápisu exponentu."),
     )
 }
 
@@ -887,6 +1026,7 @@ val TcGenerators: Map<String, (Random) -> Exercise> = mapOf(
     "dml-tc-inv" to { r -> var t = tcInvTask(r); while (t.bound) t = tcInvTask(r); tcInv(t) },
     "dml-tc-inv-min" to { r -> tcInv(TcInvTask(SmallPrimeProducts.random(r), 0, true)) },
     "dml-tc-pow" to { r -> tcPow(tcPowTask(r)) },
+    "dml-tc-binary" to { r -> tcBinary(tcBinaryTask(r)) },
     "dml-tc-tower" to { r -> tcTower(tcTowerTask(r)) },
     "dml-tc-lkon" to { r -> tcLkon(tcLkonTask(r)) },
     "dml-tc-crt" to { r -> tcCrt(tcCrtTask(r)) },
@@ -917,6 +1057,7 @@ val TcTemplateList = listOf(
     TemplateInfo("dml-tc-inv-euler", "Inverzia cez Eulerovu vetu", "\$a^{\\varphi(m)-1}\$; Tvrzení 6.7 a 6.11"),
     TemplateInfo("dml-tc-tower", "Dva zvyšky, druhý z prvého", "Príklad 3 z testov 2023 až 2025"),
     TemplateInfo("dml-tc-pow", "Veľká mocnina modulo m", "Fermat, Euler, binárne mocnenie"),
+    TemplateInfo("dml-tc-binary", "Binárne mocnenie", "Základ súdeliteľný s modulom; Příklad 6.16"),
     TemplateInfo("dml-tc-lkon", "Lineárna kongruencia", "Krátenie modulu, riešenia v $\\mathbb{Z}_m$"),
     TemplateInfo("dml-tc-crt", "Sústava kongruencií", "ČVOZ aj súdeliteľné moduly"),
     TemplateInfo("dml-tc-combo", "Kongruencie a sústava naraz", "Test 2023 a Cvičení 6.28"),

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Builds shared/src/commonMain/composeResources/files/clips-dml-tc.json: the number theory clips of BI-DML, Spěvák
-(paralelka 2, 6. to 8. prednáška, 4., 11. and 18. 11. 2026) and Dombek (paralelka 1, 8. prednáška, 16. 11. 2026).
+(paralelka 2, 6. to 8. prednáška, 4., 11. and 18. 11. 2026) and Dombek (paralelka 1, 8. and 9. prednáška, 16. and
+23. 11. 2026).
 
 The moments were picked from the captions and checked against the caption text; the words and their times are
 Whisper's, cut to the clip and shifted so that 0 is the clip's start.
@@ -24,6 +25,7 @@ P6 = ("3675538841@sirius.fit.cvut.cz", "6. prednáška")
 P7 = ("3675538842@sirius.fit.cvut.cz", "7. prednáška")
 P8 = ("3675538843@sirius.fit.cvut.cz", "8. prednáška")
 D8 = ("3674210639@sirius.fit.cvut.cz", "8. prednáška", "Dombek")
+D9 = ("3674210640@sirius.fit.cvut.cz", "9. prednáška", "Dombek")
 
 CLIPS = [
     dict(id="dml-tc-c-delitelnost", lesson=1, src=P6, t0=2364.0, t1=2397.2,
@@ -139,6 +141,32 @@ CLIPS = [
                    why="§\\gcd(3,4)=1§, preto §\\varphi(12)=\\varphi(3)\\varphi(4)=4§: s §12§ sú nesúdeliteľné §1,5,7,11§.",
                    wrong={1: "§\\gcd(2,6)=2§, multiplikativita tu neplatí: vyšlo by §2§, ale §\\varphi(12)=4§.",
                           2: "§11§ by platilo pre prvočíslo. §12§ nie je prvočíslo; nesúdeliteľné s ním sú len §1,5,7,11§."})),
+    # Dombek, 9. prednáška (23. 11.): binary powering, 3^644 mod 645 (lekcia 8). Whisper hears the exponent as "664"
+    # where he says it first; these clips start after that, the binary digits he reads out (2^9 + 2^7 + 2^2) are 644.
+    dict(id="dml-tc-c-kedy-binarne", lesson=8, src=D9, t0=2805.4, t1=2835.0,
+         why="Square and multiply pomôže, keď sú základ a modul súdeliteľné, alebo keď po Eulerovej vete ostane veľký exponent.",
+         before="V akých dvoch prípadoch Dombek siahne po metóde square and multiply?",
+         task=dict(q="Pri ktorej úlohe Eulerova veta exponent zmenšiť nedovolí?",
+                   options=["§3^{644}\\bmod 645§", "§2^{268}\\bmod 9§", "§17^{110}\\bmod 35§"], correct=0,
+                   why="§\\gcd(3,645)=3§ a Eulerova veta chce základ nesúdeliteľný s modulom. Pri §2^{268}\\bmod 9§ aj §17^{110}\\bmod 35§ je §\\gcd=1§.",
+                   wrong={1: "§\\gcd(2,9)=1§, Eulerova veta platí: §\\varphi(9)=6§ a §2^{268}\\equiv 2^4\\pmod 9§.",
+                          2: "§\\gcd(17,35)=1§, Eulerova veta platí: §\\varphi(35)=24§ a §17^{110}\\equiv 17^{14}\\pmod{35}§."})),
+    dict(id="dml-tc-c-umocni", lesson=8, src=D9, t0=2869.8, t1=2896.6,
+         why="Každá ďalšia mocnina trojky je druhá mocnina predošlej; keď presiahne modul, hneď ju zredukuj.",
+         before="Čo robí Dombek v každom kroku s mocninou trojky?",
+         task=dict(q="Máš §3^8\\equiv 111\\pmod{645}§. Ako dostaneš zvyšok §3^{16}§?",
+                   options=["§111^2=12321\\equiv 66§", "§111\\cdot 2=222§", "§111\\cdot 3=333§"], correct=0,
+                   why="§3^{16}=(3^8)^2§, teda §111^2=12321=19\\cdot 645+66§.",
+                   wrong={1: "Zdvojnásobiť treba exponent, nie zvyšok: §3^{16}=(3^8)^2\\equiv 111^2\\equiv 66§.",
+                          2: "To je zvyšok §3^9§, exponent o jedna väčší. §3^{16}=(3^8)^2\\equiv 111^2\\equiv 66§."})),
+    dict(id="dml-tc-c-dvojkovy", lesson=8, src=D9, t0=2983.4, t1=3013.2,
+         why="644 = 2^9 + 2^7 + 2^2: súčet v exponente je súčin mocnín, preto sa vynásobia tri pripravené zvyšky.",
+         before="Ako Dombek poskladá §3^{644}§ z pripravených mocnín?",
+         task=dict(q="§644=2^9+2^7+2^2§. Ktoré zvyšky z tabuľky vynásobíš?",
+                   options=["§3^{512}§, §3^{128}§ a §3^{4}§", "§3^{9}§, §3^{7}§ a §3^{2}§", "Všetky od §3§ po §3^{512}§"], correct=0,
+                   why="§3^{644}=3^{512}\\cdot 3^{128}\\cdot 3^4§, lebo §a^{s+t}=a^s\\cdot a^t§. Vyjde §111\\cdot 396\\cdot 81\\equiv 36\\pmod{645}§.",
+                   wrong={1: "§9§, §7§ a §2§ sú exponenty dvojky. Riadky sú §3^{2^9}=3^{512}§, §3^{2^7}=3^{128}§ a §3^{2^2}=3^4§.",
+                          2: "Súčin všetkých riadkov je §3^{1023}§, lebo §1+2+\\dots+512=1023§. Len riadky pri jednotkách dajú §3^{644}§."})),
 ]
 
 

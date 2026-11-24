@@ -338,7 +338,7 @@ internal val tcLessonMocniny = lesson("dml-tc-mocniny", "Veľké mocniny", 17, "
     explain("Inverzia z Eulerovej vety", """§a\cdot a^{\varphi(m)-1}=a^{\varphi(m)}\equiv 1§, preto inverzia §a§ je zvyšok §a^{\varphi(m)-1}§. Spěvák: §7^{-1}§ v §\mathbb{Z}_9§ je zvyšok §7^5§. Sám ho nedopočítal, vyjde §4§, lebo §7\cdot 4=28\equiv 1§. Prakticky je REA rýchlejší, toto je podľa neho skôr zaujímavosť.""",
         src = "Spěvák, 8. prednáška", cards = listOf("dml-tc-ev-inverze", "dml-tc-mfv-inverze"))
     check("""Smieš pri §3^{644}\bmod 645§ redukovať exponent Eulerovou vetou?""", """Nie, §3\mid 645§""", """Áno, §\varphi(645)§ existuje""", correct = 0,
-        why = """Nie, §645=3\cdot 5\cdot 43§ a Eulerova veta chce §\gcd(a,m)=1§. Ani žiadna iná mocnina tu nedá §1§: každé §3^k§ je násobok §3§, a §3^k-1§ teda nie, takže §645\nmid 3^k-1§. Algoritmus na taký prípad ukáže Spěvák na 9. prednáške.""",
+        why = """Nie, §645=3\cdot 5\cdot 43§ a Eulerova veta chce §\gcd(a,m)=1§. Ani žiadna iná mocnina tu nedá §1§: každé §3^k§ je násobok §3§, a §3^k-1§ teda nie, takže §645\nmid 3^k-1§. Taký prípad rieši binárne mocnenie, ďalšia lekcia.""",
         wrong = mapOf(1 to """§\varphi(645)§ existuje, ale veta platí len pre základ nesúdeliteľný s modulom. §\gcd(3,645)=3§, takže redukcia exponentu nie je zdôvodnená."""))
     practice("dml-tc-pow", solo = false)
     worked("Dva zvyšky z písomky", """§\begin{aligned}&\text{a) }667^{325}\bmod 60\\&\text{b) }917^{(667^{325})}\bmod 61\end{aligned}§""", "Písomka 5. 12. 2025 (variant K), príklad 3",
@@ -353,4 +353,52 @@ internal val tcLessonMocniny = lesson("dml-tc-mocniny", "Veľké mocniny", 17, "
     practice("dml-tc-combo", solo = true)
 }
 
-internal val tcLessons = listOf(tcLessonDelitelnost, tcLessonRea, tcLessonLdr, tcLessonKongruencie, tcLessonLkon, tcLessonCvoz, tcLessonMocniny)
+/*
+ * Built from Dombek's lecture (paralelka 1, 9. prednáška, 23. 11. 2026, 46:45 to 51:40): when Euler does not help, square
+ * and multiply on 3^644 mod 645, the repeating remainders, the binary digits of the exponent, and his summary of modular
+ * arithmetic. Numbers of the example as in Příklad 6.16 (the captions hear the exponent as 664 once; the digits he reads
+ * out, 2^9 + 2^7 + 2^2, are 644).
+ */
+internal val tcLessonMocnenie = lesson("dml-tc-mocnenie", "Binárne mocnenie", 15, "Veľká mocnina, keď Eulerova veta nepomôže: umocňovanie na druhú a dvojkový zápis exponentu.", art = 7, topics = listOf("TČ4")) {
+    ask("""Máš §3^4=81§. Ako dostaneš §3^8§ najrýchlejšie?""", """Umocním §3^4§ na druhú""", """Vynásobím §3^4§ ešte štyrikrát trojkou""", """Vynásobím §3^4§ dvoma""", correct = 0,
+        after = """Jedným násobením: §(3^4)^2=3^{4\cdot 2}=3^8§. Opakovaním dostaneš §3^{16}§, §3^{32}§ a ďalšie, vždy jedným násobením.""", sub = "Ešte bez výkladu. Stačí odhad.",
+        wrong = mapOf(1 to """Dá to §3^8§, ale štyrmi násobeniami. Stačí jedno: §(3^4)^2=3^{4\cdot 2}=3^8§.""",
+            2 to """§3^4\cdot 2=162§ nie je mocnina trojky. Exponent zdvojnásobí umocnenie na druhú: §(3^4)^2=3^8§."""))
+    explore("""Mocniny §2§ v §\mathbb{Z}_{12}§.""", """Bodky sú zvyšky §0,\dots,11§, začínaš v §2^0=1§. Každý krok násobí §2§ a redukuje modulo §12§; sleduj, či sa vrátiš do §1§.""", ClockPic(12, 2, ClockMode.Powers, 8),
+        """§2^3\equiv 8§ a §2^4=16\equiv 4\equiv 2^2§, odtiaľ sa §4§ a §8§ striedajú. Do §1§ sa nevrátiš: §2^k§ pre §k\geq 1§ je párne aj §12§ je párne, takže §2^k-1§ nie je násobok §12§. Eulerova veta to nesľubuje, lebo chce §\gcd(a,m)=1§ a tu je §\gcd(2,12)=2§.""")
+    explain("Keď Eulerova veta nepomôže", """Eulerova veta zmenší exponent len pri nesúdeliteľnom základe: pre §m\in\mathbb{N}§, §m\geq 2§ a §a\in\mathbb{N}§ s §\gcd(a,m)=1§ je §a^{\varphi(m)}\equiv 1\pmod m§ (Věta 6.15). Dombek (1. paralelka) uvádza dva prípady, keď pomôže metóda square and multiply, v skriptách binárne mocnenie. Prvý: základ a modul sú súdeliteľné, napríklad §3^{644}\bmod 645§, kde §645=3\cdot 5\cdot 43§. Druhý: Eulerovu vetu si použil, ale zvyšný exponent je stále napríklad trojciferný.""",
+        formal = cz("""Podkapitolu zakončíme vysvětlením, jak efektivně redukovat mocniny modulo §m§ v případě, že z jakéhokoli důvodu nechceme nebo nemůžeme využít Malou Fermatovu či Eulerovu větu (typicky v případě, kdy základ exponenciály je soudělný s modulem, nebo když mocnina je moc malá na to, aby MFV/EV pomohla, ale moc velká na ruční přímočarý výpočet). Je to tzv. binární mocnění modulo §m§."""),
+        src = "Dombek, 9. prednáška; Skriptá, text pred Příkladom 6.16", cards = listOf("dml-tc-ev"))
+    clip("dml-tc-c-kedy-binarne")
+    explain("Umocni na druhú a zredukuj", """Dombek: „Umocni na druhou, pokud jsi přelezl přes modulo, udělej redukci modulo M.“ Z §3§ tak dostaneš §3^2,3^4,3^8,3^{16},\dots§, každú mocninu z predošlej jedným násobením, lebo §\big(a^{2^j}\big)^2=a^{2^{j+1}}§. Redukovať po každom kroku smieš: pre §a\in\mathbb{Z}§ a §m\geq 2§ z §a^{2^j}\equiv r\pmod m§ plynie §a^{2^{j+1}}\equiv r^2\pmod m§, lebo kongruencia sa zachová pri súčine (Tvrzení 6.6). Podmienku §\gcd(a,m)=1§ to nepotrebuje. Skončíš pri najväčšej mocnine dvojky, ktorá je nanajvýš exponent; pri §644§ je to §512=2^9§.""",
+        src = "Dombek, 9. prednáška; Skriptá, Příklad 6.16", cards = listOf("dml-tc-operace"))
+    clip("dml-tc-c-umocni")
+    check("""§3^{16}\equiv 66\pmod{645}§. Zvyšok §3^{32}§ modulo §645§ je""", "§486§", "§132§", "§4356§", correct = 0,
+        why = """§3^{32}=(3^{16})^2§ a §66^2=4356=6\cdot 645+486§.""",
+        wrong = mapOf(1 to """§132=2\cdot 66§: zdvojnásobil si zvyšok. Exponent sa zdvojnásobí umocnením zvyšku na druhú: §66^2=4356\equiv 486§.""",
+            2 to """§4356=66^2§ ešte nie je zredukované. Zvyšok musí byť z §\{0,\dots,644\}§: §4356-6\cdot 645=486§."""))
+    explain("Dvojkový zápis exponentu", """Každé §N\in\mathbb{N}§ je súčet rôznych mocnín dvojky, to je jeho dvojkový zápis: §644=512+128+4=(1010000100)_2§. Pre §s,t\in\mathbb{N}§ je §a^{s+t}=a^s\cdot a^t§, preto §3^{644}=3^{512}\cdot 3^{128}\cdot 3^{4}§. Vynásobíš len zvyšky z tabuľky pri jednotkách zápisu a po každom súčine redukuješ modulo §645§; ostatné riadky sú len medzikroky.""",
+        src = "Dombek, 9. prednáška; Skriptá, Příklad 6.16")
+    clip("dml-tc-c-dvojkovy")
+    worked("Príklad z prednášky", """§3^{644}\bmod 645§""", "Dombek, 9. prednáška; Skriptá, Příklad 6.16", tcBinary(TcBinaryTask(3, 644, 645)).solution(emptyList()))
+    check("""V tabuľke vyšlo §3^{256}\equiv 81§, rovnako ako §3^4§. Aký zvyšok má §3^{1024}§ modulo §645§?""", "§66§", "§111§", "§81§", correct = 0,
+        why = """Od §81§ sa riadky opakujú, preto §3^{1024}\equiv 66§ ako §3^{16}§. Každý riadok vznikne z predošlého tým istým umocnením: §3^{512}\equiv 111§ ako §3^8§. Dombek ďalší zvyšok §66§ napísal bez počítania.""",
+        wrong = mapOf(1 to """§111§ je zvyšok §3^{512}§. §3^{1024}=(3^{512})^2§ a §111^2=12321\equiv 66§.""",
+            2 to """§81§ je zvyšok §3^{256}§. Riadky sa opakujú od §3^4\equiv 81§: po §81§ ide §111§, potom §66§."""))
+    check("""Čo potrebuje binárne mocnenie §a^N\bmod m§ pre §a\in\mathbb{Z}§, §N\in\mathbb{N}§, §m\geq 2§?""", "Nič ďalšie, stačí Tvrzení 6.6", """§\gcd(a,m)=1§""", "Prvočíselný modul", correct = 0,
+        why = """Redukcia po každom súčine stojí len na Tvrzení 6.6, a to platí pre všetky §a,b,c,d,m\in\mathbb{Z}§, §m\geq 2§. Preto ide aj §3^{644}\bmod 645§, kde §\gcd(3,645)=3§.""",
+        wrong = mapOf(1 to """§\gcd(a,m)=1§ chce Eulerova veta (Věta 6.15), nie binárne mocnenie. Dombek ho ukazuje práve na §3^{644}\bmod 645§, kde §\gcd(3,645)=3§.""",
+            2 to """Prvočíselný modul chce malá Fermatova veta. Binárne mocnenie funguje pre každý modul §m\geq 2§, aj pre §645=3\cdot 5\cdot 43§."""))
+    practice("dml-tc-binary", solo = false)
+    check("""§\gcd(17,35)=1§ a §\varphi(35)=24§, preto podľa Eulerovej vety §17^{110}\equiv 17^{14}\pmod{35}§. Ktoré riadky tabuľky vynásobíš pre §17^{14}§?""",
+        """§17^{8}§, §17^{4}§ a §17^{2}§""", """§17^{8}§, §17^{4}§, §17^{2}§ a §17§""", """§17^{8}§ a §17^{6}§""", correct = 0,
+        why = """§14=8+4+2=(1110)_2§, jednotky sú pri §8§, §4§ a §2§.""",
+        wrong = mapOf(1 to """To je §8+4+2+1=15§. §14§ je párne, riadok §17§ do súčinu nepatrí.""",
+            2 to """§6§ nie je mocnina dvojky, riadok §17^6§ tabuľka nemá. §14=8+4+2§."""))
+    worked("Euler, potom binárne mocnenie", """§17^{110}\bmod 35§""", "Rozstřel 11. 1. 2023, otázka 5", tcPow(TcPowTask(17, 110, 35)).solution(emptyList()))
+    explain("Čo z toho máme", """Dombek takto uzavrel modulárnu aritmetiku. Krátiť smieš, len si strážiš modul (Věta 6.13). Exponent modulo §m§ redukovať nesmieš, modulo §\varphi(m)§ smieš, ak §\gcd(a,m)=1§ (Věta 6.15). Keď to nejde alebo exponent ostal veľký, binárne mocnenie dôjde k výsledku vždy: pri exponente s §L§ dvojkovými číslicami je to §L-1§ umocnení na druhú a o jedno menej násobení, než má zápis jednotiek. Pri §644§ teda §9§ a §2§ namiesto §643§ násobení.""",
+        src = "Dombek, 9. prednáška")
+    practice("dml-tc-binary", solo = true)
+}
+
+internal val tcLessons = listOf(tcLessonDelitelnost, tcLessonRea, tcLessonLdr, tcLessonKongruencie, tcLessonLkon, tcLessonCvoz, tcLessonMocniny, tcLessonMocnenie)
