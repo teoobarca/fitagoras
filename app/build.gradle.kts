@@ -24,8 +24,8 @@ android {
         applicationId = "dev.hamper.fitest"
         minSdk = 33
         targetSdk = 36
-        versionCode = 49
-        versionName = "1.6.10"
+        versionCode = 50
+        versionName = "1.6.11"
         buildConfigField("String", "CLIPS_GUEST_TOKEN", "\"$clipKey\"")
         // the update check (system/Updater.kt); -PfitestUpdateUrl=… points a test build at a local server
         buildConfigField("String", "UPDATE_URL", "\"${providers.gradleProperty("fitestUpdateUrl").getOrElse("https://fitagoras.hamper.dev/api/fitest/latest")}\"")
